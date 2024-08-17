@@ -30,19 +30,19 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         panelRound1 = new Vistas.PanelRound();
-        jButton1 = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         panelRound2 = new Vistas.PanelRound();
         panelRound3 = new Vistas.PanelRound();
-        buttonEdit1 = new Vistas.ButtonEdit();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        btnAgregarFoto = new Vistas.ButtonEdit();
+        txtApellido = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtExperiencia = new javax.swing.JTextArea();
+        txtEspecializacion = new javax.swing.JTextField();
+        spUsuario = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        buttonEdit2 = new Vistas.ButtonEdit();
-        buttonEdit3 = new Vistas.ButtonEdit();
+        btnAgregarInformacion = new Vistas.ButtonEdit();
+        btnVerRegistro = new Vistas.ButtonEdit();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,11 +61,11 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopRight(50);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/lista.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/lista.png"))); // NOI18N
+        btnMenu.setBorder(null);
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnMenuActionPerformed(evt);
             }
         });
 
@@ -75,14 +75,14 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jButton1)
+                .addComponent(btnMenu)
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -98,43 +98,43 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         panelRound3.setRoundTopLeft(50);
         panelRound3.setRoundTopRight(50);
 
-        buttonEdit1.setBackground(new java.awt.Color(217, 71, 62));
-        buttonEdit1.setForeground(new java.awt.Color(255, 255, 255));
-        buttonEdit1.setText("Agregar foto");
-        buttonEdit1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        buttonEdit1.setRadius(30);
+        btnAgregarFoto.setBackground(new java.awt.Color(217, 71, 62));
+        btnAgregarFoto.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarFoto.setText("Agregar foto");
+        btnAgregarFoto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnAgregarFoto.setRadius(30);
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.setText("Ingresar apellido");
+        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtApellido.setText("Ingresar apellido");
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField2.setText("Ingresar nombre");
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombre.setText("Ingresar nombre");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtExperiencia.setColumns(20);
+        txtExperiencia.setRows(5);
+        jScrollPane1.setViewportView(txtExperiencia);
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField3.setText("Ingresar especialización");
+        txtEspecializacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEspecializacion.setText("Ingresar especialización");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        spUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Usuario");
 
-        buttonEdit2.setBackground(new java.awt.Color(217, 71, 62));
-        buttonEdit2.setForeground(new java.awt.Color(255, 255, 255));
-        buttonEdit2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/mas (1).png"))); // NOI18N
-        buttonEdit2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        buttonEdit2.setLabel("  Agregar información");
-        buttonEdit2.setRadius(30);
+        btnAgregarInformacion.setBackground(new java.awt.Color(217, 71, 62));
+        btnAgregarInformacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/mas (1).png"))); // NOI18N
+        btnAgregarInformacion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnAgregarInformacion.setLabel("  Agregar información");
+        btnAgregarInformacion.setRadius(30);
 
-        buttonEdit3.setBackground(new java.awt.Color(217, 71, 62));
-        buttonEdit3.setForeground(new java.awt.Color(255, 255, 255));
-        buttonEdit3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/contrato.png"))); // NOI18N
-        buttonEdit3.setText("  Ver registro");
-        buttonEdit3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        buttonEdit3.setRadius(30);
+        btnVerRegistro.setBackground(new java.awt.Color(217, 71, 62));
+        btnVerRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/contrato.png"))); // NOI18N
+        btnVerRegistro.setText("  Ver registro");
+        btnVerRegistro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnVerRegistro.setRadius(30);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("Ingresar experencia");
@@ -145,25 +145,25 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
             panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound3Layout.createSequentialGroup()
                 .addGap(99, 99, 99)
-                .addComponent(buttonEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAgregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(panelRound3Layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtEspecializacion, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
                     .addGroup(panelRound3Layout.createSequentialGroup()
                         .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonEdit3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonEdit2, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))))
+                            .addComponent(btnVerRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAgregarInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))))
                 .addGap(12, 12, 12))
         );
         panelRound3Layout.setVerticalGroup(
@@ -171,18 +171,18 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound3Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEspecializacion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRound3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                        .addComponent(buttonEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(117, 117, 117))
                     .addGroup(panelRound3Layout.createSequentialGroup()
                         .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,12 +190,12 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(spUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelRound3Layout.createSequentialGroup()
                                 .addGap(43, 43, 43)
-                                .addComponent(buttonEdit2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnAgregarInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonEdit3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -261,9 +261,9 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,23 +301,23 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Vistas.ButtonEdit buttonEdit1;
-    private Vistas.ButtonEdit buttonEdit2;
-    private Vistas.ButtonEdit buttonEdit3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public Vistas.ButtonEdit btnAgregarFoto;
+    public Vistas.ButtonEdit btnAgregarInformacion;
+    public javax.swing.JButton btnMenu;
+    public Vistas.ButtonEdit btnVerRegistro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private Vistas.PanelRound panelRound1;
     private Vistas.PanelRound panelRound2;
     private Vistas.PanelRound panelRound3;
+    public javax.swing.JComboBox<String> spUsuario;
+    public javax.swing.JTextField txtApellido;
+    public javax.swing.JTextField txtEspecializacion;
+    public javax.swing.JTextArea txtExperiencia;
+    public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
