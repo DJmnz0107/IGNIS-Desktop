@@ -216,7 +216,7 @@ public class frmCrearCuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearCuenta;
+    public javax.swing.JButton btnCrearCuenta;
     private javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
