@@ -1,5 +1,10 @@
 package Modelo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.UUID;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -55,6 +60,27 @@ public class Usuarios {
 
     public void setId_nivelUsuario(int id_nivelUsuario) {
         this.id_nivelUsuario = id_nivelUsuario;
+    }
+    
+        public void Guardar() {
+        //Creamos una variable igual a ejecutar el método de la clase de conexión
+        Connection conexion = ClaseConexion.getConexion();
+        try {
+            //Creamos el PreparedStatement que ejecutará la Query
+            PreparedStatement CrearCuenta = conexion.prepareStatement("INSERT INTO Usuarios(nombre_usuario, contrasena_usuario, edad_usuario, Dui_Usuario, id_nivelUsuario) VALUES (?, ?, ?, ?, ?)");
+            //Establecer valores de la consulta SQL
+            CrearCuenta.setString(1, getNombre_usuario());
+            CrearCuenta.setString(2, getContrasena_usuario());
+            CrearCuenta.setString(3, getEdad_usuario());
+            CrearCuenta.setString(4, getDUI_usuario());
+            CrearCuenta.setInt(5, getId_nivelUsuario());
+ 
+            //Ejecutar la consulta
+            CrearCuenta.executeUpdate();
+ 
+        } catch (SQLException ex) {
+            System.out.println("este es el error en el modelo:metodo guardar " + ex);
+        }
     }
     
 }

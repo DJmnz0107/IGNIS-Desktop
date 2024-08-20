@@ -4,6 +4,10 @@
  */
 package Vistas;
 
+import Controlador.ctrlCrearCuenta;
+import Modelo.Niveles;
+import Modelo.Usuarios;
+
 /**
  *
  * @author aless
@@ -16,6 +20,14 @@ public class frmCrearCuenta extends javax.swing.JFrame {
     public frmCrearCuenta() {
         initComponents();
     }
+    
+    public static void initFrmCrearCuenta(){
+        Niveles modeloNivel = new Niveles();
+        Usuarios modeloUsuarios = new Usuarios();
+        frmCrearCuenta vista = new frmCrearCuenta();
+        ctrlCrearCuenta controlador  = new ctrlCrearCuenta(modeloNivel, modeloUsuarios, vista);
+        vista.setVisible(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,8 +39,6 @@ public class frmCrearCuenta extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        imgBack = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jcmbTipoUsuario = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         txtDuiUsuario = new javax.swing.JTextField();
@@ -43,11 +53,6 @@ public class frmCrearCuenta extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
 
-        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Back_arrow.png"))); // NOI18N
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Account box.png"))); // NOI18N
-
-        jcmbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jcmbTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcmbTipoUsuarioActionPerformed(evt);
@@ -88,17 +93,9 @@ public class frmCrearCuenta extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel4)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(imgBack)
-                        .addGap(258, 258, 258)
-                        .addComponent(jLabel1)
-                        .addContainerGap(558, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(253, 253, 253)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -119,21 +116,14 @@ public class frmCrearCuenta extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(327, 327, 327)
                         .addComponent(btnCrearCuenta)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(imgBack))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel1)))
-                        .addGap(18, 18, 18)
+                        .addGap(40, 40, 40)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,15 +200,13 @@ public class frmCrearCuenta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmCrearCuenta().setVisible(true);
+                initFrmCrearCuenta();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCrearCuenta;
-    private javax.swing.JLabel imgBack;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;

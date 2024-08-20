@@ -9,12 +9,6 @@ public class Niveles {
     private int id_nivelUsuario;
     private String nombre_nivel;
 
-    // Constructor
-    public Niveles(int id_nivelUsuario, String nombre_nivel) {
-        this.id_nivelUsuario = id_nivelUsuario;
-        this.nombre_nivel = nombre_nivel;
-    }
-
     // Getters and Setters
     public String getNombre_nivel() {
         return nombre_nivel;
@@ -31,26 +25,33 @@ public class Niveles {
     public void setId_nivelUsuario(int id_nivelUsuario) {
         this.id_nivelUsuario = id_nivelUsuario;
     }
+    
+    @Override
+    public String toString(){
+        return nombre_nivel;
+    }
 
     // Método para obtener niveles desde la base de datos y agregarlos al ComboBox
-    public void obtenerNiveles(JComboBox<Niveles> comboBox) {
+    public void obtenerNiveles(JComboBox comboBox) {
         Connection conexion = ClaseConexion.getConexion();
         try (PreparedStatement pstmt = conexion.prepareStatement(
-            "SELECT n.id_nivelUsuario, n.nombre_nivel FROM niveles n")) {
+            "SELECT * FROM niveles WHERE id_NivelUsuario > 1")) {
             
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("id_nivelUsuario");
-                String nombre = rs.getString("nombre_nivel");
-                comboBox.addItem(new Niveles(id, nombre));
+               int id = rs.getInt("id_nivelUsuario");
+               String nombre = rs.getString("nombre_nivel");
+               
+               Niveles nivelUsuario = new Niveles();
+               nivelUsuario.setId_nivelUsuario(id);
+               nivelUsuario.setNombre_nivel(nombre);
+               
+                comboBox.addItem(nivelUsuario);
             }
         } catch (Exception e) {
             System.out.println("Error al obtener niveles: " + e.getMessage());
         }
     }
+   
 
-    @Override
-    public String toString() {
-        return nombre_nivel;
-    }
 }
