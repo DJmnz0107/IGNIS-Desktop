@@ -5,6 +5,7 @@
 package Controlador;
 
 import Vistas.frmAgregarBomberos;
+import Vistas.frmCrearCuenta;
 import Vistas.frmLogin;
 
 /**
@@ -15,8 +16,8 @@ public class Main {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frmLogin frmLogin = new frmLogin();
-                frmLogin.setVisible(true);
+                frmCrearCuenta frmCrearCuenta = new frmCrearCuenta();
+                frmCrearCuenta.setVisible(true);
             }
         });
     }
