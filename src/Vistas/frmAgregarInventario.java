@@ -31,8 +31,6 @@ public class frmAgregarInventario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        panelRound1 = new Vistas.PanelRound();
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,38 +40,24 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        btnRojoForms1 = new Vistas.btnRojoForms();
-        btnRojoForms2 = new Vistas.btnRojoForms();
-        textFieldBlanco2 = new Vistas.TextFieldBlanco();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        panelRound1 = new Vistas.PanelRound();
+        jButton1 = new javax.swing.JButton();
+        txtNombreInventario = new Vistas.TextFieldBlanco();
+        btnRojoForms1 = new Vistas.btnRojoForms();
+        btnRojoForms2 = new Vistas.btnRojoForms();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
-        panelRound1.setRoundBottomRight(50);
-        panelRound1.setRoundTopRight(50);
-        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/lista.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 870));
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,26 +106,11 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         jLabel7.setText("Disponibilidad");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, -1, 20));
 
-        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
-        jDateChooser1.setForeground(new java.awt.Color(240, 139, 77));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, 260, 40));
-
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/inventario.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 310, 540, 350));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/agregarBlanco.png"))); // NOI18N
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 40, 40));
-
-        btnRojoForms1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/verInventarioMini.png"))); // NOI18N
-        btnRojoForms1.setText("Ver inventario");
-        btnRojoForms1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
-        jPanel1.add(btnRojoForms1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 680, 180, 50));
-
-        btnRojoForms2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/agregarNew.png"))); // NOI18N
-        btnRojoForms2.setText("Agregar información");
-        btnRojoForms2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
-        jPanel1.add(btnRojoForms2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 680, 220, 50));
-        jPanel1.add(textFieldBlanco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 420, 70));
 
         jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
@@ -159,7 +128,53 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("IGNIS");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 10, -1, -1));
+
+        jDateChooser2.setBackground(new java.awt.Color(255, 255, 255));
+        jDateChooser2.setForeground(new java.awt.Color(240, 139, 77));
+        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, 230, 40));
+
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopRight(50);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/lista.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jButton1)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(743, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 800));
+        jPanel1.add(txtNombreInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 430, 70));
+
+        btnRojoForms1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/verInventarioMini.png"))); // NOI18N
+        btnRojoForms1.setText("Ver inventario");
+        btnRojoForms1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jPanel1.add(btnRojoForms1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 690, 220, 50));
+
+        btnRojoForms2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/agregarNew.png"))); // NOI18N
+        btnRojoForms2.setText("Agregar información");
+        btnRojoForms2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jPanel1.add(btnRojoForms2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 690, 220, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,7 +184,7 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -220,7 +235,7 @@ public class frmAgregarInventario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -236,6 +251,6 @@ public class frmAgregarInventario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private Vistas.PanelRound panelRound1;
-    private Vistas.TextFieldBlanco textFieldBlanco2;
+    public Vistas.TextFieldBlanco txtNombreInventario;
     // End of variables declaration//GEN-END:variables
 }
