@@ -5,7 +5,9 @@
 package Controlador;
 
 import Vistas.frmAgregarBomberos;
+import Vistas.frmAgregarInventario;
 import Vistas.frmLogin;
+import Vistas.frmVerRegistroTransporter;
 
 /**
  *
