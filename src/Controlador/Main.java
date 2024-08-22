@@ -8,6 +8,7 @@ import Vistas.frmAgregarBomberos;
 import Vistas.frmCrearCuenta;
 import Vistas.frmAgregarInventario;
 import Vistas.frmLogin;
+import Vistas.frmPrimerUso;
 import Vistas.frmVerRegistroTransporter;
 
 /**
@@ -18,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frmCrearCuenta.initFrmCrearCuenta();
+                frmPrimerUso.initFrmCrearCuenta();
             }
         });
     }

@@ -30,8 +30,8 @@ public class Niveles {
     public String toString(){
         return nombre_nivel;
     }
+    
 
-    // Método para obtener niveles desde la base de datos y agregarlos al ComboBox
     public void obtenerNiveles(JComboBox comboBox) {
         Connection conexion = ClaseConexion.getConexion();
         try (PreparedStatement pstmt = conexion.prepareStatement(
