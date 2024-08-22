@@ -15,6 +15,8 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
      */
     public frmAgregarTransportes() {
         initComponents();
+        
+        
     }
 
     /**
@@ -26,21 +28,123 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        textFieldRedondeado2 = new Vistas.TextFieldRedondeado();
+        buttonLogin1 = new Vistas.buttonLogin();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        textFieldRedondeado4 = new Vistas.TextFieldRedondeado();
+        jLabel7 = new javax.swing.JLabel();
+        textFieldRedondeado3 = new Vistas.TextFieldRedondeado();
+        jLabel6 = new javax.swing.JLabel();
+        textFieldRedondeado1 = new Vistas.TextFieldRedondeado();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        cmbAgregarTransporte = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(240, 139, 77));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        textFieldRedondeado2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldRedondeado2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textFieldRedondeado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 270, 30));
+
+        buttonLogin1.setForeground(new java.awt.Color(240, 139, 77));
+        buttonLogin1.setText("Agregar");
+        buttonLogin1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jPanel1.add(buttonLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 150, 50));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "No disponible", " " }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Dsiponibilidad:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, -1, -1));
+        jPanel1.add(textFieldRedondeado4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 270, 30));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Estado:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, -1, -1));
+        jPanel1.add(textFieldRedondeado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, 270, 30));
+
+        jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Capacidad:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, -1, 30));
+        jPanel1.add(textFieldRedondeado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, 270, 30));
+
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Número de transporte:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Placa:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
+
+        cmbAgregarTransporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Camión de bomberos", "PickUp", " " }));
+        jPanel1.add(cmbAgregarTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Tipo:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/camionBombero.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iamgen para agregar bomberos.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 600, 390));
+
+        jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("> Transporte");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("IGNIS");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textFieldRedondeado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldRedondeado2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldRedondeado2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +182,23 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Vistas.buttonLogin buttonLogin1;
+    public javax.swing.JComboBox<String> cmbAgregarTransporte;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private Vistas.TextFieldRedondeado textFieldRedondeado1;
+    private Vistas.TextFieldRedondeado textFieldRedondeado2;
+    private Vistas.TextFieldRedondeado textFieldRedondeado3;
+    private Vistas.TextFieldRedondeado textFieldRedondeado4;
     // End of variables declaration//GEN-END:variables
 }
