@@ -4,6 +4,8 @@
  */
 package Vistas;
 
+import Controlador.ctrlLogin;
+import Modelo.Usuarios;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -47,6 +49,12 @@ public class frmLogin extends JFrame  {
 
     }
 
+       public static void initfrmLogin(){
+        Usuarios modeloUsuarios = new Usuarios();
+        frmLogin vista = new frmLogin();
+        ctrlLogin controlador = new ctrlLogin(modeloUsuarios, vista);
+        vista.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -5,6 +5,7 @@
 package Vistas;
 
 import Controlador.ctrlPrimerUso;
+import Modelo.Niveles;
 import Modelo.Usuarios;
 import javax.swing.JFrame;
 
@@ -30,11 +31,41 @@ public class frmPrimerUso extends javax.swing.JFrame {
         
     }
     
+    private void agregarNiveles() {
+        Niveles usuario  = new Niveles();
+        
+        usuario.setNombre_nivel("Usuario");
+        
+        Niveles bombero = new Niveles();
+        bombero.setNombre_nivel("Bombero");
+        
+        Niveles admin = new Niveles();
+        admin.setNombre_nivel("Admin");
+        
+        Niveles empleado = new Niveles();
+        empleado.setNombre_nivel("Empleado");
+        
+        usuario.insertarNivel();
+        bombero.insertarNivel();
+        admin.insertarNivel();
+        empleado.insertarNivel();
+        
+        
+    }
+    
+    
       public static void initFrmCrearCuenta(){
         Usuarios modeloUsuarios = new Usuarios();
+        Niveles modeloNiveles = new Niveles();
         frmPrimerUso vista = new frmPrimerUso();
         ctrlPrimerUso controlador  = new ctrlPrimerUso(modeloUsuarios, vista);
-        vista.setVisible(true);
+        
+        if(!modeloNiveles.verificarNiveles()) {
+                    vista.agregarNiveles();
+        }
+         vista.setVisible(true);
+
+        
     }
      
     /**

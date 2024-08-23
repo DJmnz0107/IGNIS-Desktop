@@ -9,6 +9,9 @@ import Modelo.EncryptSHA256;
     import Vistas.frmPrimerUso;
     import java.awt.event.MouseEvent;
     import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
     import javax.swing.JOptionPane;
 
     /**
@@ -46,12 +49,11 @@ import Modelo.EncryptSHA256;
             } else {
                 try {
                     int edad = Integer.parseInt(vista.txtEdadPrimer.getText());
-                    String contrasenaEncriptada = "";
                     modelo.setNombre_usuario(vista.txtNombreUsuarioPrimer.getText());
                     modelo.setContrasena_usuario(vista.txtContrasenaPrimerUso.getText());
                     modelo.setEdad_usuario(edad);
                     modelo.setDUI_usuario(vista.txtDUIPrimer.getText());
-                    modelo.setId_nivelUsuario(23);
+                    modelo.setId_nivelUsuario(3);
                     modelo.Guardar();
                     
                     vista.txtNombreUsuarioPrimer.setText("");
@@ -63,6 +65,37 @@ JOptionPane.showMessageDialog(vista,
                               "Cuenta creada con éxito", 
                               "Creación de cuenta", 
                               JOptionPane.INFORMATION_MESSAGE);
+
+    JOptionPane.showMessageDialog(vista, "La aplicación se va a reiniciar para aplicar los cambios.", "Reinicio requerido", JOptionPane.WARNING_MESSAGE);
+    
+ String javaBin = System.getProperty("java.home") + "/bin/java";
+    String jarPath = new java.io.File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getAbsolutePath();
+
+    ProcessBuilder builder = new ProcessBuilder(javaBin, "-jar", jarPath);
+    builder.redirectErrorStream(true); 
+
+    try {
+        Process process = builder.start();
+        
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        }
+        
+    } catch (IOException j) {
+        j.printStackTrace();
+        JOptionPane.showMessageDialog(vista, "Error al reiniciar la aplicación: " + j.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    // Cerrar la aplicación actual
+    System.exit(0);
+
+    // Cerrar la aplicación actual
+    System.exit(0);
+
+
 
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(vista, "La edad debe ser un número válido", "Error", JOptionPane.ERROR_MESSAGE);

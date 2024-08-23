@@ -4,6 +4,9 @@
  */
 package Vistas;
 
+import java.net.URL;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Diego
@@ -14,12 +17,22 @@ public class frmAgregarInventario extends javax.swing.JFrame {
      * Creates new form frmAgregarInventario
      */
     public frmAgregarInventario() {
+    
         initComponents();
-        this.setSize(1250, 800);
-
-        this.setLocationRelativeTo(null);
+        setSize(1250, 800);
+        setLocationRelativeTo(null);
+    
 
     }
+    
+         public static void initfrmAgregarInventario(){
+        frmAgregarInventario vista = new frmAgregarInventario();
+        vista.setVisible(true);
+    }
+  
+    
+    
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,7 +53,7 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        imgInventario = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -106,8 +119,8 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         jLabel7.setText("Disponibilidad");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, -1, 20));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/inventario.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 310, 540, 350));
+        imgInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/inventario.png"))); // NOI18N
+        jPanel1.add(imgInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 310, 540, 350));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/agregarBlanco.png"))); // NOI18N
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 40, 40));
@@ -138,7 +151,7 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopRight(50);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/lista.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/lista.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,16 +164,16 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jButton1)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(24, 24, 24)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(743, Short.MAX_VALUE))
+                .addContainerGap(744, Short.MAX_VALUE))
         );
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 800));
@@ -232,6 +245,7 @@ public class frmAgregarInventario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Vistas.btnRojoForms btnRojoForms1;
     private Vistas.btnRojoForms btnRojoForms2;
+    private javax.swing.JLabel imgInventario;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -246,7 +260,6 @@ public class frmAgregarInventario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;

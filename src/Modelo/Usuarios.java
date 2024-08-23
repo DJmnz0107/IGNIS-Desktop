@@ -3,6 +3,7 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 import java.util.UUID;
 
 /*
@@ -61,6 +62,57 @@ public class Usuarios {
 
     public void setId_nivelUsuario(int id_nivelUsuario) {
         this.id_nivelUsuario = id_nivelUsuario;
+    }
+    
+    public boolean revisarLogin() {
+        boolean login = false;
+        
+        Connection conexion = ClaseConexion.getConexion();
+        
+        try {
+            PreparedStatement verificarLogin = conexion.prepareStatement("SELECT * FROM Usuarios WHERE nombre_usuario = ? AND contrasena_usuario = ?");
+            
+            verificarLogin.setString(1, getNombre_usuario());
+            verificarLogin.setString(2, getContrasena_usuario());
+            
+            ResultSet rs = verificarLogin.executeQuery();
+            
+            login = rs.next();
+            
+            rs.close();
+            
+            verificarLogin.close();
+            
+            
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return login;
+    }
+    
+    public boolean verificarUsuario() {
+                boolean usuarios = false;
+
+        Connection conexion = ClaseConexion.getConexion();
+        
+        try {
+                PreparedStatement verificarUsuarios = conexion.prepareStatement("SELECT * FROM USUARIOS");
+                
+                ResultSet rs = verificarUsuarios.executeQuery();
+                        
+               usuarios = rs.next();
+               
+               
+               
+               rs.close();
+               
+               verificarUsuarios.close();
+            
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return usuarios;
     }
     
         public void Guardar() {
