@@ -17,8 +17,10 @@ public class ctrlTransportes implements MouseListener{
         this.Vistas = vistas;
         
         vistas.btnAgregar.addMouseListener(this);
+       
         
-        modelo.obtenerTransportes(Vistas.cmbAgregarTransporte);
+        Vistas.cmbAgregarTransporte.addMouseListener(this);
+        Vistas.cmbDisponibilidad.addMouseListener(this);
         
     }
     
@@ -29,7 +31,27 @@ public class ctrlTransportes implements MouseListener{
         
         if (e.getSource() == Vistas.btnAgregar) {
             Transportes tipoTransportes = (Transportes) Vistas.cmbAgregarTransporte.getSelectedItem();
-            int 
+            int idTransporte = tipoTransportes.getId_transporte();
+            System.out.println("el id del tipo de transporte seleccionado es: " + idTransporte);
+            
+            Transportes Disponibilidad = (Transportes) Vistas.cmbDisponibilidad.getSelectedItem();
+            int idDisponibilidad = Disponibilidad.getId_transporte();
+            System.out.println("el id del tipo de transporte seleccionado es: " + idDisponibilidad);
+            
+            
+            
+            Modelo.setPlaca_transporte(Vistas.txtPlaca.getText());
+            
+            Modelo.setNumero_transporte(Vistas.txtNumeroTransporte.getText());
+            
+            int capacidadTransporte = Integer.parseInt(Vistas.txtCapacidad.getText());
+            Modelo.setCapacidad_transporte(capacidadTransporte);
+            
+            Modelo.setEstado_transporte(Vistas.txtEstado.getText());
+            
+            Modelo.Guardar();
+            
+            
         }
     }
 

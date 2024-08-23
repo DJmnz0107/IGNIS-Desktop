@@ -6,6 +6,7 @@ package Controlador;
 
 import Vistas.frmAgregarBomberos;
 import Vistas.frmAgregarInventario;
+import Vistas.frmAgregarTransportes;
 import Vistas.frmLogin;
 import Vistas.frmVerRegistroTransporter;
 
@@ -17,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frmAgregarInventario frmLogin = new frmAgregarInventario();
+                frmAgregarTransportes frmLogin = new frmAgregarTransportes();
                 frmLogin.setVisible(true);
             }
         });
