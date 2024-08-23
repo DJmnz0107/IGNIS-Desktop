@@ -2,6 +2,7 @@ package Modelo;
 
 import Controlador.ClaseConexion;
 import java.sql.*;
+import javax.swing.JComboBox;
 
 
 public class Transportes {
@@ -94,6 +95,27 @@ public class Transportes {
         }
          
     
+    }
+    
+    public void obtenerNiveles(JComboBox comboBox) {
+        Connection conexion = ClaseConexion.getConexion();
+        try (PreparedStatement pstmt = conexion.prepareStatement(
+            "SELECT * FROM Transportes WHERE id_transporte > 1")) {
+            
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+               int id = rs.getInt("id_transporte");
+               String nombre = rs.getString("tipoVehiculo_transporte");
+               
+               Niveles nivelUsuario = new Niveles();
+               nivelUsuario.setId_nivelUsuario(id);
+               nivelUsuario.setNombre_nivel(nombre);
+               
+                comboBox.addItem(nivelUsuario);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener niveles: " + e.getMessage());
+        }
     }
     
 }
