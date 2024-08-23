@@ -1,13 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 
-/**
- *
- * @author Diego
- */
+import java.sql.*;
+
+
 public class ClaseConexion {
+    
+    
+    private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+    private static final String USUARIO = "NATAREN_DEVELOPER";
+    private static final String CONTRASENA = "Nata123";
+    
+    public static Connection getConexion() {
+        try {
+           
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            
+            Connection conexion = DriverManager.getConnection(URL, USUARIO, CONTRASENA);
+            
+            return conexion;
+        } catch (SQLException e) {
+            System.out.println("Este es el error" + e);
+              return null;
+        } catch (ClassNotFoundException ex) {
+            System.out.println("este es el error de la clase" + ex);
+              return null;
+        }
+    }
     
 }
