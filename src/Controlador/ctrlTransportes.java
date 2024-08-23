@@ -11,8 +11,15 @@ public class ctrlTransportes implements MouseListener{
     private Transportes Modelo;
     private frmAgregarTransportes Vistas;
     
-    public ctrlTransportes (Transportes Modelo, frmAgregarTransportes Vistas){
+    public ctrlTransportes (Transportes modelo, frmAgregarTransportes vistas){
     
+        this.Modelo = modelo;
+        this.Vistas = vistas;
+        
+        vistas.btnAgregar.addMouseListener(this);
+        
+        modelo.obtenerTransportes(Vistas.cmbAgregarTransporte);
+        
     }
     
     
@@ -20,6 +27,10 @@ public class ctrlTransportes implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         
+        if (e.getSource() == Vistas.btnAgregar) {
+            Transportes tipoTransportes = (Transportes) Vistas.cmbAgregarTransporte.getSelectedItem();
+            int 
+        }
     }
 
     @Override
