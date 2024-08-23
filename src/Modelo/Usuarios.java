@@ -1,9 +1,11 @@
 package Modelo;
 
+import Controlador.ctrlCrearCuenta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.UUID;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -62,7 +64,7 @@ public class Usuarios {
         this.id_nivelUsuario = id_nivelUsuario;
     }
     
-        public void Guardar() {
+    public void Guardar() {
         //Creamos una variable igual a ejecutar el método de la clase de conexión
         Connection conexion = ClaseConexion.getConexion();
         try {
@@ -77,7 +79,8 @@ public class Usuarios {
  
             //Ejecutar la consulta
             CrearCuenta.executeUpdate();
- 
+            showMessageDialog(null, "Cuenta creada excitosamente!");
+            
         } catch (SQLException ex) {
             System.out.println("este es el error en el modelo:metodo guardar " + ex);
         }

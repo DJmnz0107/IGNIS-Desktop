@@ -67,6 +67,7 @@
         </Component>
         <Component class="Vistas.TextFieldLogin" name="txtUsuario">
           <Properties>
+            <Property name="hint" type="java.lang.String" value="null"/>
             <Property name="inheritsPopupMenu" type="boolean" value="true"/>
             <Property name="suffixIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Vistas/resources/userIconNew.png"/>

@@ -38,6 +38,7 @@ public class ctrlCrearCuenta implements MouseListener {
             ModeloUsuario.setDUI_usuario(Vista.txtDuiUsuario.getText());
             ModeloUsuario.setId_nivelUsuario(idNivelSeleccionado);
             ModeloUsuario.Guardar();
+            LimpiarCampos();
         }
     }
 
@@ -59,5 +60,13 @@ public class ctrlCrearCuenta implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+    
+    public void LimpiarCampos(){
+        Vista.txtContrasenaUsuario.setText("");
+        Vista.txtNombreUsuario.setText("");
+        Vista.txtContrasenaUsuario.setText("");
+        Vista.txtDuiUsuario.setText("");
+        Vista.txtEdadUsuario.setText("");
     }
 }
