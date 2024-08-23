@@ -15,6 +15,7 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
      */
     public frmAgregarBomberos() {
         initComponents();
+        
     }
 
     /**
