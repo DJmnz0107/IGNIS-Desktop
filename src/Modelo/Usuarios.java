@@ -66,9 +66,6 @@ public class Usuarios {
         this.id_nivelUsuario = id_nivelUsuario;
     }
     
-<<<<<<< HEAD
-    public void Guardar() {
-=======
     public boolean revisarLogin() {
         boolean login = false;
         
@@ -121,7 +118,6 @@ public class Usuarios {
     }
     
         public void Guardar() {
->>>>>>> Jimenez
         //Creamos una variable igual a ejecutar el método de la clase de conexión
         Connection conexion = ClaseConexion.getConexion();
         try {
@@ -137,7 +133,6 @@ public class Usuarios {
  
             //Ejecutar la consulta
             CrearCuenta.executeUpdate();
-            showMessageDialog(null, "Cuenta creada excitosamente!");
             
         } catch (SQLException ex) {
             System.out.println("este es el error en el modelo:metodo guardar " + ex);

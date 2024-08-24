@@ -58,7 +58,7 @@ public class ctrlLogin implements MouseListener {
                                       
                                       vista.dispose();
                                       
-                                      frmAgregarInventario.initfrmAgregarInventario();
+                                      frmCrearCuenta.initFrmCrearCuenta();
                                       
                                       
                             } else {
