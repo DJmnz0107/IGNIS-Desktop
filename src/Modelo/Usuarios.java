@@ -4,6 +4,7 @@ import Controlador.ctrlCrearCuenta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 import java.util.UUID;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -17,12 +18,20 @@ import static javax.swing.JOptionPane.showMessageDialog;
  * @author aless
  */
 public class Usuarios {
-    
     private String nombre_usuario;
     private String contrasena_usuario;
-    private String edad_usuario;
+    private int edad_usuario;
     private String DUI_usuario;
     private int id_nivelUsuario;
+    
+     public int getEdad_usuario() {
+        return edad_usuario;
+    }
+
+ 
+    public void setEdad_usuario(int edad_usuario) {
+        this.edad_usuario = edad_usuario;
+    }
 
     public String getNombre_usuario() {
         return nombre_usuario;
@@ -37,16 +46,9 @@ public class Usuarios {
     }
 
     public void setContrasena_usuario(String contrasena_usuario) {
-        this.contrasena_usuario = contrasena_usuario;
+        this.contrasena_usuario = EncryptSHA256.encriptarSHA256(contrasena_usuario);
     }
 
-    public String getEdad_usuario() {
-        return edad_usuario;
-    }
-
-    public void setEdad_usuario(String edad_usuario) {
-        this.edad_usuario = edad_usuario;
-    }
 
     public String getDUI_usuario() {
         return DUI_usuario;
@@ -64,16 +66,72 @@ public class Usuarios {
         this.id_nivelUsuario = id_nivelUsuario;
     }
     
+<<<<<<< HEAD
     public void Guardar() {
+=======
+    public boolean revisarLogin() {
+        boolean login = false;
+        
+        Connection conexion = ClaseConexion.getConexion();
+        
+        try {
+            PreparedStatement verificarLogin = conexion.prepareStatement("SELECT * FROM Usuarios WHERE nombre_usuario = ? AND contrasena_usuario = ?");
+            
+            verificarLogin.setString(1, getNombre_usuario());
+            verificarLogin.setString(2, getContrasena_usuario());
+            
+            ResultSet rs = verificarLogin.executeQuery();
+            
+            login = rs.next();
+            
+            rs.close();
+            
+            verificarLogin.close();
+            
+            
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return login;
+    }
+    
+    public boolean verificarUsuario() {
+                boolean usuarios = false;
+
+        Connection conexion = ClaseConexion.getConexion();
+        
+        try {
+                PreparedStatement verificarUsuarios = conexion.prepareStatement("SELECT * FROM USUARIOS");
+                
+                ResultSet rs = verificarUsuarios.executeQuery();
+                        
+               usuarios = rs.next();
+               
+               
+               
+               rs.close();
+               
+               verificarUsuarios.close();
+            
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return usuarios;
+    }
+    
+        public void Guardar() {
+>>>>>>> Jimenez
         //Creamos una variable igual a ejecutar el método de la clase de conexión
         Connection conexion = ClaseConexion.getConexion();
         try {
             //Creamos el PreparedStatement que ejecutará la Query
-            PreparedStatement CrearCuenta = conexion.prepareStatement("INSERT INTO Usuarios(nombre_usuario, contrasena_usuario, edad_usuario, Dui_Usuario, id_nivelUsuario) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement CrearCuenta = conexion.prepareStatement("INSERT INTO USUARIOS (nombre_usuario, contrasena_usuario, edad_usuario, dui_usuario, id_nivelUsuario) VALUES (?, ?, ?, ?, ?)");
+
             //Establecer valores de la consulta SQL
             CrearCuenta.setString(1, getNombre_usuario());
             CrearCuenta.setString(2, getContrasena_usuario());
-            CrearCuenta.setString(3, getEdad_usuario());
+            CrearCuenta.setInt(3, getEdad_usuario());
             CrearCuenta.setString(4, getDUI_usuario());
             CrearCuenta.setInt(5, getId_nivelUsuario());
  
@@ -85,5 +143,6 @@ public class Usuarios {
             System.out.println("este es el error en el modelo:metodo guardar " + ex);
         }
     }
-    
+        
+   
 }

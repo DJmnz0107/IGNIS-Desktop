@@ -64,7 +64,7 @@ public class TextFieldPassword extends JPasswordField {
 
     private void initUI() {
         setForeground(Color.WHITE);
-        setBackground(new Color(0, 0, 0, 0)); // Fondo transparente
+        setBackground(new Color(0, 0, 0, 0)); 
         setOpaque(false);
         setFont(new Font("Microsoft JhengHei UI", Font.BOLD, 22));
         setEchoChar('*'); 
@@ -94,7 +94,7 @@ public class TextFieldPassword extends JPasswordField {
 
    private void togglePasswordVisibility() {
         passwordVisible = !passwordVisible;
-        setEchoChar(passwordVisible ? (char) 0 : '*'); 
+        setEchoChar(passwordVisible ? (char) 0 : '•'); 
         setSuffixIcon(passwordVisible ? eyeOpenIcon : eyeClosedIcon); 
         repaint(); 
     }
@@ -104,13 +104,10 @@ protected void paintComponent(Graphics g) {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g.create();
 
-    // Configurar el color del borde
-    g2.setColor(new Color(0xF5D863)); // Color del borde
+    g2.setColor(new Color(0xF5D863)); 
 
-    // Dibujar el borde solo si es necesario
     g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 20, 20);
 
-    // Dibujar el hint si el campo está vacío y no tiene foco
     if (getPassword().length == 0 && !isFocusOwner() && hint != null) {
         g2.setColor(new Color(0xf7e3c6));
         g2.setFont(new Font("Microsoft JhengHei UI", Font.BOLD, 22));
@@ -122,10 +119,9 @@ protected void paintComponent(Graphics g) {
         g2.drawString(hint, x, y);
     }
 
-    // Pintar el ícono
     paintIcon(g2);
 
-    g2.dispose(); // Liberar recursos gráficos
+    g2.dispose(); 
 }
 
 

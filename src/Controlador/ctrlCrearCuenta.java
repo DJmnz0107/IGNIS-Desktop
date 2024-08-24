@@ -34,7 +34,7 @@ public class ctrlCrearCuenta implements MouseListener {
             
             ModeloUsuario.setNombre_usuario(Vista.txtNombreUsuario.getText());
             ModeloUsuario.setContrasena_usuario(Vista.txtContrasenaUsuario.getText());
-            ModeloUsuario.setEdad_usuario(Vista.txtEdadUsuario.getText());
+            ModeloUsuario.setEdad_usuario(Integer.parseInt(Vista.txtEdadUsuario.getText()));
             ModeloUsuario.setDUI_usuario(Vista.txtDuiUsuario.getText());
             ModeloUsuario.setId_nivelUsuario(idNivelSeleccionado);
             ModeloUsuario.Guardar();

@@ -3,6 +3,7 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JComboBox;
 
 public class Niveles {
@@ -30,8 +31,8 @@ public class Niveles {
     public String toString(){
         return nombre_nivel;
     }
+    
 
-    // Método para obtener niveles desde la base de datos y agregarlos al ComboBox
     public void obtenerNiveles(JComboBox comboBox) {
         Connection conexion = ClaseConexion.getConexion();
         try (PreparedStatement pstmt = conexion.prepareStatement(
@@ -52,6 +53,49 @@ public class Niveles {
             System.out.println("Error al obtener niveles: " + e.getMessage());
         }
     }
+    
+       public void insertarNivel() {
+        //Creamos una variable igual a ejecutar el método de la clase de conexión
+        Connection conexion = ClaseConexion.getConexion();
+        try {
+            //Creamos el PreparedStatement que ejecutará la Query
+            PreparedStatement insertarNivel = conexion.prepareStatement("INSERT INTO Niveles (nombre_nivel) VALUES (?)");
+
+            //Establecer valores de la consulta SQL
+            insertarNivel.setString(1, getNombre_nivel());
+ 
+            //Ejecutar la consulta
+            insertarNivel.executeUpdate();
+ 
+        } catch (SQLException ex) {
+            System.out.println("este es el error en el modelo:metodo guardar " + ex);
+        }
+    }
+       
+       public boolean verificarNiveles() {
+                           boolean niveles = false;
+
+        Connection conexion = ClaseConexion.getConexion();
+        
+        try {
+                PreparedStatement verificarNiveles = conexion.prepareStatement("SELECT * FROM NIVELES");
+                
+                ResultSet rs = verificarNiveles.executeQuery();
+                        
+               niveles = rs.next();
+               
+               
+               
+               rs.close();
+               
+               verificarNiveles.close();
+            
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return niveles;
+       }
    
 
 }
