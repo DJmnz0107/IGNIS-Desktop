@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 public class ctrlCrearCuenta implements MouseListener {
 
@@ -27,18 +28,32 @@ public class ctrlCrearCuenta implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == Vista.btnCrearCuenta) {
-            // Acción a realizar cuando se presiona el botón "Crear cuenta"
+            
             Niveles nivelSeleccionado = (Niveles) Vista.jcmbTipoUsuario.getSelectedItem();
             int idNivelSeleccionado = nivelSeleccionado.getId_nivelUsuario();
-            System.out.println("ID del nivel seleccionado: " + idNivelSeleccionado);
             
-            ModeloUsuario.setNombre_usuario(Vista.txtNombreUsuario.getText());
-            ModeloUsuario.setContrasena_usuario(Vista.txtContrasenaUsuario.getText());
-            ModeloUsuario.setEdad_usuario(Integer.parseInt(Vista.txtEdadUsuario.getText()));
-            ModeloUsuario.setDUI_usuario(Vista.txtDuiUsuario.getText());
-            ModeloUsuario.setId_nivelUsuario(idNivelSeleccionado);
-            ModeloUsuario.Guardar();
-            LimpiarCampos();
+            if (Vista.txtNombreUsuario.getText().isEmpty() ||
+                Vista.txtContrasenaUsuario.getText().isEmpty() || 
+                Vista.txtDuiUsuario.getText().isEmpty() || 
+                Vista.txtEdadUsuario.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(Vista, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                ModeloUsuario.setNombre_usuario(Vista.txtNombreUsuario.getText());
+                ModeloUsuario.setContrasena_usuario(Vista.txtContrasenaUsuario.getText());
+                ModeloUsuario.setEdad_usuario(Integer.parseInt(Vista.txtEdadUsuario.getText()));
+                ModeloUsuario.setDUI_usuario(Vista.txtDuiUsuario.getText());
+                ModeloUsuario.setId_nivelUsuario(idNivelSeleccionado);
+                ModeloUsuario.Guardar();
+                
+                JOptionPane.showMessageDialog(Vista, "Cuenta creada con éxito", "Creación de cuenta", JOptionPane.INFORMATION_MESSAGE);
+                
+                LimpiarCampos();
+                } catch(NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(Vista, "La edad debe ser un número válido", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
     }
 
