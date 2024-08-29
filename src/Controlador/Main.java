@@ -9,6 +9,7 @@ import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarTransportes;
 import Vistas.frmLogin;
 import Vistas.frmVerRegistroTransporter;
+import static Vistas.frmVerRegistroTransporter.initfrmVerRegistroTransporter;
 
 /**
  *
@@ -22,5 +23,12 @@ public class Main {
                 frmLogin.setVisible(true);
             }
         });
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                initfrmVerRegistroTransporter();
+            }
+        });
     }
+    
 }

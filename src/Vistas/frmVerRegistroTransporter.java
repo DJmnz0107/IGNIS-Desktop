@@ -4,6 +4,9 @@
  */
 package Vistas;
 
+import Controlador.ctrlTransportes;
+import Modelo.Transportes;
+
 /**
  *
  * @author Diego
@@ -19,6 +22,14 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
         
+    }
+    
+    public static void initfrmVerRegistroTransporter(){
+        Transportes Modelo = new Transportes();
+        frmVerRegistroTransporter Vistas = new frmVerRegistroTransporter();
+        ctrlTransportes Controlador  = new ctrlTransportes(Modelo, Vistas);
+        
+        Vistas.setVisible(true);
     }
 
     /**
@@ -173,14 +184,7 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmVerRegistroTransporter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmVerRegistroTransporter().setVisible(true);
-            }
-        });
+        //</editor-fold> 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

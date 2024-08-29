@@ -2,7 +2,6 @@ package Modelo;
 
 import Controlador.ClaseConexion;
 import java.sql.*;
-import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 

@@ -17,7 +17,7 @@ public class ctrlTransportes implements MouseListener{
         this.Modelo = modelo;
         this.Vistas = vistas;
         
-        modelo.Mostrar(vistas.jtTransportes);
+        modelo.Mostrar(Vistas.jtTransportes);
         
     }
     
