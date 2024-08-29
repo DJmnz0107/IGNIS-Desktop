@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Transportes;
-
+import Vistas.frmAgregarTransportes;
 import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -10,17 +10,20 @@ import java.awt.event.MouseListener;
 public class ctrlTransportes implements MouseListener{
     
     private Transportes Modelo;
-    private frmVerRegistroTransporter Vistas;
+    private frmVerRegistroTransporter verRegistroTransporter;
+    private frmAgregarTransportes VistasverRegistroTransporter;
     
-    public ctrlTransportes (Transportes modelo, frmVerRegistroTransporter vistas){
+    public ctrlTransportes (Transportes modelo, frmVerRegistroTransporter verRegistroTransporter, frmAgregarTransportes VistasverRegistroTransporter){
     
         this.Modelo = modelo;
-        this.Vistas = vistas;
+        this.verRegistroTransporter = verRegistroTransporter;
+        this.VistasverRegistroTransporter = VistasverRegistroTransporter;
+
         
-        modelo.Mostrar(Vistas.jtTransportes);
+        modelo.Mostrar(verRegistroTransporter.jtTransportes);
         
     }
-    
+        
     
 
     @Override
