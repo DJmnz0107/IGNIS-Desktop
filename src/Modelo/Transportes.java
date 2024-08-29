@@ -3,6 +3,8 @@ package Modelo;
 import Controlador.ClaseConexion;
 import java.sql.*;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Transportes {
@@ -71,31 +73,38 @@ public class Transportes {
         this.estado_transporte = estado_transporte;
     }
     
-    
-    public void Guardar(){
-    
+    public void Mostrar(JTable tabla) {
+        
         Connection conexion = ClaseConexion.getConexion();
+ 
         
+        DefaultTableModel modeloDeDatos = new DefaultTableModel();
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"id_transporte", "placa_transporte", "numero_transporte", "capacidad_transporte", "tipoVehiculo_transporte","disponibilidad_transporte","estado_transporte"});
+ 
         try {
-            PreparedStatement addProducto = conexion.prepareStatement("INSERT INTO Transportes (id_transporte, placa_transporte, numero_transporte, capacidad_transporte, tipoVehiculo_transporte, disponibilidad_transporte, estado_transporte ) VALUES (?, ?, ?, ?, ?, ?, ?)");
             
-            addProducto.setInt(1, getId_transporte());
-            addProducto.setString(2, getPlaca_transporte());
-            addProducto.setString(3, getNumero_transporte());
-            addProducto.setInt(4,getCapacidad_transporte() );
-            addProducto.setString(5, getTipoVehiculo_transporte());
-            addProducto.setString(6, getDisponibilidad_transporte());
-            addProducto.setString(7, getEstado_transporte());
+            Statement statement = conexion.createStatement();
+ 
            
-            addProducto.executeUpdate();
-        } 
-        
-        catch (SQLException ex) {
-            System.out.println("este es el error en el modelo:metodo guardar" + ex );
+            ResultSet rs = statement.executeQuery("SELECT * FROM Transportes");
+ 
+            
+            while (rs.next()) {
+                
+                modeloDeDatos.addRow(new Object[]{rs.getInt("id_transporte"),
+                    rs.getString("placa_transporte"),
+                    rs.getString("numero_transporte"),
+                    rs.getInt("capacidad_transporte"),
+                    rs.getString("tipoVehiculo_transporte"),
+                    rs.getString("disponibilidad_transporte"),
+                    rs.getString("estado_transporte")});
+            }
+ 
+          
+            tabla.setModel(modeloDeDatos);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
-         
-    
     }
-
     
 }
