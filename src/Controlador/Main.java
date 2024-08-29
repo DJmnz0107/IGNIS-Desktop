@@ -4,21 +4,35 @@
  */
 package Controlador;
 
+import Modelo.Usuarios;
 import Vistas.frmAgregarBomberos;
+import Vistas.frmCrearCuenta;
 import Vistas.frmAgregarInventario;
 import Vistas.frmLogin;
+import Vistas.frmPrimerUso;
 import Vistas.frmVerRegistroTransporter;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author Diego
  */
 public class Main {
+    
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frmAgregarInventario frmLogin = new frmAgregarInventario();
-                frmLogin.setVisible(true);
+            Usuarios modeloUsuario = new Usuarios();
+            
+            if(!modeloUsuario.verificarUsuario()) {
+               frmPrimerUso.initFrmCrearCuenta();
+            } else {
+                frmLogin.initfrmLogin();
+
+            }
+            
+
+
             }
         });
     }
