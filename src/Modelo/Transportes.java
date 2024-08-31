@@ -106,23 +106,27 @@ public class Transportes {
         }
     }
     
-    public void Guardar(){
-          
-        Connection conexion = ClaseConexion.getConexion();
-        try {
-            
-            PreparedStatement addProducto = conexion.prepareStatement("INSERT INTO Transportes (placa_transporte, numero_transporte, capacidad_transporte, tipoVehiculo_transporte, disponibilidad_transporte, estado_transporte) VALUES (?, ?, ?, ?)");
-            
-            addProducto.setString(1, getPlaca_transporte());
-            addProducto.setString(2, getNumero_transporte());
-            addProducto.setInt(3, getCapacidad_transporte());
-            addProducto.setString(4, getTipoVehiculo_transporte());
-            addProducto.setString(5, getDisponibilidad_transporte());
-            addProducto.setString(6, getEstado_transporte());
-            addProducto.executeUpdate();
-        } catch (SQLException ex) {
-            System.out.println("este es el error en el modelo:metodo guardar " + ex);
-        }
+   public void Guardar(){
+    Connection conexion = ClaseConexion.getConexion();
+    try {
+        
+        PreparedStatement addProducto = conexion.prepareStatement(
+            "INSERT INTO Transportes (placa_transporte, numero_transporte, capacidad_transporte, tipoVehiculo_transporte, disponibilidad_transporte, estado_transporte) VALUES (?, ?, ?, ?, ?, ?)"
+        );
+        
+     
+        addProducto.setString(1, getPlaca_transporte());
+        addProducto.setString(2, getNumero_transporte());
+        addProducto.setInt(3, getCapacidad_transporte());
+        addProducto.setString(4, getTipoVehiculo_transporte());  
+        addProducto.setString(5, getDisponibilidad_transporte());  
+        addProducto.setString(6, getEstado_transporte());
+        
+     
+        addProducto.executeUpdate();
+    } catch (SQLException ex) {
+        System.out.println("Este es el error en el modelo: metodo guardar " + ex);
     }
+}
     
 }

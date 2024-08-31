@@ -13,7 +13,7 @@ public class ctrlTransportes implements MouseListener{
     private frmVerRegistroTransporter verRegistroTransporter;
     private frmAgregarTransportes VistasverRegistroTransporter;
     
-    public ctrlTransportes (Transportes modelo, frmVerRegistroTransporter verRegistroTransporter, frmAgregarTransportes VistasverRegistroTransporter){
+    public ctrlTransportes (Transportes modelo, frmAgregarTransportes VistasverRegistroTransporter, frmVerRegistroTransporter verRegistroTransporter){
     
         this.Modelo = modelo;
         this.verRegistroTransporter = verRegistroTransporter;
@@ -22,8 +22,30 @@ public class ctrlTransportes implements MouseListener{
         
         modelo.Mostrar(verRegistroTransporter.jtTransportes);
         
+         this.VistasverRegistroTransporter.btnAgregar.addActionListener(e -> guardarTransporte());
+        
     }
         
+    private void guardarTransporte() {
+        
+        String tipoVehiculo = VistasverRegistroTransporter.cmbAgregarTransportes.getSelectedItem().toString();
+        String disponibilidad = VistasverRegistroTransporter.cmbDisponibilidad.getSelectedItem().toString();
+
+        
+        Modelo.setTipoVehiculo_transporte(tipoVehiculo);
+        Modelo.setDisponibilidad_transporte(disponibilidad);
+
+        
+        Modelo.setPlaca_transporte(VistasverRegistroTransporter.txtPlaca.getText());
+        Modelo.setNumero_transporte(VistasverRegistroTransporter.txtNumeroTransporte.getText());
+        Modelo.setCapacidad_transporte(Integer.parseInt(VistasverRegistroTransporter.txtCapacidad.getText()));
+        Modelo.setEstado_transporte(VistasverRegistroTransporter.txtEstado.getText());
+
+        
+        Modelo.Guardar();
+
+        
+    }
     
 
     @Override

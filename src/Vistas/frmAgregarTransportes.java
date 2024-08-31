@@ -4,6 +4,9 @@
  */
 package Vistas;
 
+import Controlador.ctrlTransportes;
+import Modelo.Transportes;
+
 /**
  *
  * @author angel
@@ -18,6 +21,18 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
         
         
     }
+    
+    public static void initfrmAgregarTransportes() {
+        Transportes modelo = new Transportes();
+        frmAgregarTransportes vista = new frmAgregarTransportes();
+        frmVerRegistroTransporter Regsitro = new frmVerRegistroTransporter();
+
+        ctrlTransportes controlador = new ctrlTransportes(modelo,vista, Regsitro);
+        
+        vista.setVisible(true);
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,7 +55,7 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
         txtNumeroTransporte = new Vistas.TextFieldRedondeado();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        cmbAgregarTransporte = new javax.swing.JComboBox<>();
+        cmbAgregarTransportes = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -97,8 +112,8 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
         jLabel4.setText("Placa:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
 
-        cmbAgregarTransporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Camión de bomberos", "PickUp", " " }));
-        jPanel1.add(cmbAgregarTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+        cmbAgregarTransportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Camión de bomberos", "PickUp" }));
+        jPanel1.add(cmbAgregarTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -183,7 +198,7 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Vistas.buttonLogin btnAgregar;
-    public javax.swing.JComboBox<String> cmbAgregarTransporte;
+    public javax.swing.JComboBox<String> cmbAgregarTransportes;
     public javax.swing.JComboBox<String> cmbDisponibilidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -29,6 +29,13 @@ public class Main {
                 initfrmVerRegistroTransporter();
             }
         });
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                frmAgregarTransportes.initfrmAgregarTransportes();
+
+            }
+        });
     }
     
 }

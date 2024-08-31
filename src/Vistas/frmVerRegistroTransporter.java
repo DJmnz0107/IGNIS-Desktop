@@ -28,7 +28,7 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         Transportes Modelo = new Transportes();
         frmVerRegistroTransporter Registro = new frmVerRegistroTransporter();
         frmAgregarTransportes agregarTransportes = new frmAgregarTransportes();
-        ctrlTransportes Controlador  = new ctrlTransportes(Modelo, Registro, agregarTransportes);
+        ctrlTransportes Controlador  = new ctrlTransportes(Modelo, agregarTransportes, Registro);
         
         Registro.setVisible(true);
     }
