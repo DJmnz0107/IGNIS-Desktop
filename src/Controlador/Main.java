@@ -4,9 +4,11 @@
  */
 package Controlador;
 
+import Main.MenuFlat;
 import Vistas.frmAgregarBomberos;
 import Vistas.frmAgregarInventario;
 import Vistas.frmLogin;
+import Vistas.frmMenu;
 import Vistas.frmVerRegistroTransporter;
 
 /**
@@ -17,8 +19,8 @@ public class Main {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frmAgregarInventario frmLogin = new frmAgregarInventario();
-                frmLogin.setVisible(true);
+                frmMenu frmLogin = new frmMenu();
+                new MenuFlat.setVisible(true);
             }
         });
     }
