@@ -4,8 +4,17 @@
  */
 package Vistas;
 
+import Vistas.drawer.MyDrawerBuilder;
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Font;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+import raven.drawer.Drawer;
+import raven.popup.GlassPanePopup;
 
 /**
  *
@@ -17,6 +26,9 @@ public class frmAgregarInventario extends javax.swing.JFrame {
      * Creates new form frmAgregarInventario
      */
     public frmAgregarInventario() {
+         GlassPanePopup.install(this);
+        MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
+        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
     
         initComponents();
         setSize(1250, 800);
@@ -26,6 +38,10 @@ public class frmAgregarInventario extends javax.swing.JFrame {
     }
     
          public static void initfrmAgregarInventario(){
+             FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
         frmAgregarInventario vista = new frmAgregarInventario();
         vista.setVisible(true);
     }
@@ -61,7 +77,7 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         panelRound1 = new Vistas.PanelRound();
-        jButton1 = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         txtNombreInventario = new Vistas.TextFieldBlanco();
         btnRojoForms1 = new Vistas.btnRojoForms();
         btnRojoForms2 = new Vistas.btnRojoForms();
@@ -151,11 +167,11 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopRight(50);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/lista.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/lista.png"))); // NOI18N
+        btnMenu.setBorder(null);
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnMenuActionPerformed(evt);
             }
         });
 
@@ -165,14 +181,14 @@ public class frmAgregarInventario extends javax.swing.JFrame {
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(744, Short.MAX_VALUE))
         );
 
@@ -203,14 +219,15 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        Drawer.getInstance().showDrawer();
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+         
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -243,10 +260,10 @@ public class frmAgregarInventario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnMenu;
     private Vistas.btnRojoForms btnRojoForms1;
     private Vistas.btnRojoForms btnRojoForms2;
-    private javax.swing.JLabel imgInventario;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JLabel imgInventario;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDateChooser2;

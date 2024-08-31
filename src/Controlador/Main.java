@@ -5,7 +5,6 @@
 package Controlador;
 
 import Modelo.Usuarios;
-import Main.MenuFlat;
 import Vistas.frmAgregarBomberos;
 import Vistas.frmCrearCuenta;
 import Vistas.frmAgregarInventario;
