@@ -5,10 +5,12 @@
 package Controlador;
 
 import Modelo.Usuarios;
+import Main.MenuFlat;
 import Vistas.frmAgregarBomberos;
 import Vistas.frmCrearCuenta;
 import Vistas.frmAgregarInventario;
 import Vistas.frmLogin;
+import Vistas.frmMenu;
 import Vistas.frmPrimerUso;
 import Vistas.frmVerRegistroTransporter;
 import javax.swing.SwingUtilities;
