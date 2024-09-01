@@ -22,7 +22,8 @@ public class ctrlTransportes implements MouseListener{
         
         modelo.Mostrar(verRegistroTransporter.jtTransportes);
         
-         this.VistasverRegistroTransporter.btnAgregar.addActionListener(e -> guardarTransporte());
+         this.VistasverRegistroTransporter.btnAgregar.addMouseListener(this);
+         //addActionListener(e -> guardarTransporte())
         
     }
         
@@ -40,18 +41,18 @@ public class ctrlTransportes implements MouseListener{
         Modelo.setNumero_transporte(VistasverRegistroTransporter.txtNumeroTransporte.getText());
         Modelo.setCapacidad_transporte(Integer.parseInt(VistasverRegistroTransporter.txtCapacidad.getText()));
         Modelo.setEstado_transporte(VistasverRegistroTransporter.txtEstado.getText());
-
-        
-        Modelo.Guardar();
-
-        
+  
     }
     
 
     @Override
     public void mouseClicked(MouseEvent e) {
         
-       
+       if(e.getSource()== VistasverRegistroTransporter.btnAgregar){
+                
+           guardarTransporte();
+           Modelo.Guardar();
+       }
     }
 
     @Override
