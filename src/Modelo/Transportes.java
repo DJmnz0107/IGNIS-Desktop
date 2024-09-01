@@ -1,11 +1,10 @@
 package Modelo;
 
-<<<<<<< HEAD
-=======
-import Controlador.ClaseConexion;
+
+import Modelo.ClaseConexion;
 import Vistas.frmAgregarTransportes;
 import Vistas.frmVerRegistroTransporter;
->>>>>>> 89f8d98faf3f1bd74d794c97f97f85a59359407d
+
 import java.sql.*;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;

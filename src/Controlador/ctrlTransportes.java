@@ -53,8 +53,7 @@ public class ctrlTransportes implements MouseListener{
            guardarTransporte();
            Modelo.Guardar();
            Modelo.Limpiar(VistasverRegistroTransporter);
-       }
-       
+       }      
        
     }
     
