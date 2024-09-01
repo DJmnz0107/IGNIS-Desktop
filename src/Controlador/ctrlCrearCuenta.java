@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.Niveles;
 import Modelo.Usuarios;
 import Vistas.frmCrearCuenta;
+import Vistas.frmVerUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -21,6 +22,7 @@ public class ctrlCrearCuenta implements MouseListener {
         this.Vista = vista;
         
         vista.btnCrearCuenta.addMouseListener(this);
+        vista.btnVerUsuarios.addMouseListener(this);
         
         modeloNivel.obtenerNiveles(vista.jcmbTipoUsuario);
     }
@@ -54,6 +56,11 @@ public class ctrlCrearCuenta implements MouseListener {
                     JOptionPane.showMessageDialog(Vista, "La edad debe ser un número válido", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
+        }
+        
+        if (e.getSource() == Vista.btnVerUsuarios){
+            Vista.dispose();
+            frmVerUsuarios.initfrmVerUsuarios();
         }
     }
 

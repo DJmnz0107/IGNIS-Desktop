@@ -41,7 +41,7 @@ public class frmCrearCuenta extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        imgBack = new javax.swing.JLabel();
         jcmbTipoUsuario = new javax.swing.JComboBox();
         txtNombreUsuario = new Vistas.TextFieldBlancoHint();
         txtContrasenaUsuario = new Vistas.TextFieldBlancoHint();
@@ -60,7 +60,7 @@ public class frmCrearCuenta extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Account box.png"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
 
         jcmbTipoUsuario.setBackground(new java.awt.Color(255, 255, 255));
         jcmbTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +91,7 @@ public class frmCrearCuenta extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel4)
+                .addComponent(imgBack)
                 .addGap(84, 84, 84)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtContrasenaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,7 +129,7 @@ public class frmCrearCuenta extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel4)))
+                        .addComponent(imgBack)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(2, 2, 2)
@@ -205,9 +205,9 @@ public class frmCrearCuenta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Vistas.btnRojoForms btnCrearCuenta;
     public Vistas.btnRojoForms btnVerUsuarios;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    public javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JComboBox jcmbTipoUsuario;
     public Vistas.TextFieldBlancoHint txtContrasenaUsuario;

@@ -90,7 +90,7 @@ public class frmLogin extends JFrame  {
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         loginBackground1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 310, 80, -1));
 
-        txtUsuario.setHint(null);
+        txtUsuario.setHint("null");
         txtUsuario.setInheritsPopupMenu(true);
         txtUsuario.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/userIconNew.png"))); // NOI18N
         loginBackground1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 380, 440, 60));
