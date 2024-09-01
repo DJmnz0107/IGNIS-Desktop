@@ -1,5 +1,11 @@
 package Modelo;
 
+<<<<<<< HEAD
+=======
+import Controlador.ClaseConexion;
+import Vistas.frmAgregarTransportes;
+import Vistas.frmVerRegistroTransporter;
+>>>>>>> 89f8d98faf3f1bd74d794c97f97f85a59359407d
 import java.sql.*;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -112,8 +118,7 @@ public class Transportes {
         PreparedStatement addProducto = conexion.prepareStatement(
             "INSERT INTO Transportes (placa_transporte, numero_transporte, capacidad_transporte, tipoVehiculo_transporte, disponibilidad_transporte, estado_transporte) VALUES (?, ?, ?, ?, ?, ?)"
         );
-        
-     
+
         addProducto.setString(1, getPlaca_transporte());
         addProducto.setString(2, getNumero_transporte());
         addProducto.setInt(3, getCapacidad_transporte());
@@ -127,5 +132,14 @@ public class Transportes {
         System.out.println("Este es el error en el modelo: metodo guardar " + ex);
     }
 }
+   
+   public void Limpiar (frmAgregarTransportes Vistas){
+       
+       Vistas.txtPlaca.setText("");
+       Vistas.txtNumeroTransporte.setText("");
+       Vistas.txtCapacidad.setText("");
+       Vistas.txtEstado.setText("");
+   
+   }
     
 }
