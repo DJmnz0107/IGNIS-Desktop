@@ -30,17 +30,18 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
             {"~MAIN~"},
             {"Dashboard"},
             {"~WEB APP~"},
-            {"Email", "Inbox", "Read", "Compost"},
+            {"Bomberos"},
+            {"Inventario"},
             {"Transporte"},
-            {"Calendar"},
             {"~COMPONENT~"},
-            {"Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert"},
-            {"Forms", "Basic Elements", "Advanced Elements", "SEditors", "Wizard"},
+            {"Seguimientp",},
+            {"Estadisticas",},
             {"~OTHER~"},
-            {"Charts", "Apex", "Flot", "Sparkline"},
-            {"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
-            {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},
-            {"Logout"}};
+            {"Estadisticas",},
+            {"Emergencias",},
+            {"Misiones",},
+            {"Informes"},
+            {"Cerrar sesion"}};
 
         String icons[] = {
             "dashboard.svg",
@@ -52,7 +53,8 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
             "chart.svg",
             "icon.svg",
             "page.svg",
-            "logout.svg"};
+            "logout.svg",
+            "logout.avg"};
         
         return new SimpleMenuOption()
                 .setMenus(menus)
