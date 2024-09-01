@@ -52,8 +52,12 @@ public class ctrlTransportes implements MouseListener{
                 
            guardarTransporte();
            Modelo.Guardar();
+           Modelo.Limpiar(VistasverRegistroTransporter);
        }
+       
+       
     }
+    
 
     @Override
     public void mousePressed(MouseEvent e) {
