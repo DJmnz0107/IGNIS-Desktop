@@ -3,39 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Controlador/Main.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/frmAgregarInventario.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/TextFieldLogin.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/frmLogin.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/TextFieldPasswordPrimer.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/resources/eyeNew.png</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Modelo/Usuarios.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Modelo/Niveles.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/TextFieldPassword.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/nbproject/project.properties</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Controlador/ctrlPrimerUso.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/frmAgregarBomberos.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/frmPrimerUso.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/frmCrearCuenta.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/buttonLogin.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/TextFieldBlanco.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/TextFieldPrimerUso.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Modelo/EncryptSHA256.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Controlador/ctrlCrearCuenta.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Vistas/btnPrimerUso.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/ignis/desktopapp/IgnisDesktopApp.java</file>
-            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Ignis-DesktopApp/src/Modelo/ClaseConexion.java</file>
-            <file>file:/C:/Users/danie/Desktop/IGNIS-Desktop/src/Main/MenuFlat.java</file>
-            <file>file:/C:/Users/danie/Desktop/IGNIS-Desktop/src/Controlador/Main.java</file>
-            <file>file:/C:/Users/danie/Desktop/IGNIS-Desktop/src/Vistas/themes/FlatLaf.properties</file>
-            <file>file:/C:/Users/danie/Desktop/IGNIS-Desktop/src/Vistas/frmMenu.java</file>
-=======
-            <file>file:/C:/Users/User/OneDrive/Escritorio/IGNIS-Desktop/src/Modelo/Transportes.java</file>
-            <file>file:/C:/Users/User/OneDrive/Escritorio/IGNIS-Desktop/src/Controlador/ctrlTransportes.java</file>
-            <file>file:/C:/Users/User/OneDrive/Escritorio/IGNIS-Desktop/src/Vistas/frmAgregarTransportes.java</file>
->>>>>>> Nataren
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/EnviarCodigo.java</file>
         </group>
     </open-files>
 </project-private>
