@@ -32,6 +32,18 @@ public class frmInicio extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         panelRound21 = new Vistas.panelRound2();
         panelRound31 = new Vistas.panelRound3();
+        jLabel2 = new javax.swing.JLabel();
+        btnInicio3 = new Vistas.btnInicio();
+        btnInicio4 = new Vistas.btnInicio();
+        btnInicio5 = new Vistas.btnInicio();
+        btnInicio6 = new Vistas.btnInicio();
+        btnInicio7 = new Vistas.btnInicio();
+        btnInicio8 = new Vistas.btnInicio();
+        btnInicio9 = new Vistas.btnInicio();
+        btnInicio10 = new Vistas.btnInicio();
+        btnInicio21 = new Vistas.btnInicio2();
+        btnInicio31 = new Vistas.btnInicio3();
+        btnInicio41 = new Vistas.btnInicio4();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,7 +53,7 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Bienvenido a IGNIS nos alegra verte de nuevo ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 820, 80));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 820, 80));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomRight(50);
@@ -62,51 +74,95 @@ public class frmInicio extends javax.swing.JFrame {
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(544, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 600));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 650));
 
         panelRound21.setBackground(new java.awt.Color(245, 216, 99));
+        panelRound21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound31.setBackground(new java.awt.Color(240, 139, 77));
+        panelRound31.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout panelRound31Layout = new javax.swing.GroupLayout(panelRound31);
-        panelRound31.setLayout(panelRound31Layout);
-        panelRound31Layout.setHorizontalGroup(
-            panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 682, Short.MAX_VALUE)
-        );
-        panelRound31Layout.setVerticalGroup(
-            panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
-        );
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(250, 243, 243));
+        jLabel2.setText("Funciones principales");
+        panelRound31.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
-        javax.swing.GroupLayout panelRound21Layout = new javax.swing.GroupLayout(panelRound21);
-        panelRound21.setLayout(panelRound21Layout);
-        panelRound21Layout.setHorizontalGroup(
-            panelRound21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound21Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(panelRound31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        panelRound21Layout.setVerticalGroup(
-            panelRound21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound21Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(panelRound31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        btnInicio3.setForeground(new java.awt.Color(240, 139, 77));
+        btnInicio3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoStat.png"))); // NOI18N
+        btnInicio3.setText("Estadísticas");
+        btnInicio3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound31.add(btnInicio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 170, 60));
 
-        jPanel1.add(panelRound21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 730, 460));
+        btnInicio4.setForeground(new java.awt.Color(240, 139, 77));
+        btnInicio4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoInforme.png"))); // NOI18N
+        btnInicio4.setText("Informes");
+        btnInicio4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound31.add(btnInicio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, 170, 60));
+
+        btnInicio5.setForeground(new java.awt.Color(240, 139, 77));
+        btnInicio5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCamionsito.png"))); // NOI18N
+        btnInicio5.setText("Transporte");
+        btnInicio5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound31.add(btnInicio5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 170, 60));
+
+        btnInicio6.setForeground(new java.awt.Color(240, 139, 77));
+        btnInicio6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoManguera.png"))); // NOI18N
+        btnInicio6.setText("Inventario");
+        btnInicio6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound31.add(btnInicio6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 170, 60));
+
+        btnInicio7.setForeground(new java.awt.Color(240, 139, 77));
+        btnInicio7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoMision.png"))); // NOI18N
+        btnInicio7.setText("Misiones");
+        btnInicio7.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound31.add(btnInicio7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 170, 60));
+
+        btnInicio8.setForeground(new java.awt.Color(240, 139, 77));
+        btnInicio8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoSeguimiento.png"))); // NOI18N
+        btnInicio8.setText("Seguimiento");
+        btnInicio8.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound31.add(btnInicio8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 170, 60));
+
+        btnInicio9.setForeground(new java.awt.Color(240, 139, 77));
+        btnInicio9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoBombero.png"))); // NOI18N
+        btnInicio9.setText("Bomberos");
+        btnInicio9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound31.add(btnInicio9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 170, 60));
+
+        btnInicio10.setForeground(new java.awt.Color(240, 139, 77));
+        btnInicio10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoEmergencia.png"))); // NOI18N
+        btnInicio10.setText("Emergencias");
+        btnInicio10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound31.add(btnInicio10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 170, 60));
+
+        panelRound21.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 26, 650, 430));
+
+        jPanel1.add(panelRound21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 730, 480));
+
+        btnInicio21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoAgregarU.png"))); // NOI18N
+        btnInicio21.setText("Crear nuevo usuario");
+        btnInicio21.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
+        jPanel1.add(btnInicio21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 570, 240, 50));
+
+        btnInicio31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCerrar.png"))); // NOI18N
+        btnInicio31.setText("Cerrar sesión");
+        btnInicio31.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
+        jPanel1.add(btnInicio31, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 570, 230, 50));
+
+        btnInicio41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoVer.png"))); // NOI18N
+        btnInicio41.setText("Ver cambios");
+        btnInicio41.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
+        jPanel1.add(btnInicio41, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 570, 220, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,8 +218,20 @@ public class frmInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Vistas.btnInicio btnInicio10;
+    private Vistas.btnInicio2 btnInicio21;
+    private Vistas.btnInicio btnInicio3;
+    private Vistas.btnInicio3 btnInicio31;
+    private Vistas.btnInicio btnInicio4;
+    private Vistas.btnInicio4 btnInicio41;
+    private Vistas.btnInicio btnInicio5;
+    private Vistas.btnInicio btnInicio6;
+    private Vistas.btnInicio btnInicio7;
+    private Vistas.btnInicio btnInicio8;
+    private Vistas.btnInicio btnInicio9;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private Vistas.PanelRound panelRound1;
     private Vistas.panelRound2 panelRound21;
