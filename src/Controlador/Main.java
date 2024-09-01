@@ -8,11 +8,12 @@ import Modelo.Usuarios;
 import Vistas.frmAgregarBomberos;
 import Vistas.frmCrearCuenta;
 import Vistas.frmAgregarInventario;
+import Vistas.frmAgregarTransportes;
 import Vistas.frmLogin;
 import Vistas.frmMenu;
 import Vistas.frmPrimerUso;
 import Vistas.frmVerRegistroTransporter;
-import javax.swing.SwingUtilities;
+
 
 /**
  *
@@ -29,12 +30,14 @@ public class Main {
                frmPrimerUso.initFrmCrearCuenta();
             } else {
                 frmLogin.initfrmLogin();
+                frmVerRegistroTransporter.initFrmVerRegistroTransportes();
 
             }
             
-
-
             }
         });
+        
+       
     }
+    
 }

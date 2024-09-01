@@ -4,6 +4,9 @@
  */
 package Vistas;
 
+import Controlador.ctrlTransportes;
+import Modelo.Transportes;
+
 /**
  *
  * @author Diego
@@ -20,11 +23,15 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
-    
-    
+        
          public static void initFrmVerRegistroTransportes(){
-        frmVerRegistroTransporter vista = new frmVerRegistroTransporter();
-        vista.setVisible(true);
+               Transportes Modelo = new Transportes();
+        frmVerRegistroTransporter Registro = new frmVerRegistroTransporter();
+        frmAgregarTransportes agregarTransportes = new frmAgregarTransportes();
+        ctrlTransportes Controlador  = new ctrlTransportes(Modelo, agregarTransportes, Registro);
+        
+        Registro.setVisible(true);
+
     }
 
     /**
@@ -42,7 +49,7 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtTransportes = new javax.swing.JTable();
         btnEliminar = new Vistas.btnRojoForms();
         btnActualizar = new Vistas.btnRojoForms();
         jButton2 = new javax.swing.JButton();
@@ -80,9 +87,8 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setForeground(new java.awt.Color(255, 173, 122));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtTransportes.setForeground(new java.awt.Color(255, 173, 122));
+        jtTransportes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -93,7 +99,7 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtTransportes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 730, -1));
 
@@ -180,14 +186,7 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmVerRegistroTransporter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmVerRegistroTransporter().setVisible(true);
-            }
-        });
+        //</editor-fold> 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -201,8 +200,8 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JTable jtTransportes;
     private Vistas.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }

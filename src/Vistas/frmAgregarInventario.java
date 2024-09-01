@@ -108,13 +108,11 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         jLabel4.setText("Nombre del recurso");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, 20));
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(240, 139, 77));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "En uso" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 200, 40));
 
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(240, 139, 77));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arruinado", "Usado", "Nuevo" }));
@@ -141,7 +139,6 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/agregarBlanco.png"))); // NOI18N
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 40, 40));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(240, 139, 77));
@@ -169,6 +166,7 @@ public class frmAgregarInventario extends javax.swing.JFrame {
 
         btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/lista.png"))); // NOI18N
         btnMenu.setBorder(null);
+        btnMenu.setContentAreaFilled(false);
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
