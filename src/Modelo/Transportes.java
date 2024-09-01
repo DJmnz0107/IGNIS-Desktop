@@ -1,5 +1,6 @@
 package Modelo;
 
+import Vistas.frmVerRegistroTransporter;
 import java.sql.*;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +16,23 @@ public class Transportes {
     private String disponibilidad_transporte;
     private String estado_transporte;
 
+    
+    
+    public Transportes() {
+        // Inicialización si es necesario
+    }
+
+    // Constructor con parámetros
+    public Transportes(int id, String placa, String numero, int capacidad, String tipoVehiculo, String disponibilidad, String estado) {
+        this.id_transporte = id;
+        this.placa_transporte = placa;
+        this.numero_transporte = numero;
+        this.capacidad_transporte = capacidad;
+        this.tipoVehiculo_transporte = tipoVehiculo;
+        this.disponibilidad_transporte = disponibilidad;
+        this.estado_transporte = estado;
+    }
+    
     public int getId_transporte() {
         return id_transporte;
     }
@@ -71,39 +89,43 @@ public class Transportes {
         this.estado_transporte = estado_transporte;
     }
     
-    public void Mostrar(JTable tabla) {
-        
-        Connection conexion = ClaseConexion.getConexion();
- 
-        
-        DefaultTableModel modeloDeDatos = new DefaultTableModel();
-        modeloDeDatos.setColumnIdentifiers(new Object[]{"placa", "numero", "capacidad", "Tipo de vehivulo","disponibilidad","estado"});
- 
-        try {
-            
-            Statement statement = conexion.createStatement();
- 
-           
-            ResultSet rs = statement.executeQuery("SELECT * FROM Transportes");
- 
-            
-            while (rs.next()) {
-                
-                modeloDeDatos.addRow(new Object[]{
-                    rs.getString("placa_transporte"),
-                    rs.getString("numero_transporte"),
-                    rs.getInt("capacidad_transporte"),
-                    rs.getString("tipoVehiculo_transporte"),
-                    rs.getString("disponibilidad_transporte"),
-                    rs.getString("estado_transporte")});
-            }
- 
-          
-            tabla.setModel(modeloDeDatos);
-        } catch (Exception e) {
-            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+    
+public void Mostrar(JTable tabla) {
+    Connection conexion = ClaseConexion.getConexion();
+    DefaultTableModel modeloDeDatos = new DefaultTableModel();
+
+    modeloDeDatos.setColumnIdentifiers(new Object[]{
+        "ID", "Placa", "Número", "Capacidad", "Tipo de Vehículo", "Disponibilidad", "Estado"
+    });
+
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Transportes");
+
+        while (rs.next()) {
+            modeloDeDatos.addRow(new Object[]{
+                rs.getInt("id_transporte"), 
+                rs.getString("placa_transporte"),
+                rs.getString("numero_transporte"),
+                rs.getInt("capacidad_transporte"),
+                rs.getString("tipoVehiculo_transporte"),
+                rs.getString("disponibilidad_transporte"),
+                rs.getString("estado_transporte")
+            });
         }
+
+        // Asigna el modelo de datos a la tabla
+        tabla.setModel(modeloDeDatos);
+
+        // Oculta la columna del id (índice 0)
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+
+    } catch (Exception e) {
+        System.out.println("Este es el error en el modelo, metodo mostrar: " + e.getMessage());
     }
+}
     
    public void Guardar(){
     Connection conexion = ClaseConexion.getConexion();
@@ -127,5 +149,51 @@ public class Transportes {
         System.out.println("Este es el error en el modelo: metodo guardar " + ex);
     }
 }
+   
+   
+
+    public Transportes obtenerDatosTabla(frmVerRegistroTransporter vista) {
+        int filaSeleccionada = vista.jtTransportes.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+            int id = (Integer) vista.jtTransportes.getValueAt(filaSeleccionada, 0);
+            String placa = vista.jtTransportes.getValueAt(filaSeleccionada, 1).toString();
+            String numero = vista.jtTransportes.getValueAt(filaSeleccionada, 2).toString();
+            Object capacidadObj = vista.jtTransportes.getValueAt(filaSeleccionada, 3);
+            int capacidadTransporte = (capacidadObj instanceof Integer) ? (Integer) capacidadObj : ((Number) capacidadObj).intValue();
+            String tipoVehiculo = vista.jtTransportes.getValueAt(filaSeleccionada, 4).toString();
+            String disponibilidadTransporte = vista.jtTransportes.getValueAt(filaSeleccionada, 5).toString();
+            String estadoTransporte = vista.jtTransportes.getValueAt(filaSeleccionada, 6).toString();
+
+            return new Transportes(id, placa, numero, capacidadTransporte, tipoVehiculo, disponibilidadTransporte, estadoTransporte);
+        }
+        return null;
+    }
+    
+    public void actualizarTransportes() {
+                Connection conexion = ClaseConexion.getConexion();
+
+                try { 
+                PreparedStatement updateTransporte = conexion.prepareStatement("update Transportes set placa_transporte = ?, numero_transporte = ?, capacidad_transporte = ?,  tipoVehiculo_transporte  = ?,  disponibilidad_transporte = ?, estado_transporte = ? where id_transporte = ?");
+                
+                updateTransporte.setString(1, getPlaca_transporte());
+                updateTransporte.setString(2, getNumero_transporte());
+                updateTransporte.setInt(3, getCapacidad_transporte());
+                updateTransporte.setString(4, getTipoVehiculo_transporte());
+                updateTransporte.setString(5, getDisponibilidad_transporte());
+                updateTransporte.setString(6, getEstado_transporte());
+                updateTransporte.setInt(7, getId_transporte());
+                
+                updateTransporte.executeUpdate();
+                
+                
+                
+                
+         
+            } catch (Exception e) {
+                System.out.println("este es el error en el metodo de actualizar" + e);
+            }
+    }
+    
     
 }
