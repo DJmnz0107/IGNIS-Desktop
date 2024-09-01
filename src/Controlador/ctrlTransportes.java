@@ -23,7 +23,7 @@ public class ctrlTransportes implements MouseListener{
         modelo.Mostrar(verRegistroTransporter.jtTransportes);
         
          this.VistasverRegistroTransporter.btnAgregar.addMouseListener(this);
-         //addActionListener(e -> guardarTransporte())
+        
         
     }
         
