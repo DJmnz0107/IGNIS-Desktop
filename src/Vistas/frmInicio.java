@@ -30,8 +30,8 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         panelRound1 = new Vistas.PanelRound();
         jButton1 = new javax.swing.JButton();
-        panelRound3 = new Vistas.PanelRound();
         panelRound21 = new Vistas.panelRound2();
+        panelRound31 = new Vistas.panelRound3();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,41 +74,39 @@ public class frmInicio extends javax.swing.JFrame {
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 600));
 
-        panelRound3.setBackground(new java.awt.Color(245, 178, 74));
-        panelRound3.setRoundBottomLeft(50);
-        panelRound3.setRoundBottomRight(50);
-        panelRound3.setRoundTopLeft(50);
-        panelRound3.setRoundTopRight(50);
+        panelRound21.setBackground(new java.awt.Color(245, 216, 99));
+
+        panelRound31.setBackground(new java.awt.Color(240, 139, 77));
+
+        javax.swing.GroupLayout panelRound31Layout = new javax.swing.GroupLayout(panelRound31);
+        panelRound31.setLayout(panelRound31Layout);
+        panelRound31Layout.setHorizontalGroup(
+            panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 682, Short.MAX_VALUE)
+        );
+        panelRound31Layout.setVerticalGroup(
+            panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 425, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout panelRound21Layout = new javax.swing.GroupLayout(panelRound21);
         panelRound21.setLayout(panelRound21Layout);
         panelRound21Layout.setHorizontalGroup(
             panelRound21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 846, Short.MAX_VALUE)
+            .addGroup(panelRound21Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(panelRound31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         panelRound21Layout.setVerticalGroup(
             panelRound21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
+            .addGroup(panelRound21Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(panelRound31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
-        panelRound3.setLayout(panelRound3Layout);
-        panelRound3Layout.setHorizontalGroup(
-            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound3Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(panelRound21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
-        );
-        panelRound3Layout.setVerticalGroup(
-            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound3Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(panelRound21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-        );
-
-        jPanel1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+        jPanel1.add(panelRound21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 730, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,6 +167,6 @@ public class frmInicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private Vistas.PanelRound panelRound1;
     private Vistas.panelRound2 panelRound21;
-    private Vistas.PanelRound panelRound3;
+    private Vistas.panelRound3 panelRound31;
     // End of variables declaration//GEN-END:variables
 }
