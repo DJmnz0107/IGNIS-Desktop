@@ -89,6 +89,31 @@ public class Usuarios {
         }
         return login;
     }
+public String obtenerUsuario() {
+    String nombreUsuario = null;
+    Connection conexion = ClaseConexion.getConexion();
+    
+    try {
+        PreparedStatement verificarLogin = conexion.prepareStatement("SELECT nombre_usuario FROM Usuarios WHERE nombre_usuario = ? AND contrasena_usuario = ?");
+        
+        verificarLogin.setString(1, getNombre_usuario());
+        verificarLogin.setString(2, getContrasena_usuario()); 
+        
+        ResultSet rs = verificarLogin.executeQuery();
+        
+        if (rs.next()) {
+            nombreUsuario = rs.getString("nombre_usuario");
+        }
+        
+        rs.close();
+        verificarLogin.close();
+        
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+    
+    return nombreUsuario;
+}
     
     public boolean verificarUsuario() {
                 boolean usuarios = false;

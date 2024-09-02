@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -44,19 +44,22 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jlblTextoInicio">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Microsoft JhengHei UI" size="24" style="1"/>
+              <Font name="Microsoft JhengHei UI" size="28" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Bienvenido a IGNIS nos alegra verte de nuevo "/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="380" y="10" width="820" height="80"/>
+              <AbsoluteConstraints x="210" y="0" width="940" height="80"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -79,8 +82,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnMenu" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -88,14 +91,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="32" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnMenu" min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace pref="594" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnMenu">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Vistas/resources/lista.png"/>
@@ -103,10 +106,15 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="frmAgregarInventario_btnMenu"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -168,12 +176,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Estad&#xed;sticas"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="14" style="1"/>
+                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="50" y="250" width="170" height="60"/>
+                      <AbsoluteConstraints x="50" y="230" width="170" height="60"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -187,12 +195,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Informes"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="14" style="1"/>
+                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="400" y="330" width="170" height="60"/>
+                      <AbsoluteConstraints x="400" y="310" width="170" height="60"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -206,12 +214,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Transporte"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="14" style="1"/>
+                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="400" y="90" width="170" height="60"/>
+                      <AbsoluteConstraints x="400" y="70" width="170" height="60"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -225,12 +233,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Inventario"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="14" style="1"/>
+                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="50" y="170" width="170" height="60"/>
+                      <AbsoluteConstraints x="50" y="150" width="170" height="60"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -244,12 +252,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Misiones"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="14" style="1"/>
+                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="400" y="250" width="170" height="60"/>
+                      <AbsoluteConstraints x="400" y="230" width="170" height="60"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -263,12 +271,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Seguimiento"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="14" style="1"/>
+                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="400" y="170" width="170" height="60"/>
+                      <AbsoluteConstraints x="400" y="150" width="170" height="60"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -282,12 +290,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Bomberos"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="14" style="1"/>
+                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="50" y="90" width="170" height="60"/>
+                      <AbsoluteConstraints x="50" y="70" width="170" height="60"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -301,12 +309,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Emergencias"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="14" style="1"/>
+                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="50" y="330" width="170" height="60"/>
+                      <AbsoluteConstraints x="50" y="310" width="170" height="60"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -321,12 +329,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Crear nuevo usuario"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Microsoft YaHei UI" size="14" style="1"/>
+              <Font name="Microsoft JhengHei UI" size="18" style="1"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="280" y="570" width="240" height="50"/>
+              <AbsoluteConstraints x="260" y="580" width="250" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -337,12 +345,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Microsoft YaHei UI" size="14" style="1"/>
+              <Font name="Microsoft JhengHei UI Light" size="18" style="1"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="540" y="570" width="230" height="50"/>
+              <AbsoluteConstraints x="520" y="580" width="240" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -353,12 +361,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Ver cambios"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Microsoft YaHei UI" size="14" style="1"/>
+              <Font name="Microsoft JhengHei UI" size="18" style="1"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="790" y="570" width="220" height="50"/>
+              <AbsoluteConstraints x="770" y="580" width="230" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
