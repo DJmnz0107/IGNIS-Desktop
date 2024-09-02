@@ -5,6 +5,7 @@ import Vistas.frmAgregarTransportes;
 import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 
 public class ctrlTransportes implements MouseListener{
@@ -23,6 +24,8 @@ public class ctrlTransportes implements MouseListener{
         modelo.Mostrar(verRegistroTransporter.jtTransportes);
         
          this.VistasverRegistroTransporter.btnAgregar.addMouseListener(this);
+         
+         this.verRegistroTransporter.btnEliminar.addMouseListener(this);
         
         
     }
@@ -54,6 +57,12 @@ public class ctrlTransportes implements MouseListener{
            Modelo.Guardar();
            Modelo.Limpiar(VistasverRegistroTransporter);
        }      
+       
+       if(e.getSource()== verRegistroTransporter.btnEliminar){
+           
+                Modelo.Eliminar(verRegistroTransporter.jtTransportes);
+                Modelo.Mostrar(verRegistroTransporter.jtTransportes);    
+       }
        
     }
     

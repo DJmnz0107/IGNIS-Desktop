@@ -82,7 +82,7 @@ public class Transportes {
  
         
         DefaultTableModel modeloDeDatos = new DefaultTableModel();
-        modeloDeDatos.setColumnIdentifiers(new Object[]{"placa", "numero", "capacidad", "Tipo de vehivulo","disponibilidad","estado"});
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"id","placa", "numero", "capacidad", "Tipo de vehivulo","disponibilidad","estado"});
  
         try {
             
@@ -95,6 +95,7 @@ public class Transportes {
             while (rs.next()) {
                 
                 modeloDeDatos.addRow(new Object[]{
+                    rs.getInt("id_transporte"),
                     rs.getString("placa_transporte"),
                     rs.getString("numero_transporte"),
                     rs.getInt("capacidad_transporte"),
@@ -105,6 +106,11 @@ public class Transportes {
  
           
             tabla.setModel(modeloDeDatos);
+            
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+            
         } catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
@@ -140,5 +146,27 @@ public class Transportes {
        Vistas.txtEstado.setText("");
    
    }
+   
+   public void Eliminar(JTable tabla) {
+    Connection conexion = ClaseConexion.getConexion();
+
+    int filaSeleccionada = tabla.getSelectedRow();
+
+    String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
+    
+    try {
+        String sql = "DELETE FROM Transportes WHERE id_transporte = ?";
+        PreparedStatement deleteTransporte = conexion.prepareStatement(sql);
+
+        
+        int idTransporte = Integer.parseInt(miId);
+        deleteTransporte.setInt(1, idTransporte);
+
+        deleteTransporte.executeUpdate();
+        
+    } catch (Exception e) {
+        System.out.println("Este es el error en el método de eliminar: " + e);
+    }
+}
     
 }

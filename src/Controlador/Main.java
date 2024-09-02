@@ -30,7 +30,7 @@ public class Main {
                frmPrimerUso.initFrmCrearCuenta();
             } else {
                 frmLogin.initfrmLogin();
-                frmAgregarTransportes.initfrmAgregarTransportes();
+                frmVerRegistroTransporter.initFrmVerRegistroTransportes();
 
             }
             
