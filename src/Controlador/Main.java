@@ -12,6 +12,7 @@ import Vistas.frmAgregarTransportes;
 import Vistas.frmLogin;
 import Vistas.frmMenu;
 import Vistas.frmPrimerUso;
+import Vistas.frmRecuperacionContrasena;
 import Vistas.frmVerRegistroTransporter;
 
 
@@ -30,7 +31,7 @@ public class Main {
                frmPrimerUso.initFrmCrearCuenta();
             } else {
                 frmLogin.initfrmLogin();
-
+                frmRecuperacionContrasena.initfrmRecuperacionContrasena();
             }
             
             }
