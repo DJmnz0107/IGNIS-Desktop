@@ -90,6 +90,33 @@ public class Usuarios {
         return login;
     }
     
+    public boolean revisarRecuperacionContra() {
+    boolean recu = false;
+    
+    Connection conexion = ClaseConexion.getConexion();
+    
+    try {
+        PreparedStatement verificarRecu = conexion.prepareStatement("SELECT * FROM Usuarios WHERE TRIM(nombre_usuario) = ?");
+        verificarRecu.setString(1, getNombre_usuario());
+        
+        ResultSet rs = verificarRecu.executeQuery();
+        
+        recu = rs.next();  // Si hay un resultado, significa que el usuario existe.
+        
+        rs.close();
+        verificarRecu.close();
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+    
+    return recu;
+}
+    
+    
+    
+    
+    
+    
     public boolean verificarUsuario() {
                 boolean usuarios = false;
 

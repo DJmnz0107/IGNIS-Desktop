@@ -3,10 +3,12 @@ package Controlador;
 
 import Modelo.CredencialesRecuContra;
 import Modelo.EnviarCodigo;
+import Modelo.Usuarios;
 import Vistas.frmRecuperacionContrasena;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 
 
@@ -29,22 +31,28 @@ public class ctrlRecuContrasena implements MouseListener {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+public void mouseClicked(MouseEvent e) {
+    if(e.getSource() == Vistas.btnRecuContra) {
+        Usuarios VerificarUser = new Usuarios();
+        VerificarUser.setNombre_usuario(Vistas.txtRecuUsuario.getText()); 
         
-          if(e.getSource()== Vistas.btnRecuContra)
-        {
-          Random random = new Random();
+        
+        boolean ReviarUser = VerificarUser.revisarRecuperacionContra();
+        if (ReviarUser) {
+            Random random = new Random();
+            int numeroAleatorio = 100000 + random.nextInt(900000);
           
-          int numeroAleatorio = 100000 + random.nextInt(900000);
-          
-           String recipient = Vistas.txtRecuCorreo.getText();
-            String subject = "Recuperacion de contraseña";
-            String content = "Este es el codigo de recuperacion:" + numeroAleatorio;
+            String recipient = Vistas.txtRecuCorreo.getText();
+            String subject = "Recuperación de contraseña";
+            String content = "Este es el código de recuperación: " + numeroAleatorio;
 
-          EnviarCodigo.enviarCorreo(recipient, subject, content);
+            EnviarCodigo.enviarCorreo(recipient, subject, content);
+            JOptionPane.showMessageDialog(Vistas, "Correo enviado", "Recuperación de Contraseña", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(Vistas, "Usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
     }
+}
 
     @Override
     public void mousePressed(MouseEvent e) {
