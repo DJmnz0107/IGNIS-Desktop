@@ -94,6 +94,7 @@ public class frmLogin extends JFrame  {
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         loginBackground1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 310, 80, -1));
 
+        txtUsuario.setHint("Ingresa tu usuario");
         txtUsuario.setInheritsPopupMenu(true);
         txtUsuario.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/userIconNew.png"))); // NOI18N
         loginBackground1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 380, 440, 60));
@@ -110,6 +111,8 @@ public class frmLogin extends JFrame  {
         btnLogin.setText("Iniciar Sesión");
         btnLogin.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         loginBackground1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 580, 270, 50));
+
+        txtContrasena.setHint("Ingresa tu contraseña");
         loginBackground1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 440, 60));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/accountCircle.png"))); // NOI18N

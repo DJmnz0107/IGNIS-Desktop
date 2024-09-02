@@ -3,7 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/EnviarCodigo.java</file>
+=======
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Controlador/ctrlLogin.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Controlador/Main.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Controlador/ctrlVerUsuarios.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Controlador/ctrlCrearCuenta.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Vistas/frmVerUsuarios.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Vistas/frmCrearCuenta.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Vistas/frmLogin.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Modelo/Usuarios.java</file>
+>>>>>>> Alessandro
         </group>
     </open-files>
 </project-private>
