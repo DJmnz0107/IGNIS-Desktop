@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.Niveles;
 import Modelo.Usuarios;
 import Vistas.frmCrearCuenta;
+import Vistas.frmInicio;
 import Vistas.frmVerUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +24,7 @@ public class ctrlCrearCuenta implements MouseListener {
         
         vista.btnCrearCuenta.addMouseListener(this);
         vista.btnVerUsuarios.addMouseListener(this);
+        vista.imgBack.addMouseListener(this);
         
         modeloNivel.obtenerNiveles(vista.jcmbTipoUsuario);
     }
@@ -83,6 +85,12 @@ public class ctrlCrearCuenta implements MouseListener {
     if (e.getSource() == Vista.btnVerUsuarios) {
         Vista.dispose();
         frmVerUsuarios.initfrmVerUsuarios();
+    }
+    
+    if(e.getSource() == Vista.imgBack) {
+        Vista.dispose();
+         String nombreUsuario = ModeloUsuario.obtenerUsuario();
+        frmInicio.initfrmInicio(nombreUsuario);
     }
 }
 

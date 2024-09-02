@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Controlador.ctrlInicio;
 import Modelo.Usuarios;
 import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
@@ -44,7 +45,8 @@ public class frmInicio extends javax.swing.JFrame {
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
-        frmInicio vista = new frmInicio(usuario);
+                frmInicio vista = new frmInicio(usuario);
+        ctrlInicio controlador = new ctrlInicio(vista);
         
         vista.setVisible(true);
     }
@@ -73,8 +75,8 @@ public class frmInicio extends javax.swing.JFrame {
         btnInicio8 = new Vistas.btnInicio();
         btnInicio9 = new Vistas.btnInicio();
         btnInicio10 = new Vistas.btnInicio();
-        btnInicio21 = new Vistas.btnInicio2();
-        btnInicio31 = new Vistas.btnInicio3();
+        btnCrearUsuario = new Vistas.btnInicio2();
+        btnCerrarSesión = new Vistas.btnInicio3();
         btnInicio41 = new Vistas.btnInicio4();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -182,15 +184,15 @@ public class frmInicio extends javax.swing.JFrame {
 
         jPanel1.add(panelRound21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 730, 480));
 
-        btnInicio21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoAgregarU.png"))); // NOI18N
-        btnInicio21.setText("Crear nuevo usuario");
-        btnInicio21.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnInicio21, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, 250, 50));
+        btnCrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoAgregarU.png"))); // NOI18N
+        btnCrearUsuario.setText("Crear nuevo usuario");
+        btnCrearUsuario.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jPanel1.add(btnCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, 250, 50));
 
-        btnInicio31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCerrar.png"))); // NOI18N
-        btnInicio31.setText("Cerrar sesión");
-        btnInicio31.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 18)); // NOI18N
-        jPanel1.add(btnInicio31, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 580, 240, 50));
+        btnCerrarSesión.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCerrar.png"))); // NOI18N
+        btnCerrarSesión.setText("Cerrar sesión");
+        btnCerrarSesión.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 18)); // NOI18N
+        jPanel1.add(btnCerrarSesión, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 580, 240, 50));
 
         btnInicio41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoVer.png"))); // NOI18N
         btnInicio41.setText("Ver cambios");
@@ -251,10 +253,10 @@ public class frmInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public Vistas.btnInicio3 btnCerrarSesión;
+    public Vistas.btnInicio2 btnCrearUsuario;
     private Vistas.btnInicio btnInicio10;
-    private Vistas.btnInicio2 btnInicio21;
     private Vistas.btnInicio btnInicio3;
-    private Vistas.btnInicio3 btnInicio31;
     private Vistas.btnInicio btnInicio4;
     private Vistas.btnInicio4 btnInicio41;
     private Vistas.btnInicio btnInicio5;
