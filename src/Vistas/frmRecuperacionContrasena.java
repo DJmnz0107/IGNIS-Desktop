@@ -28,15 +28,25 @@ public class frmRecuperacionContrasena extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         textFieldBlanco1 = new Vistas.TextFieldBlanco();
+        textFieldBlanco2 = new Vistas.TextFieldBlanco();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnRecuContra = new Vistas.btnPrimerUso();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 590));
+        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Recuperacion de Contraseña");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -45,24 +55,78 @@ public class frmRecuperacionContrasena extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(750, Short.MAX_VALUE))
+                .addGap(198, 198, 198)
+                .addComponent(jLabel3)
+                .addContainerGap(296, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 140));
 
-        textFieldBlanco1.setText("textFieldBlanco1");
-        getContentPane().add(textFieldBlanco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 130, 50));
+        textFieldBlanco1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldBlanco1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textFieldBlanco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 250, 50));
+
+        textFieldBlanco2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldBlanco2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textFieldBlanco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 250, 50));
+
+        jLabel2.setBackground(new java.awt.Color(240, 139, 77));
+        jLabel2.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(240, 139, 77));
+        jLabel2.setText("Ingresa Correo:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
+
+        jLabel4.setBackground(new java.awt.Color(240, 139, 77));
+        jLabel4.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(240, 139, 77));
+        jLabel4.setText("Ingresa Usuario:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, -1));
+
+        btnRecuContra.setText("Restablecer");
+        btnRecuContra.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
+        getContentPane().add(btnRecuContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 100, 40));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 460));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textFieldBlanco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldBlanco1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldBlanco1ActionPerformed
+
+    private void textFieldBlanco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldBlanco2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldBlanco2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,8 +164,14 @@ public class frmRecuperacionContrasena extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public Vistas.btnPrimerUso btnRecuContra;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private Vistas.TextFieldBlanco textFieldBlanco1;
+    private Vistas.TextFieldBlanco textFieldBlanco2;
     // End of variables declaration//GEN-END:variables
 }
