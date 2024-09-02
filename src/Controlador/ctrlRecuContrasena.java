@@ -5,6 +5,7 @@ import Modelo.CredencialesRecuContra;
 import Modelo.EnviarCodigo;
 import Modelo.Usuarios;
 import Vistas.frmRecuperacionContrasena;
+import Vistas.frmVerificarCodigo;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Random;
@@ -17,6 +18,11 @@ import javax.swing.JOptionPane;
 
 public class ctrlRecuContrasena implements MouseListener {
     
+    static Random random = new Random();
+           
+     static int numeroAleatorio = 100000 + random.nextInt(900000);
+    
+     
    private CredencialesRecuContra Modelo;
     private frmRecuperacionContrasena Vistas;
 
@@ -26,6 +32,7 @@ public class ctrlRecuContrasena implements MouseListener {
         this.Vistas = Vistas;
         
          Vistas.btnRecuContra.addMouseListener(this);
+         Vistas.btnVerficarCode.addMouseListener(this);
 
     
     }
@@ -39,8 +46,7 @@ public void mouseClicked(MouseEvent e) {
         
         boolean ReviarUser = VerificarUser.revisarRecuperacionContra();
         if (ReviarUser) {
-            Random random = new Random();
-            int numeroAleatorio = 100000 + random.nextInt(900000);
+            
           
             String recipient = Vistas.txtRecuCorreo.getText();
             String subject = "Recuperación de contraseña";
@@ -51,6 +57,11 @@ public void mouseClicked(MouseEvent e) {
         } else {
             JOptionPane.showMessageDialog(Vistas, "Usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    if(e.getSource() == Vistas.btnVerficarCode) {
+        frmVerificarCodigo.initFrmVerificar();
+        Vistas.dispose();
     }
 }
 

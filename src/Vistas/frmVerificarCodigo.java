@@ -4,6 +4,8 @@
  */
 package Vistas;
 
+import Controlador.ctrlVerificarCodigo;
+
 /**
  *
  * @author USUARIO
@@ -15,6 +17,13 @@ public class frmVerificarCodigo extends javax.swing.JFrame {
      */
     public frmVerificarCodigo() {
         initComponents();
+    }
+    
+    public static void initFrmVerificar() {
+        frmVerificarCodigo vista = new frmVerificarCodigo();
+        ctrlVerificarCodigo controlador = new ctrlVerificarCodigo(vista); 
+        vista.setVisible(true);
+        
     }
 
     /**
@@ -173,7 +182,6 @@ public class frmVerificarCodigo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmVerificarCodigo().setVisible(true);
             }
         });
     }

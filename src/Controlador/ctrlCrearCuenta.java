@@ -19,6 +19,7 @@ public class ctrlCrearCuenta implements MouseListener {
         this.ModeloUsuario = modeloUsuarios;
         this.Vista = vista;
         
+        
         vista.btnCrearCuenta.addMouseListener(this);
         
         modeloNivel.obtenerNiveles(vista.jcmbTipoUsuario);
