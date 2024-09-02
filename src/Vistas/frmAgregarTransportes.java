@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Controlador.ctrlRegistroTransporte;
 import Controlador.ctrlTransportes;
 import Modelo.Transportes;
 
@@ -12,6 +13,8 @@ import Modelo.Transportes;
  * @author angel
  */
 public class frmAgregarTransportes extends javax.swing.JFrame {
+        private static frmAgregarTransportes instance;
+
 
     /**
      * Creates new form frmAgregarTransportes
@@ -21,6 +24,21 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
         
         
     }
+    
+    public static void initFrmAgregarTransportes() {
+    if (instance == null) {
+        Transportes modelo = new Transportes();
+        frmAgregarTransportes vista = new frmAgregarTransportes();
+        frmVerRegistroTransporter registroTransporter = new frmVerRegistroTransporter();
+        ctrlTransportes controlador = new ctrlTransportes(modelo, vista, registroTransporter);
+        instance = vista; 
+    }
+    instance.setVisible(true);
+}
+
+public static frmAgregarTransportes getInstance() {
+    return instance;
+}
     
     public static void initfrmAgregarTransportes() {
         Transportes modelo = new Transportes();

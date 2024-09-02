@@ -27,34 +27,37 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
     @Override
     public SimpleMenuOption getSimpleMenuOption() {
         String menus[][] = {
-            {"~MAIN~"},
+             {"~Menu~"},
             {"Dashboard"},
-            {"~WEB APP~"},
+     
             {"Bomberos"},
-            {"Inventario"},
+            {"inventario"},
+            {"Calendar"},
+            
             {"Transporte"},
-            {"~COMPONENT~"},
-            {"Seguimientp",},
+            {"Seguimiento"},
+            
             {"Estadisticas",},
-            {"~OTHER~"},
-            {"Estadisticas",},
-            {"Emergencias",},
-            {"Misiones",},
+            {"Emergencias"},
+            {"Misiones"},
             {"Informes"},
-            {"Cerrar sesion"}};
+            {"~Cuenta~"},
+            {"Cerrar sesion"},
+            {"Inicio"}};
 
         String icons[] = {
             "dashboard.svg",
-            "email.svg",
-            "chat.svg",
+            "firefighter1.svg",
+            "manguera.svg",
             "calendar.svg",
-            "ui.svg",
-            "forms.svg",
-            "chart.svg",
-            "icon.svg",
-            "page.svg",
-            "logout.svg",
-            "logout.avg"};
+            "fire-truck.svg",
+            "seguimiento.svg",
+            "staticircle.svg",
+            "emergencia.svg",
+            "mision.svg",
+            "informe.svg",
+            "logout_1.svg",
+            "inicio.svg"};
         
         return new SimpleMenuOption()
                 .setMenus(menus)
@@ -68,7 +71,7 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
 
                         Class<? extends JFrame> nuevaVentanaClass = null;
 
-                    if (index == 2) {
+                    if (index == 4) {
                         frmVerRegistroTransporter.initFrmVerRegistroTransportes();
                         JFrame nuevaVentana = frmVerRegistroTransporter.getInstance();
 
@@ -76,6 +79,15 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                             ventanaActual.dispose(); 
                         }
                         ventanaActual = nuevaVentana; 
+                    }
+                    if(index == 2) {
+                       frmAgregarTransportes.initfrmAgregarTransportes();
+                       JFrame NuevaVentana = frmAgregarTransportes.getInstance();
+                       
+                       if (ventanaActual !=null && !ventanaActual.equals(NuevaVentana)) {
+                           ventanaActual.dispose();
+                       }
+                        
                     }
 
 
