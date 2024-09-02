@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Controlador.ctrlRegistroTransporte;
 import Controlador.ctrlTransportes;
 import Modelo.Transportes;
 
@@ -12,11 +13,13 @@ import Modelo.Transportes;
  * @author Diego
  */
 public class frmVerRegistroTransporter extends javax.swing.JFrame {
+    private static frmVerRegistroTransporter instance;
 
     /**
      * Creates new form frmVerRegistroTransporter
      */
     public frmVerRegistroTransporter() {
+        
         initComponents();
         this.setSize(1250, 800);
 
@@ -24,15 +27,20 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         
     }
         
-         public static void initFrmVerRegistroTransportes(){
-               Transportes Modelo = new Transportes();
-        frmVerRegistroTransporter Registro = new frmVerRegistroTransporter();
-        frmAgregarTransportes agregarTransportes = new frmAgregarTransportes();
-        ctrlTransportes Controlador  = new ctrlTransportes(Modelo, agregarTransportes, Registro);
-        
-        Registro.setVisible(true);
-
+public static void initFrmVerRegistroTransportes() {
+    if (instance == null) {
+        Transportes modelo = new Transportes();
+        frmVerRegistroTransporter vista = new frmVerRegistroTransporter();
+        ctrlRegistroTransporte controlador = new ctrlRegistroTransporte(modelo, vista);
+        instance = vista; 
     }
+    instance.setVisible(true);
+}
+
+public static frmVerRegistroTransporter getInstance() {
+    return instance;
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -143,7 +151,7 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1238, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1250, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

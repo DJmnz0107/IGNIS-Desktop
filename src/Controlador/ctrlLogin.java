@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.Usuarios;
 import Vistas.frmAgregarInventario;
 import Vistas.frmCrearCuenta;
+import Vistas.frmInicio;
 import Vistas.frmLogin;
 import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
@@ -30,46 +31,33 @@ public class ctrlLogin implements MouseListener {
         vista.btnLogin.addMouseListener(this);
     }
     
-    public void mostrarAgregarInventario() {
-    SwingUtilities.invokeLater(() -> {
-        frmAgregarInventario frame = new frmAgregarInventario();
-        frame.setVisible(true);
-    });
-}
     @Override
-    public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == vista.btnLogin) {
-                        if (vista.txtUsuario.getText().isEmpty() ||
-                vista.txtContrasena.getText().isEmpty())
-                                {
+public void mouseClicked(MouseEvent e) {
+    if (e.getSource() == vista.btnLogin) {
+        if (vista.txtUsuario.getText().isEmpty() || vista.txtContrasena.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(vista, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            modelo.setNombre_usuario(vista.txtUsuario.getText());
+            modelo.setContrasena_usuario(vista.txtContrasena.getText());
+            
+            boolean usuarioValido = modelo.revisarLogin();
+            
+            if (usuarioValido) {
+                JOptionPane.showMessageDialog(vista, "Sesión iniciada con éxito", "Inicio de sesión", JOptionPane.INFORMATION_MESSAGE);
                 
-                JOptionPane.showMessageDialog(vista, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                vista.dispose();
+                
+                String nombreUsuario = modelo.obtenerUsuario();
+                
+                frmInicio.initfrmInicio(nombreUsuario);
+                
             } else {
-                            modelo.setNombre_usuario(vista.txtUsuario.getText());
-                            modelo.setContrasena_usuario(vista.txtContrasena.getText());
-                            
-                            boolean usuarioValido = modelo.revisarLogin();
-                            
-                            if(usuarioValido) {
-                                      JOptionPane.showMessageDialog(vista, 
-                              "Sesión iniciada con éxito", 
-                              "Inicio de sesión", 
-                              JOptionPane.INFORMATION_MESSAGE);
-                                      
-                                      vista.dispose();
-                                      
-                                      frmAgregarInventario.initfrmAgregarInventario();
-                                      
-                                      
-                            } else {
-                                       JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
-                            }
-                            
-                      
-                        }
-                      
+                JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
+}
+
 
     @Override
     public void mousePressed(MouseEvent e) {
