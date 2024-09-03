@@ -46,7 +46,7 @@ public static void initFrmVerRegistroTransportes() {
         FlatLightLaf.setup();
         Transportes modelo = new Transportes();
         frmVerRegistroTransporter vista = new frmVerRegistroTransporter();
-        ctrlRegistroTransporte controlador = new ctrlRegistroTransporte(modelo, vista);
+        ctrlRegistroTransporte controlador = new ctrlRegistroTransporte(vista, modelo);
         instance = vista; 
     }
     instance.setVisible(true);

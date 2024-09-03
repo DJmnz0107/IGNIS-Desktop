@@ -55,6 +55,11 @@ public class ctrlTransportes implements MouseListener{
            Modelo.Guardar();
                    JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Información ingresada con éxito", "Agregar transporte", JOptionPane.INFORMATION_MESSAGE);
                   Modelo.Limpiar(VistasverRegistroTransporter);
+                  
+        frmVerRegistroTransporter frmRegistro = frmVerRegistroTransporter.getInstance();
+        if (frmRegistro != null) {
+            Modelo.Mostrar(frmRegistro.jtTransportes);
+        }
 
 
            
@@ -66,6 +71,7 @@ public class ctrlTransportes implements MouseListener{
        if(e.getSource()== VistasverRegistroTransporter.btnVerRegistro){
 
                    frmVerRegistroTransporter.initFrmVerRegistroTransportes();
+                   
                    VistasverRegistroTransporter.dispose();
        
     }

@@ -22,13 +22,13 @@ public class ctrlRegistroTransporte implements MouseListener {
     private frmVerRegistroTransporter vista;
 
 
-public ctrlRegistroTransporte(Transportes modelo, frmVerRegistroTransporter vista) {
+public ctrlRegistroTransporte(frmVerRegistroTransporter vista, Transportes modelo) {
     this.modelo = modelo;
     this.vista = vista;
+    modelo.Mostrar(vista.jtTransportes);
     vista.btnActualizar.addMouseListener(this);
     vista.btnEliminar.addMouseListener(this);
     vista.imgBack.addMouseListener(this);
-     modelo.Mostrar(vista.jtTransportes);
 }    
 
     @Override
@@ -56,6 +56,7 @@ public ctrlRegistroTransporte(Transportes modelo, frmVerRegistroTransporter vist
         
         if(e.getSource() == vista.imgBack) {
             frmAgregarTransportes.initFrmAgregarTransportes();
+            
             vista.dispose();
         }
         
