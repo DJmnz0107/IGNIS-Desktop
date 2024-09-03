@@ -4,6 +4,8 @@
  */
 package Vistas;
 
+import Controlador.ctrlTransportes;
+import Modelo.Transportes;
 import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatLaf;
@@ -21,6 +23,7 @@ import raven.popup.GlassPanePopup;
  * @author Diego
  */
 public class frmAgregarInventario extends javax.swing.JFrame {
+    private static frmAgregarInventario instance;
 
     /**
      * Creates new form frmAgregarInventario
@@ -37,15 +40,24 @@ public class frmAgregarInventario extends javax.swing.JFrame {
 
     }
     
-         public static void initfrmAgregarInventario(){
-             FlatRobotoFont.install();
+    public static void initfrmAgregarInventario() {
+    if (instance == null) {
+        FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
         frmAgregarInventario vista = new frmAgregarInventario();
         vista.setVisible(true);
+        instance = vista; 
     }
+    instance.setVisible(true);
+}
+
+public static frmAgregarInventario getInstance() {
+    return instance;
+}
   
+         
     
     
  

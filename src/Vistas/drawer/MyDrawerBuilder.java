@@ -1,10 +1,13 @@
 package Vistas.drawer;
 
+import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarTransportes;
+import Vistas.frmLogin;
 import Vistas.frmVerRegistroTransporter;
 import javax.swing.JFrame;
 import java.awt.Window;
 import java.awt.KeyboardFocusManager;
+import javax.swing.JOptionPane;
 import raven.drawer.component.SimpleDrawerBuilder;
 import raven.drawer.component.footer.SimpleFooterData;
 import raven.drawer.component.header.SimpleHeaderData;
@@ -72,23 +75,34 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                         Class<? extends JFrame> nuevaVentanaClass = null;
 
                     if (index == 4) {
-                        frmVerRegistroTransporter.initFrmVerRegistroTransportes();
-                        JFrame nuevaVentana = frmVerRegistroTransporter.getInstance();
+                        frmAgregarTransportes.initfrmAgregarTransportes();
+                       JFrame NuevaVentana = frmAgregarTransportes.getInstance();
 
-                        if (ventanaActual != null && !ventanaActual.equals(nuevaVentana)) {
+                        if (ventanaActual != null && !ventanaActual.equals(NuevaVentana)) {
                             ventanaActual.dispose(); 
                         }
-                        ventanaActual = nuevaVentana; 
+                        ventanaActual = NuevaVentana; 
                     }
                     if(index == 2) {
-                       frmAgregarTransportes.initfrmAgregarTransportes();
-                       JFrame NuevaVentana = frmAgregarTransportes.getInstance();
+                        frmAgregarInventario.initfrmAgregarInventario();
+                        JFrame nuevaVentana = frmAgregarInventario.getInstance();
                        
-                       if (ventanaActual !=null && !ventanaActual.equals(NuevaVentana)) {
+                       if (ventanaActual !=null && !ventanaActual.equals(nuevaVentana)) {
                            ventanaActual.dispose();
                        }
                         
                     }
+                    if (index==10){
+                     int opcion = JOptionPane.showConfirmDialog(ventanaActual, 
+                "¿Estás seguro de que deseas cerrar sesión?", 
+                "Confirmar Cierre de Sesión", 
+                JOptionPane.YES_NO_OPTION, 
+                JOptionPane.QUESTION_MESSAGE);
+
+               if (opcion == JOptionPane.YES_OPTION) {
+               frmLogin.initfrmLogin();
+               ventanaActual.dispose();
+                }}
 
 
                        
