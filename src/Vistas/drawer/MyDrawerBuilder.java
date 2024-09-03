@@ -75,7 +75,7 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                         Class<? extends JFrame> nuevaVentanaClass = null;
 
                     if (index == 4) {
-                        frmAgregarTransportes.initfrmAgregarTransportes();
+                        frmAgregarTransportes.initFrmAgregarTransportes();
                        JFrame NuevaVentana = frmAgregarTransportes.getInstance();
 
                         if (ventanaActual != null && !ventanaActual.equals(NuevaVentana)) {
@@ -90,6 +90,9 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                        if (ventanaActual !=null && !ventanaActual.equals(nuevaVentana)) {
                            ventanaActual.dispose();
                        }
+                       
+                                               ventanaActual = nuevaVentana; 
+
                         
                     }
                     if (index==10){

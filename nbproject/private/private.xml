@@ -5,6 +5,7 @@
         <group>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/ClaseConexion.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/nbproject/private/private.properties</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/Main.java</file>
@@ -46,6 +47,25 @@
             <file>file:/C:/Users/danie/Desktop/IGNIS-Desktop/src/Vistas/frmPrimerUso.java</file>
             <file>file:/C:/Users/danie/Desktop/IGNIS-Desktop/src/Controlador/ctrlRegistroTransporte.java</file>
             <file>file:/C:/Users/danie/Desktop/IGNIS-Desktop/src/Vistas/drawer/MyDrawerBuilder.java</file>
+=======
+            <file>file:/C:/Users/User/OneDrive/Escritorio/IGNIS-Desktop/src/Modelo/Transportes.java</file>
+            <file>file:/C:/Users/User/OneDrive/Escritorio/IGNIS-Desktop/src/Vistas/frmVerRegistroTransporter.java</file>
+            <file>file:/C:/Users/User/OneDrive/Escritorio/IGNIS-Desktop/src/Controlador/ctrlTransportes.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/EnviarCodigo.java</file>
+=======
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Controlador/ctrlLogin.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Controlador/Main.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Controlador/ctrlVerUsuarios.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Controlador/ctrlCrearCuenta.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Vistas/frmVerUsuarios.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Vistas/frmCrearCuenta.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Vistas/frmLogin.java</file>
+            <file>file:/C:/Users/aless/Desktop/EXPO%20desktop/IGNIS-Desktop/src/Modelo/Usuarios.java</file>
+>>>>>>> Alessandro
+>>>>>>> Jimenez
+>>>>>>> Nataren
         </group>
     </open-files>
 </project-private>

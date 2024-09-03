@@ -1,8 +1,5 @@
-    /*
-     * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-     * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
-     */
-    package Vistas;
+
+package Vistas;
 
     import java.awt.BasicStroke;
     import java.awt.Color;
@@ -16,13 +13,8 @@
     import javax.swing.Icon;
     import javax.swing.JButton;
 
-
-    /**
-     *
-     * @author Diego
-     */
-    public class btnRojoForms extends JButton {
-        private boolean over;
+public class btnNaranjaForms extends JButton {
+           private boolean over;
         private Color fill;
         private Color line;
 
@@ -36,11 +28,11 @@
 
 
 
-          public btnRojoForms() {
-           fillOriginal = new Color (0xD9473E);
-           fillOver = new Color(0xC7271E);
+          public btnNaranjaForms() {
+           fillOriginal = new Color (0xF5B24A);
+           fillOver = new Color(0xF5B24A);
 
-           fillClick = new Color(0xD9473E);
+           fillClick = new Color(0xF5B24A);
 
            fill = fillOriginal;
            setOpaque(false);
@@ -196,4 +188,5 @@
 
 
 
-    }
+    } 
+

@@ -11,19 +11,19 @@ import javax.swing.JOptionPane;
 public class ctrlTransportes implements MouseListener{
     
     private Transportes Modelo;
-    private frmVerRegistroTransporter verRegistroTransporter;
     private frmAgregarTransportes VistasverRegistroTransporter;
     
-    public ctrlTransportes (Transportes modelo, frmAgregarTransportes VistasverRegistroTransporter, frmVerRegistroTransporter verRegistroTransporter){
+    public ctrlTransportes (Transportes modelo, frmAgregarTransportes VistasverRegistroTransporter){
     
         this.Modelo = modelo;
-        this.verRegistroTransporter = verRegistroTransporter;
         this.VistasverRegistroTransporter = VistasverRegistroTransporter;
 
         
-        modelo.Mostrar(verRegistroTransporter.jtTransportes);
         
          this.VistasverRegistroTransporter.btnAgregar.addMouseListener(this);
+         
+         
+         this.VistasverRegistroTransporter.btnVerRegistro.addMouseListener(this);
         
         
     }
@@ -54,10 +54,23 @@ public class ctrlTransportes implements MouseListener{
            guardarTransporte();
            Modelo.Guardar();
                    JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Información ingresada con éxito", "Agregar transporte", JOptionPane.INFORMATION_MESSAGE);
+                  Modelo.Limpiar(VistasverRegistroTransporter);
+
 
            
-       }
+
+    
+       
+       }      
+       
+       if(e.getSource()== VistasverRegistroTransporter.btnVerRegistro){
+
+                   frmVerRegistroTransporter.initFrmVerRegistroTransportes();
+                   VistasverRegistroTransporter.dispose();
+       
     }
+    }
+    
 
     @Override
     public void mousePressed(MouseEvent e) {

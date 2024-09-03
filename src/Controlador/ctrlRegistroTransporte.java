@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Transportes;
 import Vistas.frmActualizarTransporte;
+import Vistas.frmAgregarTransportes;
 import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -25,7 +26,9 @@ public ctrlRegistroTransporte(Transportes modelo, frmVerRegistroTransporter vist
     this.modelo = modelo;
     this.vista = vista;
     vista.btnActualizar.addMouseListener(this);
-    modelo.Mostrar(vista.jtTransportes);
+    vista.btnEliminar.addMouseListener(this);
+    vista.imgBack.addMouseListener(this);
+     modelo.Mostrar(vista.jtTransportes);
 }    
 
     @Override
@@ -42,6 +45,18 @@ public ctrlRegistroTransporte(Transportes modelo, frmVerRegistroTransporter vist
             } else {
                 JOptionPane.showMessageDialog(vista, "Por favor, seleccione una fila para actualizar.");
             }   
+        }
+        
+        if(e.getSource() == vista.btnEliminar) {
+            modelo.Eliminar(vista.jtTransportes);
+            modelo.Mostrar(vista.jtTransportes);
+             JOptionPane.showMessageDialog(vista, "Registro eliminado exitosamente");
+
+        }
+        
+        if(e.getSource() == vista.imgBack) {
+            frmAgregarTransportes.initFrmAgregarTransportes();
+            vista.dispose();
         }
         
     }
