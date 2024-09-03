@@ -1,10 +1,13 @@
 package Vistas.drawer;
 
+import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarTransportes;
+import Vistas.frmLogin;
 import Vistas.frmVerRegistroTransporter;
 import javax.swing.JFrame;
 import java.awt.Window;
 import java.awt.KeyboardFocusManager;
+import javax.swing.JOptionPane;
 import raven.drawer.component.SimpleDrawerBuilder;
 import raven.drawer.component.footer.SimpleFooterData;
 import raven.drawer.component.header.SimpleHeaderData;
@@ -27,32 +30,37 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
     @Override
     public SimpleMenuOption getSimpleMenuOption() {
         String menus[][] = {
-            {"~MAIN~"},
+             {"~Menu~"},
             {"Dashboard"},
-            {"~WEB APP~"},
-            {"Email", "Inbox", "Read", "Compost"},
-            {"Transporte"},
+     
+            {"Bomberos"},
+            {"inventario"},
             {"Calendar"},
-            {"~COMPONENT~"},
-            {"Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert"},
-            {"Forms", "Basic Elements", "Advanced Elements", "SEditors", "Wizard"},
-            {"~OTHER~"},
-            {"Charts", "Apex", "Flot", "Sparkline"},
-            {"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
-            {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},
-            {"Logout"}};
+            
+            {"Transporte"},
+            {"Seguimiento"},
+            
+            {"Estadisticas",},
+            {"Emergencias"},
+            {"Misiones"},
+            {"Informes"},
+            {"~Cuenta~"},
+            {"Cerrar sesion"},
+            {"Inicio"}};
 
         String icons[] = {
             "dashboard.svg",
-            "email.svg",
-            "chat.svg",
+            "firefighter1.svg",
+            "manguera.svg",
             "calendar.svg",
-            "ui.svg",
-            "forms.svg",
-            "chart.svg",
-            "icon.svg",
-            "page.svg",
-            "logout.svg"};
+            "fire-truck.svg",
+            "seguimiento.svg",
+            "staticircle.svg",
+            "emergencia.svg",
+            "mision.svg",
+            "informe.svg",
+            "logout_1.svg",
+            "inicio.svg"};
         
         return new SimpleMenuOption()
                 .setMenus(menus)
@@ -66,15 +74,35 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
 
                         Class<? extends JFrame> nuevaVentanaClass = null;
 
-                    if (index == 2) {
-                        frmVerRegistroTransporter.initFrmVerRegistroTransportes();
-                        JFrame nuevaVentana = frmVerRegistroTransporter.getInstance();
+                    if (index == 4) {
+                        frmAgregarTransportes.initfrmAgregarTransportes();
+                       JFrame NuevaVentana = frmAgregarTransportes.getInstance();
 
-                        if (ventanaActual != null && !ventanaActual.equals(nuevaVentana)) {
+                        if (ventanaActual != null && !ventanaActual.equals(NuevaVentana)) {
                             ventanaActual.dispose(); 
                         }
-                        ventanaActual = nuevaVentana; 
+                        ventanaActual = NuevaVentana; 
                     }
+                    if(index == 2) {
+                        frmAgregarInventario.initfrmAgregarInventario();
+                        JFrame nuevaVentana = frmAgregarInventario.getInstance();
+                       
+                       if (ventanaActual !=null && !ventanaActual.equals(nuevaVentana)) {
+                           ventanaActual.dispose();
+                       }
+                        
+                    }
+                    if (index==10){
+                     int opcion = JOptionPane.showConfirmDialog(ventanaActual, 
+                "¿Estás seguro de que deseas cerrar sesión?", 
+                "Confirmar Cierre de Sesión", 
+                JOptionPane.YES_NO_OPTION, 
+                JOptionPane.QUESTION_MESSAGE);
+
+               if (opcion == JOptionPane.YES_OPTION) {
+               frmLogin.initfrmLogin();
+               ventanaActual.dispose();
+                }}
 
 
                        
