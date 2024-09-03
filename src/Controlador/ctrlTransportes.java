@@ -5,6 +5,7 @@ import Vistas.frmAgregarTransportes;
 import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 
 public class ctrlTransportes implements MouseListener{
@@ -52,6 +53,9 @@ public class ctrlTransportes implements MouseListener{
                 
            guardarTransporte();
            Modelo.Guardar();
+                   JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Información ingresada con éxito", "Agregar transporte", JOptionPane.INFORMATION_MESSAGE);
+
+           
        }
     }
 

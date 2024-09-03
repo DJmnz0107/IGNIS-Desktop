@@ -60,7 +60,7 @@ public void mouseClicked(MouseEvent e) {
         vista.txtNumeroTransporte.setText("");
         vista.txtPlaca.setText("");
         
-        JOptionPane.showMessageDialog(vista, "Información actualizada con éxito", "Actualizar transporte", JOptionPane.OK_OPTION);
+                   JOptionPane.showMessageDialog(vista, "Información actualizada con éxito", "Actualizar transporte", JOptionPane.INFORMATION_MESSAGE);
         
         // Volver a cargar la tabla en frmVerRegistroTransportes
         frmVerRegistroTransporter frmRegistro = frmVerRegistroTransporter.getInstance(); // Obtén la instancia actual

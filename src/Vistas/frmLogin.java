@@ -72,7 +72,7 @@ public class frmLogin extends JFrame  {
         jLabel2 = new javax.swing.JLabel();
         txtUsuario = new Vistas.TextFieldLogin();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblRecuContra = new javax.swing.JLabel();
         btnLogin = new Vistas.buttonLogin();
         txtContrasena = new Vistas.TextFieldPassword();
         jLabel5 = new javax.swing.JLabel();
@@ -102,10 +102,10 @@ public class frmLogin extends JFrame  {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/gotasAguaNew.png"))); // NOI18N
         loginBackground1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 480, 430, 340));
 
-        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Recuperar la contraseña");
-        loginBackground1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 540, 150, -1));
+        lblRecuContra.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 13)); // NOI18N
+        lblRecuContra.setForeground(new java.awt.Color(255, 255, 255));
+        lblRecuContra.setText("Recuperar la contraseña");
+        loginBackground1.add(lblRecuContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 540, 150, -1));
 
         btnLogin.setForeground(new java.awt.Color(240, 139, 77));
         btnLogin.setText("Iniciar Sesión");
@@ -194,11 +194,11 @@ public class frmLogin extends JFrame  {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel lblRecuContra;
     private Vistas.loginBackground loginBackground1;
     public Vistas.TextFieldPassword txtContrasena;
     public Vistas.TextFieldLogin txtUsuario;

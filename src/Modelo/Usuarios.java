@@ -121,6 +121,33 @@ public String obtenerUsuario() {
     return nombreUsuario;
 }
     
+    public boolean revisarRecuperacionContra() {
+    boolean recu = false;
+    
+    Connection conexion = ClaseConexion.getConexion();
+    
+    try {
+        PreparedStatement verificarRecu = conexion.prepareStatement("SELECT * FROM Usuarios WHERE TRIM(nombre_usuario) = ?");
+        verificarRecu.setString(1, getNombre_usuario());
+        
+        ResultSet rs = verificarRecu.executeQuery();
+        
+        recu = rs.next();  // Si hay un resultado, significa que el usuario existe.
+        
+        rs.close();
+        verificarRecu.close();
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+    
+    return recu;
+}
+    
+    
+    
+    
+    
+    
     public boolean verificarUsuario() {
                 boolean usuarios = false;
 
@@ -239,6 +266,23 @@ public String obtenerUsuario() {
             System.out.println("este es el error metodo de eliminar" + e);
         }
     }
+            
+            public void actualizarUsuario() {
+                Connection conexion = ClaseConexion.getConexion();
+                
+                try {
+                    String statement = "UPDATE Usuarios SET contrasena_usuario = ? WHERE nombre_usuario = ?";
+                    PreparedStatement actualizarUsuario = conexion.prepareStatement(statement);
+                    actualizarUsuario.setString(1, getContrasena_usuario());
+                    actualizarUsuario.setString(2, getNombre_usuario());
+                    
+                    actualizarUsuario.executeUpdate();
+                    
+                }
+                catch(Exception e) {
+                    System.out.println("Este es el error del metodo actualizar" + e);
+                }
+            }
         
    
 }

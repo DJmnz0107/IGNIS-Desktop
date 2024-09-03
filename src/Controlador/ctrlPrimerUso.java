@@ -47,6 +47,23 @@ import java.io.InputStreamReader;
                 
                 JOptionPane.showMessageDialog(vista, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
+                  String contrasena = vista.txtContrasenaPrimerUso.getText();
+            String edadtxt = vista.txtEdadPrimer.getText();
+            String dui = vista.txtDUIPrimer.getText();
+
+            if (contrasena.length() < 8 ||
+                !contrasena.matches(".*[!@#$%^&*()_+=|<>?{}\\[\\]~-].*") ||
+                !contrasena.matches(".*[A-Z].*")) {
+                
+                JOptionPane.showMessageDialog(vista, "La contraseña debe contener más de 8 caracteres, al menos 1 símbolo especial y 1 letra mayúscula", "Error", JOptionPane.ERROR_MESSAGE);
+
+            } else if (edadtxt.length() >= 3) {
+                JOptionPane.showMessageDialog(vista, "Ingrese una edad valida", "Error", JOptionPane.ERROR_MESSAGE);
+            
+            } else if (dui.length() > 10 || dui.length() < 10) {
+                JOptionPane.showMessageDialog(vista, "El formato de DUI no es valido", "Error", JOptionPane.ERROR_MESSAGE);
+
+            } else {
                 try {
                     int edad = Integer.parseInt(vista.txtEdadPrimer.getText());
                     modelo.setNombre_usuario(vista.txtNombreUsuarioPrimer.getText());
@@ -102,6 +119,7 @@ JOptionPane.showMessageDialog(vista,
                 }
             }
         }
+    }
     }
 
          

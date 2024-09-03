@@ -9,6 +9,7 @@ import Vistas.frmAgregarInventario;
 import Vistas.frmCrearCuenta;
 import Vistas.frmInicio;
 import Vistas.frmLogin;
+import Vistas.frmRecuperacionContrasena;
 import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -29,6 +30,7 @@ public class ctrlLogin implements MouseListener {
         this.vista = vista;
         
         vista.btnLogin.addMouseListener(this);
+        vista.lblRecuContra.addMouseListener(this);
     }
     
     @Override
@@ -55,6 +57,10 @@ public void mouseClicked(MouseEvent e) {
                 JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+    }
+    if(e.getSource() == vista.lblRecuContra) {
+                        frmRecuperacionContrasena.initfrmRecuperacionContrasena();
+
     }
 }
 
