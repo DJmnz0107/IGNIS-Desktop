@@ -7,6 +7,7 @@ package Controlador;
 import Vistas.frmCrearCuenta;
 import Vistas.frmInicio;
 import Vistas.frmLogin;
+import Vistas.frmVerEmergencias;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -24,11 +25,18 @@ public class ctrlInicio implements MouseListener {
         
         vista.btnCrearUsuario.addMouseListener(this);
         vista.btnCerrarSesión.addMouseListener(this);
+        vista.btnEmergencias.addMouseListener(this);
         
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource() == vista.btnEmergencias) {
+            frmVerEmergencias.initfrmVerEmergencias();
+            vista.dispose();
+        }
+        
         if(e.getSource() == vista.btnCrearUsuario) {
             frmCrearCuenta.initFrmCrearCuenta();
             vista.dispose();

@@ -4,7 +4,9 @@
  */
 package Vistas;
 
+import Controlador.ctrlAgregarInventario;
 import Controlador.ctrlTransportes;
+import Modelo.Recursos;
 import Modelo.Transportes;
 import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatDarculaLaf;
@@ -47,6 +49,8 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
         frmAgregarInventario vista = new frmAgregarInventario();
+        Recursos modelo = new Recursos();
+        ctrlAgregarInventario controlador = new ctrlAgregarInventario(vista, modelo);
         vista.setVisible(true);
         instance = vista; 
     }
@@ -76,23 +80,24 @@ public static frmAgregarInventario getInstance() {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbDisponibilidad = new javax.swing.JComboBox<>();
+        cmbEstado = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         imgInventario = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        imgAgregar = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDescripcionRecurso = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        dtcRecepcion = new com.toedter.calendar.JDateChooser();
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
         txtNombreInventario = new Vistas.TextFieldBlanco();
         btnRojoForms1 = new Vistas.btnRojoForms();
-        btnRojoForms2 = new Vistas.btnRojoForms();
+        btnInsertar = new Vistas.btnRojoForms();
+        imgRecurso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -120,15 +125,15 @@ public static frmAgregarInventario getInstance() {
         jLabel4.setText("Nombre del recurso");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, 20));
 
-        jComboBox1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(240, 139, 77));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "En uso" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 200, 40));
+        cmbDisponibilidad.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        cmbDisponibilidad.setForeground(new java.awt.Color(240, 139, 77));
+        cmbDisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "En uso" }));
+        jPanel1.add(cmbDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 200, 40));
 
-        jComboBox2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(240, 139, 77));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arruinado", "Usado", "Nuevo" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 140, 200, 40));
+        cmbEstado.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        cmbEstado.setForeground(new java.awt.Color(240, 139, 77));
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arruinado", "Usado", "Nuevo" }));
+        jPanel1.add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 140, 200, 40));
 
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,17 +151,17 @@ public static frmAgregarInventario getInstance() {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, -1, 20));
 
         imgInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/inventario.png"))); // NOI18N
-        jPanel1.add(imgInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 310, 540, 350));
+        jPanel1.add(imgInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 410, 460, 280));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/agregarBlanco.png"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 40, 40));
+        imgAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/agregarBlanco.png"))); // NOI18N
+        jPanel1.add(imgAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 40, 40));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(240, 139, 77));
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        txtDescripcionRecurso.setColumns(20);
+        txtDescripcionRecurso.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        txtDescripcionRecurso.setForeground(new java.awt.Color(240, 139, 77));
+        txtDescripcionRecurso.setLineWrap(true);
+        txtDescripcionRecurso.setRows(5);
+        jScrollPane2.setViewportView(txtDescripcionRecurso);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 430, 180));
 
@@ -168,9 +173,9 @@ public static frmAgregarInventario getInstance() {
         jLabel11.setText("IGNIS");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 10, -1, -1));
 
-        jDateChooser2.setBackground(new java.awt.Color(255, 255, 255));
-        jDateChooser2.setForeground(new java.awt.Color(240, 139, 77));
-        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, 230, 40));
+        dtcRecepcion.setBackground(new java.awt.Color(255, 255, 255));
+        dtcRecepcion.setForeground(new java.awt.Color(240, 139, 77));
+        jPanel1.add(dtcRecepcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, 230, 40));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomRight(50);
@@ -210,10 +215,11 @@ public static frmAgregarInventario getInstance() {
         btnRojoForms1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jPanel1.add(btnRojoForms1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 690, 220, 50));
 
-        btnRojoForms2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/agregarNew.png"))); // NOI18N
-        btnRojoForms2.setText("Agregar información");
-        btnRojoForms2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
-        jPanel1.add(btnRojoForms2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 690, 220, 50));
+        btnInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/agregarNew.png"))); // NOI18N
+        btnInsertar.setText("Agregar información");
+        btnInsertar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jPanel1.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 690, 220, 50));
+        jPanel1.add(imgRecurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 280, 200, 140));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,15 +275,16 @@ public static frmAgregarInventario getInstance() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public Vistas.btnRojoForms btnInsertar;
     public javax.swing.JButton btnMenu;
     private Vistas.btnRojoForms btnRojoForms1;
-    private Vistas.btnRojoForms btnRojoForms2;
+    public javax.swing.JComboBox<String> cmbDisponibilidad;
+    public javax.swing.JComboBox<String> cmbEstado;
+    public com.toedter.calendar.JDateChooser dtcRecepcion;
+    public javax.swing.JLabel imgAgregar;
     public javax.swing.JLabel imgInventario;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    public javax.swing.JLabel imgRecurso;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -288,8 +295,8 @@ public static frmAgregarInventario getInstance() {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private Vistas.PanelRound panelRound1;
+    public javax.swing.JTextArea txtDescripcionRecurso;
     public Vistas.TextFieldBlanco txtNombreInventario;
     // End of variables declaration//GEN-END:variables
 }

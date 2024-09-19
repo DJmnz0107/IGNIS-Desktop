@@ -74,7 +74,7 @@ public class frmInicio extends javax.swing.JFrame {
         btnInicio7 = new Vistas.btnInicio();
         btnInicio8 = new Vistas.btnInicio();
         btnInicio9 = new Vistas.btnInicio();
-        btnInicio10 = new Vistas.btnInicio();
+        btnEmergencias = new Vistas.btnInicio();
         btnCrearUsuario = new Vistas.btnInicio2();
         btnCerrarSesión = new Vistas.btnInicio3();
         btnInicio41 = new Vistas.btnInicio4();
@@ -174,11 +174,11 @@ public class frmInicio extends javax.swing.JFrame {
         btnInicio9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         panelRound31.add(btnInicio9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 170, 60));
 
-        btnInicio10.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoEmergencia.png"))); // NOI18N
-        btnInicio10.setText("Emergencias");
-        btnInicio10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 170, 60));
+        btnEmergencias.setForeground(new java.awt.Color(240, 139, 77));
+        btnEmergencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoEmergencia.png"))); // NOI18N
+        btnEmergencias.setText("Emergencias");
+        btnEmergencias.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(btnEmergencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 170, 60));
 
         panelRound21.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 26, 650, 430));
 
@@ -255,7 +255,7 @@ public class frmInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Vistas.btnInicio3 btnCerrarSesión;
     public Vistas.btnInicio2 btnCrearUsuario;
-    private Vistas.btnInicio btnInicio10;
+    public Vistas.btnInicio btnEmergencias;
     private Vistas.btnInicio btnInicio3;
     private Vistas.btnInicio btnInicio4;
     private Vistas.btnInicio4 btnInicio41;
