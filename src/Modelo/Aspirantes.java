@@ -5,6 +5,7 @@
 package Modelo;
 
 import java.sql.*;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -76,13 +77,7 @@ public class Aspirantes {
         this.foto_aspirante = foto_aspirante;
     }
 
-    public int getId_nivelUsuario() {
-        return id_nivelUsuario;
-    }
-
-    public void setId_nivelUsuario(int id_nivelUsuario) {
-        this.id_nivelUsuario = id_nivelUsuario;
-    }
+    
     
     private int id_aspirante;
     private String nombre_aspirante;
@@ -92,9 +87,45 @@ public class Aspirantes {
     private int edad_usuario;
     private String progreso_aspirante;
     private String foto_aspirante;
-    private int id_nivelUsuario;
+    private int id_bombero;
+
+    public int getId_bombero() {
+        return id_bombero;
+    }
+
+    public void setId_bombero(int id_bombero) {
+        this.id_bombero = id_bombero;
+    }
+    
+    public Aspirantes(int id, String nombre)
+    {
+        this.id_bombero = id;
+        this.Nombre = nombre;
+        
+        /*LA TABLA ES RELACIONADA Y NECESITO TRAER OTRO GET POR QUE NO EXISTE BOMBEROS*/
+    }
+    
      
     
+        public void CargarComboBomberos(JComboBox comboBox){    
+        Connection conexion = ClaseConexion.getConexion();
+        comboBox.removeAllItems();
+        try{
+            Statement statement = conexion.createStatement();
+            ResultSet rs = statement.executeQuery("Select * from Aspirantes");
+            while (rs.next()) {
+                int id = rs.getInt("id_bombero"); 
+                String nombre = rs.getString("Nombre_doctor");
+                comboBox.addItem(new Aspirantes(id,nombre));  
+                
+                //arregalar esto 
+            }
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();  
+        }
+      }
     public void Guardar(){
         //primero lo que hacemos es llamar a la clase conexion para a continuacion hacer
         //el prepared statement
