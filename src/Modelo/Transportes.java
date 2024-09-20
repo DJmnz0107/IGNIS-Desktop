@@ -1,3 +1,4 @@
+
 package Modelo;
 
 
@@ -7,6 +8,7 @@ import Vistas.frmVerRegistroTransporter;
 import Vistas.frmVerRegistroTransporter;
 import java.sql.*;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -100,7 +102,7 @@ public class Transportes {
  
         
         DefaultTableModel modeloDeDatos = new DefaultTableModel();
-        modeloDeDatos.setColumnIdentifiers(new Object[]{"id","placa", "numero", "capacidad", "Tipo de vehivulo","disponibilidad","estado"});
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"id","Placa", "Numero", "Capacidad", "Tipo de vehiculo","Disponibilidad","Estado"});
  
         try {
             
@@ -234,6 +236,36 @@ public void actualizarTransportes() {
         System.out.println("este es el error en el metodo de actualizar" + e);
     }
 }
+
+public void Buscar(JTable tabla, JTextField JTextField1) {
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel Transporte = new DefaultTableModel();
+        Transporte.setColumnIdentifiers(new Object[]{"Id_Transporte", "Placa Transporte", "Numero del transporte", "Capacidad del transporte", "Tipo de vehiculo", "Disponibilidad del transporte", "Estado del transporte"});
+        try {
+            String sql = "SELECT * FROM Transportes WHERE placa_transporte LIKE ? || '%'";
+            PreparedStatement deleteEstudiante = conexion.prepareStatement(sql);
+            deleteEstudiante.setString(1, JTextField1.getText());
+            ResultSet rs = deleteEstudiante.executeQuery();
+
+            while (rs.next()) {
+                
+                Transporte.addRow(new Object[]{rs.getInt("id_transporte"), 
+                    rs.getString("placa_transporte"), 
+                    rs.getInt("numero_transporte"),
+                    rs.getString("capacidad_transporte"),
+                    rs.getInt("tipoVehiculo_transporte"),
+                    rs.getString("disponibilidad_transporte"),
+                    rs.getInt("estado_transporte")});
+            }
+            
+            tabla.setModel(Transporte);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setWidth(0);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo de buscar " + e);
+        }
+    }
     
 
     
