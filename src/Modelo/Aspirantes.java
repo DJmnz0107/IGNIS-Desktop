@@ -12,6 +12,9 @@ import javax.swing.JComboBox;
  * @author User
  */
 public class Aspirantes {
+    
+    public Aspirantes(){
+    }
 
     public int getId_aspirante() {
         return id_aspirante;
@@ -88,6 +91,15 @@ public class Aspirantes {
     private String progreso_aspirante;
     private String foto_aspirante;
     private int id_bombero;
+    private String nombre_bombero;
+
+    public String getNombre_bombero() {
+        return nombre_bombero;
+    }
+    
+    public void setNombre_bombero(String nombre_bombero) {
+        this.nombre_bombero = nombre_bombero;
+    }
 
     public int getId_bombero() {
         return id_bombero;
@@ -100,10 +112,16 @@ public class Aspirantes {
     public Aspirantes(int id, String nombre)
     {
         this.id_bombero = id;
-        this.Nombre = nombre;
+        this.nombre_bombero = nombre;
         
         /*LA TABLA ES RELACIONADA Y NECESITO TRAER OTRO GET POR QUE NO EXISTE BOMBEROS*/
     }
+    
+    @Override
+    public String toString() {
+        return nombre_bombero;  
+    }
+    
     
      
     
@@ -112,13 +130,11 @@ public class Aspirantes {
         comboBox.removeAllItems();
         try{
             Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery("Select * from Aspirantes");
+            ResultSet rs = statement.executeQuery("Select * from Bomberos");
             while (rs.next()) {
                 int id = rs.getInt("id_bombero"); 
-                String nombre = rs.getString("Nombre_doctor");
-                comboBox.addItem(new Aspirantes(id,nombre));  
-                
-                //arregalar esto 
+                String nombre = rs.getString("nombre_bombero");
+                comboBox.addItem(new Aspirantes(id,nombre));   
             }
         }
         catch(SQLException ex)
@@ -126,15 +142,30 @@ public class Aspirantes {
             ex.printStackTrace();  
         }
       }
+        
+        
+        
     public void Guardar(){
         //primero lo que hacemos es llamar a la clase conexion para a continuacion hacer
-        //el prepared statement
+        //el prepared statement para insertar los datos
     Connection conexion = ClaseConexion.getConexion();
     
-    try{
+      try {
+        // Verifica si el id_bombero existe
+        PreparedStatement checkBombero = conexion.prepareStatement("SELECT * FROM Bomberos WHERE id_bombero = ?");
+        checkBombero.setInt(1, getId_bombero());
+        ResultSet rs = checkBombero.executeQuery();
+        
+        if (!rs.next()) {
+            System.out.println("El id_bombero no existe: " + getId_bombero());
+            return; // No se puede guardar si no existe el bombero
+        }
+    
+   
         PreparedStatement addAspirante = conexion.prepareStatement(
-            "INSERT INTO Aspirantes (nombre_aspirante, apellido_aspirante, dui_aspirante, entrenamiento_aspirante, edad_usuario, progreso_aspirante, foto_aspirante) VALUES (?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO Aspirantes (nombre_aspirante, apellido_aspirante, dui_aspirante, entrenamiento_aspirante, edad_usuario, progreso_aspirante, foto_aspirante, id_bombero ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         );
+      
         
         addAspirante.setString(1, getNombre_aspirante());
         addAspirante.setString(2, getApellido_aspirante());
@@ -143,9 +174,9 @@ public class Aspirantes {
         addAspirante.setInt(5, getEdad_usuario());
         addAspirante.setString(6, getProgreso_aspirante());
         addAspirante.setString(7, getFoto_aspirante());
+        addAspirante.setInt(8, getId_bombero());
         
         addAspirante.executeUpdate();
-
     }
     
     catch(SQLException ex){
@@ -154,7 +185,4 @@ public class Aspirantes {
     
     
     }
-    
-    
-    
 }

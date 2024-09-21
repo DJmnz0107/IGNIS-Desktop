@@ -4,6 +4,8 @@
  */
 package Vistas;
 
+import Controlador.ctrlAspirantes;
+import Modelo.Aspirantes;
 import raven.drawer.Drawer;
 
 /**
@@ -17,6 +19,15 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
      */
     public frmAgregarAspirante() {
         initComponents();
+    }
+
+    public static void initfrmAgregarAspirante() {
+        frmAgregarAspirante vistas = new frmAgregarAspirante();
+        Aspirantes modelo = new Aspirantes();
+        ctrlAspirantes controlador = new ctrlAspirantes(modelo, vistas);
+        
+        vistas.setVisible(true);
+        
     }
 
     /**
@@ -49,6 +60,7 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         btnAgregarFoto = new Vistas.btnRojoForms();
         btnAñadirInfo = new Vistas.btnRojoForms();
         btnVerAspirantes = new Vistas.btnRojoForms();
+        txtFoto = new javax.swing.JTextField();
         imgBack = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -151,50 +163,61 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         btnVerAspirantes.setText("   Ver aspirantes");
         btnVerAspirantes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
 
+        txtFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFotoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelRound31Layout = new javax.swing.GroupLayout(panelRound31);
         panelRound31.setLayout(panelRound31Layout);
         panelRound31Layout.setHorizontalGroup(
             panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound31Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
                 .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelRound31Layout.createSequentialGroup()
-                                .addComponent(txtNombreAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelRound31Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel3))
-                                    .addGroup(panelRound31Layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addComponent(txtApellidoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(panelRound31Layout.createSequentialGroup()
-                                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEdadAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(panelRound31Layout.createSequentialGroup()
-                                        .addGap(31, 31, 31)
-                                        .addComponent(jLabel4)))
-                                .addGap(55, 55, 55)
-                                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDuiAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)))
-                            .addGroup(panelRound31Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(60, 60, 60)
-                                .addComponent(jLabel7))
-                            .addGroup(panelRound31Layout.createSequentialGroup()
-                                .addComponent(cmbBomberoMentor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtProgresoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
-                                .addComponent(btnAgregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtEntrenamientoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110))
                     .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
                         .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addComponent(jLabel8)
-                            .addComponent(txtEntrenamientoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(panelRound31Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRound31Layout.createSequentialGroup()
+                        .addComponent(txtNombreAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelRound31Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3))
+                            .addGroup(panelRound31Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(txtApellidoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelRound31Layout.createSequentialGroup()
+                        .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEdadAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelRound31Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel4)))
+                        .addGap(55, 55, 55)
+                        .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDuiAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)))
+                    .addGroup(panelRound31Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel7))
+                    .addGroup(panelRound31Layout.createSequentialGroup()
+                        .addComponent(cmbBomberoMentor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtProgresoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+                        .addComponent(btnAgregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(99, 99, 99))
             .addGroup(panelRound31Layout.createSequentialGroup()
                 .addGap(173, 173, 173)
@@ -238,8 +261,13 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
                         .addComponent(btnAgregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEntrenamientoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRound31Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtEntrenamientoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRound31Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(txtFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAñadirInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,6 +332,10 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         Drawer.getInstance().showDrawer();
     }//GEN-LAST:event_btnMenuActionPerformed
 
+    private void txtFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFotoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFotoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -334,7 +366,7 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmAgregarAspirante().setVisible(true);
+                initfrmAgregarAspirante();
             }
         });
     }
@@ -361,6 +393,7 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
     public Vistas.TextFieldGris txtDuiAspirante;
     public Vistas.TextFieldGris txtEdadAspirante;
     public Vistas.TextFieldGris txtEntrenamientoAspirante;
+    public javax.swing.JTextField txtFoto;
     public Vistas.TextFieldGris txtNombreAspirante;
     public Vistas.TextFieldGris txtProgresoAspirante;
     // End of variables declaration//GEN-END:variables
