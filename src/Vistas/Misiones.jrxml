@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Misiones" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="666dc6b7-5c78-44a1-a557-8dc8d894cf39">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ConexionIgnis"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT M.descripcion_mision AS "Mision asignada", M.fecha_mision AS "Fecha de la misión", E.descripcion_emergencia AS "Descripcion de la emergencia", E.tipo_emergencia AS "Tipo de mision", E.gravedad_emergencia AS "Gravedad de la emergencia", E.estado_emergencia AS "Estado de la emergencia" From MISIONES M
+INNER JOIN EMERGENCIAS E on M.id_emergencia = E.id_emergencia]]>
+	</queryString>
+	<field name="Mision asignada" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Mision asignada"/>
+		<property name="com.jaspersoft.studio.field.label" value="Mision asignada"/>
+	</field>
+	<field name="Fecha de la misión" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="Fecha de la misión"/>
+		<property name="com.jaspersoft.studio.field.label" value="Fecha de la misión"/>
+	</field>
+	<field name="Descripcion de la emergencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Descripcion de la emergencia"/>
+		<property name="com.jaspersoft.studio.field.label" value="Descripcion de la emergencia"/>
+	</field>
+	<field name="Tipo de mision" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Tipo de mision"/>
+		<property name="com.jaspersoft.studio.field.label" value="Tipo de mision"/>
+	</field>
+	<field name="Gravedad de la emergencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Gravedad de la emergencia"/>
+		<property name="com.jaspersoft.studio.field.label" value="Gravedad de la emergencia"/>
+	</field>
+	<field name="Estado de la emergencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Estado de la emergencia"/>
+		<property name="com.jaspersoft.studio.field.label" value="Estado de la emergencia"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{Mision asignada}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#FFFFFF" backcolor="#F08B4D" uuid="3ff2be00-8bac-465b-a508-33752ed3d441"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Mision asignada]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#F08B4D" backcolor="#FFFFFF" uuid="4c09b605-3a69-49e6-89d0-db22dc56427a"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Mision asignada}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="77fdd8d1-458e-40c8-9ef9-4ff7e3be2a75"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{Fecha de la misión}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="32" forecolor="#666666" uuid="1b1f0a65-3e07-45b9-9199-81a00bcdb2b7"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Descripcion de la emergencia]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#F08B4D" uuid="9c1048f5-ea5d-40f7-9057-df109be6819a"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Descripcion de la emergencia}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{Descripcion de la emergencia}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<staticText>
+					<reportElement x="0" y="-2" width="100" height="32" forecolor="#666666" backcolor="#F08B4D" uuid="7160e261-16dc-4139-82f8-d51a2ee90965"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Fecha de la misión]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="100" y="-2" width="455" height="32" forecolor="#F08B4D" uuid="4f1d4481-6fce-4c29-801b-6439a268c06a"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Fecha de la misión}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group4">
+		<groupExpression><![CDATA[$F{Tipo de mision}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#F08B4D" uuid="43f2dc33-f7ab-4a58-84df-0ce41ec708f7"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Tipo de mision}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="32" forecolor="#666666" uuid="0c6b244c-ea4d-49d1-b0c7-ddbca453a3f3"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Tipo de mision]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Gravedad de la emergencia">
+		<groupExpression><![CDATA[$F{Gravedad de la emergencia}]]></groupExpression>
+	</group>
+	<group name="Estado de la emergencia">
+		<groupExpression><![CDATA[$F{Estado de la emergencia}]]></groupExpression>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#F08B4D" uuid="be58e658-bf01-4140-8516-c623f7097047"/>
+				<staticText>
+					<reportElement x="246" y="10" width="100" height="43" forecolor="#FFFFFF" uuid="98f9ac3b-7a56-49df-89bb-df9466feee00"/>
+					<textElement>
+						<font fontName="Arial" size="34" isBold="false"/>
+					</textElement>
+					<text><![CDATA[IGNIS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="228" y="61" width="130" height="20" forecolor="#FFFFFF" uuid="9b7770cf-c525-485f-9e25-f7dbb602d610"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte de misiones]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="26f4cd4c-26f8-4c43-a05f-8f681acef710"/>
+			</line>
+			<staticText>
+				<reportElement x="130" y="0" width="292" height="21" uuid="6c83a0ec-33ec-475c-99b7-dd1f531824c9"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Visualiza las misiones que se han registrado en el sistema.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="e45a6a3c-0c36-4557-881f-58b886ffb93d"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" forecolor="#FFFFFF" backcolor="#F08B4D" uuid="bfdf20e2-f1ae-43ff-a42e-221df1258280"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" forecolor="#FFFFFF" backcolor="#F08B4D" uuid="246df843-9d63-47f2-a78a-e016fedea864"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="120" height="13" forecolor="#FFFFFF" uuid="dbd7dcc5-16f3-4ee5-bea3-3fc47a0381d7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

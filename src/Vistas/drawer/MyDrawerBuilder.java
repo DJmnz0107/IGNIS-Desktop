@@ -34,7 +34,7 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
             {"Dashboard"},
      
             {"Bomberos"},
-            {"inventario"},
+            {"Inventario"},
             {"Calendar"},
             
             {"Transporte"},

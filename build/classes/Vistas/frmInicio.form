@@ -242,7 +242,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="Vistas.btnInicio" name="btnInicio7">
+                <Component class="Vistas.btnInicio" name="btnMisiones">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="4d" green="8b" red="f0" type="rgb"/>
@@ -255,6 +255,9 @@
                       <Font name="Microsoft JhengHei UI" size="16" style="1"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="400" y="230" width="170" height="60"/>

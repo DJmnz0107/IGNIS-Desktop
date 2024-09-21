@@ -100,7 +100,7 @@ public class Aspirantes {
     public Aspirantes(int id, String nombre)
     {
         this.id_bombero = id;
-        this.Nombre = nombre;
+        this.nombre_aspirante = nombre;
         
         /*LA TABLA ES RELACIONADA Y NECESITO TRAER OTRO GET POR QUE NO EXISTE BOMBEROS*/
     }

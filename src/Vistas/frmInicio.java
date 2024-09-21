@@ -71,7 +71,7 @@ public class frmInicio extends javax.swing.JFrame {
         btnInicio4 = new Vistas.btnInicio();
         btnInicio5 = new Vistas.btnInicio();
         btnInicio6 = new Vistas.btnInicio();
-        btnInicio7 = new Vistas.btnInicio();
+        btnMisiones = new Vistas.btnInicio();
         btnInicio8 = new Vistas.btnInicio();
         btnInicio9 = new Vistas.btnInicio();
         btnEmergencias = new Vistas.btnInicio();
@@ -156,11 +156,11 @@ public class frmInicio extends javax.swing.JFrame {
         btnInicio6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         panelRound31.add(btnInicio6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 170, 60));
 
-        btnInicio7.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoMision.png"))); // NOI18N
-        btnInicio7.setText("Misiones");
-        btnInicio7.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 170, 60));
+        btnMisiones.setForeground(new java.awt.Color(240, 139, 77));
+        btnMisiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoMision.png"))); // NOI18N
+        btnMisiones.setText("Misiones");
+        btnMisiones.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(btnMisiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 170, 60));
 
         btnInicio8.setForeground(new java.awt.Color(240, 139, 77));
         btnInicio8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoSeguimiento.png"))); // NOI18N
@@ -261,10 +261,10 @@ public class frmInicio extends javax.swing.JFrame {
     private Vistas.btnInicio4 btnInicio41;
     private Vistas.btnInicio btnInicio5;
     private Vistas.btnInicio btnInicio6;
-    private Vistas.btnInicio btnInicio7;
     private Vistas.btnInicio btnInicio8;
     private Vistas.btnInicio btnInicio9;
     public javax.swing.JButton btnMenu;
+    public Vistas.btnInicio btnMisiones;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel jlblTextoInicio;

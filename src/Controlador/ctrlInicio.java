@@ -8,6 +8,7 @@ import Vistas.frmCrearCuenta;
 import Vistas.frmInicio;
 import Vistas.frmLogin;
 import Vistas.frmVerEmergencias;
+import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -26,6 +27,7 @@ public class ctrlInicio implements MouseListener {
         vista.btnCrearUsuario.addMouseListener(this);
         vista.btnCerrarSesión.addMouseListener(this);
         vista.btnEmergencias.addMouseListener(this);
+        vista.btnMisiones.addMouseListener(this);
         
     }
 
@@ -52,6 +54,10 @@ public class ctrlInicio implements MouseListener {
             frmLogin.initfrmLogin();
             vista.dispose();
         } 
+    }
+    if(e.getSource() == vista.btnMisiones) {
+        frmVerRegistroMisiones.initFrmVerRegistroMisiones();
+        vista.dispose();
     }
     }
 
