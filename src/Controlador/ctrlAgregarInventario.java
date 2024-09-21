@@ -6,6 +6,8 @@ package Controlador;
 
 import Modelo.Recursos;
 import Vistas.frmAgregarInventario;
+import Vistas.frmVerInventario;
+import Vistas.frmVerRegistroInventario;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -31,6 +33,7 @@ public class ctrlAgregarInventario implements MouseListener {
               vista.btnInsertar.addMouseListener(this);
               vista.dtcRecepcion.setMaxSelectableDate(new Date());
               vista.imgAgregar.addMouseListener(this);  
+             vista.btnVerInventario.addMouseListener(this);
           }
 
     @Override
@@ -51,16 +54,16 @@ public class ctrlAgregarInventario implements MouseListener {
             java.util.Date fechaRecepcion = vista.dtcRecepcion.getDate();
 
           if (rutaImagenSeleccionada == null || rutaImagenSeleccionada.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen antes de insertar.");
+            JOptionPane.showMessageDialog(vista, "Debes seleccionar una imagen antes de insertar", "Error", JOptionPane.ERROR_MESSAGE);
                 return; 
             }
             if (fechaRecepcion == null) {
-                JOptionPane.showMessageDialog(null, "Por favor, seleccione una fecha.");
+            JOptionPane.showMessageDialog(vista, "Porfavor, selecciona una fecha", "Error", JOptionPane.ERROR_MESSAGE);
                 return; 
             }
             
             if(txtNombreInventario.isEmpty() || txtDescripcionRecurso.isEmpty()) {
-                 JOptionPane.showMessageDialog(null, "Por favor, llena todos los campos.");
+            JOptionPane.showMessageDialog(vista, "Porfavor, llena todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
                  return;
             }
             // Establecer los valores en el modelo
@@ -79,6 +82,11 @@ public class ctrlAgregarInventario implements MouseListener {
         else if (e.getSource() == vista.imgAgregar) {
             seleccionarImagen();  // Llamar al método que abre el JFileChooser para seleccionar la imagen
         }
+           
+        if(e.getSource() == vista.btnVerInventario) {
+           frmVerInventario.initfrmVerInventario();
+           vista.dispose();
+        }
   
     }
     
@@ -88,27 +96,44 @@ public class ctrlAgregarInventario implements MouseListener {
     vista.cmbDisponibilidad.setSelectedIndex(0);
     vista.cmbEstado.setSelectedIndex(0); 
     vista.dtcRecepcion.setDate(null); 
-    vista.imgAgregar.setIcon(null);
+    vista.imgInventario.setIcon(null);
 }
     
-    private void seleccionarImagen() {
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Seleccionar imagen");
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+  private void seleccionarImagen() {
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setDialogTitle("Seleccionar imagen");
+    fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
-        int resultado = fileChooser.showOpenDialog(null);
+    int resultado = fileChooser.showOpenDialog(null);
 
-        if (resultado == JFileChooser.APPROVE_OPTION) {
-            File archivoSeleccionado = fileChooser.getSelectedFile();
-            rutaImagenSeleccionada = archivoSeleccionado.getAbsolutePath(); // Guardar la ruta de la imagen seleccionada
+    if (resultado == JFileChooser.APPROVE_OPTION) {
+        File archivoSeleccionado = fileChooser.getSelectedFile();
+         rutaImagenSeleccionada = archivoSeleccionado.getAbsolutePath(); // Guardar la ruta de la imagen seleccionada
 
+        // Verificar si el archivo tiene una extensión válida
+        if (esFormatoImagenValido(rutaImagenSeleccionada)) {
             // Mostrar la ruta de la imagen seleccionada
             System.out.println("Imagen seleccionada: " + rutaImagenSeleccionada);
 
             // Actualizar el JLabel con la imagen seleccionada
             vista.imgRecurso.setIcon(redimensionarImagen(rutaImagenSeleccionada, 150, 150));
+        } else {
+            System.out.println("Formato de imagen no válido. Seleccione un archivo con extensión .jpg, .png o .gif.");
+            JOptionPane.showMessageDialog(null, "Formato de imagen no válido. Seleccione un archivo con extensión .jpg, .png o .gif.", "Error de formato", JOptionPane.ERROR_MESSAGE);
         }
     }
+}
+
+// Método para verificar si el archivo es de un formato de imagen válido
+private boolean esFormatoImagenValido(String rutaImagen) {
+    String[] formatosValidos = {".jpg", ".jpeg", ".png", ".gif"};
+    for (String formato : formatosValidos) {
+        if (rutaImagen.toLowerCase().endsWith(formato)) {
+            return true;
+        }
+    }
+    return false;
+}
     
     private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
     ImageIcon imagenOriginal = new ImageIcon(rutaImagen);

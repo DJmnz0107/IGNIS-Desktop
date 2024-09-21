@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import Vistas.frmVerRegistroInventario;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,12 +14,33 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Diego
  */
 public class Recursos {
+    
+    public Recursos() {
+        
+    }
+    
+    public Recursos(int id, String nombre, String descripcion, String estado, Date fecha, String disponibilidad, String foto){ 
+        this.idRecurso  = id;
+        this.nombreRecurso = nombre;
+        this.descripcionRecurso = descripcion;
+        this.estadoRecurso = estado;
+        this.fechaRecepcionRecurso = fecha;
+        this.disponibilidadRecurso = disponibilidad;
+        this.fotoRecurso = foto;
+        
+    }
 
     /**
      * @return the idRecurso
@@ -125,8 +147,173 @@ public class Recursos {
     private String disponibilidadRecurso;
     private String fotoRecurso;
     
+     public void Eliminar(JTable tabla) {
+    Connection conexion = ClaseConexion.getConexion();
+
+    int filaSeleccionada = tabla.getSelectedRow();
+
+    String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
     
-public void insertarRecurso(String rutaImagen) {
+    try {
+        String sql = "DELETE FROM Recursos WHERE id_recurso = ?";
+        PreparedStatement deleteRecurso = conexion.prepareStatement(sql);
+
+        
+        int idTransporte = Integer.parseInt(miId);
+        deleteRecurso.setInt(1, idTransporte);
+
+        deleteRecurso.executeUpdate();
+        
+    } catch (Exception e) {
+        System.out.println("Este es el error en el método de eliminar: " + e);
+    }
+}  
+     
+     
+  public void actualizarRecurso(String rutaImagen) {
+    
+        Connection conexion = ClaseConexion.getConexion();
+        
+    String escritorio = System.getProperty("user.home") + File.separator + "Desktop";
+    String carpetaImagenes = escritorio + File.separator + "RecursosImágenes";
+    File carpeta = new File(carpetaImagenes);
+
+    // Crear la carpeta si no existe
+    if (!carpeta.exists()) {
+        carpeta.mkdirs();
+    }
+
+    // Nombre de la imagen que se guardará
+    String nombreImagen = new File(rutaImagen).getName();
+    File destinoImagen = new File(carpeta, nombreImagen);
+
+    // Copiar la imagen a la carpeta
+    try {
+        Files.copy(new File(rutaImagen).toPath(), destinoImagen.toPath(), StandardCopyOption.REPLACE_EXISTING);
+    } catch (IOException e) {
+        System.out.println("Error al guardar la imagen: " + e.getMessage());
+        return; // Termina el método si hay un error
+    }
+
+        try { 
+        PreparedStatement updateRecurso = conexion.prepareStatement("update Recursos set nombre_recurso = ?, descripcion_recurso = ?, estado_recurso = ?,  fechaRecepcion_recurso  = ?,  disponibilidad_recurso = ?, foto_recurso = ? where id_recurso = ?");
+
+        updateRecurso.setString(1, getNombreRecurso());
+        updateRecurso.setString(2, getDescripcionRecurso());
+        updateRecurso.setString(3, getEstadoRecurso());
+        updateRecurso.setDate(4, new java.sql.Date(this.fechaRecepcionRecurso.getTime()));
+        updateRecurso.setString(5, getDisponibilidadRecurso());
+        updateRecurso.setString(6, destinoImagen.getAbsolutePath());
+        updateRecurso.setInt(7, getIdRecurso());
+
+        updateRecurso.executeUpdate();
+
+
+
+
+
+    } catch (Exception e) {
+        System.out.println("este es el error en el metodo de actualizar" + e);
+    }
+}
+    
+    
+    public void Mostrar(JTable tabla) {
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"id_recurso", "Nombre del recurso", "Descripcion", "Estado", "Fecha de recepción", "Disponibilidad recurso", "Foto del recurso"});
+        try {
+            String query = "SELECT * FROM recursos";
+            Statement statement = conexion.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()) {
+                int id = rs.getInt("id_recurso");
+             String nombre = rs.getString("nombre_recurso");
+             String descripcion = rs.getString("descripcion_recurso");
+             String estado = rs.getString("estado_recurso"); 
+             String fechaRecepcion = rs.getString("fechaRecepcion_recurso");
+             String disponibilidad = rs.getString("disponibilidad_recurso");
+             String foto = rs.getString("foto_recurso");
+        
+              modelo.addRow(new Object[]{id, nombre, descripcion,  estado,  fechaRecepcion, disponibilidad, foto});
+
+            }
+            tabla.setModel(modelo);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setWidth(0);
+            tabla.getColumnModel().getColumn(6).setMinWidth(0);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(6).setWidth(0);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+        }
+       
+        
+    }
+    
+    
+    //Función para obtener los datos de la tabla
+    public Recursos obtenerDatosTabla(frmVerRegistroInventario vista) throws ParseException {
+SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    int filaSeleccionada = vista.jtInventario.getSelectedRow();
+
+    if (filaSeleccionada != -1) {
+        int id = (Integer) vista.jtInventario.getValueAt(filaSeleccionada, 0);
+        String nombreRecurso = vista.jtInventario.getValueAt(filaSeleccionada, 1).toString();
+        String descripcionRecurso = vista.jtInventario.getValueAt(filaSeleccionada, 2).toString();
+        String estado = vista.jtInventario.getValueAt(filaSeleccionada, 3).toString();
+        String fechaTexto = vista.jtInventario.getValueAt(filaSeleccionada, 4).toString();
+        Date fechaRecepcion = formatoFecha.parse(fechaTexto);
+        String disponibilidad = vista.jtInventario.getValueAt(filaSeleccionada, 5).toString();
+        String fotoRecurso = vista.jtInventario.getValueAt(filaSeleccionada, 6).toString();
+
+        return new Recursos(id, nombreRecurso, descripcionRecurso, estado, fechaRecepcion, disponibilidad, fotoRecurso);
+    }
+    return null;
+}
+    
+    public void Buscar(JTable tabla, JTextField JTextField1) {
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel Recurso = new DefaultTableModel();
+        Recurso.setColumnIdentifiers(new Object[]{"id_recurso", "Nombre del recurso", "Descripcion", "Estado", "Fecha de recepción", "Disponibilidad recurso", "Foto del recurso"});
+        try {
+            String sql = "SELECT * FROM Recursos WHERE descripcion_recurso LIKE ? || '%'";
+            PreparedStatement buscarRecurso = conexion.prepareStatement(sql);
+            buscarRecurso.setString(1, JTextField1.getText());
+            ResultSet rs = buscarRecurso.executeQuery();
+
+             while (rs.next()) {
+                int id = rs.getInt("id_recurso");
+             String nombre = rs.getString("nombre_recurso");
+             String descripcion = rs.getString("descripcion_recurso");
+             String estado = rs.getString("estado_recurso"); 
+             String fechaRecepcion = rs.getString("fechaRecepcion_recurso");
+             String disponibilidad = rs.getString("disponibilidad_recurso");
+             String foto = rs.getString("foto_recurso");
+             
+                           Recurso.addRow(new Object[]{id, nombre, descripcion,  estado,  fechaRecepcion, disponibilidad, foto});
+
+             }
+            
+            tabla.setModel(Recurso);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setWidth(0);
+            tabla.getColumnModel().getColumn(6).setMinWidth(0);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(6).setWidth(0);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo de buscar " + e);
+        }
+    }
+    
+    
+    
+
+    
+    
+    public void insertarRecurso(String rutaImagen) {
     Connection conexion = ClaseConexion.getConexion();
     String sql = "INSERT INTO Recursos (nombre_recurso, descripcion_recurso, estado_recurso, fechaRecepcion_recurso, disponibilidad_recurso, foto_recurso) VALUES (?, ?, ?, ?, ?, ?)";
 

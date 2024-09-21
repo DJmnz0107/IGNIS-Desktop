@@ -5,11 +5,14 @@
 package Controlador;
 
 import Modelo.Recursos;
+import Vistas.frmActualizarInventario;
 import Vistas.frmVerRegistroInventario;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.ParseException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +20,7 @@ import java.awt.event.MouseListener;
  */
 public class ctrlVerRegistroInventario implements MouseListener, KeyListener {
     
-    private Recursos modelo;
+     private Recursos modelo;
     private frmVerRegistroInventario vista;
     
     public ctrlVerRegistroInventario(Recursos modelo, frmVerRegistroInventario vista) {
@@ -27,10 +30,32 @@ public class ctrlVerRegistroInventario implements MouseListener, KeyListener {
         vista.btnEliminar.addMouseListener(this);
         vista.btnActualizar.addMouseListener(this);
         vista.txtBuscar.addKeyListener(this);
+        modelo.Mostrar(vista.jtInventario);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if(e.getSource() == vista.btnEliminar) {
+            modelo.Eliminar(vista.jtInventario);
+            modelo.Mostrar(vista.jtInventario);
+        }
+        
+     if (e.getSource() == vista.btnActualizar) {
+    try {
+        Recursos recursoSeleccionado = modelo.obtenerDatosTabla(vista);
+
+        if (recursoSeleccionado != null) {
+            frmActualizarInventario.initfrmActualizarInventario(recursoSeleccionado);
+            vista.dispose();
+        } else {
+            JOptionPane.showMessageDialog(vista, "Por favor, seleccione una fila para actualizar.");
+        }
+    } catch (ParseException ex) {
+        JOptionPane.showMessageDialog(vista, "Error al convertir la fecha. Por favor, verifica el formato.");
+        ex.printStackTrace(); // Opcionalmente imprime la traza del error en consola
+    }
+}
+
     }
 
     @Override
@@ -59,6 +84,9 @@ public class ctrlVerRegistroInventario implements MouseListener, KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        if(e.getSource() == vista.txtBuscar) {
+            modelo.Buscar(vista.jtInventario, vista.txtBuscar);
+        }
     }
     
 }

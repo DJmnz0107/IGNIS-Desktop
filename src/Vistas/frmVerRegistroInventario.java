@@ -4,7 +4,14 @@
  */
 package Vistas;
 
+import Controlador.ctrlVerRegistroInventario;
+import Modelo.Recursos;
 import Vistas.drawer.MyDrawerBuilder;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Font;
+import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 
@@ -23,7 +30,20 @@ public class frmVerRegistroInventario extends javax.swing.JFrame {
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
     }
+    
+    public static void initfrmVerRegistroInventario() {
+        FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
+        Recursos modelo = new Recursos();
+        frmVerRegistroInventario vista = new frmVerRegistroInventario();
+        ctrlVerRegistroInventario controlador = new ctrlVerRegistroInventario(modelo, vista);
+        vista.setVisible(true);
+    }
 
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,6 +172,7 @@ public class frmVerRegistroInventario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed

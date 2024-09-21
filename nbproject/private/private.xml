@@ -4,26 +4,21 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/ClaseConexion.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/nbproject/private/private.properties</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/Main.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlVerUsuarios.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmPrimerUso.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlAgregarInventario.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlRegistroTransporte.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlCrearCuenta.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerRegistroInventario.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlVerRegistroInventario.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlVerInventario.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlTransportes.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/nbproject/private/private.xml</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlActualizarTransporte.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarBomberos.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarInventario.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmActualizarInventario.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerRegistroTransporter.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarInventario.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarTransportes.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmLogin.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/TextFieldBlanco.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmActualizarTransporte.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/Recursos.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/Transportes.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlRecuContrasena.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/DateChooser.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/drawer/MyDrawerBuilder.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/Emergencias.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerInventario.java</file>
         </group>
     </open-files>
 </project-private>
