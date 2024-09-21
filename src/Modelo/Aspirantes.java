@@ -4,6 +4,8 @@
  */
 package Modelo;
 
+
+import Vistas.frmAgregarAspirante;
 import java.sql.*;
 import javax.swing.JComboBox;
 
@@ -181,8 +183,23 @@ public class Aspirantes {
     
     catch(SQLException ex){
         System.out.println("Este es el error en el metodo Guardar: " + ex);
+        }
+    }
+    
+    public void Limpiar(frmAgregarAspirante Vistas){
+        
+        Vistas.txtNombreAspirante.setText("");
+        Vistas.txtApellidoAspirante.setText("");
+        Vistas.txtDuiAspirante.setText("");
+        Vistas.txtEdadAspirante.setText("");
+        Vistas.txtEntrenamientoAspirante.setText("");
+        Vistas.txtProgresoAspirante.setText("");
+        Vistas.txtFoto.setText("");
+        
     }
     
     
-    }
+    
+    
+   
 }

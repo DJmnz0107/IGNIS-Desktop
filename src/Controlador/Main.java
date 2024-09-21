@@ -31,7 +31,7 @@ public class Main {
             if(!modeloUsuario.verificarUsuario()) {
                frmPrimerUso.initFrmCrearCuenta();
             } else {
-                frmLogin.initfrmLogin();
+                frmAgregarAspirante.initfrmAgregarAspirante();
             }
             
             }

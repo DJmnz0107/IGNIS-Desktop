@@ -60,6 +60,7 @@ public class ctrlAspirantes implements MouseListener {
         Modelo.setFoto_aspirante(Vistas.txtFoto.getText());
         //y el metodo guardar para insertar a la base de datos :D
         Modelo.Guardar();
+        Modelo.Limpiar(Vistas);
         
         
         }
