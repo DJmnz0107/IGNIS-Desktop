@@ -150,7 +150,7 @@
                               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="textFieldGris1" min="-2" pref="252" max="-2" attributes="0"/>
+                                      <Component id="txtNombreAspirante" min="-2" pref="252" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -158,13 +158,13 @@
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                              <Component id="textFieldGris5" min="-2" pref="252" max="-2" attributes="0"/>
+                                              <Component id="txtApellidoAspirante" min="-2" pref="252" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="textFieldGris3" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                                          <Component id="txtEdadAspirante" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -172,7 +172,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="textFieldGris4" min="-2" pref="252" max="-2" attributes="0"/>
+                                          <Component id="txtDuiAspirante" min="-2" pref="252" max="-2" attributes="0"/>
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -182,11 +182,11 @@
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jComboBox1" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="cmbBomberoMentor" min="-2" pref="160" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="textFieldGris2" min="-2" pref="252" max="-2" attributes="0"/>
+                                      <Component id="txtProgresoAspirante" min="-2" pref="252" max="-2" attributes="0"/>
                                       <EmptySpace pref="247" max="32767" attributes="0"/>
-                                      <Component id="btnRojoForms1" min="-2" pref="155" max="-2" attributes="0"/>
+                                      <Component id="btnAgregarFoto" min="-2" pref="155" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -195,7 +195,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textFieldGris6" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
+                                  <Component id="txtEntrenamientoAspirante" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -203,9 +203,9 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
-                      <Component id="btnEliminar" min="-2" pref="246" max="-2" attributes="0"/>
+                      <Component id="btnAñadirInfo" min="-2" pref="246" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                      <Component id="btnEliminar1" min="-2" pref="224" max="-2" attributes="0"/>
+                      <Component id="btnVerAspirantes" min="-2" pref="224" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -218,12 +218,12 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="textFieldGris5" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="txtApellidoAspirante" min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="textFieldGris1" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="txtNombreAspirante" min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -231,12 +231,12 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textFieldGris3" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="txtEdadAspirante" min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textFieldGris4" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="txtDuiAspirante" min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -246,20 +246,20 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jComboBox1" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="cmbBomberoMentor" min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldGris2" alignment="3" min="-2" pref="97" max="-2" attributes="0"/>
-                              <Component id="btnRojoForms1" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="txtProgresoAspirante" alignment="3" min="-2" pref="97" max="-2" attributes="0"/>
+                              <Component id="btnAgregarFoto" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="textFieldGris6" min="-2" pref="119" max="-2" attributes="0"/>
+                      <Component id="txtEntrenamientoAspirante" min="-2" pref="119" max="-2" attributes="0"/>
                       <EmptySpace pref="29" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnEliminar" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="btnEliminar1" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="btnAñadirInfo" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="btnVerAspirantes" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
@@ -267,7 +267,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="Vistas.TextFieldGris" name="textFieldGris1">
+            <Component class="Vistas.TextFieldGris" name="txtNombreAspirante">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -277,6 +277,9 @@
                 </Property>
                 <Property name="hint" type="java.lang.String" value=""/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -294,7 +297,7 @@
                 <Property name="text" type="java.lang.String" value="Apellido del aspirante"/>
               </Properties>
             </Component>
-            <Component class="Vistas.TextFieldGris" name="textFieldGris2">
+            <Component class="Vistas.TextFieldGris" name="txtProgresoAspirante">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -304,6 +307,9 @@
                 </Property>
                 <Property name="hint" type="java.lang.String" value=""/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
@@ -313,7 +319,7 @@
                 <Property name="text" type="java.lang.String" value="Edad"/>
               </Properties>
             </Component>
-            <Component class="Vistas.TextFieldGris" name="textFieldGris3">
+            <Component class="Vistas.TextFieldGris" name="txtEdadAspirante">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -323,8 +329,11 @@
                 </Property>
                 <Property name="hint" type="java.lang.String" value=""/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
-            <Component class="Vistas.TextFieldGris" name="textFieldGris4">
+            <Component class="Vistas.TextFieldGris" name="txtDuiAspirante">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -334,6 +343,9 @@
                 </Property>
                 <Property name="hint" type="java.lang.String" value=""/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -351,7 +363,7 @@
                 <Property name="text" type="java.lang.String" value="Bombero mentor"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="cmbBomberoMentor">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -364,6 +376,7 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
@@ -374,7 +387,7 @@
                 <Property name="text" type="java.lang.String" value="Progreso del aspirante"/>
               </Properties>
             </Component>
-            <Component class="Vistas.TextFieldGris" name="textFieldGris5">
+            <Component class="Vistas.TextFieldGris" name="txtApellidoAspirante">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -384,8 +397,11 @@
                 </Property>
                 <Property name="hint" type="java.lang.String" value=""/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
-            <Component class="Vistas.TextFieldGris" name="textFieldGris6">
+            <Component class="Vistas.TextFieldGris" name="txtEntrenamientoAspirante">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -395,6 +411,9 @@
                 </Property>
                 <Property name="hint" type="java.lang.String" value=""/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
@@ -404,7 +423,7 @@
                 <Property name="text" type="java.lang.String" value="Entrenamiento del aspirante"/>
               </Properties>
             </Component>
-            <Component class="Vistas.btnRojoForms" name="btnRojoForms1">
+            <Component class="Vistas.btnRojoForms" name="btnAgregarFoto">
               <Properties>
                 <Property name="text" type="java.lang.String" value="    Agregar foto"/>
                 <Property name="alignmentY" type="float" value="0.0"/>
@@ -413,8 +432,11 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
-            <Component class="Vistas.btnRojoForms" name="btnEliminar">
+            <Component class="Vistas.btnRojoForms" name="btnA&#xf1;adirInfo">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Vistas/resources/anadir.png"/>
@@ -428,7 +450,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="Vistas.btnRojoForms" name="btnEliminar1">
+            <Component class="Vistas.btnRojoForms" name="btnVerAspirantes">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Vistas/resources/contrato.png"/>

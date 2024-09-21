@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/ClaseConexion.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlAgregarInventario.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlRegistroTransporte.java</file>
@@ -19,6 +20,13 @@
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/Transportes.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/Emergencias.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerInventario.java</file>
+=======
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerInventario.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroMisiones.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroTransporter.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarAspirante.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmLogin.java</file>
+>>>>>>> Nataren
         </group>
     </open-files>
 </project-private>
