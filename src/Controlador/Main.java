@@ -15,7 +15,11 @@ import java.sql.Connection;
 import Vistas.frmMenu;
 import Vistas.frmPrimerUso;
 import Vistas.frmRecuperacionContrasena;
+<<<<<<< HEAD
 import Vistas.frmVerCambios;
+=======
+import Vistas.frmVerRegistroAspirantes;
+>>>>>>> Angel
 import Vistas.frmVerRegistroTransporter;
 import modelo.EmergenciaController;
 
@@ -36,7 +40,7 @@ public class Main {
                 if (!modeloUsuario.verificarUsuario()) {
                     frmPrimerUso.initFrmCrearCuenta();
                 } else {
-                    frmLogin.initfrmLogin();
+                    frmVerRegistroAspirantes.initfrmVerRegistroAspirantes();
                     Connection conexion = ClaseConexion.getConexion();
 
                     // Verifica si el controlador ya ha sido creado
