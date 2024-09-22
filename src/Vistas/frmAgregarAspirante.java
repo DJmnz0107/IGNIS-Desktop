@@ -6,7 +6,14 @@ package Vistas;
 
 import Controlador.ctrlAspirantes;
 import Modelo.Aspirantes;
+import Vistas.drawer.MyDrawerBuilder;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Font;
+import javax.swing.UIManager;
 import raven.drawer.Drawer;
+import raven.popup.GlassPanePopup;
 
 /**
  *
@@ -18,10 +25,17 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
      * Creates new form frmAgregarAspirante
      */
     public frmAgregarAspirante() {
+        GlassPanePopup.install(this);
+        MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
+        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
     }
 
     public static void initfrmAgregarAspirante() {
+        FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
         frmAgregarAspirante vistas = new frmAgregarAspirante();
         Aspirantes modelo = new Aspirantes();
         ctrlAspirantes controlador = new ctrlAspirantes(modelo, vistas);
@@ -61,6 +75,7 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         btnAñadirInfo = new Vistas.btnRojoForms();
         btnVerAspirantes = new Vistas.btnRojoForms();
         txtFoto = new javax.swing.JTextField();
+        imgAspirante = new javax.swing.JLabel();
         imgBack = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -102,178 +117,92 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         panelRound31.setRoundBottomRight(20);
         panelRound31.setRoundTopLeft(20);
         panelRound31.setRoundTopRight(20);
+        panelRound31.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtNombreAspirante.setForeground(new java.awt.Color(0, 0, 0));
         txtNombreAspirante.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtNombreAspirante.setHint("");
+        panelRound31.add(txtNombreAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 69, 252, 49));
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         jLabel1.setText("Nombre del aspirante");
+        panelRound31.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 29, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         jLabel3.setText("Apellido del aspirante");
+        panelRound31.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 29, -1, -1));
 
         txtProgresoAspirante.setForeground(new java.awt.Color(0, 0, 0));
         txtProgresoAspirante.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtProgresoAspirante.setHint("");
+        panelRound31.add(txtProgresoAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 252, 97));
 
         jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         jLabel4.setText("Edad");
+        panelRound31.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
 
         txtEdadAspirante.setForeground(new java.awt.Color(0, 0, 0));
         txtEdadAspirante.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtEdadAspirante.setHint("");
+        panelRound31.add(txtEdadAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 103, 49));
 
         txtDuiAspirante.setForeground(new java.awt.Color(0, 0, 0));
         txtDuiAspirante.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtDuiAspirante.setHint("");
+        panelRound31.add(txtDuiAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 252, 49));
 
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         jLabel5.setText("Dui");
+        panelRound31.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 144, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         jLabel6.setText("Bombero mentor");
+        panelRound31.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         cmbBomberoMentor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelRound31.add(cmbBomberoMentor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 160, 34));
 
         jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         jLabel7.setText("Progreso del aspirante");
+        panelRound31.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
         txtApellidoAspirante.setForeground(new java.awt.Color(0, 0, 0));
         txtApellidoAspirante.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtApellidoAspirante.setHint("");
+        panelRound31.add(txtApellidoAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 69, 252, 49));
 
         txtEntrenamientoAspirante.setForeground(new java.awt.Color(0, 0, 0));
         txtEntrenamientoAspirante.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtEntrenamientoAspirante.setHint("");
+        panelRound31.add(txtEntrenamientoAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 252, 119));
 
         jLabel8.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         jLabel8.setText("Entrenamiento del aspirante");
+        panelRound31.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
 
         btnAgregarFoto.setText("    Agregar foto");
         btnAgregarFoto.setAlignmentY(0.0F);
         btnAgregarFoto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnAgregarFoto.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        panelRound31.add(btnAgregarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 155, 51));
 
         btnAñadirInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/anadir.png"))); // NOI18N
         btnAñadirInfo.setText("  Añadir informacion");
         btnAñadirInfo.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        panelRound31.add(btnAñadirInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 550, 246, 60));
 
         btnVerAspirantes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/contrato.png"))); // NOI18N
         btnVerAspirantes.setText("   Ver aspirantes");
         btnVerAspirantes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        panelRound31.add(btnVerAspirantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 550, 224, 60));
 
         txtFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFotoActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelRound31Layout = new javax.swing.GroupLayout(panelRound31);
-        panelRound31.setLayout(panelRound31Layout);
-        panelRound31Layout.setHorizontalGroup(
-            panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound31Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addComponent(txtEntrenamientoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110))
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(panelRound31Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addComponent(txtNombreAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelRound31Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3))
-                            .addGroup(panelRound31Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(txtApellidoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEdadAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelRound31Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel4)))
-                        .addGap(55, 55, 55)
-                        .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDuiAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)))
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel7))
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addComponent(cmbBomberoMentor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtProgresoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
-                        .addComponent(btnAgregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(99, 99, 99))
-            .addGroup(panelRound31Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(btnAñadirInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(btnVerAspirantes, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelRound31Layout.setVerticalGroup(
-            panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound31Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtApellidoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNombreAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtEdadAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDuiAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
-                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbBomberoMentor, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtProgresoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAgregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtEntrenamientoAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRound31Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(txtFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAñadirInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVerAspirantes, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
-        );
+        panelRound31.add(txtFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 144, -1));
+        panelRound31.add(imgAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 260, 210));
 
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
 
@@ -295,8 +224,8 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(panelRound31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                        .addComponent(panelRound31, javax.swing.GroupLayout.PREFERRED_SIZE, 974, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,8 +239,8 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(imgBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelRound31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(25, 25, 25))
+                .addComponent(panelRound31, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -322,14 +251,14 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        Drawer.getInstance().showDrawer();
+       
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void txtFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFotoActionPerformed
@@ -377,6 +306,7 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
     public javax.swing.JButton btnMenu;
     public Vistas.btnRojoForms btnVerAspirantes;
     public javax.swing.JComboBox<String> cmbBomberoMentor;
+    public javax.swing.JLabel imgAspirante;
     public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

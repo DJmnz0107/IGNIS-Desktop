@@ -1,6 +1,7 @@
 package Vistas.drawer;
 
 import Modelo.Usuarios;
+import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarMision;
 import Vistas.frmAgregarTransportes;
@@ -111,6 +112,11 @@ private void gestionarSeleccionDeMenu(int index) {
             frmAgregarInventario.initfrmAgregarInventario();
                 ventanaActual.dispose();
             break;
+            
+        case 5:  // Transporte
+            frmAgregarAspirante.initfrmAgregarAspirante();
+            ventanaActual.dispose();
+        break;
 
         case 4:  // Transporte
             frmAgregarTransportes.initFrmAgregarTransportes();

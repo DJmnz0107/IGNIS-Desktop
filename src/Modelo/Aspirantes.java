@@ -6,6 +6,10 @@ package Modelo;
 
 
 import Vistas.frmAgregarAspirante;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import javax.swing.JComboBox;
 
@@ -147,10 +151,34 @@ public class Aspirantes {
         
         
         
-    public void Guardar(){
+    public void Guardar(String rutaImagen){
         //primero lo que hacemos es llamar a la clase conexion para a continuacion hacer
         //el prepared statement para insertar los datos
     Connection conexion = ClaseConexion.getConexion();
+    
+    
+    // Ruta de la carpeta en el escritorio donde se guardarán las imágenes
+    String escritorio = System.getProperty("user.home") + File.separator + "Desktop";
+    String carpetaImagenes = escritorio + File.separator + "RecursosImágenes";
+    File carpeta = new File(carpetaImagenes);
+
+    // Crear la carpeta si no existe
+    if (!carpeta.exists()) {
+        carpeta.mkdirs();
+    }
+
+    // Nombre de la imagen que se guardará
+    String nombreImagen = new File(rutaImagen).getName();
+    File destinoImagen = new File(carpeta, nombreImagen);
+
+    // Copiar la imagen a la carpeta
+    try {
+        Files.copy(new File(rutaImagen).toPath(), destinoImagen.toPath(), StandardCopyOption.REPLACE_EXISTING);
+    } catch (IOException e) {
+        System.out.println("Error al guardar la imagen: " + e.getMessage());
+        return; // Termina el método si hay un error
+    }
+    
     
       try {
         // Verifica si el id_bombero existe
@@ -175,7 +203,7 @@ public class Aspirantes {
         addAspirante.setString(4, getEntrenamiento_aspirante());
         addAspirante.setInt(5, getEdad_usuario());
         addAspirante.setString(6, getProgreso_aspirante());
-        addAspirante.setString(7, getFoto_aspirante());
+        addAspirante.setString(7, rutaImagen);
         addAspirante.setInt(8, getId_bombero());
         
         addAspirante.executeUpdate();
@@ -195,6 +223,7 @@ public class Aspirantes {
         Vistas.txtEntrenamientoAspirante.setText("");
         Vistas.txtProgresoAspirante.setText("");
         Vistas.txtFoto.setText("");
+        Vistas.imgAspirante.setIcon(null);
         
     }
     

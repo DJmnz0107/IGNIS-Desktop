@@ -6,15 +6,21 @@ package Controlador;
 
 import Modelo.Aspirantes;
 import Vistas.frmAgregarAspirante;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import raven.drawer.Drawer;
 
 
 public class ctrlAspirantes implements MouseListener {
     
     private Aspirantes Modelo;
     private frmAgregarAspirante Vistas;
+    private String rutaImagenSeleccionada;
     
     public ctrlAspirantes(Aspirantes modelo, frmAgregarAspirante vistas){
         this.Modelo = modelo;
@@ -22,13 +28,26 @@ public class ctrlAspirantes implements MouseListener {
         this.Vistas.cmbBomberoMentor.addMouseListener(this);
         this.Modelo.CargarComboBomberos(Vistas.cmbBomberoMentor);
         this.Vistas.btnAñadirInfo.addMouseListener(this);
+        this.Vistas.btnAgregarFoto.addMouseListener(this);
+        this.Vistas.btnMenu.addMouseListener(this);
         
+         
     
     }
 
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()==Vistas.btnMenu){
+            
+             Drawer.getInstance().showDrawer();
+        }
+        
+        if(e.getSource() == Vistas.btnAgregarFoto){
+            seleccionarImagen();
+        }
+        
        if (e.getSource() == Vistas.btnAñadirInfo) {
         Aspirantes seleccionado = (Aspirantes) Vistas.cmbBomberoMentor.getSelectedItem();
         if (seleccionado != null) {
@@ -55,17 +74,56 @@ public class ctrlAspirantes implements MouseListener {
             System.out.println("Error: La edad ingresada no es un número o no es válida.");
             JOptionPane.showMessageDialog(null, "Por favor, ingresa una edad válida.");
         }
-
         Modelo.setProgreso_aspirante(Vistas.txtProgresoAspirante.getText());
-        Modelo.setFoto_aspirante(Vistas.txtFoto.getText());
         //y el metodo guardar para insertar a la base de datos :D
-        Modelo.Guardar();
+        Modelo.Guardar(rutaImagenSeleccionada);
         Modelo.Limpiar(Vistas);
         
         
         }
         
     }
+    
+    private void seleccionarImagen() {
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setDialogTitle("Seleccionar imagen");
+    fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+    int resultado = fileChooser.showOpenDialog(null);
+
+    if (resultado == JFileChooser.APPROVE_OPTION) {
+        File archivoSeleccionado = fileChooser.getSelectedFile();
+         rutaImagenSeleccionada = archivoSeleccionado.getAbsolutePath(); // Guardar la ruta de la imagen seleccionada
+
+        // Verificar si el archivo tiene una extensión válida
+        if (esFormatoImagenValido(rutaImagenSeleccionada)) {
+            // Mostrar la ruta de la imagen seleccionada
+            System.out.println("Imagen seleccionada: " + rutaImagenSeleccionada);
+
+            // Actualizar el JLabel con la imagen seleccionada
+            Vistas.imgAspirante.setIcon(redimensionarImagen(rutaImagenSeleccionada, 150, 150));
+        } else {
+            System.out.println("Formato de imagen no válido. Seleccione un archivo con extensión .jpg, .png o .gif.");
+            JOptionPane.showMessageDialog(null, "Formato de imagen no válido. Seleccione un archivo con extensión .jpg, .png o .gif.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+}
+    
+    private boolean esFormatoImagenValido(String rutaImagen) {
+    String[] formatosValidos = {".jpg", ".jpeg", ".png", ".gif"};
+    for (String formato : formatosValidos) {
+        if (rutaImagen.toLowerCase().endsWith(formato)) {
+            return true;
+        }
+    }
+    return false;
+}
+    
+    private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
+    ImageIcon imagenOriginal = new ImageIcon(rutaImagen);
+    Image imagenEscalada = imagenOriginal.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+    return new ImageIcon(imagenEscalada);
+}
 
     @Override
     public void mousePressed(MouseEvent e) {
