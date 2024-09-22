@@ -37,7 +37,6 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
     }
     
     public static void initFrmAgregarTransportes() {
-    if (instance == null) {
          FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
@@ -45,9 +44,7 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
         Transportes modelo = new Transportes();
         frmAgregarTransportes vista = new frmAgregarTransportes();
         ctrlTransportes controlador = new ctrlTransportes(modelo, vista);
-        instance = vista; 
-    }
-    instance.setVisible(true);
+        vista.setVisible(true);
 }
 
 public static frmAgregarTransportes getInstance() {
@@ -219,7 +216,6 @@ public static frmAgregarTransportes getInstance() {
     }//GEN-LAST:event_txtPlacaActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        Drawer.getInstance().showDrawer();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     /**

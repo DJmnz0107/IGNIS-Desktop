@@ -90,8 +90,7 @@ public class ctrlCrearCuenta implements MouseListener {
     
     if(e.getSource() == Vista.imgBack) {
         Vista.dispose();
-         String nombreUsuario = ModeloUsuario.obtenerUsuario();
-        frmInicio.initfrmInicio(nombreUsuario);
+        frmInicio.initfrmInicio();
     }
 }
 

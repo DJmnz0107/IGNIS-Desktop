@@ -32,14 +32,12 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         
         initComponents();
-        this.setSize(1250, 700);
 
         this.setLocationRelativeTo(null);
         
     }
         
 public static void initFrmVerRegistroTransportes() {
-    if (instance == null) {
         FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
@@ -47,9 +45,7 @@ public static void initFrmVerRegistroTransportes() {
         Transportes modelo = new Transportes();
         frmVerRegistroTransporter vista = new frmVerRegistroTransporter();
         ctrlRegistroTransporte controlador = new ctrlRegistroTransporte(vista, modelo);
-        instance = vista; 
-    }
-    instance.setVisible(true);
+       vista.setVisible(true);
 }
 
 public static frmVerRegistroTransporter getInstance() {
@@ -113,7 +109,7 @@ public static frmVerRegistroTransporter getInstance() {
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 380, 190, 60));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 380, 190, 60));
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
@@ -123,7 +119,7 @@ public static frmVerRegistroTransporter getInstance() {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 220, 190, 60));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 220, 190, 60));
 
         jButton2.setBackground(new java.awt.Color(192, 109, 58));
         jButton2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
@@ -144,7 +140,7 @@ public static frmVerRegistroTransporter getInstance() {
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("IGNIS");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 10, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomRight(50);
@@ -173,16 +169,16 @@ public static frmVerRegistroTransporter getInstance() {
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(644, Short.MAX_VALUE))
+                .addContainerGap(594, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 700));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1250, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

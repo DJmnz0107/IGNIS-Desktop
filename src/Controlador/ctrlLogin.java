@@ -24,6 +24,7 @@ public class ctrlLogin implements MouseListener {
 
     private Usuarios modelo;
     private frmLogin vista;
+    public static String nombreUsuario;
     
     public ctrlLogin(Usuarios modelo, frmLogin vista) {
         this.modelo = modelo;
@@ -49,9 +50,9 @@ public void mouseClicked(MouseEvent e) {
                 
                 vista.dispose();
                 
-                String nombreUsuario = modelo.obtenerUsuario();
+                nombreUsuario = modelo.obtenerUsuario();
                 
-                frmInicio.initfrmInicio(nombreUsuario);
+                frmInicio.initfrmInicio();
                 
             } else {
                 JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
