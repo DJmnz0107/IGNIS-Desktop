@@ -4,7 +4,14 @@
  */
 package Vistas;
 
+import Controlador.ctrlMisiones;
 import Modelo.ClaseConexion;
+import Modelo.Misiones;
+import Vistas.drawer.MyDrawerBuilder;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Font;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -13,6 +20,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import raven.drawer.Drawer;
+import raven.popup.GlassPanePopup;
 
 /**
  *
@@ -24,11 +32,21 @@ public class frmVerRegistroMisiones extends javax.swing.JFrame {
      * Creates new form frmVerRegistroMisiones
      */
     public frmVerRegistroMisiones() {
+        GlassPanePopup.install(this);
+        MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
+        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
     }
     
     public static void initFrmVerRegistroMisiones() {
+        FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
+        
         frmVerRegistroMisiones vista = new frmVerRegistroMisiones();
+        Misiones modelo = new Misiones();
+        ctrlMisiones controlador = new ctrlMisiones(vista, modelo);
         vista.setVisible(true);
     }
 

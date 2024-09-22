@@ -86,13 +86,13 @@ public class Misiones {
     private int idEmergencia;
     
     
-    public void Mostrar(JTable tabla) {
+     public void Mostrar(JTable tabla) {
         
         Connection conexion = ClaseConexion.getConexion();
  
         
         DefaultTableModel modeloDeDatos = new DefaultTableModel();
-        modeloDeDatos.setColumnIdentifiers(new Object[]{"id","Placa", "Descripcion", "Fecha", "id Emergencia"});
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"id", "Descripcion", "Fecha", "id Emergencia"});
  
         try {
             
@@ -108,9 +108,7 @@ public class Misiones {
                     rs.getInt("id_mision"),
                     rs.getString("descripcion_mision"),
                     rs.getString("fecha_mision"),
-                    rs.getInt("id_emergencia"),
-                    rs.getString("tipoVehiculo_transporte"),
-                    rs.getString("disponibilidad_transporte")});
+                    rs.getInt("id_emergencia"),  });
             }
  
           
@@ -184,7 +182,7 @@ public class Misiones {
              int idEmergencia = rs.getInt("id_emergencia"); 
              
              
-                           Recurso.addRow(new Object[]{id, descripcion, fecha,  idEmergencia});
+            Recurso.addRow(new Object[]{id, descripcion, fecha,  idEmergencia});
 
              }
             
