@@ -10,7 +10,11 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -79,6 +83,46 @@ public class Misiones {
     private String descripcionMision;
     private Date fechaMision;
     private int idEmergencia;
+    
+    
+    public void Mostrar(JTable tabla) {
+        
+        Connection conexion = ClaseConexion.getConexion();
+ 
+        
+        DefaultTableModel modeloDeDatos = new DefaultTableModel();
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"id","Placa", "Descripcion", "Fecha", "id Emergencia"});
+ 
+        try {
+            
+            Statement statement = conexion.createStatement();
+ 
+           
+            ResultSet rs = statement.executeQuery("SELECT * FROM Misiones");
+ 
+            
+            while (rs.next()) {
+                
+                modeloDeDatos.addRow(new Object[]{
+                    rs.getInt("id_mision"),
+                    rs.getString("descripcion_mision"),
+                    rs.getString("fecha_mision"),
+                    rs.getInt("id_emergencia"),
+                    rs.getString("tipoVehiculo_transporte"),
+                    rs.getString("disponibilidad_transporte")});
+            }
+ 
+          
+            tabla.setModel(modeloDeDatos);
+            
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+            
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+        }
+    }
     
     
     //Funcion para insertar la misión
