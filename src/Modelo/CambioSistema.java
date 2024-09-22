@@ -84,24 +84,21 @@ public class CambioSistema {
     public void Mostar(JTable tabla){
        Connection conexion = ClaseConexion.getConexion();
        DefaultTableModel modelo = new DefaultTableModel();
-       modelo.setColumnIdentifiers(new Object[]{"ID_CambioSistema","Descripcion","Fecha","Id_Usuario"});
+       modelo.setColumnIdentifiers(new Object[]{"ID_CambioSistema","Descripcion","Fecha","Nombre del usuario"});
        try{
-         String query ="Select * From Cambios_Sistema";
+         String query ="SELECT C.id_CambioSistema, U.nombre_usuario, C.descripcion_cambio, C.fecha_cambio FROM Cambios_Sistema C INNER JOIN Usuarios U ON U.id_usuario = C.id_usuario";
         Statement statement = conexion.createStatement();
         ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
             modelo.addRow(new Object[]{rs.getInt("ID_CambioSistema"), 
                     rs.getString("DESCRIPCION_CAMBIO"), 
                     rs.getString("FECHA_CAMBIO"), 
-                    rs.getInt("Id_Usuario")});
+                    rs.getString("nombre_usuario")});
             }
             tabla.setModel(modelo);
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(0).setWidth(0);
-            tabla.getColumnModel().getColumn(3).setMinWidth(0);
-            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(3).setWidth(0);
        }catch(Exception e){
         System.out.println("Este es el error en el modelo, metodo mostrar " + e);
 
@@ -112,44 +109,42 @@ public class CambioSistema {
        
     
     public void BuscarSistema(JTable tablaJ ,JTextField txtBuscarr){
-       Connection conexion = ClaseConexion.getConexion();
-       DefaultTableModel modelo = new DefaultTableModel();
-       modelo.setColumnIdentifiers(new Object[]{"ID_CambioSistema","Descripcion","Fecha","Id_Usuario"});
-       try{
-           String sql = "SELECT U.nombre_usuario, C.descripcion_cambio, C.fecha_cambio FROM Cambios_Sistema C INNER JOIN Usuarios U ON U.id_usuario = C.id_usuario WHERE U.nombre_usuario LIKE '%D%'";
-           
-            PreparedStatement deleteEstudiante = conexion.prepareStatement(sql);
-            deleteEstudiante.setString(1, txtBuscarr.getText());
-            ResultSet rs = deleteEstudiante.executeQuery();
-            
-       while (rs.next()) {
-                //Llenamos el modelo por cada vez que recorremos el resultSet
-                modelo.addRow(new Object[]{rs.getInt("ID_CambioSistema"), 
-                    rs.getString("Descripcion"), 
-                    rs.getString("Fecha"), 
-                    rs.getInt("Id_Usuario")});
-            }
-            //nuevo modelo lleno
-            tablaJ.setModel(modelo);
-            tablaJ.getColumnModel().getColumn(0).setMinWidth(0);
-            tablaJ.getColumnModel().getColumn(0).setMaxWidth(0);
-            tablaJ.getColumnModel().getColumn(0).setWidth(0);
-       
-       
-       }catch (Exception e) {
-            System.out.println("Este es el error en el modelo, metodo de buscar " + e);
+    Connection conexion = ClaseConexion.getConexion();
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.setColumnIdentifiers(new Object[]{"ID_CambioSistema","Descripcion","Fecha","Usuario"});
+
+    try{
+        String sql = "SELECT C.id_CambioSistema, U.nombre_usuario, C.descripcion_cambio, C.fecha_cambio " +
+                     "FROM Cambios_Sistema C INNER JOIN Usuarios U ON U.id_usuario = C.id_usuario " +
+                     "WHERE U.nombre_usuario LIKE ?";
+        
+        PreparedStatement deleteEstudiante = conexion.prepareStatement(sql);
+        deleteEstudiante.setString(1, "%" + txtBuscarr.getText() + "%");  // Aquí se usa el valor del JTextField
+        
+        ResultSet rs = deleteEstudiante.executeQuery();
+        
+        while (rs.next()) {
+            modelo.addRow(new Object[]{
+                rs.getInt("id_CambioSistema"),   // El nombre debe coincidir con el alias en la consulta
+                rs.getString("descripcion_cambio"), 
+                rs.getString("fecha_cambio"), 
+                rs.getString("nombre_usuario")
+            });
         }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        // Actualiza la tabla con el modelo lleno
+        tablaJ.setModel(modelo);
+
+        // Oculta la columna de ID
+        tablaJ.getColumnModel().getColumn(0).setMinWidth(0);
+        tablaJ.getColumnModel().getColumn(0).setMaxWidth(0);
+        tablaJ.getColumnModel().getColumn(0).setWidth(0);
+
+    } catch (Exception e) {
+        System.out.println("Este es el error en el modelo, metodo de buscar " + e);
     }
+}
+
     
     
     

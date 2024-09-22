@@ -36,7 +36,6 @@ public class Main {
                 if (!modeloUsuario.verificarUsuario()) {
                     frmPrimerUso.initFrmCrearCuenta();
                 } else {
-                    frmVerCambios.initfrmVerCambios();
                     frmLogin.initfrmLogin();
                     Connection conexion = ClaseConexion.getConexion();
 
