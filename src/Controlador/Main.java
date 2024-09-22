@@ -15,11 +15,8 @@ import java.sql.Connection;
 import Vistas.frmMenu;
 import Vistas.frmPrimerUso;
 import Vistas.frmRecuperacionContrasena;
-<<<<<<< HEAD
 import Vistas.frmVerCambios;
-=======
 import Vistas.frmVerRegistroAspirantes;
->>>>>>> Angel
 import Vistas.frmVerRegistroTransporter;
 import modelo.EmergenciaController;
 
