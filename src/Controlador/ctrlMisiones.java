@@ -6,6 +6,8 @@ package Controlador;
 
 import Modelo.Misiones;
 import Vistas.frmVerRegistroMisiones;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -13,7 +15,7 @@ import java.awt.event.MouseListener;
  *
  * @author User
  */
-public class ctrlMisiones implements MouseListener{
+public class ctrlMisiones implements MouseListener, KeyListener{
     
     private frmVerRegistroMisiones Vistas;
     private Misiones Modelo;
@@ -24,6 +26,8 @@ public class ctrlMisiones implements MouseListener{
     this.Vistas = vistas;
     
     modelo.Mostrar(vistas.jtbMisiones);
+    vistas.btnEliminar.addMouseListener(this);
+    vistas.txtBuscar.addKeyListener(this);
     
     }
 
@@ -50,6 +54,21 @@ public class ctrlMisiones implements MouseListener{
     @Override
     public void mouseExited(MouseEvent e) {
         
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     
