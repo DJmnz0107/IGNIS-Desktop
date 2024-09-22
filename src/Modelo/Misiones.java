@@ -92,14 +92,15 @@ public class Misiones {
  
         
         DefaultTableModel modeloDeDatos = new DefaultTableModel();
-        modeloDeDatos.setColumnIdentifiers(new Object[]{"id", "Descripcion", "Fecha", "id Emergencia"});
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"id", "Descripcion", "Fecha", "Emergencia a tratar", "Tipo de emergencia"});
  
         try {
             
             Statement statement = conexion.createStatement();
  
            
-            ResultSet rs = statement.executeQuery("SELECT * FROM Misiones");
+            ResultSet rs = statement.executeQuery("SELECT E.descripcion_emergencia, E.tipo_emergencia, M.descripcion_mision, M.id_mision, M.fecha_mision FROM Misiones M " +
+                "INNER JOIN Emergencias E ON E.id_emergencia = M.id_emergencia");
  
             
             while (rs.next()) {
@@ -108,7 +109,8 @@ public class Misiones {
                     rs.getInt("id_mision"),
                     rs.getString("descripcion_mision"),
                     rs.getString("fecha_mision"),
-                    rs.getInt("id_emergencia"),  });
+                    rs.getString("descripcion_emergencia"),
+                rs.getString("tipo_emergencia")});
             }
  
           
@@ -168,9 +170,10 @@ public class Misiones {
         public void Buscar(JTable tabla, JTextField JTextField1) {
         Connection conexion = ClaseConexion.getConexion();
         DefaultTableModel Recurso = new DefaultTableModel();
-        Recurso.setColumnIdentifiers(new Object[]{"id", "Descripcion", "Fecha", "id Emergencia"});
+        Recurso.setColumnIdentifiers(new Object[]{"id", "Descripcion", "Fecha", "Emergencia a tratar", "Tipo de emergencia"});
         try {
-            String sql = "SELECT * FROM Misiones WHERE descripcion_mision LIKE ? || '%'";
+            String sql = "SELECT E.descripcion_emergencia, E.tipo_emergencia, M.descripcion_mision, M.id_mision, M.fecha_mision FROM Misiones M " +
+                "INNER JOIN Emergencias E ON E.id_emergencia = M.id_emergencia WHERE descripcion_mision LIKE ? || '%'";
             PreparedStatement buscarRecurso = conexion.prepareStatement(sql);
             buscarRecurso.setString(1, JTextField1.getText());
             ResultSet rs = buscarRecurso.executeQuery();
@@ -179,10 +182,11 @@ public class Misiones {
                 int id = rs.getInt("id_mision");
              String descripcion = rs.getString("descripcion_mision");
              String fecha = rs.getString("fecha_mision");
-             int idEmergencia = rs.getInt("id_emergencia"); 
+             String emergencia = rs.getString("descripcion_emergencia"); 
+             String tipoEmergencia = rs.getString("tipo_emergencia");
              
              
-            Recurso.addRow(new Object[]{id, descripcion, fecha,  idEmergencia});
+            Recurso.addRow(new Object[]{id, descripcion, fecha,  emergencia, tipoEmergencia});
 
              }
             
