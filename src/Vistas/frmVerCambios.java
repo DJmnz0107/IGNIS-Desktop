@@ -56,17 +56,18 @@ public class frmVerCambios extends javax.swing.JFrame {
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        imgVolver = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JtbVerCambios = new javax.swing.JTable();
         JTextField = new javax.swing.JTextField();
         txtBuscarVerCambios = new javax.swing.JTextField();
         btnBuscarVerCambios = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        JtbVerCambios = new javax.swing.JTable();
-        imgVolver = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setPreferredSize(new java.awt.Dimension(120, 800));
@@ -96,43 +97,17 @@ public class frmVerCambios extends javax.swing.JFrame {
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(594, Short.MAX_VALUE))
         );
 
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
+
         jPanel2.setBackground(new java.awt.Color(240, 139, 77));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2244, 0, -1, 688));
 
-        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Inicio > Ver Cambios");
-
-        JTextField.setBackground(new java.awt.Color(192, 109, 58));
-        JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        JTextField.setForeground(new java.awt.Color(255, 255, 255));
-        JTextField.setText("   Buscar:");
-        JTextField.setBorder(null);
-        JTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        JTextField.setEnabled(false);
-        JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        JTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTextFieldActionPerformed(evt);
-            }
-        });
-
-        txtBuscarVerCambios.setBackground(new java.awt.Color(255, 173, 122));
-        txtBuscarVerCambios.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        txtBuscarVerCambios.setForeground(new java.awt.Color(255, 255, 255));
-        txtBuscarVerCambios.setBorder(null);
-        txtBuscarVerCambios.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtBuscarVerCambios.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        txtBuscarVerCambios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarVerCambiosActionPerformed(evt);
-            }
-        });
-
-        btnBuscarVerCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
+        imgVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 6, -1, -1));
 
         JtbVerCambios.setBackground(new java.awt.Color(255, 173, 122));
         JtbVerCambios.setModel(new javax.swing.table.DefaultTableModel(
@@ -150,81 +125,58 @@ public class frmVerCambios extends javax.swing.JFrame {
         JtbVerCambios.setShowGrid(false);
         jScrollPane1.setViewportView(JtbVerCambios);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 914, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtBuscarVerCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBuscarVerCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(311, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel2)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscarVerCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtBuscarVerCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 914, 477));
 
-        imgVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        JTextField.setBackground(new java.awt.Color(192, 109, 58));
+        JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        JTextField.setForeground(new java.awt.Color(255, 255, 255));
+        JTextField.setText("   Buscar:");
+        JTextField.setBorder(null);
+        JTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        JTextField.setEnabled(false);
+        JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        JTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 110, 45));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(imgVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(imgVolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        txtBuscarVerCambios.setBackground(new java.awt.Color(255, 173, 122));
+        txtBuscarVerCambios.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        txtBuscarVerCambios.setForeground(new java.awt.Color(255, 255, 255));
+        txtBuscarVerCambios.setBorder(null);
+        txtBuscarVerCambios.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtBuscarVerCambios.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        txtBuscarVerCambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarVerCambiosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtBuscarVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 350, 45));
+
+        btnBuscarVerCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
+        jPanel1.add(btnBuscarVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, 46, 45));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Inicio > Ver Cambios");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed

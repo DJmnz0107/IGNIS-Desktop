@@ -111,7 +111,7 @@ public class CambioSistema {
     public void BuscarSistema(JTable tablaJ ,JTextField txtBuscarr){
     Connection conexion = ClaseConexion.getConexion();
     DefaultTableModel modelo = new DefaultTableModel();
-    modelo.setColumnIdentifiers(new Object[]{"ID_CambioSistema","Descripcion","Fecha","Usuario"});
+    modelo.setColumnIdentifiers(new Object[]{"ID_CambioSistema","Descripcion","Fecha","Nombre del usuario"});
 
     try{
         String sql = "SELECT C.id_CambioSistema, U.nombre_usuario, C.descripcion_cambio, C.fecha_cambio " +
