@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,7 +34,11 @@ public class ctrlMisiones implements MouseListener, KeyListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+        if(e.getSource() == Vistas.btnEliminar ){
+           Modelo.Eliminar(Vistas.jtbMisiones);
+           Modelo.Mostrar(Vistas.jtbMisiones);
+            JOptionPane.showMessageDialog(Vistas, "Registro eliminado exitosamente");
+        }
     }
 
     @Override
@@ -58,17 +63,19 @@ public class ctrlMisiones implements MouseListener, KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(e.getSource() == Vistas.txtBuscar) {
+            Modelo.Buscar(Vistas.jtbMisiones, Vistas.txtBuscar);
+        }
     }
     
     

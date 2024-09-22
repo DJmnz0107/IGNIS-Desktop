@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -124,6 +125,28 @@ public class Misiones {
         }
     }
     
+         public void Eliminar(JTable tabla) {
+    Connection conexion = ClaseConexion.getConexion();
+
+    int filaSeleccionada = tabla.getSelectedRow();
+
+    String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
+    
+    try {
+        String sql = "DELETE FROM Misiones WHERE id_mision = ?";
+        PreparedStatement deleteMision = conexion.prepareStatement(sql);
+
+        
+        int idMision = Integer.parseInt(miId);
+        deleteMision.setInt(1, idMision);
+
+        deleteMision.executeUpdate();
+        
+    } catch (Exception e) {
+        System.out.println("Este es el error en el método de eliminar: " + e);
+    }
+}
+    
     
     //Funcion para insertar la misión
         public void insertarMision() {
@@ -143,5 +166,39 @@ public class Misiones {
         System.out.println("Error al insertar Mision: " + e.getMessage());
     }
 }
+        
+        public void Buscar(JTable tabla, JTextField JTextField1) {
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel Recurso = new DefaultTableModel();
+        Recurso.setColumnIdentifiers(new Object[]{"id", "Descripcion", "Fecha", "id Emergencia"});
+        try {
+            String sql = "SELECT * FROM Misiones WHERE descripcion_mision LIKE ? || '%'";
+            PreparedStatement buscarRecurso = conexion.prepareStatement(sql);
+            buscarRecurso.setString(1, JTextField1.getText());
+            ResultSet rs = buscarRecurso.executeQuery();
+
+             while (rs.next()) {
+                int id = rs.getInt("id_mision");
+             String descripcion = rs.getString("descripcion_mision");
+             String fecha = rs.getString("fecha_mision");
+             int idEmergencia = rs.getInt("id_emergencia"); 
+             
+             
+                           Recurso.addRow(new Object[]{id, descripcion, fecha,  idEmergencia});
+
+             }
+            
+            tabla.setModel(Recurso);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setWidth(0);
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(3).setWidth(0);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo de buscar " + e);
+        }
+    }
+
     
 }
