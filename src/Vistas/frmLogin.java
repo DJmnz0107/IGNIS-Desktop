@@ -33,6 +33,8 @@ import javax.swing.UIManager;
  * @author Diego
  */
 public class frmLogin extends JFrame  {
+            private static frmLogin instance;
+
     
     
 
@@ -54,11 +56,21 @@ public class frmLogin extends JFrame  {
     }
 
        public static void initfrmLogin(){
+                 FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
         Usuarios modeloUsuarios = new Usuarios();
         frmLogin vista = new frmLogin();
         ctrlLogin controlador = new ctrlLogin(modeloUsuarios, vista);
         vista.setVisible(true);
+
+           
     }
+       
+        public static frmLogin getInstance() {
+    return instance;
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -154,10 +166,7 @@ public class frmLogin extends JFrame  {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-           FlatRobotoFont.install();
-        FlatLaf.registerCustomDefaultsSource("vistas.themes");
-        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
-        FlatLightLaf.setup();
+         
          
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

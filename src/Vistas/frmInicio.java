@@ -5,6 +5,7 @@
 package Vistas;
 
 import Controlador.ctrlInicio;
+import Controlador.ctrlLogin;
 import Modelo.Usuarios;
 import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
@@ -20,15 +21,19 @@ import raven.popup.GlassPanePopup;
  * @author angel
  */
 public class frmInicio extends javax.swing.JFrame {
+        private static frmInicio instance;
+
 
     /**
      * Creates new form frmInicio
      */
-    public frmInicio(String usuario) {
+    public frmInicio() {
         GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        
+        String usuario = ctrlLogin.nombreUsuario;
         
         
        if (usuario != null) {
@@ -39,17 +44,20 @@ public class frmInicio extends javax.swing.JFrame {
     }
     
     
-    public static void initfrmInicio(String usuario) {
- 
-         FlatRobotoFont.install();
+    public static void initfrmInicio() {       
+        FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
-        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
-        FlatLightLaf.setup();
-                frmInicio vista = new frmInicio(usuario);
-        ctrlInicio controlador = new ctrlInicio(vista);
-        
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
+        FlatLightLaf.setup();      
+        frmInicio vista = new frmInicio();
+        ctrlInicio controlador = new ctrlInicio(vista);       
         vista.setVisible(true);
-    }
+}
+    
+       public static frmInicio getInstance() {
+    return instance;
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,19 +75,20 @@ public class frmInicio extends javax.swing.JFrame {
         panelRound21 = new Vistas.panelRound2();
         panelRound31 = new Vistas.panelRound3();
         jLabel2 = new javax.swing.JLabel();
-        btnInicio3 = new Vistas.btnInicio();
+        btnEstadisticas = new Vistas.btnInicio();
         btnInicio4 = new Vistas.btnInicio();
-        btnInicio5 = new Vistas.btnInicio();
-        btnInicio6 = new Vistas.btnInicio();
-        btnInicio7 = new Vistas.btnInicio();
-        btnInicio8 = new Vistas.btnInicio();
+        btnTransportes = new Vistas.btnInicio();
+        btnInventario = new Vistas.btnInicio();
+        btnMisiones = new Vistas.btnInicio();
+        btnSeguimiento = new Vistas.btnInicio();
         btnInicio9 = new Vistas.btnInicio();
-        btnInicio10 = new Vistas.btnInicio();
+        btnEmergencias = new Vistas.btnInicio();
         btnCrearUsuario = new Vistas.btnInicio2();
         btnCerrarSesión = new Vistas.btnInicio3();
         btnInicio41 = new Vistas.btnInicio4();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -132,41 +141,41 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel2.setText("Funciones principales");
         panelRound31.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
-        btnInicio3.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoStat.png"))); // NOI18N
-        btnInicio3.setText("Estadísticas");
-        btnInicio3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 170, 60));
+        btnEstadisticas.setForeground(new java.awt.Color(240, 139, 77));
+        btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoStat.png"))); // NOI18N
+        btnEstadisticas.setText("Estadísticas");
+        btnEstadisticas.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(btnEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 170, 60));
 
         btnInicio4.setForeground(new java.awt.Color(240, 139, 77));
         btnInicio4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoInforme.png"))); // NOI18N
         btnInicio4.setText("Informes");
         btnInicio4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 170, 60));
+        panelRound31.add(btnInicio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 170, 60));
 
-        btnInicio5.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCamionsito.png"))); // NOI18N
-        btnInicio5.setText("Transporte");
-        btnInicio5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 170, 60));
+        btnTransportes.setForeground(new java.awt.Color(240, 139, 77));
+        btnTransportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCamionsito.png"))); // NOI18N
+        btnTransportes.setText("Transporte");
+        btnTransportes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(btnTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 170, 60));
 
-        btnInicio6.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoManguera.png"))); // NOI18N
-        btnInicio6.setText("Inventario");
-        btnInicio6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 170, 60));
+        btnInventario.setForeground(new java.awt.Color(240, 139, 77));
+        btnInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoManguera.png"))); // NOI18N
+        btnInventario.setText("Inventario");
+        btnInventario.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 170, 60));
 
-        btnInicio7.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoMision.png"))); // NOI18N
-        btnInicio7.setText("Misiones");
-        btnInicio7.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 170, 60));
+        btnMisiones.setForeground(new java.awt.Color(240, 139, 77));
+        btnMisiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoMision.png"))); // NOI18N
+        btnMisiones.setText("Misiones");
+        btnMisiones.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(btnMisiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 170, 60));
 
-        btnInicio8.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoSeguimiento.png"))); // NOI18N
-        btnInicio8.setText("Seguimiento");
-        btnInicio8.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 170, 60));
+        btnSeguimiento.setForeground(new java.awt.Color(240, 139, 77));
+        btnSeguimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoSeguimiento.png"))); // NOI18N
+        btnSeguimiento.setText("Seguimiento");
+        btnSeguimiento.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(btnSeguimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 170, 60));
 
         btnInicio9.setForeground(new java.awt.Color(240, 139, 77));
         btnInicio9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoBombero.png"))); // NOI18N
@@ -174,11 +183,11 @@ public class frmInicio extends javax.swing.JFrame {
         btnInicio9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         panelRound31.add(btnInicio9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 170, 60));
 
-        btnInicio10.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoEmergencia.png"))); // NOI18N
-        btnInicio10.setText("Emergencias");
-        btnInicio10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 170, 60));
+        btnEmergencias.setForeground(new java.awt.Color(240, 139, 77));
+        btnEmergencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoEmergencia.png"))); // NOI18N
+        btnEmergencias.setText("Emergencias");
+        btnEmergencias.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(btnEmergencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 170, 60));
 
         panelRound21.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 26, 650, 430));
 
@@ -215,7 +224,6 @@ public class frmInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        Drawer.getInstance().showDrawer();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     /**
@@ -255,16 +263,16 @@ public class frmInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Vistas.btnInicio3 btnCerrarSesión;
     public Vistas.btnInicio2 btnCrearUsuario;
-    private Vistas.btnInicio btnInicio10;
-    private Vistas.btnInicio btnInicio3;
+    public Vistas.btnInicio btnEmergencias;
+    public Vistas.btnInicio btnEstadisticas;
     private Vistas.btnInicio btnInicio4;
     private Vistas.btnInicio4 btnInicio41;
-    private Vistas.btnInicio btnInicio5;
-    private Vistas.btnInicio btnInicio6;
-    private Vistas.btnInicio btnInicio7;
-    private Vistas.btnInicio btnInicio8;
     private Vistas.btnInicio btnInicio9;
+    public Vistas.btnInicio btnInventario;
     public javax.swing.JButton btnMenu;
+    public Vistas.btnInicio btnMisiones;
+    public Vistas.btnInicio btnSeguimiento;
+    public Vistas.btnInicio btnTransportes;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel jlblTextoInicio;
