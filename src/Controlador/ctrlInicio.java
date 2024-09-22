@@ -9,6 +9,7 @@ import Vistas.frmAgregarTransportes;
 import Vistas.frmCrearCuenta;
 import Vistas.frmInicio;
 import Vistas.frmLogin;
+import Vistas.frmVerCambios;
 import Vistas.frmVerEmergencias;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
@@ -26,7 +27,7 @@ public class ctrlInicio implements MouseListener {
     
     public ctrlInicio(frmInicio vista) {
         this.vista = vista;
-        
+        vista.btnVerCambios.addMouseListener(this);
         vista.btnCrearUsuario.addMouseListener(this);
         vista.btnCerrarSesión.addMouseListener(this);
         vista.btnEmergencias.addMouseListener(this);
@@ -39,6 +40,13 @@ public class ctrlInicio implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+         if(e.getSource() == vista.btnVerCambios) {
+            frmVerCambios.initfrmVerCambios();
+            vista.dispose();
+        }
+        
+        
         
         if(e.getSource() == vista.btnEmergencias) {
             frmVerEmergencias.initfrmVerEmergencias();

@@ -85,7 +85,7 @@ public class frmInicio extends javax.swing.JFrame {
         btnEmergencias = new Vistas.btnInicio();
         btnCrearUsuario = new Vistas.btnInicio2();
         btnCerrarSesión = new Vistas.btnInicio3();
-        btnInicio41 = new Vistas.btnInicio4();
+        btnVerCambios = new Vistas.btnInicio4();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -203,10 +203,10 @@ public class frmInicio extends javax.swing.JFrame {
         btnCerrarSesión.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 18)); // NOI18N
         jPanel1.add(btnCerrarSesión, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 580, 240, 50));
 
-        btnInicio41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoVer.png"))); // NOI18N
-        btnInicio41.setText("Ver cambios");
-        btnInicio41.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnInicio41, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 580, 230, 50));
+        btnVerCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoVer.png"))); // NOI18N
+        btnVerCambios.setText("Ver cambios");
+        btnVerCambios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jPanel1.add(btnVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 580, 230, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,13 +266,13 @@ public class frmInicio extends javax.swing.JFrame {
     public Vistas.btnInicio btnEmergencias;
     public Vistas.btnInicio btnEstadisticas;
     private Vistas.btnInicio btnInicio4;
-    private Vistas.btnInicio4 btnInicio41;
     private Vistas.btnInicio btnInicio9;
     public Vistas.btnInicio btnInventario;
     public javax.swing.JButton btnMenu;
     public Vistas.btnInicio btnMisiones;
     public Vistas.btnInicio btnSeguimiento;
     public Vistas.btnInicio btnTransportes;
+    public Vistas.btnInicio4 btnVerCambios;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel jlblTextoInicio;

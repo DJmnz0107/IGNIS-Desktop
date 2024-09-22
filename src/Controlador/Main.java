@@ -15,6 +15,7 @@ import java.sql.Connection;
 import Vistas.frmMenu;
 import Vistas.frmPrimerUso;
 import Vistas.frmRecuperacionContrasena;
+import Vistas.frmVerCambios;
 import Vistas.frmVerRegistroTransporter;
 import modelo.EmergenciaController;
 
@@ -35,6 +36,7 @@ public class Main {
                 if (!modeloUsuario.verificarUsuario()) {
                     frmPrimerUso.initFrmCrearCuenta();
                 } else {
+                    frmVerCambios.initfrmVerCambios();
                     frmLogin.initfrmLogin();
                     Connection conexion = ClaseConexion.getConexion();
 

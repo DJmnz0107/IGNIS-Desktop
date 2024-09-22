@@ -4,7 +4,16 @@
  */
 package Vistas;
 
+import Controlador.ctrlVerCambios;
+import Modelo.CambioSistema;
+import Vistas.drawer.MyDrawerBuilder;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Font;
+import javax.swing.UIManager;
 import raven.drawer.Drawer;
+import raven.popup.GlassPanePopup;
 
 /**
  *
@@ -16,9 +25,24 @@ public class frmVerCambios extends javax.swing.JFrame {
      * Creates new form frmVerCambios
      */
     public frmVerCambios() {
+        
+        GlassPanePopup.install(this);
+        MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
+        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
     }
-
+  public static void initfrmVerCambios(){
+      
+      FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
+        
+        CambioSistema  CambioSistema= new CambioSistema();
+        frmVerCambios vista = new frmVerCambios();
+        ctrlVerCambios controlador  = new ctrlVerCambios(CambioSistema, vista);
+        vista.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

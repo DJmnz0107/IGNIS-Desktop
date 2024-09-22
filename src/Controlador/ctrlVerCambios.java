@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Vistas.frmInicio;
 import Vistas.frmVerCambios;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -26,7 +27,8 @@ public class ctrlVerCambios implements MouseListener, KeyListener{
         this.Vista =vista;
         
         vista.txtBuscarVerCambios.addKeyListener(this);
-        vista.
+        vista.imgVolver.addMouseListener(this);
+        CambioSistema.Mostar(vista.JtbVerCambios);
     
     
     
@@ -34,7 +36,10 @@ public class ctrlVerCambios implements MouseListener, KeyListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-      
+        if (e.getSource() == Vista.imgVolver){
+            Vista.dispose();
+            frmInicio.initfrmInicio();
+        }
     }
 
     @Override
@@ -69,7 +74,10 @@ public class ctrlVerCambios implements MouseListener, KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {
-      
+        if(e.getSource() == Vista.txtBuscarVerCambios){
+            CambioSistema.BuscarSistema(Vista.JtbVerCambios, Vista.txtBuscarVerCambios);
+        }
     }
     
 }
+

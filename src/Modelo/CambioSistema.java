@@ -91,14 +91,17 @@ public class CambioSistema {
         ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
             modelo.addRow(new Object[]{rs.getInt("ID_CambioSistema"), 
-                    rs.getString("Descripcion"), 
-                    rs.getString("Fecha"), 
+                    rs.getString("DESCRIPCION_CAMBIO"), 
+                    rs.getString("FECHA_CAMBIO"), 
                     rs.getInt("Id_Usuario")});
             }
             tabla.setModel(modelo);
             tabla.getColumnModel().getColumn(0).setMinWidth(0);
             tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(0).setWidth(0);
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(3).setWidth(0);
        }catch(Exception e){
         System.out.println("Este es el error en el modelo, metodo mostrar " + e);
 
@@ -108,7 +111,7 @@ public class CambioSistema {
        }
        
     
-    public void BuscarSistema(JTable tablaJ ,TextField txtBuscarr){
+    public void BuscarSistema(JTable tablaJ ,JTextField txtBuscarr){
        Connection conexion = ClaseConexion.getConexion();
        DefaultTableModel modelo = new DefaultTableModel();
        modelo.setColumnIdentifiers(new Object[]{"ID_CambioSistema","Descripcion","Fecha","Id_Usuario"});
