@@ -20,6 +20,7 @@ import raven.popup.GlassPanePopup;
  * @author Diego
  */
 public class frmVerEmergencias extends javax.swing.JFrame {
+        private static frmVerEmergencias instance;
 
     /**
      * Creates new form frmVerEmergencias
@@ -32,7 +33,7 @@ public class frmVerEmergencias extends javax.swing.JFrame {
     }
     
     public static void initfrmVerEmergencias() {
-        FlatRobotoFont.install();
+                   FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
@@ -40,7 +41,13 @@ public class frmVerEmergencias extends javax.swing.JFrame {
         frmVerEmergencias vista = new frmVerEmergencias();
         ctrlVerEmergencias controlador = new ctrlVerEmergencias(modelo, vista);
         vista.setVisible(true);
+
+ 
     }
+    
+      public static frmVerEmergencias getInstance() {
+    return instance;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -159,7 +166,6 @@ public class frmVerEmergencias extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        Drawer.getInstance().showDrawer();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     /**

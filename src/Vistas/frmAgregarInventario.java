@@ -42,7 +42,6 @@ public class frmAgregarInventario extends javax.swing.JFrame {
     }
     
     public static void initfrmAgregarInventario() {
-    if (instance == null) {
         FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
@@ -51,9 +50,7 @@ public class frmAgregarInventario extends javax.swing.JFrame {
         Recursos modelo = new Recursos();
         ctrlAgregarInventario controlador = new ctrlAgregarInventario(vista, modelo);
         vista.setVisible(true);
-        instance = vista; 
-    }
-    instance.setVisible(true);
+        
 }
 
 public static frmAgregarInventario getInstance() {
@@ -235,7 +232,6 @@ public static frmAgregarInventario getInstance() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        Drawer.getInstance().showDrawer();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     /**

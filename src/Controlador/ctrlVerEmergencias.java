@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import raven.drawer.Drawer;
 
 /**
  *
@@ -26,6 +27,7 @@ public class ctrlVerEmergencias implements MouseListener, KeyListener {
         
         vista.btnEliminar.addMouseListener(this);
         vista.txtBuscarEmergencia.addKeyListener(this);
+        vista.btnMenu.addMouseListener(this);
         modelo.Mostrar(vista.jtEmergencias);
     }
 
@@ -34,6 +36,9 @@ public class ctrlVerEmergencias implements MouseListener, KeyListener {
         if(e.getSource() == vista.btnEliminar) {
             modelo.Eliminar(vista.jtEmergencias);
             modelo.Mostrar(vista.jtEmergencias);
+        }
+        if(e.getSource() == vista.btnMenu) {
+            Drawer.getInstance().showDrawer();
         }
     }
 

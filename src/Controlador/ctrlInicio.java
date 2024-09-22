@@ -4,6 +4,8 @@
  */
 package Controlador;
 
+import Vistas.frmAgregarInventario;
+import Vistas.frmAgregarTransportes;
 import Vistas.frmCrearCuenta;
 import Vistas.frmInicio;
 import Vistas.frmLogin;
@@ -12,6 +14,7 @@ import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import raven.drawer.Drawer;
 
 /**
  *
@@ -28,6 +31,9 @@ public class ctrlInicio implements MouseListener {
         vista.btnCerrarSesión.addMouseListener(this);
         vista.btnEmergencias.addMouseListener(this);
         vista.btnMisiones.addMouseListener(this);
+        vista.btnInventario.addMouseListener(this);
+        vista.btnTransportes.addMouseListener(this);
+        vista.btnMenu.addMouseListener(this);
         
     }
 
@@ -58,6 +64,18 @@ public class ctrlInicio implements MouseListener {
     if(e.getSource() == vista.btnMisiones) {
         frmVerRegistroMisiones.initFrmVerRegistroMisiones();
         vista.dispose();
+    }
+    if(e.getSource() == vista.btnInventario) {
+        frmAgregarInventario.initfrmAgregarInventario();
+        vista.dispose();
+    }
+    if(e.getSource() == vista.btnTransportes) {
+        frmAgregarTransportes.initFrmAgregarTransportes();
+        vista.dispose();
+    }
+    if(e.getSource() == vista.btnMenu) {
+        
+        Drawer.getInstance().showDrawer();
     }
     }
 

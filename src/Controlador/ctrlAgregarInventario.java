@@ -16,6 +16,7 @@ import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import raven.drawer.Drawer;
 
 /**
  *
@@ -34,6 +35,7 @@ public class ctrlAgregarInventario implements MouseListener {
               vista.dtcRecepcion.setMaxSelectableDate(new Date());
               vista.imgAgregar.addMouseListener(this);  
              vista.btnVerInventario.addMouseListener(this);
+             vista.btnMenu.addMouseListener(this);
           }
 
     @Override
@@ -86,6 +88,10 @@ public class ctrlAgregarInventario implements MouseListener {
         if(e.getSource() == vista.btnVerInventario) {
            frmVerInventario.initfrmVerInventario();
            vista.dispose();
+        }
+        
+        if(e.getSource() == vista.btnMenu) {
+            Drawer.getInstance().showDrawer();
         }
   
     }

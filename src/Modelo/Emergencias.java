@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -155,6 +156,32 @@ public class Emergencias {
         }
        
         
+    }
+        
+         @Override
+    public String toString() {
+        return descripcionEmergencia; // Aquí retorna lo que quieres mostrar en el JComboBox
+    }
+        
+         public void obtenerEmergencias(JComboBox comboBox) {
+        Connection conexion = ClaseConexion.getConexion();
+        try (PreparedStatement pstmt = conexion.prepareStatement(
+            "SELECT * FROM Emergencias")) {
+            
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+               int id = rs.getInt("id_emergencia");
+               String descripcionEmergencia = rs.getString("descripcion_emergencia");
+               
+               Emergencias emergencia = new Emergencias();
+               emergencia.setIdEmergencia(id);
+               emergencia.setDescripcionEmergencia(descripcionEmergencia);
+               
+                comboBox.addItem(emergencia);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener Emergencias: " + e.getMessage());
+        }
     }
         
      public void Eliminar(JTable tabla) {

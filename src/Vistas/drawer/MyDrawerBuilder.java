@@ -1,13 +1,19 @@
 package Vistas.drawer;
 
+import Modelo.Usuarios;
 import Vistas.frmAgregarInventario;
+import Vistas.frmAgregarMision;
 import Vistas.frmAgregarTransportes;
+import Vistas.frmInicio;
 import Vistas.frmLogin;
+import Vistas.frmVerEmergencias;
 import Vistas.frmVerRegistroTransporter;
 import javax.swing.JFrame;
 import java.awt.Window;
 import java.awt.KeyboardFocusManager;
+import java.util.function.Supplier;
 import javax.swing.JOptionPane;
+import raven.drawer.Drawer;
 import raven.drawer.component.SimpleDrawerBuilder;
 import raven.drawer.component.footer.SimpleFooterData;
 import raven.drawer.component.header.SimpleHeaderData;
@@ -27,28 +33,27 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                 .setDescription("ignissoftwaredevelopers@gmail.com");
     }
 
+     // Opciones del menú del Drawer
     @Override
     public SimpleMenuOption getSimpleMenuOption() {
-        String menus[][] = {
+        String[][] menus = {
              {"~Menu~"},
             {"Dashboard"},
-     
             {"Bomberos"},
             {"Inventario"},
             {"Calendar"},
-            
             {"Transporte"},
             {"Seguimiento"},
-            
-            {"Estadisticas",},
+            {"Estadisticas"},
             {"Emergencias"},
             {"Misiones"},
             {"Informes"},
             {"~Cuenta~"},
             {"Cerrar sesion"},
-            {"Inicio"}};
+            {"Inicio"}
+        };
 
-        String icons[] = {
+        String[] icons = {
             "dashboard.svg",
             "firefighter1.svg",
             "manguera.svg",
@@ -60,7 +65,8 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
             "mision.svg",
             "informe.svg",
             "logout_1.svg",
-            "inicio.svg"};
+            "inicio.svg"
+        };
         
         return new SimpleMenuOption()
                 .setMenus(menus)
@@ -70,59 +76,111 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                 .addMenuEvent(new MenuEvent() {
                     @Override
                     public void selected(MenuAction action, int index, int subIndex) {
-                        Window ventanaActual = KeyboardFocusManager.getCurrentKeyboardFocusManager().getActiveWindow();
-
-                        Class<? extends JFrame> nuevaVentanaClass = null;
-
-                    if (index == 4) {
-                        frmAgregarTransportes.initFrmAgregarTransportes();
-                       JFrame NuevaVentana = frmAgregarTransportes.getInstance();
-
-                        if (ventanaActual != null && !ventanaActual.equals(NuevaVentana)) {
-                            ventanaActual.dispose(); 
-                        }
-                        ventanaActual = NuevaVentana; 
-                    }
-                    if(index == 2) {
-                        frmAgregarInventario.initfrmAgregarInventario();
-                        JFrame nuevaVentana = frmAgregarInventario.getInstance();
-                       
-                       if (ventanaActual !=null && !ventanaActual.equals(nuevaVentana)) {
-                           ventanaActual.dispose();
-                       }
-                       
-                                               ventanaActual = nuevaVentana; 
-
-                        
-                    }
-                    if (index==10){
-                     int opcion = JOptionPane.showConfirmDialog(ventanaActual, 
-                "¿Estás seguro de que deseas cerrar sesión?", 
-                "Confirmar Cierre de Sesión", 
-                JOptionPane.YES_NO_OPTION, 
-                JOptionPane.QUESTION_MESSAGE);
-
-               if (opcion == JOptionPane.YES_OPTION) {
-               frmLogin.initfrmLogin();
-               ventanaActual.dispose();
-                }}
-
-
-                       
-                        System.out.println("Menu selected " + index + " " + subIndex);
+                        // Lógica de selección de menú
+                        gestionarSeleccionDeMenu(index);
                     }
                 })
                 .setMenuValidation(new MenuValidation() {
                     @Override
                     public boolean menuValidation(int index, int subIndex) {
-                        if (index == 0) {
-                            return false;
-                        } else if (index == 3) {
-                            return false;
-                        }
-                        return true;
+                        // Deshabilitamos las opciones del índice 0 y 3
+                        return index != 0 && index != 3;
                     }
                 });
+    }
+    
+private JFrame abrirVentana(Class<? extends JFrame> ventanaClass) {
+    JFrame instancia = null;
+
+    try {
+        instancia = ventanaClass.getDeclaredConstructor().newInstance();
+        instancia.setVisible(false);  // No mostrar todavía la ventana
+    } catch (Exception e) {
+        e.printStackTrace();  // Para ver si hay algún problema al crear la ventana
+    }
+
+    return instancia;
+}
+
+private void gestionarSeleccionDeMenu(int index) {
+      Window ventanaActual = KeyboardFocusManager.getCurrentKeyboardFocusManager().getActiveWindow();
+    JFrame nuevaVentana = null;
+
+    switch (index) {
+        case 2:  // Inventario
+            frmAgregarInventario.initfrmAgregarInventario();
+                ventanaActual.dispose();
+            break;
+
+        case 4:  // Transporte
+            frmAgregarTransportes.initFrmAgregarTransportes();
+                ventanaActual.dispose();
+            break;
+
+        case 7:  // Emergencias
+            frmVerEmergencias.initfrmVerEmergencias();
+                ventanaActual.dispose();
+            break;
+         
+        case 8:
+            //Misiones
+            frmAgregarMision.initFrmAgregarMision();
+            ventanaActual.dispose();
+            break;
+
+        case 10:  // Cerrar sesión
+            if (confirmarCierreSesion(ventanaActual)) {
+                frmLogin.initfrmLogin();
+                ventanaActual.dispose();
+            }
+            break;
+
+        case 11:  // Inicio
+            frmInicio.initfrmInicio();
+              ventanaActual.dispose();
+            break;
+
+        default:
+            System.out.println("Menú no manejado: " + index);
+            break;
+    }
+
+    // Llama a cambiarVentana solo si hay una nueva ventana
+    if (nuevaVentana != null) {
+        cambiarVentana(ventanaActual, nuevaVentana);
+    }
+}
+
+private void cambiarVentana(Window ventanaActual, JFrame nuevaVentana) {
+    if (ventanaActual instanceof JFrame) {
+        System.out.println("Cerrando ventana actual: " + ventanaActual.getClass().getSimpleName());
+        ((JFrame) ventanaActual).dispose();  // Cierra la ventana actual
+    }
+    nuevaVentana.setVisible(true);  // Aquí se muestra la nueva ventana
+}
+
+
+
+
+
+
+
+
+
+
+
+
+    // Método para confirmar el cierre de sesión
+    private boolean confirmarCierreSesion(Window ventanaActual) {
+        int opcion = JOptionPane.showConfirmDialog(
+            ventanaActual, 
+            "¿Estás seguro de que deseas cerrar sesión?", 
+            "Confirmar Cierre de Sesión", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        return opcion == JOptionPane.YES_OPTION;
     }
 
     @Override

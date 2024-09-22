@@ -6,6 +6,7 @@ import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import raven.drawer.Drawer;
 
 
 public class ctrlTransportes implements MouseListener{
@@ -24,6 +25,7 @@ public class ctrlTransportes implements MouseListener{
          
          
          this.VistasverRegistroTransporter.btnVerRegistro.addMouseListener(this);
+         this.VistasverRegistroTransporter.btnMenu.addMouseListener(this);
         
         
     }
@@ -60,6 +62,8 @@ public class ctrlTransportes implements MouseListener{
         if (frmRegistro != null) {
             Modelo.Mostrar(frmRegistro.jtTransportes);
         }
+        
+    
 
 
            
@@ -67,6 +71,11 @@ public class ctrlTransportes implements MouseListener{
     
        
        }      
+       
+           if(e.getSource() == VistasverRegistroTransporter.btnMenu) {
+            Drawer.getInstance().showDrawer();
+            System.out.println("Hola");
+        }
        
        if(e.getSource()== VistasverRegistroTransporter.btnVerRegistro){
 
