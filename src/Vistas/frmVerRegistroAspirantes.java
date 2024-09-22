@@ -4,7 +4,17 @@
  */
 package Vistas;
 
+import Controlador.ctrlAspirantes;
+import Controlador.ctrlVerRegistroAspirantes;
+import Modelo.Aspirantes;
+import Vistas.drawer.MyDrawerBuilder;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import raven.drawer.Drawer;
+import raven.popup.GlassPanePopup;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Font;
+import javax.swing.UIManager;
 
 /**
  *
@@ -16,7 +26,21 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
      * Creates new form frmRegistroAspirantes
      */
     public frmVerRegistroAspirantes() {
+        GlassPanePopup.install(this);
+        MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
+        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+    }
+    
+    public static void initfrmVerRegistroAspirantes() {
+        FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
+        Aspirantes modelo = new Aspirantes();
+        frmVerRegistroAspirantes vistas = new frmVerRegistroAspirantes();
+        ctrlVerRegistroAspirantes controlador = new ctrlVerRegistroAspirantes(vistas, modelo);
+        vistas.setVisible(true);
     }
 
     /**
@@ -32,9 +56,9 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
         imgBack = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtAspirantes = new javax.swing.JTable();
         btnInicio21 = new Vistas.btnInicio2();
-        btnInicio22 = new Vistas.btnInicio2();
+        btnEliminarEliminarAspirantes = new Vistas.btnInicio2();
         JTextField = new javax.swing.JTextField();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JLabel();
@@ -54,7 +78,7 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
         jLabel1.setText("Seguimiento > Ver aspirantes > Ver registro");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtAspirantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,7 +89,7 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtAspirantes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 660, -1));
 
@@ -73,9 +97,9 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
         btnInicio21.setText("Actualizar");
         jPanel1.add(btnInicio21, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 270, 140, 50));
 
-        btnInicio22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Trash.png"))); // NOI18N
-        btnInicio22.setText("Eliminar");
-        jPanel1.add(btnInicio22, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 390, 140, 50));
+        btnEliminarEliminarAspirantes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Trash.png"))); // NOI18N
+        btnEliminarEliminarAspirantes.setText("Eliminar");
+        jPanel1.add(btnEliminarEliminarAspirantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 390, 140, 50));
 
         JTextField.setBackground(new java.awt.Color(192, 109, 58));
         JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -207,14 +231,14 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextField;
     public javax.swing.JLabel btnBuscar;
+    public Vistas.btnInicio2 btnEliminarEliminarAspirantes;
     private Vistas.btnInicio2 btnInicio21;
-    private Vistas.btnInicio2 btnInicio22;
     public javax.swing.JButton btnMenu;
     public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jtAspirantes;
     private Vistas.PanelRound panelRound1;
     public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables

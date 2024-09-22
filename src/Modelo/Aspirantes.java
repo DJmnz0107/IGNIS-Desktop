@@ -12,6 +12,9 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -226,6 +229,115 @@ public class Aspirantes {
         Vistas.imgAspirante.setIcon(null);
         
     }
+    
+    public void Mostrar (JTable tabla) {
+    Connection conexion  = ClaseConexion.getConexion();
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.setColumnIdentifiers(new Object []{"id_aspirante", "Aspirante", "Apellido", "Dui", "Entrenamiento", "Edad", "Progreso", "Foto", "Bombero encargado"  });
+    try {
+        String query = "SELECT * FROM Aspirantes";
+         Statement statement = conexion.createStatement();
+         ResultSet rs = statement.executeQuery(query);
+         while (rs.next()){
+         int id = rs.getInt("id_aspirante");
+         String Aspirante = rs.getString("nombre_aspirante");
+         String Apellido = rs.getString("apellido_aspirante");
+         String Dui = rs.getString("dui_aspirante");
+         String Entrenamiento = rs.getString("entrenamiento_aspirante");
+         int Edad = rs.getInt("edad_usuario");
+         String Progreso = rs.getString("progreso_aspirante");
+         String Foto = rs.getString("foto_aspirante");
+         int idBombero = rs.getInt("id_bombero");
+         
+         modelo.addRow(new Object [] {id, Aspirante, Apellido, Dui, Entrenamiento, Edad, Progreso, Foto, idBombero});
+         
+         
+         
+         }
+         tabla.setModel(modelo);
+         tabla.getColumnModel().getColumn(0).setMinWidth(0);
+         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+         tabla.getColumnModel().getColumn(0).setWidth(0);
+    
+         
+         
+    }catch(Exception e){
+       System.out.println("Este es el error en el modelo, metodo mostrar " +  e);
+    }
+ 
+     
+    
+    }
+    
+    
+    public void Eliminar(JTable tabla){
+    Connection conexion = ClaseConexion.getConexion();
+    
+    int filaSeleccionada = tabla.getSelectedRow();
+    
+    String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
+    
+    try {
+        String sql = "DELETE FROM Aspirantes WHERE id_aspirante = ?";
+        PreparedStatement deleteAspirantes = conexion.prepareStatement(sql);
+
+        
+        int idAspirantes = Integer.parseInt(miId);
+        deleteAspirantes.setInt(1, idAspirantes);
+
+        deleteAspirantes.executeUpdate();
+        
+    } catch (Exception e) {
+        System.out.println("Este es el error en el método de eliminar: " + e);
+    }
+
+    
+    }
+    
+    public void Buscar(JTable tabla, JTextField JTextField1) {
+    Connection conexion = ClaseConexion.getConexion();
+    DefaultTableModel Aspirante = new DefaultTableModel();
+    Aspirante.setColumnIdentifiers(new Object[]{"id_aspirante", "Aspirante", "Apellido", "Dui", "Entrenamiento", "Edad", "Progreso", "Foto", "Bombero encargado"});
+    
+    try {
+      
+        String sql = "SELECT * FROM Aspirantes WHERE nombre_aspirante LIKE ?";
+        PreparedStatement buscarAspirante = conexion.prepareStatement(sql);
+        buscarAspirante.setString(1, JTextField1.getText() + "%");  // Uso correcto del LIKE con %
+        
+        ResultSet rs = buscarAspirante.executeQuery();
+
+        while (rs.next()) {
+            int id = rs.getInt("id_aspirante");
+            String Nombre = rs.getString("nombre_aspirante");
+            String Apellido = rs.getString("apellido_aspirante");
+            String Dui = rs.getString("dui_aspirante");
+            String Entrenamiento = rs.getString("entrenamiento_aspirante");
+            int Edad = rs.getInt("edad_usuario");  
+            String Progreso = rs.getString("progreso_aspirante");
+            String Foto = rs.getString("foto_aspirante");
+            int idBombero = rs.getInt("id_bombero");
+
+            // Añade la fila al modelo
+            Aspirante.addRow(new Object[]{id, Nombre, Apellido, Dui, Entrenamiento, Edad, Progreso, Foto, idBombero});
+        }
+
+        // Establece el modelo de la tabla
+        tabla.setModel(Aspirante);
+
+        // Oculta las columnas id_aspirante y id_bombero
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setWidth(0);
+        
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setWidth(0);
+        
+    } catch (Exception e) {
+        System.out.println("Este es el error en el modelo, metodo de buscar " + e);
+    }
+}
     
     
     
