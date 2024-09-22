@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.Aspirantes;
+import Vistas.frmActualizarAspirante;
 import Vistas.frmVerRegistroAspirantes;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -27,9 +28,10 @@ public ctrlVerRegistroAspirantes(frmVerRegistroAspirantes vistas, Aspirantes mod
     this.Vistas = vistas;
     modelo.Mostrar(vistas.jtAspirantes);
     
-    vistas.btnEliminarEliminarAspirantes.addMouseListener(this);
+    vistas.btnEliminar.addMouseListener(this);
     
     vistas.txtBuscar.addKeyListener(this);
+    vistas.btnActualizar.addMouseListener(this);
 
     }
   
@@ -37,11 +39,21 @@ public ctrlVerRegistroAspirantes(frmVerRegistroAspirantes vistas, Aspirantes mod
     
    @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource()== Vistas.btnEliminarEliminarAspirantes){
+        if(e.getSource()== Vistas.btnEliminar){
         
             Modelo.Eliminar(Vistas.jtAspirantes);
             Modelo.Mostrar(Vistas.jtAspirantes);
             JOptionPane.showMessageDialog(Vistas, "Registro eliminado exitosamente");
+        }
+        if(e.getSource() == Vistas.btnActualizar) {
+            Aspirantes aspiranteSeleccionado = Modelo.obtenerDatosTabla(Vistas);
+
+        if (aspiranteSeleccionado != null) {
+            frmActualizarAspirante.initfrmActualizarAspirante(aspiranteSeleccionado);
+            Vistas.dispose();
+        } else {
+            JOptionPane.showMessageDialog(Vistas, "Por favor, seleccione una fila para actualizar.");
+        }
         }
     }
 

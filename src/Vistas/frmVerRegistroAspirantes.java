@@ -57,26 +57,27 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAspirantes = new javax.swing.JTable();
-        btnInicio21 = new Vistas.btnInicio2();
-        btnEliminarEliminarAspirantes = new Vistas.btnInicio2();
         JTextField = new javax.swing.JTextField();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JLabel();
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
+        btnEliminar = new Vistas.btnRojoForms();
+        btnActualizar = new Vistas.btnRojoForms();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
-        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seguimiento > Ver aspirantes > Ver registro");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         jtAspirantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,15 +92,7 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtAspirantes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 660, -1));
-
-        btnInicio21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoAct.png"))); // NOI18N
-        btnInicio21.setText("Actualizar");
-        jPanel1.add(btnInicio21, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 270, 140, 50));
-
-        btnEliminarEliminarAspirantes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Trash.png"))); // NOI18N
-        btnEliminarEliminarAspirantes.setText("Eliminar");
-        jPanel1.add(btnEliminarEliminarAspirantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 390, 140, 50));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 91, 750, 470));
 
         JTextField.setBackground(new java.awt.Color(192, 109, 58));
         JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -115,7 +108,7 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
                 JTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, -1, -1));
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 100, 40));
 
         txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
         txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -128,11 +121,11 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
                 txtBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 570, 300, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 300, 40));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
         btnBuscar.setToolTipText("");
-        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 570, -1, -1));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 570, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomRight(50);
@@ -166,6 +159,21 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 650));
 
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 390, 200, 60));
+
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, 200, 60));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,6 +186,7 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
@@ -191,6 +200,10 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         Drawer.getInstance().showDrawer();
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,9 +243,9 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextField;
+    public Vistas.btnRojoForms btnActualizar;
     public javax.swing.JLabel btnBuscar;
-    public Vistas.btnInicio2 btnEliminarEliminarAspirantes;
-    private Vistas.btnInicio2 btnInicio21;
+    public Vistas.btnRojoForms btnEliminar;
     public javax.swing.JButton btnMenu;
     public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;

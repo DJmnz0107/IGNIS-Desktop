@@ -32,9 +32,13 @@ public class ctrlActualizarInventario implements MouseListener {
         vista.btnActualizar.addMouseListener(this);
         vista.btnVerInventario.addMouseListener(this);
         vista.imgAgregar.addMouseListener(this);
+        
+            rutaImagenSeleccionada = vista.obtenerRutaImagen();
+
     }
     @Override
     public void mouseClicked(MouseEvent e) {
+            System.out.println(vista.obtenerRutaImagen());
         if(e.getSource() == vista.btnActualizar) {
             if(vista.txtDescripcionRecurso.getText().isEmpty() || vista.txtNombreInventario.getText().isEmpty()) {
               JOptionPane.showMessageDialog(vista, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
@@ -106,7 +110,7 @@ public class ctrlActualizarInventario implements MouseListener {
     vista.cmbDisponibilidad.setSelectedIndex(0);
     vista.cmbEstado.setSelectedIndex(0); 
     vista.dtcRecepcion.setDate(null); 
-    vista.imgInventario.setIcon(null);
+    vista.imgRecurso.setIcon(null);
 }
 
 // Método para verificar si el archivo es de un formato de imagen válido

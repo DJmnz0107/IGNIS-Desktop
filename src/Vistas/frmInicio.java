@@ -76,12 +76,12 @@ public class frmInicio extends javax.swing.JFrame {
         panelRound31 = new Vistas.panelRound3();
         jLabel2 = new javax.swing.JLabel();
         btnEstadisticas = new Vistas.btnInicio();
-        btnInicio4 = new Vistas.btnInicio();
+        bntInformes = new Vistas.btnInicio();
         btnTransportes = new Vistas.btnInicio();
         btnInventario = new Vistas.btnInicio();
         btnMisiones = new Vistas.btnInicio();
         btnSeguimiento = new Vistas.btnInicio();
-        btnInicio9 = new Vistas.btnInicio();
+        btnBomberos = new Vistas.btnInicio();
         btnEmergencias = new Vistas.btnInicio();
         btnCrearUsuario = new Vistas.btnInicio2();
         btnCerrarSesión = new Vistas.btnInicio3();
@@ -147,11 +147,11 @@ public class frmInicio extends javax.swing.JFrame {
         btnEstadisticas.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         panelRound31.add(btnEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 170, 60));
 
-        btnInicio4.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoInforme.png"))); // NOI18N
-        btnInicio4.setText("Informes");
-        btnInicio4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 170, 60));
+        bntInformes.setForeground(new java.awt.Color(240, 139, 77));
+        bntInformes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoInforme.png"))); // NOI18N
+        bntInformes.setText("Informes");
+        bntInformes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(bntInformes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 170, 60));
 
         btnTransportes.setForeground(new java.awt.Color(240, 139, 77));
         btnTransportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCamionsito.png"))); // NOI18N
@@ -177,11 +177,11 @@ public class frmInicio extends javax.swing.JFrame {
         btnSeguimiento.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         panelRound31.add(btnSeguimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 170, 60));
 
-        btnInicio9.setForeground(new java.awt.Color(240, 139, 77));
-        btnInicio9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoBombero.png"))); // NOI18N
-        btnInicio9.setText("Bomberos");
-        btnInicio9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInicio9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 170, 60));
+        btnBomberos.setForeground(new java.awt.Color(240, 139, 77));
+        btnBomberos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoBombero.png"))); // NOI18N
+        btnBomberos.setText("Bomberos");
+        btnBomberos.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        panelRound31.add(btnBomberos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 170, 60));
 
         btnEmergencias.setForeground(new java.awt.Color(240, 139, 77));
         btnEmergencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoEmergencia.png"))); // NOI18N
@@ -261,12 +261,12 @@ public class frmInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public Vistas.btnInicio bntInformes;
+    public Vistas.btnInicio btnBomberos;
     public Vistas.btnInicio3 btnCerrarSesión;
     public Vistas.btnInicio2 btnCrearUsuario;
     public Vistas.btnInicio btnEmergencias;
     public Vistas.btnInicio btnEstadisticas;
-    private Vistas.btnInicio btnInicio4;
-    private Vistas.btnInicio btnInicio9;
     public Vistas.btnInicio btnInventario;
     public javax.swing.JButton btnMenu;
     public Vistas.btnInicio btnMisiones;

@@ -29,7 +29,7 @@ public class ctrlAgregarMisiones implements MouseListener {
     this.modelo = modelo;
     this.vista = vista;
     
-    // Asegúrate de que aquí estés llenando cmbEmergencia con Emergencias
+    //Llenando cmbEmergencia con Emergencias
     emergencia.obtenerEmergencias(vista.cmbEmergencia); // Llenar con Emergencias
     vista.dtcEmergencia.setMaxSelectableDate(new Date());
     vista.btnAgregar.addMouseListener(this);

@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Aspirantes;
 import Vistas.frmAgregarAspirante;
+import Vistas.frmVerRegistroAspirantes;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -30,6 +31,7 @@ public class ctrlAspirantes implements MouseListener {
         this.Vistas.btnAñadirInfo.addMouseListener(this);
         this.Vistas.btnAgregarFoto.addMouseListener(this);
         this.Vistas.btnMenu.addMouseListener(this);
+        this.Vistas.btnVerAspirantes.addMouseListener(this);
         
          
     
@@ -48,7 +50,21 @@ public class ctrlAspirantes implements MouseListener {
             seleccionarImagen();
         }
         
+        if(e.getSource() == Vistas.btnVerAspirantes) {
+            frmVerRegistroAspirantes.initfrmVerRegistroAspirantes();
+            Vistas.dispose();
+        }
+        
        if (e.getSource() == Vistas.btnAñadirInfo) {
+              if(Vistas.txtApellidoAspirante.getText().isEmpty() || Vistas.txtDuiAspirante.getText().isEmpty() || Vistas.txtEdadAspirante.getText().isEmpty() || Vistas.txtEntrenamientoAspirante.getText().isEmpty() || Vistas.txtNombreAspirante.getText().isEmpty() || Vistas.txtProgresoAspirante.getText().isEmpty() ) {
+                 JOptionPane.showMessageDialog(Vistas, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+            return; // Salir del método si hay campos vacíos
+            }
+               if (rutaImagenSeleccionada == null || rutaImagenSeleccionada.isEmpty()) {
+              JOptionPane.showMessageDialog(Vistas, "Debes seleccionar una imagen antes de actualizar", "Error", JOptionPane.ERROR_MESSAGE);
+                return; 
+            }
+              
         Aspirantes seleccionado = (Aspirantes) Vistas.cmbBomberoMentor.getSelectedItem();
         if (seleccionado != null) {
             int idBomberoSeleccionado = seleccionado.getId_bombero();

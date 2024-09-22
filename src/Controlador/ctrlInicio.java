@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarTransportes;
 import Vistas.frmCrearCuenta;
@@ -35,6 +36,9 @@ public class ctrlInicio implements MouseListener {
         vista.btnInventario.addMouseListener(this);
         vista.btnTransportes.addMouseListener(this);
         vista.btnMenu.addMouseListener(this);
+        vista.btnSeguimiento.addMouseListener(this);
+        vista.bntInformes.addMouseListener(this);
+        vista.btnBomberos.addMouseListener(this);
         
     }
 
@@ -45,6 +49,11 @@ public class ctrlInicio implements MouseListener {
             frmVerCambios.initfrmVerCambios();
             vista.dispose();
         }
+         
+         if(e.getSource() == vista.btnSeguimiento) {
+             frmAgregarAspirante.initfrmAgregarAspirante();
+             vista.dispose();
+         }
         
         
         

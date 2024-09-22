@@ -37,7 +37,7 @@ public class Main {
                 if (!modeloUsuario.verificarUsuario()) {
                     frmPrimerUso.initFrmCrearCuenta();
                 } else {
-                    frmVerRegistroAspirantes.initfrmVerRegistroAspirantes();
+                    frmLogin.initfrmLogin();
                     Connection conexion = ClaseConexion.getConexion();
 
                     // Verifica si el controlador ya ha sido creado

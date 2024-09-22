@@ -3,19 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/IGNIS-Desktop/src/Controlador/ctrlActualizarAspirantes.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Controlador/ctrlInicio.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Modelo/Usuarios.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarMision.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Modelo/Aspirantes.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmNotificacionEmergencia.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarTransportes.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmRegsitroBomberos.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmRegistroMisionesBomberos.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Controlador/ctrlVerRegistroAspirantes.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarAspirante.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmMenu.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarInventario.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmNuevaContra.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmRecuperacionContrasena.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroMisiones.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Controlador/ctrlVerRegistroInventario.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Modelo/Niveles.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Controlador/ctrlLogin.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/TextFieldBlanco.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmCrearCuenta.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Controlador/ctrlAspirantes.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerInventario.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/drawer/MyDrawerBuilder.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarInventario.java</file>
@@ -24,6 +33,8 @@
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmPrimerUso.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Controlador/Main.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Controlador/ctrlPrimerUso.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroAspirantes.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Controlador/ctrlCambiarContra.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarBomberos.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmCambarContra.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmInicio.java</file>
@@ -32,6 +43,7 @@
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroInventario.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroTransporter.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/btnInicio.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Modelo/Recursos.java</file>
             <file>file:/C:/IGNIS-Desktop/src/Vistas/frmLogin.java</file>
         </group>
     </open-files>

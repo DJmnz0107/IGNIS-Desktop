@@ -4,44 +4,116 @@
  */
 package Vistas;
 
-import Controlador.ctrlAspirantes;
+import Controlador.ctrlActualizarAspirantes;
+import Controlador.ctrlActualizarInventario;
 import Modelo.Aspirantes;
+import Modelo.Recursos;
 import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 
 /**
  *
- * @author User
+ * @author Diego
  */
-public class frmAgregarAspirante extends javax.swing.JFrame {
+public class frmActualizarAspirante extends javax.swing.JFrame {
+
+    
+      private Aspirantes aspirante;
+            private int idAspirante;
+                        private String rutaImagen;
 
     /**
-     * Creates new form frmAgregarAspirante
+     * Creates new form frmActualizarAspirante
      */
-    public frmAgregarAspirante() {
-        GlassPanePopup.install(this);
+    public frmActualizarAspirante(Aspirantes aspirante) {
+         GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
-        initComponents();
+        
+        this.aspirante = aspirante;
+        
+        
+        //Verificar datos
+            if (aspirante == null) {
+        System.out.println("El objeto aspirante es null");
+    } else {
+        System.out.println("El recurso tiene los siguientes datos: ");
+        System.out.println("Nombre: " + aspirante.getNombre_aspirante());
+        System.out.println("Apellido: " + aspirante.getApellido_aspirante());
+        System.out.println("DUI: " + aspirante.getDui_aspirante());
+        System.out.println("Entrenamiento: " + aspirante.getEntrenamiento_aspirante());
+        System.out.println("Edad: " + aspirante.getEdad_usuario());
+        System.out.println("Foto: " + aspirante.getFoto_aspirante());
+         System.out.println("Progreso: " + aspirante.getProgreso_aspirante());
+         System.out.println("idBombero: " + aspirante.getId_bombero());
+         System.out.println("nombreBombero: " + aspirante.getNombre_bombero());
+         
+                System.out.println("idAspirante: " + aspirante.getId_aspirante());
+
+                  
+
+
     }
 
-    public static void initfrmAgregarAspirante() {
+        initComponents();
+        cargarDatos();
+
+    }
+    
+    //Metodo para inicializar el formulario
+       public static void initfrmActualizarAspirante(Aspirantes aspirante) {
         FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
-        frmAgregarAspirante vistas = new frmAgregarAspirante();
         Aspirantes modelo = new Aspirantes();
-        ctrlAspirantes controlador = new ctrlAspirantes(modelo, vistas);
+        frmActualizarAspirante vista = new frmActualizarAspirante(aspirante);
+        ctrlActualizarAspirantes controlador = new ctrlActualizarAspirantes(modelo, vista);
+        vista.setVisible(true);
+
+    }
+    
+    
+    
+    //Cargar datos traidos desde la tabla
+       public void cargarDatos() {
+    // Cargar los datos del aspirante
+    txtNombreAspirante.setText(aspirante.getNombre_aspirante());
+    txtApellidoAspirante.setText(aspirante.getApellido_aspirante());
+    txtEdadAspirante.setText(Integer.toString(aspirante.getEdad_usuario()));
+    txtDuiAspirante.setText(aspirante.getDui_aspirante());
+    txtEntrenamientoAspirante.setText(aspirante.getEntrenamiento_aspirante());
+            Aspirantes modelo = new Aspirantes();
+                modelo.CargarComboBomberosUpdate(cmbBomberoMentor, aspirante.getId_bombero());
+
+    txtProgresoAspirante.setText(aspirante.getProgreso_aspirante());
+    imgAspirante.setIcon(redimensionarImagen(aspirante.getFoto_aspirante(), 150, 150));
+    idAspirante = aspirante.getId_aspirante();
+    rutaImagen = aspirante.getFoto_aspirante();
+}
+
+       
+      //Redimensionar la imagen para que se vea bien 
+             private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
+    ImageIcon imagenOriginal = new ImageIcon(rutaImagen);
+    Image imagenEscalada = imagenOriginal.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+    return new ImageIcon(imagenEscalada);
+}
+       
+        public int obtenerIdAspirante() {
+        return idAspirante; 
+    }
         
-        vistas.setVisible(true);
-        
+        public String obtenerRutaImagen() {
+        return rutaImagen; 
     }
 
     /**
@@ -72,12 +144,12 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         txtEntrenamientoAspirante = new Vistas.TextFieldGris();
         jLabel8 = new javax.swing.JLabel();
         btnAgregarFoto = new Vistas.btnRojoForms();
-        btnAñadirInfo = new Vistas.btnRojoForms();
+        btnActualizar = new Vistas.btnRojoForms();
         btnVerAspirantes = new Vistas.btnRojoForms();
         imgAspirante = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         imgBack = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -86,6 +158,7 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound1.setPreferredSize(new java.awt.Dimension(120, 800));
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopRight(50);
 
@@ -112,10 +185,10 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(594, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 650));
 
         panelRound31.setRoundBottomLeft(20);
         panelRound31.setRoundBottomRight(20);
@@ -193,41 +266,41 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
                 btnAgregarFotoActionPerformed(evt);
             }
         });
-        panelRound31.add(btnAgregarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 260, 155, 51));
+        panelRound31.add(btnAgregarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 250, 155, 51));
 
-        btnAñadirInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/anadir.png"))); // NOI18N
-        btnAñadirInfo.setText("  Añadir informacion");
-        btnAñadirInfo.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        panelRound31.add(btnAñadirInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 246, 60));
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/anadir.png"))); // NOI18N
+        btnActualizar.setText("  Actualizar datos");
+        btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        panelRound31.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 246, 60));
 
         btnVerAspirantes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/contrato.png"))); // NOI18N
         btnVerAspirantes.setText("   Ver aspirantes");
         btnVerAspirantes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         panelRound31.add(btnVerAspirantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 224, 60));
-        panelRound31.add(imgAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 150, 210));
+        panelRound31.add(imgAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 150, 210));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/aspirantesMini.png"))); // NOI18N
-        panelRound31.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 270, 210));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/aspirantesMini.png"))); // NOI18N
+        panelRound31.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, 270, 210));
 
-        jPanel1.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 974, 570));
+        jPanel1.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 1000, 570));
+
+        jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Registro aspirantes > Actualizar aspirantes");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 6, 40, 40));
-
-        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Inicio > Seguimiento");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1149, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -235,7 +308,7 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-       
+
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnAgregarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFotoActionPerformed
@@ -259,27 +332,26 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarAspirante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarAspirante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarAspirante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarAspirante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarAspirante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarAspirante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarAspirante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarAspirante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                initfrmAgregarAspirante();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public Vistas.btnRojoForms btnActualizar;
     public Vistas.btnRojoForms btnAgregarFoto;
-    public Vistas.btnRojoForms btnAñadirInfo;
     public javax.swing.JButton btnMenu;
     public Vistas.btnRojoForms btnVerAspirantes;
     public javax.swing.JComboBox<String> cmbBomberoMentor;

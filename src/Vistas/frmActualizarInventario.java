@@ -25,6 +25,7 @@ public class frmActualizarInventario extends javax.swing.JFrame {
     
          private Recursos recurso;
             private int idRecurso;
+            private String rutaImagen;
 
     /**
      * Creates new form frmActualizarInventario
@@ -45,6 +46,8 @@ public class frmActualizarInventario extends javax.swing.JFrame {
         System.out.println("Fecha: " + recurso.getFechaRecepcionRecurso());
         System.out.println("Disponibilidad: " + recurso.getDisponibilidadRecurso());
         System.out.println("Estado: " + recurso.getEstadoRecurso());
+                System.out.println("ruta de la imagen: " + recurso.getFotoRecurso());
+
     }
 
         initComponents();
@@ -80,10 +83,15 @@ public class frmActualizarInventario extends javax.swing.JFrame {
         cmbEstado.setSelectedItem(recurso.getEstadoRecurso());
        imgRecurso.setIcon(redimensionarImagen(recurso.getFotoRecurso(), 150, 150));
          idRecurso = recurso.getIdRecurso();
+         rutaImagen = recurso.getFotoRecurso();
     }
        
         public int obtenerIdRecurso() {
         return idRecurso; 
+    }
+        
+            public String obtenerRutaImagen() {
+        return rutaImagen; 
     }
 
     /**

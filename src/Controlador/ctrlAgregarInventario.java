@@ -102,7 +102,7 @@ public class ctrlAgregarInventario implements MouseListener {
     vista.cmbDisponibilidad.setSelectedIndex(0);
     vista.cmbEstado.setSelectedIndex(0); 
     vista.dtcRecepcion.setDate(null); 
-    vista.imgInventario.setIcon(null);
+    vista.imgRecurso.setIcon(null);
 }
     
   private void seleccionarImagen() {
