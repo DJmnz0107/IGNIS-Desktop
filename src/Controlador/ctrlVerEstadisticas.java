@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Misiones;
-import Vistas.frmEstadisticas;
+import Vistas.frmVerEstadisticas;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import raven.drawer.Drawer;
@@ -13,9 +13,9 @@ import raven.drawer.Drawer;
 public class ctrlVerEstadisticas implements MouseListener {
 
     private Misiones modelo;
-    private frmEstadisticas vista;
+    private frmVerEstadisticas vista;
 
-    public ctrlVerEstadisticas(Misiones modelo, frmEstadisticas vista){
+    public ctrlVerEstadisticas(Misiones modelo, frmVerEstadisticas vista){
         this.modelo = modelo;
         this.vista = vista;
         

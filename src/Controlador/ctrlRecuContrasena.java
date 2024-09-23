@@ -3,7 +3,7 @@ package Controlador;
 
 import Modelo.CredencialesRecuContra;
 import Modelo.EnviarCodigo;
-import Modelo.Usuarios;
+import Modelo.modelo;
 import Vistas.frmLogin;
 import Vistas.frmRecuperacionContrasena;
 import Vistas.frmVerificarCodigo;
@@ -23,7 +23,7 @@ public class ctrlRecuContrasena implements MouseListener {
            
      static int numeroAleatorio = 100000 + random.nextInt(900000);
      
-     public static Usuarios verificarUsuario = new Usuarios();
+     public static modelo verificarUsuario = new modelo();
 
     
      

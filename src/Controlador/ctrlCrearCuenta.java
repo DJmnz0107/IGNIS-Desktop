@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Niveles;
-import Modelo.Usuarios;
+import Modelo.modelo;
 import Vistas.frmCrearCuenta;
 import Vistas.frmInicio;
 import Vistas.frmVerUsuarios;
@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
 public class ctrlCrearCuenta implements MouseListener {
 
     private Niveles ModeloNivel;
-    private Usuarios ModeloUsuario;
+    private modelo ModeloUsuario;
     private frmCrearCuenta Vista;
 
-    public ctrlCrearCuenta(Niveles modeloNivel, Usuarios modeloUsuarios, frmCrearCuenta vista) {
+    public ctrlCrearCuenta(Niveles modeloNivel, modelo modeloUsuarios, frmCrearCuenta vista) {
         this.ModeloNivel = modeloNivel;
         this.ModeloUsuario = modeloUsuarios;
         this.Vista = vista;

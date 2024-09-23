@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.Usuarios;
+import Modelo.modelo;
 import Vistas.frmCrearCuenta;
 import Vistas.frmVerUsuarios;
 import java.awt.event.KeyEvent;
@@ -15,12 +15,12 @@ import javax.swing.JOptionPane;
  */
 public class ctrlVerUsuarios implements MouseListener, KeyListener{
     
-    private Usuarios Usuarios;
-    private frmVerUsuarios Vista;
+    private modelo modelo;
+    private frmVerUsuarios vista;
     
-    public ctrlVerUsuarios(Usuarios usuarios, frmVerUsuarios vista){
-        this.Usuarios = usuarios;
-        this.Vista = vista;
+    public ctrlVerUsuarios(modelo usuarios, frmVerUsuarios vista){
+        this.modelo = usuarios;
+        this.vista = vista;
         
         vista.txtBuscar.addKeyListener(this);
         vista.btnEliminar.addMouseListener(this);
@@ -30,23 +30,23 @@ public class ctrlVerUsuarios implements MouseListener, KeyListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == Vista.btnEliminar){
-            if (Vista.JtbUsuarios.getSelectedRow() == -1) {
-                JOptionPane.showMessageDialog(Vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+        if(e.getSource() == vista.btnEliminar){
+            if (vista.JtbUsuarios.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                 int respuesta = JOptionPane.showConfirmDialog(Vista, "¿Estás seguro de que deseas eliminar este registro?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                 int respuesta = JOptionPane.showConfirmDialog(vista, "¿Estás seguro de que deseas eliminar este registro?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 
                 // Si el usuario selecciona "Sí/Yes"
                 if (respuesta == JOptionPane.YES_OPTION) {
-                    Usuarios.Eliminar(Vista.JtbUsuarios);
-                    Usuarios.Mostrar(Vista.JtbUsuarios);
+                    modelo.Eliminar(vista.JtbUsuarios);
+                    modelo.Mostrar(vista.JtbUsuarios);
                 }
 
             }
         }
         
-        if (e.getSource() == Vista.imgBack){
-            Vista.dispose();
+        if (e.getSource() == vista.imgBack){
+            vista.dispose();
             frmCrearCuenta.initFrmCrearCuenta();
         }
     }
@@ -84,8 +84,8 @@ public class ctrlVerUsuarios implements MouseListener, KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if(e.getSource() == Vista.txtBuscar){
-            Usuarios.Buscar(Vista.JtbUsuarios, Vista.txtBuscar);
+        if(e.getSource() == vista.txtBuscar){
+            modelo.Buscar(vista.JtbUsuarios, vista.txtBuscar);
         }
     }
 

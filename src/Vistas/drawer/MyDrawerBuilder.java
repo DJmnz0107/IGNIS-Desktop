@@ -1,14 +1,15 @@
 package Vistas.drawer;
 
-import Modelo.Usuarios;
+import Modelo.modelo;
 import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarMision;
 import Vistas.frmAgregarTransportes;
-import Vistas.frmEstadisticas;
+import Vistas.frmVerEstadisticas;
 import Vistas.frmInicio;
 import Vistas.frmLogin;
 import Vistas.frmVerEmergencias;
+import Vistas.frmVerInformes;
 import Vistas.frmVerRegistroTransporter;
 import javax.swing.JFrame;
 import java.awt.Window;
@@ -125,8 +126,8 @@ private void gestionarSeleccionDeMenu(int index) {
             break;
 
         case 6: // Estadisticas
-            frmEstadisticas.InitfrmVerEstadisticas();
-                ventanaActual.dispose();;
+            frmVerEstadisticas.InitfrmVerEstadisticas();
+                ventanaActual.dispose();
             break;
             
         case 7:  // Emergencias
@@ -134,9 +135,13 @@ private void gestionarSeleccionDeMenu(int index) {
                 ventanaActual.dispose();
             break;
          
-        case 8:
-            //Misiones
+        case 8:  // Misiones
             frmAgregarMision.initFrmAgregarMision();
+            ventanaActual.dispose();
+            break;
+        
+        case 9:  // Informes
+            frmVerInformes.initfrmVerInformes();
             ventanaActual.dispose();
             break;
 

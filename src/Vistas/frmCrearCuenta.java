@@ -6,7 +6,7 @@ package Vistas;
 
 import Controlador.ctrlCrearCuenta;
 import Modelo.Niveles;
-import Modelo.Usuarios;
+import Modelo.modelo;
 
 /**
  *
@@ -24,7 +24,7 @@ public class frmCrearCuenta extends javax.swing.JFrame {
     
     public static void initFrmCrearCuenta(){
         Niveles modeloNivel = new Niveles();
-        Usuarios modeloUsuarios = new Usuarios();
+        modelo modeloUsuarios = new modelo();
         frmCrearCuenta vista = new frmCrearCuenta();
         ctrlCrearCuenta controlador  = new ctrlCrearCuenta(modeloNivel, modeloUsuarios, vista);
         vista.setVisible(true);

@@ -5,7 +5,7 @@
     package Controlador;
 
 import Modelo.EncryptSHA256;
-    import Modelo.Usuarios;
+    import Modelo.modelo;
     import Vistas.frmPrimerUso;
     import java.awt.event.MouseEvent;
     import java.awt.event.MouseListener;
@@ -20,11 +20,11 @@ import java.io.InputStreamReader;
      */
     public class ctrlPrimerUso implements MouseListener {
 
-        private Usuarios modelo;
+        private modelo modelo;
         private EncryptSHA256 encriptacion;
         private frmPrimerUso vista;
 
-        public ctrlPrimerUso(Usuarios modelo, frmPrimerUso vista) {
+        public ctrlPrimerUso(modelo modelo, frmPrimerUso vista) {
              this.modelo = modelo;
             this.vista  = vista;
             this.encriptacion = encriptacion;
