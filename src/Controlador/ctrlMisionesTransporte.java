@@ -6,6 +6,8 @@ package Controlador;
 
 import Modelo.MisionesTransporte;
 import Vistas.frmRegistroTransportes;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -14,7 +16,7 @@ import java.awt.event.MouseListener;
  *
  * @author danie
  */
-public class ctrlMisionesTransporte implements MouseListener {
+public class ctrlMisionesTransporte implements MouseListener, KeyListener {
     
     private MisionesTransporte modelo; 
     private  frmRegistroTransportes Vista;
@@ -23,10 +25,17 @@ public class ctrlMisionesTransporte implements MouseListener {
     
         this.modelo = modelo;
         this.Vista = Vista;
+        Vista.txtBuscar.addKeyListener(this);
+        Vista.btnEliminar.addMouseListener(this);
+        modelo.Mostrar(Vista.jtRegistroTransporte);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if(e.getSource() == Vista.btnEliminar){
+            modelo.Eliminar(Vista.jtRegistroTransporte);
+            modelo.Mostrar(Vista.jtRegistroTransporte);
+        }
     }
 
     @Override
@@ -43,6 +52,21 @@ public class ctrlMisionesTransporte implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if(e.getSource() == Vista.txtBuscar) {
+            modelo.Buscar(Vista.jtRegistroTransporte, Vista.txtBuscar);
+        }
     }
     
     

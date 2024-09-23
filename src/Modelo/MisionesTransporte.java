@@ -6,6 +6,7 @@ package Modelo;
 
 import javax.swing.JTable;
 import java.sql.*;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -101,6 +102,89 @@ public class MisionesTransporte {
         System.out.println("Este es el error en el modelo, metodo mostrar: " + e);
     }
 }
+   
+   public void Eliminar(JTable tabla) {
+        Connection conexion = ClaseConexion.getConexion();
+
+        int filaSeleccionada = tabla.getSelectedRow();
+
+        String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
+    
+        try {
+            String sql = "DELETE FROM Misiones_transporte WHERE id_MisionTransporte = ?";
+            PreparedStatement deleteInforme = conexion.prepareStatement(sql);
+
+        
+            int idInforme = Integer.parseInt(miId);
+            deleteInforme.setInt(1, idInforme);
+
+            deleteInforme.executeUpdate();
+        
+        } catch (Exception e) {
+            System.out.println("Este es el error en el método de eliminar: " + e);
+        }
+    }
+   
+   public void Buscar(JTable tabla, JTextField JTextFieldPlaca) {
+    // Conexión a la base de datos
+    Connection conexion = ClaseConexion.getConexion();
+
+    // Modelo de la tabla
+    DefaultTableModel modeloDeDatos = new DefaultTableModel();
+    modeloDeDatos.setColumnIdentifiers(new Object[]{"Descripción Misión", "Tipo Vehículo", "Placa Transporte", "ID Misión Transporte", "ID Misión", "ID Transporte"});
+
+    try {
+        // Consulta SQL con INNER JOIN y búsqueda por placa
+        String sql = "SELECT M.descripcion_mision, T.tipovehiculo_transporte, T.placa_transporte, " +
+                     "MT.id_misiontransporte, M.id_mision, T.id_transporte " +
+                     "FROM Misiones_transportes MT " +
+                     "INNER JOIN Misiones M on MT.id_mision = M.id_mision " +
+                     "INNER JOIN Transportes T on MT.id_transporte = T.id_transporte " +
+                     "WHERE T.placa_transporte LIKE ? || '%'";
+
+        // Preparar la sentencia
+        PreparedStatement buscarPorPlaca = conexion.prepareStatement(sql);
+        buscarPorPlaca.setString(1, JTextFieldPlaca.getText());
+
+        // Ejecutar la consulta
+        ResultSet rs = buscarPorPlaca.executeQuery();
+
+        // Recorrer los resultados
+        while (rs.next()) {
+            String descripcionMision = rs.getString("descripcion_mision");
+            String tipoVehiculo = rs.getString("tipovehiculo_transporte");
+            String placaTransporte = rs.getString("placa_transporte");
+            int idMisionTransporte = rs.getInt("id_misiontransporte");
+            int idMision = rs.getInt("id_mision");
+            int idTransporte = rs.getInt("id_transporte");
+
+            // Agregar filas al modelo
+            modeloDeDatos.addRow(new Object[]{
+                descripcionMision, tipoVehiculo, placaTransporte, idMisionTransporte, idMision, idTransporte
+            });
+        }
+
+        // Asignar el modelo a la tabla
+        tabla.setModel(modeloDeDatos);
+
+        // Ocultar columnas si es necesario
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
+
+    } catch (Exception e) {
+        System.out.println("Este es el error en el modelo, método BuscarPorPlaca: " + e);
+    }
+}
+
+   
+   
    
     
 }
