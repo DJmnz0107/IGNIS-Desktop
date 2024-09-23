@@ -196,58 +196,71 @@ public String obtenerUsuario() {
     }
         
         public void Mostrar(JTable tabla) {
-        Connection conexion = ClaseConexion.getConexion();
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"ID_Usuario", "Nombre", "Contraseña", "Edad", "DUI", "ID_NivelUsuario"});
-        try {
-            String query = "SELECT * FROM usuarios";
-            Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-            while (rs.next()) {
-                modelo.addRow(new Object[]{rs.getInt("ID_usuario"), 
-                    rs.getString("nombre_usuario"), 
-                    rs.getString("contrasena_usuario"), 
-                    rs.getInt("edad_usuario"),
-                    rs.getString("DUI_usuario"),
-                    rs.getInt("ID_nivelUsuario")});
-            }
-            tabla.setModel(modelo);
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(0).setWidth(0);
-        } catch (Exception e) {
-            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+    Connection conexion = ClaseConexion.getConexion();
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.setColumnIdentifiers(new Object[]{"ID_Usuario", "Nombre", "Contraseña", "DUI", "Nivel de usuario"});
+    try {
+        String query = "SELECT N.nombre_nivel, U.id_usuario, U.nombre_usuario, U.contrasena_usuario, U.dui_usuario " +
+                       "FROM Usuarios U " +
+                       "INNER JOIN Niveles N ON U.id_nivelUsuario = N.id_nivelusuario";
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery(query);
+        while (rs.next()) {
+            modelo.addRow(new Object[]{
+                rs.getInt("id_usuario"),
+                rs.getString("nombre_usuario"),
+                rs.getString("contrasena_usuario"),
+                rs.getString("dui_usuario"),
+                rs.getString("nombre_nivel")
+            });
         }
+        tabla.setModel(modelo);
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setWidth(0);
+             tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setWidth(0);
+    } catch (Exception e) {
+        System.out.println("Este es el error en el modelo, metodo mostrar " + e);
     }
-        
-        public void Buscar(JTable tabla, JTextField txtBuscar) {
-        Connection conexion = ClaseConexion.getConexion();
-        DefaultTableModel Usuario = new DefaultTableModel();
-        Usuario.setColumnIdentifiers(new Object[]{"ID_Usuario", "Nombre", "Contraseña", "Edad", "DUI", "ID_NivelUsuario"});
-        try {
-            String sql = "SELECT * FROM usuarios WHERE nombre_usuario LIKE ? || '%'";
-            PreparedStatement deleteEstudiante = conexion.prepareStatement(sql);
-            deleteEstudiante.setString(1, txtBuscar.getText());
-            ResultSet rs = deleteEstudiante.executeQuery();
+}
 
-            while (rs.next()) {
-                //Llenamos el modelo por cada vez que recorremos el resultSet
-                Usuario.addRow(new Object[]{rs.getInt("ID_usuario"), 
-                    rs.getString("nombre_usuario"), 
-                    rs.getString("contrasena_usuario"), 
-                    rs.getInt("edad_usuario"),
-                    rs.getString("DUI_usuario"),
-                    rs.getInt("ID_nivelUsuario")});
-            }
-            //nuevo modelo lleno
-            tabla.setModel(Usuario);
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(0).setWidth(0);
-        } catch (Exception e) {
-            System.out.println("Este es el error en el modelo, metodo de buscar " + e);
+        
+       public void Buscar(JTable tabla, JTextField txtBuscar) {
+    Connection conexion = ClaseConexion.getConexion();
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.setColumnIdentifiers(new Object[]{"ID_Usuario", "Nombre", "Contraseña", "DUI", "Nivel de usuario"});
+    try {
+        String sql = "SELECT N.nombre_nivel, U.id_usuario, U.nombre_usuario, U.contrasena_usuario, U.dui_usuario " +
+                     "FROM Usuarios U " +
+                     "INNER JOIN Niveles N ON U.id_nivelUsuario = N.id_nivelusuario " +
+                     "WHERE U.nombre_usuario LIKE ? || '%'";
+        PreparedStatement stmt = conexion.prepareStatement(sql);
+        stmt.setString(1, txtBuscar.getText());
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            modelo.addRow(new Object[]{
+                rs.getInt("id_usuario"),
+                rs.getString("nombre_usuario"),
+                rs.getString("contrasena_usuario"),
+                rs.getString("dui_usuario"),
+                rs.getString("nombre_nivel") // Mostrar el nombre del nivel
+            });
         }
+        tabla.setModel(modelo);
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setWidth(0);
+             tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setWidth(0);
+    } catch (Exception e) {
+        System.out.println("Este es el error en el modelo, metodo de buscar " + e);
     }
+}
+
         
             public void Eliminar(JTable tabla) {
         Connection conexion = ClaseConexion.getConexion();

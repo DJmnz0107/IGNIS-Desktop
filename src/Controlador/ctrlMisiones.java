@@ -5,11 +5,15 @@
 package Controlador;
 
 import Modelo.Misiones;
+import Modelo.Recursos;
+import Vistas.frmActualizarInventario;
+import Vistas.frmActualizarMision;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.ParseException;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +33,7 @@ public class ctrlMisiones implements MouseListener, KeyListener{
     modelo.Mostrar(vistas.jtbMisiones);
     vistas.btnEliminar.addMouseListener(this);
     vistas.txtBuscar.addKeyListener(this);
+    vistas.btnActualizar.addMouseListener(this);
     
     }
 
@@ -38,6 +43,21 @@ public class ctrlMisiones implements MouseListener, KeyListener{
            Modelo.Eliminar(Vistas.jtbMisiones);
            Modelo.Mostrar(Vistas.jtbMisiones);
             JOptionPane.showMessageDialog(Vistas, "Registro eliminado exitosamente");
+        }
+        if(e.getSource() == Vistas.btnActualizar) {
+                try {
+        Misiones misionSeleccionada = Modelo.obtenerDatosTabla(Vistas);
+
+        if (misionSeleccionada != null) {
+            frmActualizarMision.initfrmActualizarInventario(misionSeleccionada);
+            Vistas.dispose();
+        } else {
+            JOptionPane.showMessageDialog(Vistas, "Por favor, seleccione una fila para actualizar.");
+        }
+    } catch (ParseException ex) {
+        JOptionPane.showMessageDialog(Vistas, "Error al convertir la fecha. Por favor, verifica el formato.");
+        ex.printStackTrace(); // Opcionalmente imprime la traza del error en consola
+    }
         }
     }
 

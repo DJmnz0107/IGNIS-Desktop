@@ -6,6 +6,7 @@ package Controlador;
 
 import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarInventario;
+import Vistas.frmAgregarMision;
 import Vistas.frmAgregarTransportes;
 import Vistas.frmCrearCuenta;
 import Vistas.frmInicio;
@@ -79,7 +80,7 @@ public class ctrlInicio implements MouseListener {
         } 
     }
     if(e.getSource() == vista.btnMisiones) {
-        frmVerRegistroMisiones.initFrmVerRegistroMisiones();
+        frmAgregarMision.initFrmAgregarMision();
         vista.dispose();
     }
     if(e.getSource() == vista.btnInventario) {
