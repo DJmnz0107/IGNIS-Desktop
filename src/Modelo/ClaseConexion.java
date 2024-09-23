@@ -5,8 +5,8 @@ import java.sql.*;
 public class ClaseConexion {
     
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-    private static final String USUARIO = "STEVEN_PALACIOS";
-    private static final String CONTRASENA = "2006";
+    private static final String USUARIO = "expo";
+    private static final String CONTRASENA = "1234";
 
     
     public static Connection getConexion() {

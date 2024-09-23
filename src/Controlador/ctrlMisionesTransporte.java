@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.MisionesTransporte;
+import Vistas.frmAgregarMision;
 import Vistas.frmRegistroTransportes;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -39,6 +40,7 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         }
         if(e.getSource() == Vista.imgBack){
             Vista.dispose();
+            frmAgregarMision.initFrmAgregarMision();
         }
     }
 
