@@ -6,7 +6,7 @@ package Vistas;
 
 import Controlador.ctrlPrimerUso;
 import Modelo.Niveles;
-import Modelo.modelo;
+import Modelo.Usuarios;
 import javax.swing.JFrame;
 
 
@@ -55,7 +55,7 @@ public class frmPrimerUso extends javax.swing.JFrame {
     
     
       public static void initFrmCrearCuenta(){
-        modelo modeloUsuarios = new modelo();
+        Usuarios modeloUsuarios = new Usuarios();
         Niveles modeloNiveles = new Niveles();
         frmPrimerUso vista = new frmPrimerUso();
         ctrlPrimerUso controlador  = new ctrlPrimerUso(modeloUsuarios, vista);

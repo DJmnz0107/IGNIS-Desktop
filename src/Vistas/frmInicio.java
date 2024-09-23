@@ -6,7 +6,7 @@ package Vistas;
 
 import Controlador.ctrlInicio;
 import Controlador.ctrlLogin;
-import Modelo.modelo;
+import Modelo.Usuarios;
 import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;

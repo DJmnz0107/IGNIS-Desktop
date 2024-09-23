@@ -5,7 +5,7 @@
 package Controlador;
 
 import Modelo.ClaseConexion;
-import Modelo.modelo;
+import Modelo.Usuarios;
 import Vistas.frmAgregarBomberos;
 import Vistas.frmCrearCuenta;
 import Vistas.frmAgregarInventario;
@@ -32,7 +32,7 @@ public class Main {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                modelo modeloUsuario = new modelo();
+                Usuarios modeloUsuario = new Usuarios();
 
                 if (!modeloUsuario.verificarUsuario()) {
                     frmPrimerUso.initFrmCrearCuenta();

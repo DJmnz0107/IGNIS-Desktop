@@ -5,7 +5,7 @@
 package Vistas;
 
 import Controlador.ctrlCambiarContra;
-import Modelo.modelo;
+import Modelo.Usuarios;
 
 /**
  *
@@ -22,7 +22,7 @@ public class frmCambarContra extends javax.swing.JFrame {
     
     public static void initFrmCambiar() {
         frmCambarContra vista = new frmCambarContra();
-        modelo modelo = new modelo();
+        Usuarios modelo = new Usuarios();
         ctrlCambiarContra controlador = new ctrlCambiarContra(vista, modelo);
         vista.setVisible(true);
     }

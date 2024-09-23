@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author aless
  */
-public class modelo {
+public class Usuarios {
     private String nombre_usuario;
     private String contrasena_usuario;
     private int edad_usuario;

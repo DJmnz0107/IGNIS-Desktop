@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.modelo;
+import Modelo.Usuarios;
 import Vistas.frmCrearCuenta;
 import Vistas.frmVerUsuarios;
 import java.awt.event.KeyEvent;
@@ -15,10 +15,10 @@ import javax.swing.JOptionPane;
  */
 public class ctrlVerUsuarios implements MouseListener, KeyListener{
     
-    private modelo modelo;
+    private Usuarios modelo;
     private frmVerUsuarios vista;
     
-    public ctrlVerUsuarios(modelo usuarios, frmVerUsuarios vista){
+    public ctrlVerUsuarios(Usuarios usuarios, frmVerUsuarios vista){
         this.modelo = usuarios;
         this.vista = vista;
         

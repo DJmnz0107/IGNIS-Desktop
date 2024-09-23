@@ -5,7 +5,7 @@
 package Vistas;
 
 import Controlador.ctrlVerUsuarios;
-import Modelo.modelo;
+import Modelo.Usuarios;
 
 /**
  *
@@ -21,7 +21,7 @@ public class frmVerUsuarios extends javax.swing.JFrame {
     }
     
     public static void initfrmVerUsuarios(){
-        modelo Usuarios = new modelo();
+        Usuarios Usuarios = new Usuarios();
         frmVerUsuarios vista = new frmVerUsuarios();
         ctrlVerUsuarios controlador  = new ctrlVerUsuarios(Usuarios, vista);
         vista.setVisible(true);

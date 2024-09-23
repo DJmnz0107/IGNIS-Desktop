@@ -1,6 +1,6 @@
 package Vistas.drawer;
 
-import Modelo.modelo;
+import Modelo.Usuarios;
 import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarMision;

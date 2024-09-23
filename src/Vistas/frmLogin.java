@@ -5,7 +5,7 @@
 package Vistas;
 
 import Controlador.ctrlLogin;
-import Modelo.modelo;
+import Modelo.Usuarios;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
@@ -60,7 +60,7 @@ public class frmLogin extends JFrame  {
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
-        modelo modeloUsuarios = new modelo();
+        Usuarios modeloUsuarios = new Usuarios();
         frmLogin vista = new frmLogin();
         ctrlLogin controlador = new ctrlLogin(modeloUsuarios, vista);
         vista.setVisible(true);
