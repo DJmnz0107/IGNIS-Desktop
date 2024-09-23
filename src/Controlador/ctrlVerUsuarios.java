@@ -25,21 +25,21 @@ public class ctrlVerUsuarios implements MouseListener, KeyListener{
         vista.txtBuscar.addKeyListener(this);
         vista.btnEliminar.addMouseListener(this);
         vista.imgBack.addMouseListener(this);
-        usuarios.Mostrar(vista.JtbUsuarios);
+        usuarios.Mostrar(vista.jtUsuarios);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == vista.btnEliminar){
-            if (vista.JtbUsuarios.getSelectedRow() == -1) {
+            if (vista.jtUsuarios.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                  int respuesta = JOptionPane.showConfirmDialog(vista, "¿Estás seguro de que deseas eliminar este registro?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 
                 // Si el usuario selecciona "Sí/Yes"
                 if (respuesta == JOptionPane.YES_OPTION) {
-                    modelo.Eliminar(vista.JtbUsuarios);
-                    modelo.Mostrar(vista.JtbUsuarios);
+                    modelo.Eliminar(vista.jtUsuarios);
+                    modelo.Mostrar(vista.jtUsuarios);
                 }
 
             }
@@ -85,7 +85,7 @@ public class ctrlVerUsuarios implements MouseListener, KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
         if(e.getSource() == vista.txtBuscar){
-            modelo.Buscar(vista.JtbUsuarios, vista.txtBuscar);
+            modelo.Buscar(vista.jtUsuarios, vista.txtBuscar);
         }
     }
 
