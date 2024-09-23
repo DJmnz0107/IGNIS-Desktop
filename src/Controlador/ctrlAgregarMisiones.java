@@ -69,6 +69,7 @@ public class ctrlAgregarMisiones implements MouseListener {
         
         if(e.getSource() == vista.btnTransportes2){
             frmRegistroTransportes.initfrmRegistroTransporte();
+            vista.dispose();
         }
     }
     
