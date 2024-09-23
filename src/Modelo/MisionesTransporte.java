@@ -122,7 +122,7 @@ public class MisionesTransporte {
         String miId = tabla.getValueAt(filaSeleccionada, 3).toString();
     
         try {
-            String sql = "DELETE FROM Misiones_transporte WHERE id_misiontransporte = ?";
+            String sql = "DELETE FROM Misiones_transportes WHERE id_misiontransporte = ?";
             PreparedStatement deleteMisionTransporte = conexion.prepareStatement(sql);
 
         
