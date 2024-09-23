@@ -27,6 +27,7 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         this.Vista = Vista;
         Vista.txtBuscar.addKeyListener(this);
         Vista.btnEliminar.addMouseListener(this);
+        Vista.imgBack.addMouseListener(this);
         modelo.Mostrar(Vista.jtRegistroTransporte);
     }
 
@@ -35,6 +36,9 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         if(e.getSource() == Vista.btnEliminar){
             modelo.Eliminar(Vista.jtRegistroTransporte);
             modelo.Mostrar(Vista.jtRegistroTransporte);
+        }
+        if(e.getSource() == Vista.imgBack){
+            Vista.dispose();
         }
     }
 
