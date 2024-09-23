@@ -4,7 +4,7 @@
  */
 package Controlador;
 
-import Modelo.Usuarios;
+import Modelo.modelo;
 import Vistas.frmCambarContra;
 import Vistas.frmLogin;
 import Vistas.frmNuevaContra;
@@ -19,9 +19,9 @@ import javax.swing.JOptionPane;
 public class ctrlCambiarContra implements MouseListener {
     
         private frmCambarContra vista;
-        private Usuarios modelo;
+        private modelo modelo;
 
-        public ctrlCambiarContra(frmCambarContra vista, Usuarios modelo) {
+        public ctrlCambiarContra(frmCambarContra vista, modelo modelo) {
             this.vista = vista;
             this.modelo = modelo;
             

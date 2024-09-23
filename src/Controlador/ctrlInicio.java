@@ -13,6 +13,8 @@ import Vistas.frmInicio;
 import Vistas.frmLogin;
 import Vistas.frmVerCambios;
 import Vistas.frmVerEmergencias;
+import Vistas.frmVerEstadisticas;
+import Vistas.frmVerInformes;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -40,6 +42,7 @@ public class ctrlInicio implements MouseListener {
         vista.btnSeguimiento.addMouseListener(this);
         vista.bntInformes.addMouseListener(this);
         vista.btnBomberos.addMouseListener(this);
+        vista.btnEstadisticas.addMouseListener(this);
         
     }
 
@@ -55,7 +58,16 @@ public class ctrlInicio implements MouseListener {
              frmAgregarAspirante.initfrmAgregarAspirante();
              vista.dispose();
          }
-        
+         
+         if(e.getSource() == vista.bntInformes) {
+             frmVerInformes.initfrmVerInformes();
+             vista.dispose();
+         }
+         
+         if(e.getSource() == vista.btnEstadisticas) {
+             frmVerEstadisticas.InitfrmVerEstadisticas();
+             vista.dispose();
+         }
         
         
         if(e.getSource() == vista.btnEmergencias) {

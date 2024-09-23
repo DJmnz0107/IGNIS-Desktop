@@ -5,7 +5,7 @@
 package Vistas;
 
 import Controlador.ctrlVerUsuarios;
-import Modelo.Usuarios;
+import Modelo.modelo;
 
 /**
  *
@@ -21,7 +21,7 @@ public class frmVerUsuarios extends javax.swing.JFrame {
     }
     
     public static void initfrmVerUsuarios(){
-        Usuarios Usuarios = new Usuarios();
+        modelo Usuarios = new modelo();
         frmVerUsuarios vista = new frmVerUsuarios();
         ctrlVerUsuarios controlador  = new ctrlVerUsuarios(Usuarios, vista);
         vista.setVisible(true);
@@ -42,7 +42,7 @@ public class frmVerUsuarios extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JLabel();
         JTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JtbUsuarios = new javax.swing.JTable();
+        jtUsuarios = new javax.swing.JTable();
         btnEliminar = new Vistas.btnRojoForms();
         txtBuscar = new javax.swing.JTextField();
 
@@ -69,9 +69,9 @@ public class frmVerUsuarios extends javax.swing.JFrame {
         JTextField.setEnabled(false);
         JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
 
-        JtbUsuarios.setBackground(new java.awt.Color(255, 173, 122));
-        JtbUsuarios.setForeground(new java.awt.Color(0, 0, 0));
-        JtbUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+        jtUsuarios.setBackground(new java.awt.Color(255, 173, 122));
+        jtUsuarios.setForeground(new java.awt.Color(0, 0, 0));
+        jtUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -82,9 +82,9 @@ public class frmVerUsuarios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        JtbUsuarios.setSelectionBackground(new java.awt.Color(239, 138, 76));
-        JtbUsuarios.setShowGrid(false);
-        jScrollPane1.setViewportView(JtbUsuarios);
+        jtUsuarios.setSelectionBackground(new java.awt.Color(239, 138, 76));
+        jtUsuarios.setShowGrid(false);
+        jScrollPane1.setViewportView(jtUsuarios);
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Trash.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -197,13 +197,13 @@ public class frmVerUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextField;
-    public javax.swing.JTable JtbUsuarios;
     public javax.swing.JLabel btnBuscar;
     public Vistas.btnRojoForms btnEliminar;
     public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable jtUsuarios;
     public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

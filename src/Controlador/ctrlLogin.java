@@ -4,7 +4,7 @@
  */
 package Controlador;
 
-import Modelo.Usuarios;
+import Modelo.modelo;
 import Vistas.frmAgregarInventario;
 import Vistas.frmCrearCuenta;
 import Vistas.frmInicio;
@@ -22,11 +22,11 @@ import javax.swing.SwingUtilities;
  */
 public class ctrlLogin implements MouseListener {
 
-    private Usuarios modelo;
+    private modelo modelo;
     private frmLogin vista;
     public static String nombreUsuario;
     
-    public ctrlLogin(Usuarios modelo, frmLogin vista) {
+    public ctrlLogin(modelo modelo, frmLogin vista) {
         this.modelo = modelo;
         this.vista = vista;
         
