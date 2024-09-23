@@ -98,6 +98,17 @@ public class MisionesTransporte {
 
         // Asignamos el nuevo modelo lleno a la tabla
         tabla.setModel(modeloDeDatos);
+        
+        // Ocultar las id
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
     } catch (Exception e) {
         System.out.println("Este es el error en el modelo, metodo mostrar: " + e);
     }
@@ -108,17 +119,17 @@ public class MisionesTransporte {
 
         int filaSeleccionada = tabla.getSelectedRow();
 
-        String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
+        String miId = tabla.getValueAt(filaSeleccionada, 3).toString();
     
         try {
             String sql = "DELETE FROM Misiones_transporte WHERE id_MisionTransporte = ?";
-            PreparedStatement deleteInforme = conexion.prepareStatement(sql);
+            PreparedStatement deleteMisionTransporte = conexion.prepareStatement(sql);
 
         
             int idInforme = Integer.parseInt(miId);
-            deleteInforme.setInt(1, idInforme);
+            deleteMisionTransporte.setInt(1, idInforme);
 
-            deleteInforme.executeUpdate();
+            deleteMisionTransporte.executeUpdate();
         
         } catch (Exception e) {
             System.out.println("Este es el error en el método de eliminar: " + e);
@@ -167,7 +178,7 @@ public class MisionesTransporte {
         // Asignar el modelo a la tabla
         tabla.setModel(modeloDeDatos);
 
-        // Ocultar columnas si es necesario
+        // Ocultar las id
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
         tabla.getColumnModel().getColumn(3).setMaxWidth(0);
         tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
