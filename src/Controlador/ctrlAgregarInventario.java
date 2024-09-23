@@ -68,6 +68,8 @@ public class ctrlAgregarInventario implements MouseListener {
             JOptionPane.showMessageDialog(vista, "Porfavor, llena todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
                  return;
             }
+            
+             
             // Establecer los valores en el modelo
             modelo.setNombreRecurso(txtNombreInventario);
             modelo.setDescripcionRecurso(txtDescripcionRecurso);

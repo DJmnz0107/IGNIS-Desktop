@@ -40,6 +40,11 @@ public class ctrlActualizarMision implements MouseListener {
             return;
         }
               
+                if (vista.cmbEmergencia.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(vista, "No se puede añadir una emergencia nula, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+              
         Misiones emergenciaSeleccionada = (Misiones) vista.cmbEmergencia.getSelectedItem();
         int idEmergencia = emergenciaSeleccionada.getIdEmergencia();
               

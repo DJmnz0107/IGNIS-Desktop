@@ -53,38 +53,53 @@ public class ctrlTransportes implements MouseListener{
         
        if(e.getSource()== VistasverRegistroTransporter.btnAgregar){
                 
-           guardarTransporte();
+           if(VistasverRegistroTransporter.txtCapacidad.getText().isEmpty() || VistasverRegistroTransporter.txtEstado.getText().isEmpty() || VistasverRegistroTransporter.txtNumeroTransporte.getText().isEmpty() || VistasverRegistroTransporter.txtPlaca.getText().isEmpty()) {
+                 JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+            return; // Salir del método si hay campos vacíos
+            }
+
+            if (VistasverRegistroTransporter.txtNumeroTransporte.getText().length() != 4) {
+    JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Ingrese exactamente 4 dígitos", "Número transporte", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+                     String capacidadText = VistasverRegistroTransporter.txtCapacidad.getText();
+
+if (!capacidadText.matches("\\d+")) {
+    JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Ingrese solo números", "Capacidad transporte", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+        guardarTransporte();
            Modelo.Guardar();
                    JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Información ingresada con éxito", "Agregar transporte", JOptionPane.INFORMATION_MESSAGE);
                   Modelo.Limpiar(VistasverRegistroTransporter);
                   
+           
+           } 
+            
+
+            
+
+
+           
+   
         frmVerRegistroTransporter frmRegistro = frmVerRegistroTransporter.getInstance();
         if (frmRegistro != null) {
             Modelo.Mostrar(frmRegistro.jtTransportes);
         }
-        
-    
-
-
            
-
-    
-       
-       }      
-       
-           if(e.getSource() == VistasverRegistroTransporter.btnMenu) {
+ if(e.getSource() == VistasverRegistroTransporter.btnMenu) {
             Drawer.getInstance().showDrawer();
-            System.out.println("Hola");
         }
        
        if(e.getSource()== VistasverRegistroTransporter.btnVerRegistro){
-
-                   frmVerRegistroTransporter.initFrmVerRegistroTransportes();
-                   
-                   VistasverRegistroTransporter.dispose();
+                   frmVerRegistroTransporter.initFrmVerRegistroTransportes();                  
+                   VistasverRegistroTransporter.dispose();   
+    }
+       }      
        
-    }
-    }
+          
+    
     
 
     @Override

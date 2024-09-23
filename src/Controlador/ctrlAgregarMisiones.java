@@ -41,9 +41,16 @@ public class ctrlAgregarMisiones implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+         
        if (e.getSource() == vista.btnAgregar) {
         if (vista.txtDescripcion.getText().isEmpty()) {
             JOptionPane.showMessageDialog(vista, "Por favor, llena todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+      
+          if (vista.cmbEmergencia.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(vista, "No se puede añadir una emergencia nula, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 

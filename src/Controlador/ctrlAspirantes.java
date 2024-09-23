@@ -60,6 +60,36 @@ public class ctrlAspirantes implements MouseListener {
                  JOptionPane.showMessageDialog(Vistas, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             return; // Salir del método si hay campos vacíos
             }
+              if (Vistas.txtEdadAspirante.getText().length() >= 3) {
+                JOptionPane.showMessageDialog(Vistas, "Ingrese una edad valida", "Error", JOptionPane.ERROR_MESSAGE);
+             return; 
+            // Verificar que el DUI no tenga más de 10 dígitos
+            }
+              
+               if (Vistas.txtDuiAspirante.getText().length() != 10) {
+    JOptionPane.showMessageDialog(Vistas, "El DUI debe tener exactamente 10 dígitos", "Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+                if (Vistas.cmbBomberoMentor.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(Vistas, "No se puede añadir un bombero nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } 
+                
+                
+                
+                  String edadText = Vistas.txtEdadAspirante.getText();
+                  int edadInt = Integer.parseInt(edadText);
+if (edadInt < 18) {
+    JOptionPane.showMessageDialog(Vistas, "La edad debe ser mayor o igual a 18", "Edad", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+if (!edadText.matches("\\d+")) {
+    JOptionPane.showMessageDialog(Vistas, "Ingrese solo números", "Edad aspirante", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+           
                if (rutaImagenSeleccionada == null || rutaImagenSeleccionada.isEmpty()) {
               JOptionPane.showMessageDialog(Vistas, "Debes seleccionar una imagen antes de actualizar", "Error", JOptionPane.ERROR_MESSAGE);
                 return; 
@@ -93,6 +123,7 @@ public class ctrlAspirantes implements MouseListener {
         Modelo.setProgreso_aspirante(Vistas.txtProgresoAspirante.getText());
         //y el metodo guardar para insertar a la base de datos :D
         Modelo.Guardar(rutaImagenSeleccionada);
+        JOptionPane.showMessageDialog(Vistas, "Aspirante ingresado exitosamente.");
         Modelo.Limpiar(Vistas);
         
         

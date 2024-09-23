@@ -29,11 +29,7 @@ public class ctrlActualizarTransporte implements MouseListener {
    @Override
 public void mouseClicked(MouseEvent e) {
     if (e.getSource() == vista.imgVolver) {
-        frmVerRegistroTransporter frmRegistro = frmVerRegistroTransporter.getInstance(); 
-        if (frmRegistro != null) {
-            modelo.Mostrar(frmRegistro.jtTransportes); // Actualiza la tabla
-            frmVerRegistroTransporter.initFrmVerRegistroTransportes();
-        }
+        frmVerRegistroTransporter.initFrmVerRegistroTransportes();
         vista.dispose();
     }
 
@@ -42,6 +38,18 @@ public void mouseClicked(MouseEvent e) {
             JOptionPane.showMessageDialog(vista, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             return; // Salir del método si hay campos vacíos
         }
+        
+        String capacidadText = vista.txtCapacidad.getText();
+
+if (!capacidadText.matches("\\d+")) {
+    JOptionPane.showMessageDialog(vista, "Ingrese solo números", "Capacidad transporte", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+        
+         if (vista.txtNumeroTransporte.getText().length() != 4) {
+    JOptionPane.showMessageDialog(vista, "Ingrese exactamente 4 dígitos", "Número transporte", JOptionPane.ERROR_MESSAGE);
+    return;
+}
         String tipoVehiculo = vista.cmbAgregarTransportes.getSelectedItem().toString();
         String disponibilidad = vista.cmbDisponibilidad.getSelectedItem().toString();
         

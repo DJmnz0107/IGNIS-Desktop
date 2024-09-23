@@ -65,6 +65,34 @@ public class ctrlActualizarAspirantes implements MouseListener {
             return; // Salir del método si hay campos vacíos
             }
             
+              String edadText = vista.txtEdadAspirante.getText();
+
+if (!edadText.matches("\\d+")) {
+    JOptionPane.showMessageDialog(vista, "Ingrese solo números", "Edad aspirante", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+            
+            if (vista.txtEdadAspirante.getText().length() >= 3) {
+                JOptionPane.showMessageDialog(vista, "Ingrese una edad valida", "Error", JOptionPane.ERROR_MESSAGE);
+             return; 
+            // Verificar que el DUI no tenga más de 10 dígitos
+            }
+            int edadInt = Integer.parseInt(edadText);
+if (edadInt < 18) {
+    JOptionPane.showMessageDialog(vista, "La edad debe ser mayor o igual a 18", "Edad", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+            
+              if (vista.cmbBomberoMentor.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(vista, "No se puede añadir un bombero nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+            
+            if (vista.txtDuiAspirante.getText().length() != 10) {
+    JOptionPane.showMessageDialog(vista, "El DUI debe tener exactamente 10 dígitos", "Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+            
             
      
             
