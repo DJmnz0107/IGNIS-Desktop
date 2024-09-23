@@ -5,6 +5,7 @@ import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarMision;
 import Vistas.frmAgregarTransportes;
+import Vistas.frmEstadisticas;
 import Vistas.frmInicio;
 import Vistas.frmLogin;
 import Vistas.frmVerEmergencias;
@@ -123,6 +124,11 @@ private void gestionarSeleccionDeMenu(int index) {
                 ventanaActual.dispose();
             break;
 
+        case 6: // Estadisticas
+            frmEstadisticas.InitfrmVerEstadisticas();
+                ventanaActual.dispose();;
+            break;
+            
         case 7:  // Emergencias
             frmVerEmergencias.initfrmVerEmergencias();
                 ventanaActual.dispose();
