@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.Emergencias;
 import Modelo.Misiones;
 import Vistas.frmAgregarMision;
+import Vistas.frmRegistroTransportes;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -35,6 +36,7 @@ public class ctrlAgregarMisiones implements MouseListener {
     vista.btnAgregar.addMouseListener(this);
     vista.btnVerRegistro.addMouseListener(this);
     vista.btnMenu.addMouseListener(this);
+    vista.btnTransportes2.addMouseListener(this);
     }
 
     @Override
@@ -63,6 +65,10 @@ public class ctrlAgregarMisiones implements MouseListener {
         if(e.getSource() == vista.btnVerRegistro) {
             frmVerRegistroMisiones.initFrmVerRegistroMisiones();
             vista.dispose();
+        }
+        
+        if(e.getSource() == vista.btnTransportes2){
+            frmRegistroTransportes.initfrmRegistroTransporte();
         }
     }
     
