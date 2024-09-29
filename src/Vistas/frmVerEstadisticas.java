@@ -87,7 +87,6 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
-        lblMes = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         pieChart1 = new Vistas.PieChart();
@@ -130,15 +129,10 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        lblMes.setFont(new java.awt.Font("Microsoft PhagsPa", 1, 22)); // NOI18N
-        lblMes.setForeground(new java.awt.Color(239, 138, 76));
-        lblMes.setText("(mes)");
-        jPanel1.add(lblMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(787, 110, 150, 30));
-
         jLabel4.setFont(new java.awt.Font("Microsoft PhagsPa", 1, 22)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(239, 138, 76));
-        jLabel4.setText("Principales emergencias tratadas en el mes de");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 480, 30));
+        jLabel4.setText("Principales emergencias tratadas durante las misiones");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 580, 30));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,7 +204,6 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JLabel lblMes;
     private Vistas.PanelRound panelRound1;
     private Vistas.PieChart pieChart1;
     // End of variables declaration//GEN-END:variables

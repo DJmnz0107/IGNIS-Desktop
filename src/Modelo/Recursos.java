@@ -16,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -132,6 +134,8 @@ public class Recursos {
     public String getFotoRecurso() {
         return fotoRecurso;
     }
+    
+    
 
     /**
      * @param fotoRecurso the fotoRecurso to set
@@ -168,6 +172,46 @@ public class Recursos {
         System.out.println("Este es el error en el método de eliminar: " + e);
     }
 }  
+     
+     
+   
+
+    // Método para obtener todos los recursos
+    public List<Recursos> getRecursos() {
+        List<Recursos> listaRecursos = new ArrayList<>();
+        
+    Connection conexion = ClaseConexion.getConexion();
+        
+        String query = "SELECT id_recurso, nombre_recurso, descripcion_recurso, estado_recurso, "
+                     + "fechaRecepcion_recurso, disponibilidad_recurso, foto_recurso "
+                     + "FROM Recursos";
+        
+        try (PreparedStatement stmt = conexion.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+            
+            while (rs.next()) {
+                Recursos recurso = new Recursos();
+                
+                recurso.setIdRecurso(rs.getInt("id_recurso"));
+                recurso.setNombreRecurso(rs.getString("nombre_recurso"));
+                recurso.setDescripcionRecurso(rs.getString("descripcion_recurso"));
+                recurso.setEstadoRecurso(rs.getString("estado_recurso"));
+                recurso.setFechaRecepcionRecurso(rs.getDate("fechaRecepcion_recurso"));
+                recurso.setDisponibilidadRecurso(rs.getString("disponibilidad_recurso"));
+                recurso.setFotoRecurso(rs.getString("foto_recurso")); // Asumimos que el CLOB es manejado como String
+
+                // Añadir el objeto recurso a la lista
+                listaRecursos.add(recurso);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return listaRecursos;
+    }
+
+
      
      
   public void actualizarRecurso(String rutaImagen) {
