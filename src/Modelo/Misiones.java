@@ -17,7 +17,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -332,6 +334,36 @@ public void actualizarMision() {
         } catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo de buscar " + e);
         }
+    }
+        
+        public List<TipoEmergenciaData> obtenerDatosMisiones() {
+        List<TipoEmergenciaData> datosMisiones = new ArrayList<>();
+
+        try {
+            // Conexión a la base de datos
+            Connection conexion = ClaseConexion.getConexion();
+            String query = "SELECT e.tipo_emergencia, COUNT(m.id_mision) AS cantidad_misiones " +
+                           "FROM Misiones m " +
+                           "JOIN Emergencias e ON m.id_emergencia = e.id_emergencia " +
+                           "GROUP BY e.tipo_emergencia";
+            PreparedStatement stmt = conexion.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            // Procesar los resultados y añadirlos a la lista
+            while (rs.next()) {
+                String tipoEmergencia = rs.getString("tipo_emergencia");
+                int cantidadMisiones = rs.getInt("cantidad_misiones");
+                datosMisiones.add(new TipoEmergenciaData(tipoEmergencia, cantidadMisiones));
+            }
+
+            rs.close();
+            stmt.close();
+            conexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return datosMisiones;
     }
 
     

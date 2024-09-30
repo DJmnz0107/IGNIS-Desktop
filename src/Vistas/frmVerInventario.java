@@ -5,11 +5,15 @@
 package Vistas;
 
 import Controlador.ctrlVerInventario;
+import Modelo.Recursos;
 import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Font;
+import java.text.DecimalFormat;
+import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
@@ -28,6 +32,7 @@ public class frmVerInventario extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        cargarTarjetas();
     }
     
     public static void initfrmVerInventario() {
@@ -39,6 +44,26 @@ public class frmVerInventario extends javax.swing.JFrame {
         ctrlVerInventario controlador = new ctrlVerInventario(vista);
         vista.setVisible(true);
     }
+    
+     private void cargarTarjetas() {
+         
+         Recursos modelo = new Recursos();
+        // Ejemplo de obtención de datos. Reemplaza esta lista con tu fuente real de datos
+        List<Recursos> listaRecursos = modelo.getRecursos();
+
+        // Iterar sobre la lista de recursos y agregar las tarjetas al panel
+        for (Recursos recurso : listaRecursos) {
+            itemRecurso tarjeta = new itemRecurso();
+            tarjeta.setData(recurso);  // Método para asignar los datos a la tarjeta (ajusta según tu implementación)
+            panelRecurso1.add(tarjeta);  // Agregar la tarjeta al panel
+        }
+
+        // Refrescar el panel para que se actualicen las tarjetas en la interfaz
+        panelRecurso1.revalidate();
+        panelRecurso1.repaint();
+    }
+     
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,15 +77,11 @@ public class frmVerInventario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
-        panelRound31 = new Vistas.panelRound3();
-        panelRound32 = new Vistas.panelRound3();
-        panelRound33 = new Vistas.panelRound3();
-        panelRound34 = new Vistas.panelRound3();
-        panelRound35 = new Vistas.panelRound3();
-        panelRound36 = new Vistas.panelRound3();
         btnVerRegistro = new Vistas.btnRojoForms();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        panelRecurso1 = new Vistas.PanelRecurso();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,124 +120,10 @@ public class frmVerInventario extends javax.swing.JFrame {
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 669));
 
-        panelRound31.setBackground(new java.awt.Color(255, 173, 122));
-        panelRound31.setRoundBottomLeft(20);
-        panelRound31.setRoundBottomRight(20);
-        panelRound31.setRoundTopLeft(20);
-        panelRound31.setRoundTopRight(20);
-
-        javax.swing.GroupLayout panelRound31Layout = new javax.swing.GroupLayout(panelRound31);
-        panelRound31.setLayout(panelRound31Layout);
-        panelRound31Layout.setHorizontalGroup(
-            panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelRound31Layout.setVerticalGroup(
-            panelRound31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 90, 258, 195));
-
-        panelRound32.setBackground(new java.awt.Color(255, 173, 122));
-        panelRound32.setRoundBottomLeft(20);
-        panelRound32.setRoundBottomRight(20);
-        panelRound32.setRoundTopLeft(20);
-        panelRound32.setRoundTopRight(20);
-
-        javax.swing.GroupLayout panelRound32Layout = new javax.swing.GroupLayout(panelRound32);
-        panelRound32.setLayout(panelRound32Layout);
-        panelRound32Layout.setHorizontalGroup(
-            panelRound32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelRound32Layout.setVerticalGroup(
-            panelRound32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound32, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 270, 195));
-
-        panelRound33.setBackground(new java.awt.Color(255, 173, 122));
-        panelRound33.setRoundBottomLeft(20);
-        panelRound33.setRoundBottomRight(20);
-        panelRound33.setRoundTopLeft(20);
-        panelRound33.setRoundTopRight(20);
-
-        javax.swing.GroupLayout panelRound33Layout = new javax.swing.GroupLayout(panelRound33);
-        panelRound33.setLayout(panelRound33Layout);
-        panelRound33Layout.setHorizontalGroup(
-            panelRound33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 258, Short.MAX_VALUE)
-        );
-        panelRound33Layout.setVerticalGroup(
-            panelRound33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 195, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound33, new org.netbeans.lib.awtextra.AbsoluteConstraints(774, 90, -1, -1));
-
-        panelRound34.setBackground(new java.awt.Color(255, 173, 122));
-        panelRound34.setRoundBottomLeft(20);
-        panelRound34.setRoundBottomRight(20);
-        panelRound34.setRoundTopLeft(20);
-        panelRound34.setRoundTopRight(20);
-
-        javax.swing.GroupLayout panelRound34Layout = new javax.swing.GroupLayout(panelRound34);
-        panelRound34.setLayout(panelRound34Layout);
-        panelRound34Layout.setHorizontalGroup(
-            panelRound34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 258, Short.MAX_VALUE)
-        );
-        panelRound34Layout.setVerticalGroup(
-            panelRound34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 195, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound34, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 341, -1, -1));
-
-        panelRound35.setBackground(new java.awt.Color(255, 173, 122));
-        panelRound35.setRoundBottomLeft(20);
-        panelRound35.setRoundBottomRight(20);
-        panelRound35.setRoundTopLeft(20);
-        panelRound35.setRoundTopRight(20);
-
-        javax.swing.GroupLayout panelRound35Layout = new javax.swing.GroupLayout(panelRound35);
-        panelRound35.setLayout(panelRound35Layout);
-        panelRound35Layout.setHorizontalGroup(
-            panelRound35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
-        );
-        panelRound35Layout.setVerticalGroup(
-            panelRound35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound35, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 341, -1, 195));
-
-        panelRound36.setBackground(new java.awt.Color(255, 173, 122));
-        panelRound36.setRoundBottomLeft(20);
-        panelRound36.setRoundBottomRight(20);
-        panelRound36.setRoundTopLeft(20);
-        panelRound36.setRoundTopRight(20);
-
-        javax.swing.GroupLayout panelRound36Layout = new javax.swing.GroupLayout(panelRound36);
-        panelRound36.setLayout(panelRound36Layout);
-        panelRound36Layout.setHorizontalGroup(
-            panelRound36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelRound36Layout.setVerticalGroup(
-            panelRound36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound36, new org.netbeans.lib.awtextra.AbsoluteConstraints(774, 341, 258, 195));
-
         btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/comprobado (2).png"))); // NOI18N
         btnVerRegistro.setText("     Ver Registro");
         btnVerRegistro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jPanel1.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 579, 212, 57));
+        jPanel1.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 600, 212, 57));
 
         jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,6 +134,14 @@ public class frmVerInventario extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Inicio > Inventario > Ver inventario ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 25, -1, -1));
+
+        jScrollPane1.setBackground(new java.awt.Color(240, 139, 77));
+        jScrollPane1.setBorder(null);
+
+        panelRecurso1.setBackground(new java.awt.Color(240, 139, 77));
+        jScrollPane1.setViewportView(panelRecurso1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 950, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -288,12 +203,8 @@ public class frmVerInventario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private Vistas.PanelRecurso panelRecurso1;
     private Vistas.PanelRound panelRound1;
-    private Vistas.panelRound3 panelRound31;
-    private Vistas.panelRound3 panelRound32;
-    private Vistas.panelRound3 panelRound33;
-    private Vistas.panelRound3 panelRound34;
-    private Vistas.panelRound3 panelRound35;
-    private Vistas.panelRound3 panelRound36;
     // End of variables declaration//GEN-END:variables
 }

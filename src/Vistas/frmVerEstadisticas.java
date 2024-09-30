@@ -6,14 +6,19 @@ package Vistas;
 
 import Controlador.ctrlVerEstadisticas;
 import Modelo.Misiones;
+import Modelo.TipoEmergenciaData;
 import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
 import java.awt.Font;
+import java.util.List;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
+import Vistas.PieChart;
+import Vistas.ModelPieChart;
 
 /**
  *
@@ -24,12 +29,36 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
     /**
      * Creates new form frmEstadisticas
      */
-    public frmVerEstadisticas() {
+    public frmVerEstadisticas() {       
+        initComponents();
         GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
-        initComponents();
+                Misiones modelo = new Misiones();
+               List<TipoEmergenciaData> datosMisiones = modelo.obtenerDatosMisiones();
+         pieChart1.setChartType(PieChart.PeiChartType.DONUT_CHART);
+                
+        for (int i = 0; i < datosMisiones.size(); i++) {
+            TipoEmergenciaData dato = datosMisiones.get(i);
+            // Usar un color basado en el índice,
+            Color color = COLORES[i % COLORES.length];
+            pieChart1.addData(new ModelPieChart(dato.getTipoEmergencia(), dato.getCantidadMisiones(), color));      
+
+
+        
+        
     }
+    }
+       private static final Color[] COLORES = {
+        new Color(23, 126, 238), 
+        new Color(221, 65, 65),  
+        new Color(47, 157, 64),  
+        new Color(196, 151, 58)  
+    };
+
+
+
+     
 
     public static void InitfrmVerEstadisticas() {
         FlatRobotoFont.install();
@@ -58,15 +87,15 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
-        lblMes = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        pieChart1 = new Vistas.PieChart();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomRight(50);
@@ -98,74 +127,27 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
                 .addContainerGap(594, Short.MAX_VALUE))
         );
 
-        lblMes.setFont(new java.awt.Font("Microsoft PhagsPa", 1, 22)); // NOI18N
-        lblMes.setForeground(new java.awt.Color(239, 138, 76));
-        lblMes.setText("(mes)");
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/chart.png"))); // NOI18N
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Microsoft PhagsPa", 1, 22)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(239, 138, 76));
-        jLabel4.setText("Principales emergencias tratadas en el mes de");
+        jLabel4.setText("Principales emergencias tratadas durante las misiones");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 580, 30));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("> Ver estadísticas");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 25, -1, -1));
+        jPanel1.add(pieChart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 440, 370));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Rectangle 46.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(559, 559, 559)
-                                .addComponent(lblMes, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(182, 182, 182)
-                                .addComponent(jLabel5))
-                            .addComponent(jLabel1)))
-                    .addComponent(jLabel2))
-                .addContainerGap(138, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(lblMes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel5))
-                    .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 81, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,9 +203,8 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JLabel lblMes;
     private Vistas.PanelRound panelRound1;
+    private Vistas.PieChart pieChart1;
     // End of variables declaration//GEN-END:variables
 }
