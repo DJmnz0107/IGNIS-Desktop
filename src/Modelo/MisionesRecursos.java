@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
-
+import java.sql.*;
 /**
  *
  * @author USUARIO
@@ -55,6 +55,24 @@ public class MisionesRecursos {
     private int id_misionRecurso;
     private int id_mision;
     private int id_recurso;
+    
+    
+    public void Guardar()
+    {
+          Connection conexion = ClaseConexion.getConexion();
+          try{
+             PreparedStatement addProducto = conexion.prepareStatement("INSERT INTO Misiones_Recursos (id_mision, id_recurso) VALUES (?,?)");
+               addProducto.setInt(1,getId_mision());
+                addProducto.setInt(1,getId_recurso());
+                
+                addProducto.executeUpdate();
+          
+          
+          }catch (SQLException ex) {
+            System.out.println("este es el error en el modelo:metodo guardar " + ex);
+        }
+    }
+    
     
     
 }
