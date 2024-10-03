@@ -35,10 +35,31 @@ public class ctrlVerRegistroInventario implements MouseListener, KeyListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == vista.btnEliminar) {
+if (e.getSource() == vista.btnEliminar) {
+    if (vista.jtInventario.getSelectedRow() == -1) {
+        JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+    } else {
+        Object[] opciones = {"Sí", "No"}; // Opciones en español
+
+        int respuesta = JOptionPane.showOptionDialog(
+            vista, 
+            "¿Estás seguro de que deseas eliminar este registro de inventario?", 
+            "Confirmación", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            opciones, 
+            opciones[0]
+        );
+
+        if (respuesta == JOptionPane.YES_OPTION) {
             modelo.Eliminar(vista.jtInventario);
             modelo.Mostrar(vista.jtInventario);
         }
+    }
+}
+
+
         
      if (e.getSource() == vista.btnActualizar) {
     try {

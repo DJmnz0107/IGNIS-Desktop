@@ -12,6 +12,8 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
@@ -35,6 +37,15 @@ public class frmActualizarTransporte extends javax.swing.JFrame {
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
                 this.transporte = transporte;
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
         cargarDatos();
     }
     
@@ -111,8 +122,9 @@ public class frmActualizarTransporte extends javax.swing.JFrame {
         jLabel3.setText("Tipo:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, -1, -1));
 
+        cmbAgregarTransportes.setForeground(new java.awt.Color(240, 139, 77));
         cmbAgregarTransportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Camión de bomberos", "PickUp" }));
-        jPanel1.add(cmbAgregarTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, -1));
+        jPanel1.add(cmbAgregarTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, -1, 40));
 
         btnActualizar.setForeground(new java.awt.Color(240, 139, 77));
         btnActualizar.setText("Actualizar");
@@ -122,10 +134,11 @@ public class frmActualizarTransporte extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Disponibilidad");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, -1, -1));
 
+        cmbDisponibilidad.setForeground(new java.awt.Color(240, 139, 77));
         cmbDisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "No disponible", " " }));
-        jPanel1.add(cmbDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, -1, -1));
+        jPanel1.add(cmbDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 480, 140, 40));
         jPanel1.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 270, 30));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));

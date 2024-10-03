@@ -14,6 +14,11 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 import raven.drawer.Drawer;
 
 
@@ -33,10 +38,17 @@ public class ctrlAspirantes implements MouseListener {
         this.Vistas.btnMenu.addMouseListener(this);
         this.Vistas.btnVerAspirantes.addMouseListener(this);
         
+
+        
          
     
     }
+    
+   
 
+    
+
+      
     
     @Override
     public void mouseClicked(MouseEvent e) {

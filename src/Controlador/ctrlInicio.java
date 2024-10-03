@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.Usuarios;
 import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarMision;
@@ -44,70 +45,147 @@ public class ctrlInicio implements MouseListener {
         vista.btnBomberos.addMouseListener(this);
         vista.btnEstadisticas.addMouseListener(this);
         
+         // Verificar el nivel de usuario
+        int nivelUsuario = Usuarios.nivelUsuario;
+        
+        // Desactivar botones según el nivel de usuario
+        if(nivelUsuario == 2) {
+            vista.btnCrearUsuario.setEnabled(false); // Desactivar botón "Crear Usuario"
+            vista.btnVerCambios.setEnabled(false);    // Desactivar botón "Ver Cambios"
+        } else if(nivelUsuario == 4) {
+             vista.btnCrearUsuario.setEnabled(false); // Desactivar botón "Crear Usuario"
+            vista.btnVerCambios.setEnabled(false);
+            vista.btnEmergencias.setEnabled(false);
+            vista.btnBomberos.setEnabled(false);
+            vista.btnSeguimiento.setEnabled(false);
+            vista.btnEstadisticas.setEnabled(false);
+            vista.bntInformes.setEnabled(false);
+            vista.btnMisiones.setEnabled(false);
+            
+        }
+    
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        
-         if(e.getSource() == vista.btnVerCambios) {
+   @Override
+public void mouseClicked(MouseEvent e) {
+    // Verificación de acceso para btnVerCambios
+    if (e.getSource() == vista.btnVerCambios) {
+        if (!vista.btnVerCambios.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
             frmVerCambios.initfrmVerCambios();
             vista.dispose();
         }
-         
-         if(e.getSource() == vista.btnSeguimiento) {
-             frmAgregarAspirante.initfrmAgregarAspirante();
-             vista.dispose();
-         }
-         
-         if(e.getSource() == vista.bntInformes) {
-             frmVerInformes.initfrmVerInformes();
-             vista.dispose();
-         }
-         
-         if(e.getSource() == vista.btnEstadisticas) {
-             frmVerEstadisticas.InitfrmVerEstadisticas();
-             vista.dispose();
-         }
-        
-        
-        if(e.getSource() == vista.btnEmergencias) {
-            frmVerEmergencias.initfrmVerEmergencias();
-            vista.dispose();
-        }
-        
-        if(e.getSource() == vista.btnCrearUsuario) {
+    }
+
+    // Verificación de acceso para btnCrearUsuario
+    if (e.getSource() == vista.btnCrearUsuario) {
+        if (!vista.btnCrearUsuario.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
             frmCrearCuenta.initFrmCrearCuenta();
             vista.dispose();
         }
-    if (e.getSource() == vista.btnCerrarSesión) {
-        int opcion = JOptionPane.showConfirmDialog(vista, 
-                "¿Estás seguro de que deseas cerrar sesión?", 
-                "Confirmar Cierre de Sesión", 
-                JOptionPane.YES_NO_OPTION, 
-                JOptionPane.QUESTION_MESSAGE);
+    }
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            frmLogin.initfrmLogin();
+    // Verificación de acceso para btnCerrarSesión
+    if (e.getSource() == vista.btnCerrarSesión) {
+        if (!vista.btnCerrarSesión.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Object[] opciones = {"Sí", "No"}; // Opciones en español
+            int opcion = JOptionPane.showOptionDialog(vista, 
+                    "¿Estás seguro de que deseas cerrar sesión?", 
+                    "Confirmar Cierre de Sesión", 
+                    JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE, 
+                    null, 
+                    opciones, 
+                    opciones[0]); 
+
+            if (opcion == JOptionPane.YES_OPTION) {
+                frmLogin.initfrmLogin();
+                vista.dispose();
+            }
+        }
+    }
+
+    // Verificación de acceso para btnEmergencias
+    if (e.getSource() == vista.btnEmergencias) {
+        if (!vista.btnEmergencias.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            frmVerEmergencias.initfrmVerEmergencias();
             vista.dispose();
-        } 
+        }
     }
-    if(e.getSource() == vista.btnMisiones) {
-        frmAgregarMision.initFrmAgregarMision();
-        vista.dispose();
+
+    // Verificación de acceso para btnEstadisticas
+    if (e.getSource() == vista.btnEstadisticas) {
+        if (!vista.btnEstadisticas.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            frmVerEstadisticas.InitfrmVerEstadisticas();
+            vista.dispose();
+        }
     }
-    if(e.getSource() == vista.btnInventario) {
-        frmAgregarInventario.initfrmAgregarInventario();
-        vista.dispose();
+
+    // Verificación de acceso para btnSeguimiento
+    if (e.getSource() == vista.btnSeguimiento) {
+        if (!vista.btnSeguimiento.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            frmAgregarAspirante.initfrmAgregarAspirante();
+            vista.dispose();
+        }
     }
-    if(e.getSource() == vista.btnTransportes) {
-        frmAgregarTransportes.initFrmAgregarTransportes();
-        vista.dispose();
+
+    // Verificación de acceso para bntInformes
+    if (e.getSource() == vista.bntInformes) {
+        if (!vista.bntInformes.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            frmVerInformes.initfrmVerInformes();
+            vista.dispose();
+        }
     }
-    if(e.getSource() == vista.btnMenu) {
-        
+
+    // Verificación de acceso para btnMisiones
+    if (e.getSource() == vista.btnMisiones) {
+        if (!vista.btnMisiones.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            frmAgregarMision.initFrmAgregarMision();
+            vista.dispose();
+        }
+    }
+
+    // Verificación de acceso para btnInventario
+    if (e.getSource() == vista.btnInventario) {
+        if (!vista.btnInventario.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            frmAgregarInventario.initfrmAgregarInventario();
+            vista.dispose();
+        }
+    }
+
+    // Verificación de acceso para btnTransportes
+    if (e.getSource() == vista.btnTransportes) {
+        if (!vista.btnTransportes.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            frmAgregarTransportes.initFrmAgregarTransportes();
+            vista.dispose();
+        }
+    }
+
+    // Acción para btnMenu
+    if (e.getSource() == vista.btnMenu) {
         Drawer.getInstance().showDrawer();
     }
-    }
+}
+
 
     @Override
     public void mousePressed(MouseEvent e) {

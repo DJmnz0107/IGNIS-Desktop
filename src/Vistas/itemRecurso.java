@@ -11,8 +11,13 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
@@ -49,22 +54,57 @@ public class itemRecurso extends javax.swing.JPanel {
     private Recursos data;
 
 public void setData(Recursos data) {
-    this.data = data;
+ this.data = data;
 
-    // Redimensionar la imagen
-    int nuevoAncho = 100; // Cambia estos valores según tus necesidades
-    int nuevoAlto = 100;  // Cambia estos valores según tus necesidades
-    ImageIcon imagenRedimensionada = redimensionarImagen(data.getFotoRecurso(), nuevoAncho, nuevoAlto);
+   int nuevoAncho = 100; 
+int nuevoAlto = 100;  
+
+try {
+    // Obtener la ruta de la imagen desde el objeto data
+    String rutaImagen = data.getFotoRecurso(); // Asegúrate de que contenga la ruta completa
+
+    // Cargar la imagen desde el sistema de archivos
+    File file = new File(rutaImagen);
+   
+    // Verifica si el archivo existe
+    if (!file.exists()) {
+            imgRecurso.setIcon(new ImageIcon("/Vistas/resources/ignisFormsCircular.png")); // Cambia esto a tu imagen por defecto
+            
+        System.out.println("No se encontró el archivo en la ruta especificada: " + file.getAbsolutePath());
+        // Opcional: puedes asignar una imagen por defecto o dejar el JLabel vacío
+    }
     
-    imgRecurso.setIcon(imagenRedimensionada); // Corrige aquí
+    // Leer la imagen desde el archivo
+    BufferedImage image = ImageIO.read(file);
+    
+    // Verifica si la imagen se ha leído correctamente
+    if (image == null) {
+        System.out.println("No se pudo leer la imagen desde la ruta especificada.");
+    imgRecurso.setIcon(new ImageIcon("/Vistas/resources/ignisFormsCircular.png")); // Cambia esto a tu imagen por defecto
+    }
+
+    // Crear la imagen circular
+    BufferedImage circularImage = imgRedondeada.makeCircularImage(image, nuevoAncho, nuevoAlto);
+    
+    // Asignar la imagen circular al JLabel
+    imgRecurso.setIcon(new ImageIcon(circularImage));
+
+} catch (IOException e) {
+    // Opcional: puedes manejar la excepción asignando una imagen por defecto
+    imgRecurso.setIcon(new ImageIcon("/Vistas/resources/ignisFormsCircular.png")); // Cambia esto a tu imagen por defecto
+    
+    
+}
+
 
     // Asignar el nombre del recurso
     lblNombre.setText(data.getNombreRecurso());
 
     // Asignar la descripción del recurso
-   String descripcion = "<html><div style='width: " + lblDescripcion.getWidth() + "px;'>" +
+    String descripcion = "<html><div style='width: " + lblDescripcion.getWidth() + "px;'>" +
                          data.getDescripcionRecurso() + "</div></html>";
     lblDescripcion.setText(descripcion);
+    
     // Asignar el estado del recurso
     lblEstado.setText("Estado: " + data.getEstadoRecurso());
 
@@ -76,12 +116,13 @@ public void setData(Recursos data) {
     lblDisponibilidad.setText(disponibilidad);
     
     // Cambiar el color del texto de disponibilidad si es necesario
-    if ("En uso".equalsIgnoreCase(disponibilidad) ) {
+    if ("En uso".equalsIgnoreCase(disponibilidad)) {
         lblDisponibilidad.setForeground(Color.RED);
-    } else if( "Disponible".equalsIgnoreCase(disponibilidad)) {
+    } else if ("Disponible".equalsIgnoreCase(disponibilidad)) {
         lblDisponibilidad.setForeground(Color.GREEN); // Color por defecto, ajusta según tus necesidades
     }
 }
+
 
 
 private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
@@ -161,8 +202,8 @@ private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(imgRecurso, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(imgRecurso, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblNombre)
@@ -175,11 +216,15 @@ private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(lblNombre)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(imgRecurso, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(imgRecurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(lblEstado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblFecha)
@@ -191,7 +236,7 @@ private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel imgRecurso;
+    public javax.swing.JLabel imgRecurso;
     public javax.swing.JLabel lblDescripcion;
     public javax.swing.JLabel lblDisponibilidad;
     public javax.swing.JLabel lblEstado;

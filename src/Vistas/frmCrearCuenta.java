@@ -7,6 +7,8 @@ package Vistas;
 import Controlador.ctrlCrearCuenta;
 import Modelo.Niveles;
 import Modelo.Usuarios;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,6 +22,15 @@ public class frmCrearCuenta extends javax.swing.JFrame {
     public frmCrearCuenta() {
                 setSize(900, 600);
         initComponents();
+                int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
     }
     
     public static void initFrmCrearCuenta(){

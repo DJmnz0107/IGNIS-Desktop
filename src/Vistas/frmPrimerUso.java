@@ -7,6 +7,8 @@ package Vistas;
 import Controlador.ctrlPrimerUso;
 import Modelo.Niveles;
 import Modelo.Usuarios;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 
@@ -23,6 +25,15 @@ public class frmPrimerUso extends javax.swing.JFrame {
      */
     public frmPrimerUso() {
          initComponents();
+                 int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
            this.setSize(1080, 600);
 
         this.setLocationRelativeTo(null);

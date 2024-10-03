@@ -1,5 +1,7 @@
 package Vistas.drawer;
 
+import Controlador.ctrlLogin;
+import static Controlador.ctrlLogin.nombreUsuario;
 import Modelo.Usuarios;
 import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarInventario;
@@ -27,13 +29,17 @@ import raven.drawer.component.menu.SimpleMenuOption;
 import raven.swing.AvatarIcon;
 
 public class MyDrawerBuilder extends SimpleDrawerBuilder {
+    
+    
+
 
     @Override
     public SimpleHeaderData getSimpleHeaderData() {
+                                    String usuario = ctrlLogin.nombreUsuario;      
         return new SimpleHeaderData()
-                .setIcon(new AvatarIcon(getClass().getResource("/Vistas/resources/iconoLogin.png"), 60, 60, 999))
-                .setTitle("Ignis")
-                .setDescription("ignissoftwaredevelopers@gmail.com");
+                .setIcon(new AvatarIcon(getClass().getResource("/Vistas/resources/ignisCompleto.png"), 60, 60, 999))
+                .setTitle("Bienvenido a IGNIS")
+                .setDescription("Hola, " + usuario);
     }
 
      // Opciones del menú del Drawer
@@ -188,24 +194,29 @@ private void cambiarVentana(Window ventanaActual, JFrame nuevaVentana) {
 
 
     // Método para confirmar el cierre de sesión
-    private boolean confirmarCierreSesion(Window ventanaActual) {
-        int opcion = JOptionPane.showConfirmDialog(
-            ventanaActual, 
-            "¿Estás seguro de que deseas cerrar sesión?", 
-            "Confirmar Cierre de Sesión", 
-            JOptionPane.YES_NO_OPTION, 
-            JOptionPane.QUESTION_MESSAGE
-        );
+private boolean confirmarCierreSesion(Window ventanaActual) {
+    Object[] opciones = {"Sí", "No"}; // Opciones en español
+    int opcion = JOptionPane.showOptionDialog(
+        ventanaActual,
+        "¿Estás seguro de que deseas cerrar sesión?",
+        "Confirmar Cierre de Sesión",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,
+        null,
+        opciones,
+        opciones[0] // Establecer "Sí" como opción predeterminada
+    );
 
-        return opcion == JOptionPane.YES_OPTION;
-    }
+    return opcion == 0; // Devuelve true si se seleccionó "Sí"
+}
+
 
     @Override
-    public SimpleFooterData getSimpleFooterData() {
-        return new SimpleFooterData()
-                .setTitle("Java Swing Drawer")
-                .setDescription("Version 1.1.0");
-    }
+public SimpleFooterData getSimpleFooterData() {
+    return new SimpleFooterData()
+            .setTitle("IGNIS DEVELOPERS ©") 
+            .setDescription("Version 1.1.0");
+}
 
     @Override
     public int getDrawerWidth() {

@@ -6,6 +6,8 @@ package Vistas;
 
 import Controlador.ctrlCambiarContra;
 import Modelo.Usuarios;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -18,6 +20,17 @@ public class frmCambarContra extends javax.swing.JFrame {
      */
     public frmCambarContra() {
         initComponents();
+                int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
+                        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
     
     public static void initFrmCambiar() {

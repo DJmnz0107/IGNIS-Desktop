@@ -15,7 +15,9 @@ import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Font;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.text.AbstractDocument;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 
@@ -64,6 +66,18 @@ public class frmActualizarAspirante extends javax.swing.JFrame {
     }
 
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
+                
+         JTextField duiField = txtDuiAspirante; 
+        ((AbstractDocument) duiField.getDocument()).setDocumentFilter(new DuiDocumentFilter());
         cargarDatos();
 
     }

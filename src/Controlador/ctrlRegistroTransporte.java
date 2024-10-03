@@ -47,12 +47,31 @@ public ctrlRegistroTransporte(frmVerRegistroTransporter vista, Transportes model
             }   
         }
         
-        if(e.getSource() == vista.btnEliminar) {
+    if (e.getSource() == vista.btnEliminar) {
+    if (vista.jtTransportes.getSelectedRow() == -1) {
+        JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+    } else {
+        Object[] opciones = {"Sí", "No"}; // Opciones en español
+
+        int respuesta = JOptionPane.showOptionDialog(
+            vista, 
+            "¿Estás seguro de que deseas eliminar este transporte?", 
+            "Confirmación", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            opciones, 
+            opciones[0]
+        );
+
+        if (respuesta == JOptionPane.YES_OPTION) {
             modelo.Eliminar(vista.jtTransportes);
             modelo.Mostrar(vista.jtTransportes);
-             JOptionPane.showMessageDialog(vista, "Registro eliminado exitosamente");
-
+            JOptionPane.showMessageDialog(vista, "Registro eliminado exitosamente");
         }
+    }
+}
+
         
         if(e.getSource() == vista.imgBack) {
             frmAgregarTransportes.initFrmAgregarTransportes();

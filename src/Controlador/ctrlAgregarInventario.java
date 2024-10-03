@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.CambiosSistema;
 import Modelo.Recursos;
+import Modelo.Usuarios;
 import Vistas.frmAgregarInventario;
 import Vistas.frmVerInventario;
 import Vistas.frmVerRegistroInventario;
@@ -36,13 +38,14 @@ public class ctrlAgregarInventario implements MouseListener {
               vista.imgAgregar.addMouseListener(this);  
              vista.btnVerInventario.addMouseListener(this);
              vista.btnMenu.addMouseListener(this);
+             
+             
           }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         
            if (e.getSource() == vista.btnInsertar) {
-            // Comprobar si se ha seleccionado una imagen
             if (rutaImagenSeleccionada == null || rutaImagenSeleccionada.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen antes de insertar.");
                 return; // Salir del método si no se ha seleccionado una imagen
@@ -76,10 +79,26 @@ public class ctrlAgregarInventario implements MouseListener {
             modelo.setFechaRecepcionRecurso(fechaRecepcion);
             modelo.setDisponibilidadRecurso(cmbDisponibilidad);
             modelo.setEstadoRecurso(cmbEstado);
+           
 
             // Insertar el recurso en la base de datos con la ruta de la imagen seleccionada
             modelo.insertarRecurso(rutaImagenSeleccionada); 
             JOptionPane.showMessageDialog(vista, "Recurso ingresado exitosamente.");
+            
+            
+         String nombreUsuario = ctrlLogin.nombreUsuario;   
+                   
+         Usuarios usuario = new Usuarios();
+                 
+         int idUsuario = usuario.obtenerIdUsuario(nombreUsuario);
+         
+
+            
+        String descripcionCambio = "Recurso " + txtNombreInventario + " ingresado al sistema"; // Descripción del cambio
+        
+        CambiosSistema cambiosSistema = new CambiosSistema();
+        
+        cambiosSistema.insertarCambio(idUsuario, descripcionCambio);
             limpiarCampos();
         } 
         // Detectar si el clic fue en imgAgregar para seleccionar la imagen

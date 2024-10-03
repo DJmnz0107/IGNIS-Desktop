@@ -5,6 +5,8 @@
 package Vistas;
 
 import Controlador.ctrlNotificacion;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,6 +21,16 @@ public class frmNotificacionEmergencia extends javax.swing.JFrame {
     
     public frmNotificacionEmergencia() {
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
+                        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
     
 public void initfrmNotificacionEmergencia(String descripcion, String gravedad, String tipo) {
@@ -26,7 +38,6 @@ public void initfrmNotificacionEmergencia(String descripcion, String gravedad, S
 
     if (vistaNotificacion == null) {
         vistaNotificacion = new frmNotificacionEmergencia();
-        // Asocia el controlador solo la primera vez
         ctrlNotificacion controlador = new ctrlNotificacion(vistaNotificacion);
     }
 
@@ -87,7 +98,7 @@ public void initfrmNotificacionEmergencia(String descripcion, String gravedad, S
         lblDescripcion.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(239, 138, 76));
         lblDescripcion.setText("Descripción:");
-        panelRound1.add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+        panelRound1.add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 330, 50));
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 15, 480, 140));
 

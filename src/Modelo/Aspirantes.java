@@ -26,6 +26,20 @@ import javax.swing.table.DefaultTableModel;
  * @author User
  */
 public class Aspirantes {
+
+    /**
+     * @return the apellido_bombero
+     */
+    public String getApellido_bombero() {
+        return apellido_bombero;
+    }
+
+    /**
+     * @param apellido_bombero the apellido_bombero to set
+     */
+    public void setApellido_bombero(String apellido_bombero) {
+        this.apellido_bombero = apellido_bombero;
+    }
     
     public Aspirantes(){
     }
@@ -121,6 +135,8 @@ public class Aspirantes {
     private String foto_aspirante;
     private int id_bombero;
     private String nombre_bombero;
+    private String apellido_bombero;
+
 
     public String getNombre_bombero() {
         return nombre_bombero;
@@ -138,18 +154,21 @@ public class Aspirantes {
         this.id_bombero = id_bombero;
     }
     
-    public Aspirantes(int id, String nombre)
+    public Aspirantes(int id, String nombre, String apellido)
     {
         this.id_bombero = id;
         this.nombre_bombero = nombre;
+                this.apellido_bombero = apellido;
         
         /*LA TABLA ES RELACIONADA Y NECESITO TRAER OTRO GET POR QUE NO EXISTE BOMBEROS*/
     }
     
-    @Override
+      @Override
     public String toString() {
-        return nombre_bombero;  
+        return nombre_bombero + " " + apellido_bombero; // Devuelve el nombre completo
     }
+
+    
     
     
     public Aspirantes obtenerDatosTabla(frmVerRegistroAspirantes vista) {
@@ -175,19 +194,20 @@ public class Aspirantes {
 
 
     
-public void CargarComboBomberosUpdate(JComboBox comboBox, int idBomberoSeleccionado) {    
+public void CargarComboBomberosUpdate(JComboBox comboBox, int idBomberoSeleccionado) {
     Connection conexion = ClaseConexion.getConexion();
     comboBox.removeAllItems();
     try {
         Statement statement = conexion.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM Bomberos");
-        
+
         while (rs.next()) {
-            int id = rs.getInt("id_bombero"); 
+            int id = rs.getInt("id_bombero");
             String nombre = rs.getString("nombre_bombero");
-            comboBox.addItem(new Aspirantes(id, nombre));   
+            String apellido = rs.getString("apellido_bombero"); // Obtener apellido
+            comboBox.addItem(new Aspirantes(id, nombre, apellido)); // Añadir nombre y apellido
         }
-        
+
         // Seleccionar el bombero que coincide con el ID
         for (int i = 0; i < comboBox.getItemCount(); i++) {
             Aspirantes bombero = (Aspirantes) comboBox.getItemAt(i);
@@ -202,26 +222,28 @@ public void CargarComboBomberosUpdate(JComboBox comboBox, int idBomberoSeleccion
 }
 
 
+
     
      
     
-        public void CargarComboBomberos(JComboBox comboBox){    
-        Connection conexion = ClaseConexion.getConexion();
-        comboBox.removeAllItems();
-        try{
-            Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery("Select * from Bomberos");
-            while (rs.next()) {
-                int id = rs.getInt("id_bombero"); 
-                String nombre = rs.getString("nombre_bombero");
-                comboBox.addItem(new Aspirantes(id,nombre));   
-            }
+       public void CargarComboBomberos(JComboBox comboBox) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Bomberos");
+
+        while (rs.next()) {
+            int id = rs.getInt("id_bombero");
+            String nombre = rs.getString("nombre_bombero");
+            String apellido = rs.getString("apellido_bombero"); // Obtener apellido
+            comboBox.addItem(new Aspirantes(id, nombre, apellido)); // Añadir nombre y apellido
         }
-        catch(SQLException ex)
-        {
-            ex.printStackTrace();  
-        }
-      }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+
         
         
         

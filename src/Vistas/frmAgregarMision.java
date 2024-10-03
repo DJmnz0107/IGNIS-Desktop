@@ -14,6 +14,8 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
@@ -32,7 +34,21 @@ public class frmAgregarMision extends javax.swing.JFrame {
                  GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+        
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
+        
+                dtcEmergencia.getDateEditor().setEnabled(false);
+
+        
     }
     
     public static void initFrmAgregarMision() {
@@ -68,7 +84,6 @@ public class frmAgregarMision extends javax.swing.JFrame {
         txtDescripcion = new Vistas.TextFieldGris();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        dtcEmergencia = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         cmbEmergencia = new javax.swing.JComboBox<>();
         btnBomberos = new Vistas.btnRojoForms();
@@ -80,6 +95,7 @@ public class frmAgregarMision extends javax.swing.JFrame {
         btnInformes = new Vistas.btnRojoForms();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        dtcEmergencia = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -146,7 +162,6 @@ public class frmAgregarMision extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Descripción de la misión");
         panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
-        panelRound2.add(dtcEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 230, 40));
 
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -222,6 +237,7 @@ public class frmAgregarMision extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/misionNew.png"))); // NOI18N
         panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 300, 270));
+        panelRound2.add(dtcEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 230, 40));
 
         jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 910, 540));
 
