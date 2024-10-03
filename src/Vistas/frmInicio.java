@@ -86,20 +86,20 @@ setIconImage(scaledImage);
         jlblTextoInicio = new javax.swing.JLabel();
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
-        panelRound21 = new Vistas.panelRound2();
-        panelRound31 = new Vistas.panelRound3();
-        jLabel2 = new javax.swing.JLabel();
-        btnEstadisticas = new Vistas.btnInicio();
-        bntInformes = new Vistas.btnInicio();
-        btnTransportes = new Vistas.btnInicio();
-        btnInventario = new Vistas.btnInicio();
-        btnMisiones = new Vistas.btnInicio();
-        btnSeguimiento = new Vistas.btnInicio();
-        btnBomberos = new Vistas.btnInicio();
-        btnEmergencias = new Vistas.btnInicio();
         btnCrearUsuario = new Vistas.btnInicio2();
         btnCerrarSesión = new Vistas.btnInicio3();
         btnVerCambios = new Vistas.btnInicio4();
+        panelRound2 = new Vistas.PanelRound();
+        jLabel2 = new javax.swing.JLabel();
+        btnSeguimiento = new Vistas.btnInicio();
+        btnBomberos = new Vistas.btnInicio();
+        btnTransporte = new Vistas.btnInicio();
+        btnInventario = new Vistas.btnInicio();
+        btnEstadisticas = new Vistas.btnInicio();
+        btnMisiones = new Vistas.btnInicio();
+        btnInformes = new Vistas.btnInicio();
+        btnEmergencias = new Vistas.btnInicio();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -109,8 +109,8 @@ setIconImage(scaledImage);
 
         jlblTextoInicio.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 28)); // NOI18N
         jlblTextoInicio.setForeground(new java.awt.Color(255, 255, 255));
-        jlblTextoInicio.setText("Bienvenido a IGNIS nos alegra verte de nuevo ");
-        jPanel1.add(jlblTextoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 940, 80));
+        jlblTextoInicio.setText("Text");
+        jPanel1.add(jlblTextoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 890, 50));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomRight(50);
@@ -144,83 +144,77 @@ setIconImage(scaledImage);
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 650));
 
-        panelRound21.setBackground(new java.awt.Color(245, 216, 99));
-        panelRound21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panelRound31.setBackground(new java.awt.Color(240, 139, 77));
-        panelRound31.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(250, 243, 243));
-        jLabel2.setText("Funciones principales");
-        panelRound31.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
-
-        btnEstadisticas.setForeground(new java.awt.Color(240, 139, 77));
-        btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoStat.png"))); // NOI18N
-        btnEstadisticas.setText("Estadísticas");
-        btnEstadisticas.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 170, 60));
-
-        bntInformes.setForeground(new java.awt.Color(240, 139, 77));
-        bntInformes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoInforme.png"))); // NOI18N
-        bntInformes.setText("Informes");
-        bntInformes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(bntInformes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 170, 60));
-
-        btnTransportes.setForeground(new java.awt.Color(240, 139, 77));
-        btnTransportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCamionsito.png"))); // NOI18N
-        btnTransportes.setText("Transporte");
-        btnTransportes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 170, 60));
-
-        btnInventario.setForeground(new java.awt.Color(240, 139, 77));
-        btnInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoManguera.png"))); // NOI18N
-        btnInventario.setText("Inventario");
-        btnInventario.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 170, 60));
-
-        btnMisiones.setForeground(new java.awt.Color(240, 139, 77));
-        btnMisiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoMision.png"))); // NOI18N
-        btnMisiones.setText("Misiones");
-        btnMisiones.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnMisiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 170, 60));
-
-        btnSeguimiento.setForeground(new java.awt.Color(240, 139, 77));
-        btnSeguimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoSeguimiento.png"))); // NOI18N
-        btnSeguimiento.setText("Seguimiento");
-        btnSeguimiento.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnSeguimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 170, 60));
-
-        btnBomberos.setForeground(new java.awt.Color(240, 139, 77));
-        btnBomberos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoBombero.png"))); // NOI18N
-        btnBomberos.setText("Bomberos");
-        btnBomberos.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnBomberos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 170, 60));
-
-        btnEmergencias.setForeground(new java.awt.Color(240, 139, 77));
-        btnEmergencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoEmergencia.png"))); // NOI18N
-        btnEmergencias.setText("Emergencias");
-        btnEmergencias.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        panelRound31.add(btnEmergencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 170, 60));
-
-        panelRound21.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 26, 650, 430));
-
-        jPanel1.add(panelRound21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 730, 480));
-
         btnCrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoAgregarU.png"))); // NOI18N
         btnCrearUsuario.setText("Crear nuevo usuario");
         btnCrearUsuario.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, 250, 50));
+        jPanel1.add(btnCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, 250, 50));
 
         btnCerrarSesión.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCerrar.png"))); // NOI18N
         btnCerrarSesión.setText("Cerrar sesión");
         btnCerrarSesión.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 18)); // NOI18N
-        jPanel1.add(btnCerrarSesión, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 580, 240, 50));
+        jPanel1.add(btnCerrarSesión, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 580, 240, 50));
 
         btnVerCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoVer.png"))); // NOI18N
         btnVerCambios.setText("Ver cambios");
         btnVerCambios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 580, 230, 50));
+        jPanel1.add(btnVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 580, 230, 50));
+
+        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound2.setRoundBottomLeft(50);
+        panelRound2.setRoundBottomRight(50);
+        panelRound2.setRoundTopLeft(50);
+        panelRound2.setRoundTopRight(50);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 173, 122));
+        jLabel2.setText("Funciones principales");
+        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+
+        btnSeguimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/hiring.png"))); // NOI18N
+        btnSeguimiento.setText("Seguimiento");
+        btnSeguimiento.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound2.add(btnSeguimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 190, 60));
+
+        btnBomberos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/firefighter (1).png"))); // NOI18N
+        btnBomberos.setText("Bomberos");
+        btnBomberos.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound2.add(btnBomberos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 190, 60));
+
+        btnTransporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/truck.png"))); // NOI18N
+        btnTransporte.setText("Transporte");
+        btnTransporte.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound2.add(btnTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 190, 60));
+
+        btnInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/inventory.png"))); // NOI18N
+        btnInventario.setText("Inventario");
+        btnInventario.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound2.add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 190, 60));
+
+        btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/pie-chart.png"))); // NOI18N
+        btnEstadisticas.setText("Estadisticas");
+        btnEstadisticas.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound2.add(btnEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 190, 60));
+
+        btnMisiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/mission.png"))); // NOI18N
+        btnMisiones.setText("Misiones");
+        btnMisiones.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound2.add(btnMisiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 190, 60));
+
+        btnInformes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/file (2).png"))); // NOI18N
+        btnInformes.setText("Informes");
+        btnInformes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound2.add(btnInformes, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 190, 60));
+
+        btnEmergencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/siren.png"))); // NOI18N
+        btnEmergencias.setText("Emergencias");
+        btnEmergencias.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound2.add(btnEmergencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 190, 60));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ignisMinii.png"))); // NOI18N
+        panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, -1));
+
+        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 780, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,23 +270,23 @@ setIconImage(scaledImage);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public Vistas.btnInicio bntInformes;
     public Vistas.btnInicio btnBomberos;
     public Vistas.btnInicio3 btnCerrarSesión;
     public Vistas.btnInicio2 btnCrearUsuario;
     public Vistas.btnInicio btnEmergencias;
     public Vistas.btnInicio btnEstadisticas;
+    public Vistas.btnInicio btnInformes;
     public Vistas.btnInicio btnInventario;
     public javax.swing.JButton btnMenu;
     public Vistas.btnInicio btnMisiones;
     public Vistas.btnInicio btnSeguimiento;
-    public Vistas.btnInicio btnTransportes;
+    public Vistas.btnInicio btnTransporte;
     public Vistas.btnInicio4 btnVerCambios;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel jlblTextoInicio;
     private Vistas.PanelRound panelRound1;
-    private Vistas.panelRound2 panelRound21;
-    private Vistas.panelRound3 panelRound31;
+    private Vistas.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }

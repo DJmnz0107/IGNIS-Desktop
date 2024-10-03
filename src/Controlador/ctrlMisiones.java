@@ -39,11 +39,31 @@ public class ctrlMisiones implements MouseListener, KeyListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == Vistas.btnEliminar ){
-           Modelo.Eliminar(Vistas.jtbMisiones);
-           Modelo.Mostrar(Vistas.jtbMisiones);
-            JOptionPane.showMessageDialog(Vistas, "Registro eliminado exitosamente");
+        if (e.getSource() == Vistas.btnEliminar) {
+    if (Vistas.jtbMisiones.getSelectedRow() == -1) {
+        JOptionPane.showMessageDialog(Vistas, "Debes seleccionar una misión para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+    } else {
+        Object[] opciones = {"Sí", "No"}; // Opciones en español
+
+        int respuesta = JOptionPane.showOptionDialog(
+            Vistas, 
+            "¿Estás seguro de que deseas eliminar esta misión?", 
+            "Confirmación", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            opciones, 
+            opciones[0]
+        );
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            Modelo.Eliminar(Vistas.jtbMisiones); 
+            Modelo.Mostrar(Vistas.jtbMisiones); 
+            JOptionPane.showMessageDialog(Vistas, "Misión eliminada exitosamente");
         }
+    }
+}
+
         if(e.getSource() == Vistas.btnActualizar) {
                 try {
         Misiones misionSeleccionada = Modelo.obtenerDatosTabla(Vistas);

@@ -101,6 +101,8 @@ public static frmVerRegistroTransporter getInstance() {
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
+        jtTransportes.setBackground(new java.awt.Color(255, 255, 255));
+        jtTransportes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtTransportes.setForeground(new java.awt.Color(255, 173, 122));
         jtTransportes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -113,6 +115,7 @@ public static frmVerRegistroTransporter getInstance() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtTransportes.setSelectionBackground(new java.awt.Color(239, 138, 76));
         jScrollPane1.setViewportView(jtTransportes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 730, -1));

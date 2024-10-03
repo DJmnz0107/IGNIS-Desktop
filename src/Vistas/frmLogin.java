@@ -130,7 +130,7 @@ setIconImage(scaledImage);
         lblRecuContra.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 13)); // NOI18N
         lblRecuContra.setForeground(new java.awt.Color(255, 255, 255));
         lblRecuContra.setText("Recuperar la contraseña");
-        loginBackground1.add(lblRecuContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 540, 150, -1));
+        loginBackground1.add(lblRecuContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 530, 150, -1));
 
         btnLogin.setForeground(new java.awt.Color(240, 139, 77));
         btnLogin.setText("Iniciar Sesión");

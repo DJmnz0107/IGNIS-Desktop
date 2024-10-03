@@ -38,10 +38,10 @@ public class ctrlInicio implements MouseListener {
         vista.btnEmergencias.addMouseListener(this);
         vista.btnMisiones.addMouseListener(this);
         vista.btnInventario.addMouseListener(this);
-        vista.btnTransportes.addMouseListener(this);
+        vista.btnTransporte.addMouseListener(this);
         vista.btnMenu.addMouseListener(this);
         vista.btnSeguimiento.addMouseListener(this);
-        vista.bntInformes.addMouseListener(this);
+        vista.btnInformes.addMouseListener(this);
         vista.btnBomberos.addMouseListener(this);
         vista.btnEstadisticas.addMouseListener(this);
         
@@ -59,7 +59,7 @@ public class ctrlInicio implements MouseListener {
             vista.btnBomberos.setEnabled(false);
             vista.btnSeguimiento.setEnabled(false);
             vista.btnEstadisticas.setEnabled(false);
-            vista.bntInformes.setEnabled(false);
+            vista.btnInformes.setEnabled(false);
             vista.btnMisiones.setEnabled(false);
             
         }
@@ -109,7 +109,7 @@ public void mouseClicked(MouseEvent e) {
             }
         }
     }
-
+    
     // Verificación de acceso para btnEmergencias
     if (e.getSource() == vista.btnEmergencias) {
         if (!vista.btnEmergencias.isEnabled()) {
@@ -141,8 +141,8 @@ public void mouseClicked(MouseEvent e) {
     }
 
     // Verificación de acceso para bntInformes
-    if (e.getSource() == vista.bntInformes) {
-        if (!vista.bntInformes.isEnabled()) {
+    if (e.getSource() == vista.btnInformes) {
+        if (!vista.btnInformes.isEnabled()) {
             JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
         } else {
             frmVerInformes.initfrmVerInformes();
@@ -171,14 +171,16 @@ public void mouseClicked(MouseEvent e) {
     }
 
     // Verificación de acceso para btnTransportes
-    if (e.getSource() == vista.btnTransportes) {
-        if (!vista.btnTransportes.isEnabled()) {
+    if (e.getSource() == vista.btnTransporte) {
+        if (!vista.btnTransporte.isEnabled()) {
             JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
         } else {
             frmAgregarTransportes.initFrmAgregarTransportes();
             vista.dispose();
         }
     }
+
+    
 
     // Acción para btnMenu
     if (e.getSource() == vista.btnMenu) {

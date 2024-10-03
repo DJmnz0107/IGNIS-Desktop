@@ -124,7 +124,9 @@ setIconImage(scaledImage);
         jLabel3.setText("IGNIS");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, -1, -1));
 
-        jtInventario.setForeground(new java.awt.Color(255, 173, 122));
+        jtInventario.setBackground(new java.awt.Color(255, 255, 255));
+        jtInventario.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
+        jtInventario.setForeground(new java.awt.Color(239, 138, 76));
         jtInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -136,6 +138,7 @@ setIconImage(scaledImage);
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtInventario.setSelectionBackground(new java.awt.Color(239, 138, 76));
         jScrollPane1.setViewportView(jtInventario);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 730, -1));

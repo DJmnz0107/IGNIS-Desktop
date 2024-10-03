@@ -190,6 +190,23 @@ public class Aspirantes {
     }
     return null;
 }
+    
+     public boolean verificarDui(String dui) throws SQLException {
+        Connection conexion = ClaseConexion.getConexion();
+        String sql = "SELECT dui_aspirante FROM Aspirantes WHERE dui_aspirante = ?";
+
+        try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+            statement.setString(1, dui);
+            ResultSet resultSet = statement.executeQuery();
+
+            // Retorna true si se encuentra el DUI, false de lo contrario
+            return resultSet.next(); 
+        } finally {
+            if (conexion != null) {
+                conexion.close(); // Asegúrate de cerrar la conexión
+            }
+        }
+    }
 
 
 

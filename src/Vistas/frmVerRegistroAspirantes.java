@@ -90,6 +90,9 @@ setIconImage(scaledImage);
         jLabel1.setText("Seguimiento > Ver aspirantes > Ver registro");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
+        jtAspirantes.setBackground(new java.awt.Color(255, 255, 255));
+        jtAspirantes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
+        jtAspirantes.setForeground(new java.awt.Color(239, 138, 76));
         jtAspirantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -101,6 +104,7 @@ setIconImage(scaledImage);
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtAspirantes.setSelectionBackground(new java.awt.Color(239, 138, 76));
         jScrollPane1.setViewportView(jtAspirantes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 91, 750, 470));

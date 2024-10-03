@@ -4,7 +4,7 @@
  */
 package Controlador;
 
-import Modelo.CambiosSistema;
+import Modelo.CambioSistema;
 import Modelo.Usuarios;
 import Vistas.frmAgregarInventario;
 import Vistas.frmCrearCuenta;
@@ -68,7 +68,7 @@ public void mouseClicked(MouseEvent e) {
         int idUsuario = modelo.obtenerIdUsuario(nombreUsuario);
         String descripcionCambio = "Usuario " + nombreUsuario + " ha iniciado sesión"; // Descripción del cambio
         
-        CambiosSistema cambiosSistema = new CambiosSistema();
+        CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idUsuario, descripcionCambio);
         

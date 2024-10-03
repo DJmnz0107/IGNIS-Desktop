@@ -120,7 +120,9 @@ setIconImage(scaledImage);
         imgVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 6, -1, -1));
 
-        JtbVerCambios.setBackground(new java.awt.Color(255, 173, 122));
+        JtbVerCambios.setBackground(new java.awt.Color(255, 255, 255));
+        JtbVerCambios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
+        JtbVerCambios.setForeground(new java.awt.Color(239, 138, 76));
         JtbVerCambios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

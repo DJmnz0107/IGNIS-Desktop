@@ -140,7 +140,9 @@ setIconImage(scaledImage);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 40, 40));
 
-        jtEmergencias.setForeground(new java.awt.Color(255, 173, 122));
+        jtEmergencias.setBackground(new java.awt.Color(255, 255, 255));
+        jtEmergencias.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
+        jtEmergencias.setForeground(new java.awt.Color(239, 138, 76));
         jtEmergencias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -152,6 +154,7 @@ setIconImage(scaledImage);
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtEmergencias.setSelectionBackground(new java.awt.Color(239, 138, 76));
         jScrollPane1.setViewportView(jtEmergencias);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 910, 410));

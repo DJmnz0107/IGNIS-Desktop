@@ -43,60 +43,75 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
     }
 
      // Opciones del menú del Drawer
-    @Override
-    public SimpleMenuOption getSimpleMenuOption() {
-        String[][] menus = {
-             {"~Menu~"},
-            {"Dashboard"},
-            {"Bomberos"},
-            {"Inventario"},
-            {"Calendar"},
-            {"Transporte"},
-            {"Seguimiento"},
-            {"Estadisticas"},
-            {"Emergencias"},
-            {"Misiones"},
-            {"Informes"},
-            {"~Cuenta~"},
-            {"Cerrar sesion"},
-            {"Inicio"}
-        };
+   @Override
+public SimpleMenuOption getSimpleMenuOption() {
+    String[][] menus = {
+        {"~Menu~"},
+        {"Dashboard"},
+        {"Bomberos"},
+        {"Inventario"},
+        {"Calendar"},
+        {"Transporte"},
+        {"Seguimiento"},
+        {"Estadisticas"},
+        {"Emergencias"},
+        {"Misiones"},
+        {"Informes"},
+        {"~Cuenta~"},
+        {"Cerrar sesion"},
+        {"Inicio"}
+    };
 
-        String[] icons = {
-            "dashboard.svg",
-            "firefighter1.svg",
-            "manguera.svg",
-            "calendar.svg",
-            "fire-truck.svg",
-            "seguimiento.svg",
-            "staticircle.svg",
-            "emergencia.svg",
-            "mision.svg",
-            "informe.svg",
-            "logout_1.svg",
-            "inicio.svg"
-        };
+    String[] icons = {
+        "dashboard.svg",
+        "firefighter1.svg",
+        "manguera.svg",
+        "calendar.svg",
+        "fire-truck.svg",
+        "seguimiento.svg",
+        "staticircle.svg",
+        "emergencia.svg",
+        "mision.svg",
+        "informe.svg",
+        "logout_1.svg",
+        "inicio.svg"
+    };
+
+    return new SimpleMenuOption()
+            .setMenus(menus)
+            .setIcons(icons)
+            .setBaseIconPath("Vistas/drawer/icon")
+            .setIconScale(0.45f)
+            .addMenuEvent(new MenuEvent() {
+                @Override
+                public void selected(MenuAction action, int index, int subIndex) {
+                    // Lógica de selección de menú
+                    gestionarSeleccionDeMenu(index);
+                }
+            })
+          .setMenuValidation(new MenuValidation() {
+    @Override
+    public boolean menuValidation(int index, int subIndex) {
+        int nivelUsuario = Usuarios.nivelUsuario;
+
+        // Deshabilitar las opciones de los índices 0 y 3 para todos los niveles
+        if (index == 0 || index == 3) {
+            return false; // Deshabilitar el menú del índice 0 y 3
+        }
+
+      if (nivelUsuario == 4) {
+            // Si el nivel es 4, habilitar solo las opciones permitidas
+            return index == 2 || index == 4 || index == 10 || index == 11; // Habilitar Bomberos, Transporte, Cerrar sesión, Inicio
+        }
         
-        return new SimpleMenuOption()
-                .setMenus(menus)
-                .setIcons(icons)
-                .setBaseIconPath("Vistas/drawer/icon")
-                .setIconScale(0.45f)
-                .addMenuEvent(new MenuEvent() {
-                    @Override
-                    public void selected(MenuAction action, int index, int subIndex) {
-                        // Lógica de selección de menú
-                        gestionarSeleccionDeMenu(index);
-                    }
-                })
-                .setMenuValidation(new MenuValidation() {
-                    @Override
-                    public boolean menuValidation(int index, int subIndex) {
-                        // Deshabilitamos las opciones del índice 0 y 3
-                        return index != 0 && index != 3;
-                    }
-                });
+        // Habilitar todo para otros niveles
+        return true; // Habilitar todas las opciones para otros niveles
     }
+});
+
+
+}
+
     
 private JFrame abrirVentana(Class<? extends JFrame> ventanaClass) {
     JFrame instancia = null;

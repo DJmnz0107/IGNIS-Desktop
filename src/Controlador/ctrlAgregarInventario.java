@@ -4,7 +4,7 @@
  */
 package Controlador;
 
-import Modelo.CambiosSistema;
+import Modelo.CambioSistema;
 import Modelo.Recursos;
 import Modelo.Usuarios;
 import Vistas.frmAgregarInventario;
@@ -96,7 +96,7 @@ public class ctrlAgregarInventario implements MouseListener {
             
         String descripcionCambio = "Recurso " + txtNombreInventario + " ingresado al sistema"; // Descripción del cambio
         
-        CambiosSistema cambiosSistema = new CambiosSistema();
+        CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idUsuario, descripcionCambio);
             limpiarCampos();

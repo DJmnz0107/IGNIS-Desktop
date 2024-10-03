@@ -86,6 +86,7 @@ setIconImage(scaledImage);
         jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 110, 45));
 
         jtUsuarios.setBackground(new java.awt.Color(255, 255, 255));
+        jtUsuarios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtUsuarios.setForeground(new java.awt.Color(255, 173, 122));
         jtUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

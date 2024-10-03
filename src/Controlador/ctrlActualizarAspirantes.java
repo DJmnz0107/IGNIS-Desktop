@@ -38,6 +38,7 @@ public class ctrlActualizarAspirantes implements MouseListener {
          vista.imgBack.addMouseListener(this);
          vista.btnVerAspirantes.addMouseListener(this);
          
+         
              rutaImagenSeleccionada = vista.obtenerRutaImagen();
 
      }
@@ -60,6 +61,9 @@ public class ctrlActualizarAspirantes implements MouseListener {
         }
         
         if(e.getSource() == vista.btnActualizar) {
+            
+           
+             
             if(vista.txtApellidoAspirante.getText().isEmpty() || vista.txtDuiAspirante.getText().isEmpty() || vista.txtEdadAspirante.getText().isEmpty() || vista.txtEntrenamientoAspirante.getText().isEmpty() || vista.txtNombreAspirante.getText().isEmpty() || vista.txtProgresoAspirante.getText().isEmpty() ) {
                  JOptionPane.showMessageDialog(vista, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             return; // Salir del método si hay campos vacíos
@@ -82,6 +86,8 @@ if (edadInt < 18) {
     JOptionPane.showMessageDialog(vista, "La edad debe ser mayor o igual a 18", "Edad", JOptionPane.ERROR_MESSAGE);
     return;
 }
+
+   
             
               if (vista.cmbBomberoMentor.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(vista, "No se puede añadir un bombero nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);

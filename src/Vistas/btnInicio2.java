@@ -32,9 +32,9 @@ public class btnInicio2 extends JButton {
     private Icon icon;
 
     public btnInicio2() {
-        fillOriginal = new Color(0xD9473E);
-        fillOver = new Color(0xC7271E);
-        fillClick = new Color(0xD9473E);
+     fillOriginal = new Color(0xF5B24A); // Color de fondo original
+        fillOver = new Color(0xE5A74A); // Color de fondo cuando el mouse está sobre el botón
+        fillClick = new Color(0xF5B24A); // Color de fondo cuando el botón está presionado
 
         fill = fillOriginal;
         setOpaque(false);

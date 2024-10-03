@@ -75,7 +75,6 @@ public static frmAgregarTransportes getInstance() {
 
         jPanel1 = new javax.swing.JPanel();
         txtPlaca = new Vistas.TextFieldRedondeado();
-        btnAgregar = new Vistas.buttonLogin();
         cmbDisponibilidad = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         txtEstado = new Vistas.TextFieldRedondeado();
@@ -88,12 +87,13 @@ public static frmAgregarTransportes getInstance() {
         cmbAgregarTransportes = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         btnVerRegistro = new Vistas.btnNaranjaForms();
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
+        panelRound2 = new Vistas.PanelRound();
+        btnAgregar = new Vistas.buttonLogin();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,11 +106,6 @@ public static frmAgregarTransportes getInstance() {
             }
         });
         jPanel1.add(txtPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 270, 30));
-
-        btnAgregar.setForeground(new java.awt.Color(240, 139, 77));
-        btnAgregar.setText("Agregar");
-        btnAgregar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 150, 50));
 
         cmbDisponibilidad.setForeground(new java.awt.Color(240, 139, 77));
         cmbDisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "No disponible" }));
@@ -158,10 +153,6 @@ public static frmAgregarTransportes getInstance() {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/camionBombero.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iamgen para agregar bomberos.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 600, 390));
-
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("> Transportes");
@@ -175,7 +166,7 @@ public static frmAgregarTransportes getInstance() {
         btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/contrato.png"))); // NOI18N
         btnVerRegistro.setText("Ver registro");
         btnVerRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 520, 210, 50));
+        jPanel1.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, 210, 50));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomRight(50);
@@ -209,11 +200,25 @@ public static frmAgregarTransportes getInstance() {
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 650));
 
+        panelRound2.setBackground(new java.awt.Color(217, 71, 62));
+        panelRound2.setRoundBottomLeft(50);
+        panelRound2.setRoundBottomRight(50);
+        panelRound2.setRoundTopLeft(50);
+        panelRound2.setRoundTopRight(50);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnAgregar.setForeground(new java.awt.Color(240, 139, 77));
+        btnAgregar.setText("Agregar");
+        btnAgregar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        panelRound2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 170, 50));
+
+        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 740, 430));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,7 +276,6 @@ public static frmAgregarTransportes getInstance() {
     public Vistas.btnNaranjaForms btnVerRegistro;
     public javax.swing.JComboBox<String> cmbAgregarTransportes;
     public javax.swing.JComboBox<String> cmbDisponibilidad;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -283,6 +287,7 @@ public static frmAgregarTransportes getInstance() {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private Vistas.PanelRound panelRound1;
+    private Vistas.PanelRound panelRound2;
     public Vistas.TextFieldRedondeado txtCapacidad;
     public Vistas.TextFieldRedondeado txtEstado;
     public Vistas.TextFieldRedondeado txtNumeroTransporte;

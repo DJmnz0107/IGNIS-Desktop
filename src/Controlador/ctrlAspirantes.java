@@ -68,6 +68,17 @@ public class ctrlAspirantes implements MouseListener {
         }
         
        if (e.getSource() == Vistas.btnAñadirInfo) {
+           
+            try {
+                 boolean duiExiste = Modelo.verificarDui(Vistas.txtDuiAspirante.getText());
+                if (duiExiste) {
+                    JOptionPane.showMessageDialog(Vistas, "El DUI ya está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return; // Detener la ejecución si el DUI existe
+                }
+            } catch(Exception ex) {
+                                JOptionPane.showMessageDialog(Vistas, "Error al guardar la cuenta: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+           
               if(Vistas.txtApellidoAspirante.getText().isEmpty() || Vistas.txtDuiAspirante.getText().isEmpty() || Vistas.txtEdadAspirante.getText().isEmpty() || Vistas.txtEntrenamientoAspirante.getText().isEmpty() || Vistas.txtNombreAspirante.getText().isEmpty() || Vistas.txtProgresoAspirante.getText().isEmpty() ) {
                  JOptionPane.showMessageDialog(Vistas, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             return; // Salir del método si hay campos vacíos

@@ -125,6 +125,9 @@ setIconImage(scaledImage);
         jLabel9.setText("Misiones > Ver Registro ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 47, -1, -1));
 
+        jtbMisiones.setBackground(new java.awt.Color(255, 255, 255));
+        jtbMisiones.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
+        jtbMisiones.setForeground(new java.awt.Color(239, 138, 76));
         jtbMisiones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -136,6 +139,7 @@ setIconImage(scaledImage);
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtbMisiones.setSelectionBackground(new java.awt.Color(239, 138, 76));
         jScrollPane1.setViewportView(jtbMisiones);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 107, 774, -1));

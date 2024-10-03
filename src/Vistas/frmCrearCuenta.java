@@ -9,6 +9,8 @@ import Modelo.Niveles;
 import Modelo.Usuarios;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -31,6 +33,9 @@ Image originalImage = iconoOriginal.getImage();
 Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
 
 setIconImage(scaledImage);
+
+         JTextField duiField = txtDuiUsuario; 
+        ((AbstractDocument) duiField.getDocument()).setDocumentFilter(new DuiDocumentFilter());
     }
     
     public static void initFrmCrearCuenta(){
