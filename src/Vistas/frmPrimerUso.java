@@ -7,9 +7,14 @@ package Vistas;
 import Controlador.ctrlPrimerUso;
 import Modelo.Niveles;
 import Modelo.Usuarios;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Font;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 
 /**
@@ -66,6 +71,10 @@ setIconImage(scaledImage);
     
     
       public static void initFrmCrearCuenta(){
+                    FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
         Usuarios modeloUsuarios = new Usuarios();
         Niveles modeloNiveles = new Niveles();
         frmPrimerUso vista = new frmPrimerUso();

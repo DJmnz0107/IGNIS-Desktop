@@ -49,6 +49,9 @@ public class frmLogin extends JFrame  {
         this.setSize(1250, 800);
         this.getContentPane().setBackground(new Color(0, 0, 0, 0));
         this.setLocationRelativeTo(null);
+        
+        
+        setTitle("IGNIS");
 
         
         txtContrasena.setHint("Ingresa tu contraseña");
