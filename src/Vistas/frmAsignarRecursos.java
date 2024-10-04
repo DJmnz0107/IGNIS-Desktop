@@ -30,11 +30,11 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         panelRound1 = new Vistas.PanelRound();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbMision = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        btnRojoForms2 = new Vistas.btnRojoForms();
-        btnRojoForms3 = new Vistas.btnRojoForms();
+        cmbRecursos = new javax.swing.JComboBox<>();
+        btnVerAsigRecu = new Vistas.btnRojoForms();
+        btnguardar = new Vistas.btnRojoForms();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,28 +53,28 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(240, 139, 77));
         jLabel9.setText("Misión");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbMision.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(240, 139, 77));
         jLabel11.setText("Recursos");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbRecursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnRojoForms2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/verificar (2).png"))); // NOI18N
-        btnRojoForms2.setText("Ver Registro ");
-        btnRojoForms2.setFocusable(false);
-        btnRojoForms2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        btnRojoForms2.addActionListener(new java.awt.event.ActionListener() {
+        btnVerAsigRecu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/verificar (2).png"))); // NOI18N
+        btnVerAsigRecu.setText("Ver Registro ");
+        btnVerAsigRecu.setFocusable(false);
+        btnVerAsigRecu.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnVerAsigRecu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRojoForms2ActionPerformed(evt);
+                btnVerAsigRecuActionPerformed(evt);
             }
         });
 
-        btnRojoForms3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/anadir.png"))); // NOI18N
-        btnRojoForms3.setText("Añadir Información ");
-        btnRojoForms3.setFocusable(false);
-        btnRojoForms3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/anadir.png"))); // NOI18N
+        btnguardar.setText("Añadir Información ");
+        btnguardar.setFocusable(false);
+        btnguardar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -83,13 +83,13 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                 .addGap(0, 216, Short.MAX_VALUE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbMision, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                             .addComponent(jLabel11)
                             .addGap(274, 274, 274))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbRecursos, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(192, 192, 192)))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -98,12 +98,12 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(287, 287, 287))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                        .addComponent(btnRojoForms2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVerAsigRecu, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22))))
             .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelRound1Layout.createSequentialGroup()
                     .addGap(47, 47, 47)
-                    .addComponent(btnRojoForms3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(325, Short.MAX_VALUE)))
         );
         panelRound1Layout.setVerticalGroup(
@@ -112,18 +112,18 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel11)
                 .addGap(31, 31, 31)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbRecursos, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jLabel9)
                 .addGap(26, 26, 26)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbMision, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(btnRojoForms2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVerAsigRecu, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
             .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                     .addContainerGap(396, Short.MAX_VALUE)
-                    .addComponent(btnRojoForms3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(38, 38, 38)))
         );
 
@@ -173,9 +173,9 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRojoForms2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRojoForms2ActionPerformed
+    private void btnVerAsigRecuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAsigRecuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRojoForms2ActionPerformed
+    }//GEN-LAST:event_btnVerAsigRecuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,10 +213,10 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Vistas.btnRojoForms btnRojoForms2;
-    private Vistas.btnRojoForms btnRojoForms3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    public Vistas.btnRojoForms btnVerAsigRecu;
+    public Vistas.btnRojoForms btnguardar;
+    public javax.swing.JComboBox<String> cmbMision;
+    public javax.swing.JComboBox<String> cmbRecursos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

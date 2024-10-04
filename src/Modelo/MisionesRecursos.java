@@ -117,32 +117,114 @@ public class MisionesRecursos {
     public void Mostrar(JTable tabla){
     Connection conexion =ClaseConexion.getConexion();
     DefaultTableModel modeloDeDatos = new DefaultTableModel();
-    modeloDeDatos.setColumnIdentifiers(new Object[]{"id","Mision","Recurso"});
+    modeloDeDatos.setColumnIdentifiers(new Object[]{"id","Id-Mision","Id_Recurso","Descripcion de Mision:","Fecha de Mision","Recurso:","Descripcion de Recurso:"});
     
     try{
     
         Statement statement = conexion.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT M.descripcion_mision AS nombre_mision, " +
-             "R.nombre_recurso AS nombre_recurso " +
-             "FROM Misiones_Recursos MR " +
-             "INNER JOIN Misiones M ON MR.id_mision = M.id_mision " +
-             "INNER JOIN Recursos R ON MR.id_recurso = R.id_recurso;");
+        ResultSet rs = statement.executeQuery("SELECT MR.id_misionRecurso AS id_misionRecurso, "
+                   + "MR.id_mision AS id_mision, "
+                   + "MR.id_recurso AS id_recurso, "
+                   + "M.descripcion_mision AS nombre_mision, "
+                   + "M.fecha_mision AS fecha_mision, "
+                   + "R.nombre_recurso AS nombre_recurso, "
+                   + "R.descripcion_recurso AS descripcion_recurso "
+                   + "FROM Misiones_Recursos MR "
+                   + "INNER JOIN Misiones M ON MR.id_mision = M.id_mision "
+                   + "INNER JOIN Recursos R ON MR.id_recurso = R.id_recurso");
         
         while (rs.next()){
         modeloDeDatos.addRow(new Object[]{
           rs.getInt("id_misionRecurso"),
           rs.getInt("id_mision"),
-          rs.getInt("id_recurso")
+          rs.getInt("id_recurso"),
+          rs.getString("nombre_mision"),
+          rs.getString("fecha_mision"),
+          rs.getString("nombre_recurso"),
+          rs.getString("descripcion_recurso")
         });
         
         tabla.setModel(modeloDeDatos);
+        
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+
+       tabla.getColumnModel().getColumn(1).setMinWidth(0);
+       tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+       tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
+
+       tabla.getColumnModel().getColumn(2).setMinWidth(0);
+       tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+       tabla.getColumnModel().getColumn(2).setPreferredWidth(0);
+
+        
         }
     }catch (Exception e) {
             System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
     
     }
+    public void Buscar(JTable tabla, JTextField JTextFieldDescripRecurso ){
+    Connection conexion = ClaseConexion.getConexion();
+    DefaultTableModel modeloDeDatos = new DefaultTableModel();
+    modeloDeDatos.setColumnIdentifiers(new Object[]{"id","Id-Mision","Id_Recurso","Descripcion de Mision:","Fecha de Mision","Recurso:","Descripcion de Recurso:"});
     
-   
+    try{
+      String sql = "SELECT MR.id_misionRecurso AS id_misionRecurso, "
+           + "MR.id_mision AS id_mision, "
+           + "MR.id_recurso AS id_recurso, "
+           + "M.descripcion_mision AS nombre_mision, "
+           + "M.fecha_mision AS fecha_mision, "
+           + "R.nombre_recurso AS nombre_recurso, "
+           + "R.descripcion_recurso AS descripcion_recurso "
+           + "FROM Misiones_Recursos MR "
+           + "INNER JOIN Misiones M ON MR.id_mision = M.id_mision "
+           + "INNER JOIN Recursos R ON MR.id_recurso = R.id_recurso "
+           + "WHERE R.descripcion_recurso LIKE ? || '%' "; 
+      
+      PreparedStatement BuscarPorDescrpcionRecurso = conexion.prepareStatement(sql);
+      BuscarPorDescrpcionRecurso.setString(1, JTextFieldDescripRecurso.getText());
+      
+      ResultSet rs = BuscarPorDescrpcionRecurso.executeQuery();
+       while (rs.next()) {
+    String nombreMision = rs.getString("nombre_mision");
+    String fechaMision = rs.getString("fecha_mision");
+    String nombreRecurso = rs.getString("nombre_recurso");
+    String descripcionRecurso = rs.getString("descripcion_recurso");
+    int idMisionRecurso = rs.getInt("id_misionRecurso");
+    int idMision = rs.getInt("id_mision");
+    int idRecurso = rs.getInt("id_recurso");
+
+    
+    modeloDeDatos.addRow(new Object[]{
+        idMisionRecurso, idMision, idRecurso, nombreMision, fechaMision, nombreRecurso, descripcionRecurso
+    });
+    
+    
 }
+    tabla.setModel(modeloDeDatos);
+    
+    
+    tabla.getColumnModel().getColumn(0).setMinWidth(0);
+    tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+    tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+
+    tabla.getColumnModel().getColumn(1).setMinWidth(0);
+    tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+    tabla.getColumnModel().getColumn(1).setPreferredWidth(0);
+
+    tabla.getColumnModel().getColumn(2).setMinWidth(0);
+    tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+    tabla.getColumnModel().getColumn(2).setPreferredWidth(0);
+
+    
+    
+    }
+
+    catch (Exception e) {
+        System.out.println("Este es el error en el modelo, método BuscarPorDescrpcionRecurso: " + e);
+    }
+    
+   }}
 
