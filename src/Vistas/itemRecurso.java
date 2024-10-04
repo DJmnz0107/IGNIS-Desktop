@@ -163,75 +163,33 @@ private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
         lblEstado = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 173, 122));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(imgRecurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 60, 106, 130));
 
         lblFecha.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("Fecha de recepción");
+        add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 230, 281, -1));
 
         lblNombre.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Text");
+        add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 14, -1, -1));
 
         lblDisponibilidad.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         lblDisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
         lblDisponibilidad.setText("Disponibilidad");
+        add(lblDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
         lblDescripcion.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Descripción del recurso");
+        add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 86, 169, 100));
 
         lblEstado.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         lblEstado.setForeground(new java.awt.Color(255, 255, 255));
         lblEstado.setText("Estado del recurso");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblDisponibilidad)
-                        .addGap(100, 100, 100))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblEstado)
-                        .addGap(52, 52, 52))))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(imgRecurso, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNombre)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(lblDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblNombre)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(imgRecurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(lblEstado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblFecha)
-                .addGap(18, 18, 18)
-                .addComponent(lblDisponibilidad)
-                .addGap(12, 12, 12))
-        );
+        add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 196, 160, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

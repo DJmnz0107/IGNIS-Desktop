@@ -168,7 +168,7 @@ public Color generarColorConVariacion(int index) {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("> Ver estadísticas");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 25, -1, -1));
-        jPanel1.add(pieChart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 440, 370));
+        jPanel1.add(pieChart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 590, 420));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Rectangle 46.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 81, -1, -1));

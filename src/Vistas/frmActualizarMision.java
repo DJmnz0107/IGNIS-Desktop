@@ -12,8 +12,10 @@ import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
@@ -70,6 +72,15 @@ setIconImage(scaledImage);
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
+          UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
+        UIManager.put("ComboBox.foreground", Color.DARK_GRAY);              
+        UIManager.put("ComboBox.selectionBackground", new Color(0xFF7043)); 
+        UIManager.put("ComboBox.selectionForeground", Color.WHITE);         
+        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xD9D9D9), 1)); 
+        UIManager.put( "Component.arrowType", "triangle" );
+
+        UIManager.put("TextField.arc", 50); 
+        UIManager.put("ComboBox.arc", 50);   
         Misiones modelo = new Misiones();
         frmActualizarMision vista = new frmActualizarMision(mision);
         ctrlActualizarMision controlador = new ctrlActualizarMision(modelo, vista);
@@ -183,7 +194,6 @@ setIconImage(scaledImage);
         jLabel3.setText("Fecha de la misión");
         panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
-        cmbEmergencia.setForeground(new java.awt.Color(240, 139, 77));
         panelRound2.add(cmbEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 230, 40));
 
         btnEmergencias.setText("Ver emergencias");

@@ -11,6 +11,7 @@ import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -34,6 +35,9 @@ public class frmVerRegistroTransporter extends javax.swing.JFrame {
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         
         initComponents();
+        
+        jtTransportes.setDefaultEditor(Object.class, null); // Deshabilita la edición
+
         int iconWidth = 32;
 int iconHeight = 32;
 
@@ -53,6 +57,15 @@ public static void initFrmVerRegistroTransportes() {
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
+             UIManager.put("Table.background", new Color(0xFFFFFF));              
+        UIManager.put("Table.foreground", Color.BLACK);                       
+        UIManager.put("Table.selectionBackground", new Color(0xFFAD7A));       
+        UIManager.put("Table.selectionForeground", Color.WHITE);               
+        UIManager.put("Table.gridColor", new Color(0xDDDDDD));              
+        UIManager.put("TableHeader.background", new Color(0xF5F5F5));          
+        UIManager.put("TableHeader.foreground", Color.BLACK);                  
+        UIManager.put("TableHeader.font", new Font("Microsoft Jheng UI", Font.BOLD, 14));  
+        UIManager.put("Table.alternateRowColor", new Color(0xF8F8F8));  
         Transportes modelo = new Transportes();
         frmVerRegistroTransporter vista = new frmVerRegistroTransporter();
         ctrlRegistroTransporte controlador = new ctrlRegistroTransporte(vista, modelo);
@@ -101,9 +114,7 @@ public static frmVerRegistroTransporter getInstance() {
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
-        jtTransportes.setBackground(new java.awt.Color(255, 255, 255));
         jtTransportes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
-        jtTransportes.setForeground(new java.awt.Color(255, 173, 122));
         jtTransportes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -115,7 +126,6 @@ public static frmVerRegistroTransporter getInstance() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jtTransportes.setSelectionBackground(new java.awt.Color(239, 138, 76));
         jScrollPane1.setViewportView(jtTransportes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 730, -1));

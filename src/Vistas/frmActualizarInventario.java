@@ -10,8 +10,10 @@ import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
@@ -70,6 +72,15 @@ setIconImage(scaledImage);
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
+           UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
+        UIManager.put("ComboBox.foreground", Color.DARK_GRAY);              
+        UIManager.put("ComboBox.selectionBackground", new Color(0xFF7043)); 
+        UIManager.put("ComboBox.selectionForeground", Color.WHITE);         
+        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xFFFFFF), 1)); 
+        UIManager.put( "Component.arrowType", "triangle" );
+
+        UIManager.put("TextField.arc", 50); 
+        UIManager.put("ComboBox.arc", 50);   
         Recursos modelo = new Recursos();
         frmActualizarInventario vista = new frmActualizarInventario(recurso);
         ctrlActualizarInventario controlador = new ctrlActualizarInventario(modelo, vista);
@@ -207,7 +218,6 @@ setIconImage(scaledImage);
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, 20));
 
         cmbDisponibilidad.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        cmbDisponibilidad.setForeground(new java.awt.Color(240, 139, 77));
         cmbDisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "En uso" }));
         jPanel1.add(cmbDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 200, 40));
 
@@ -243,7 +253,6 @@ setIconImage(scaledImage);
         jPanel1.add(imgAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 220, 40, 40));
 
         cmbEstado.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        cmbEstado.setForeground(new java.awt.Color(240, 139, 77));
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arruinado", "Usado", "Nuevo" }));
         jPanel1.add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, 200, 40));
 

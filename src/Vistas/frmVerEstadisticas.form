@@ -134,7 +134,7 @@
         <Container class="Vistas.PieChart" name="pieChart1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="160" width="440" height="370"/>
+              <AbsoluteConstraints x="300" y="150" width="590" height="420"/>
             </Constraint>
           </Constraints>
 

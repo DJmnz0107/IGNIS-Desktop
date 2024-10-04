@@ -395,6 +395,9 @@ public void Mostrar(JTable tabla) {
         tabla.getColumnModel().getColumn(9).setMinWidth(0);
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
         tabla.getColumnModel().getColumn(9).setWidth(0);
+            tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setWidth(0);
         
     } catch (Exception e) {
         System.out.println("Este es el error en el modelo, método mostrar: " + e);
