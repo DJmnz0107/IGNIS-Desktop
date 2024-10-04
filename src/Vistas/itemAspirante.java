@@ -92,7 +92,7 @@ try {
 
 
     // Asignar el nombre del Aspirante
-    Nombre.setText("Nombre: " + data.getNombre_aspirante());
+    Nombre.setText( data.getNombre_aspirante());
 
     // Asignar la Apellido
     
@@ -113,25 +113,7 @@ try {
     
 }
     
-@Override
-protected void paintComponent(Graphics grphcs) {
-    super.paintComponent(grphcs); // Llama al método para dibujar los componentes hijos
 
-    Graphics2D g2 = (Graphics2D) grphcs.create();
-    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-    // Dibuja el borde de color amarillo
-    g2.setColor(Color.YELLOW); // Color del borde
-    g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1); // Dibujar el borde
-
-    // Dibujar un borde adicional si está seleccionado
-    if (selected) {
-        g2.setColor(new Color(94, 156, 255)); // Color del borde cuando está seleccionado
-        g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1); // Borde más delgado si está seleccionado
-    }
-
-    g2.dispose(); // Libera los recursos gráficos
-}
 
 
     /**
@@ -151,75 +133,170 @@ protected void paintComponent(Graphics grphcs) {
         Edad = new javax.swing.JLabel();
         Mentor = new javax.swing.JLabel();
         Progreso = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
-        Apellido.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 139, 77)));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(imgAspirante, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 18, 162, 158));
+
+        Apellido.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Apellido.setText("Apellido");
+        add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 123, -1));
 
-        Nombre.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        Nombre.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Nombre.setText("Nombre");
+        add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 126, -1));
 
-        Dui.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        Dui.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Dui.setText("Dui");
+        add(Dui, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 157, 140, -1));
 
-        Entrenamiento.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        Entrenamiento.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Entrenamiento.setText("Entrenamiento");
+        add(Entrenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 157, 400, 20));
 
-        Edad.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        Edad.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Edad.setText("Edad");
+        add(Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 50, -1));
 
-        Mentor.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        Mentor.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Mentor.setText("Mentor");
+        add(Mentor, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 50, 180, -1));
 
-        Progreso.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        Progreso.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Progreso.setText("Progreso");
+        add(Progreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 180, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(imgAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(Dui, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Entrenamiento)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73)
-                        .addComponent(Mentor, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+        jPanel1.setBackground(new java.awt.Color(240, 139, 77));
+        jPanel1.setPreferredSize(new java.awt.Dimension(731, 1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 731, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Nombre)
-                            .addComponent(Edad)
-                            .addComponent(Progreso)
-                            .addComponent(Mentor))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Apellido)
-                            .addComponent(Dui)
-                            .addComponent(Entrenamiento))
-                        .addGap(58, 58, 58))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(imgAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
         );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 100, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(240, 139, 77));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(240, 139, 77));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 1, 120));
+
+        jPanel4.setBackground(new java.awt.Color(240, 139, 77));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(240, 139, 77));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 1, 120));
+
+        jPanel6.setBackground(new java.awt.Color(240, 139, 77));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        jLabel1.setText("Apellido");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 80, -1));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        jLabel2.setText("Bombero mentor");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 160, -1));
+
+        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        jLabel3.setText("Nombre");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 80, -1));
+
+        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        jLabel4.setText("Edad");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 50, -1));
+
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        jLabel5.setText("Dui");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 50, -1));
+
+        jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        jLabel6.setText("Progreso");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 80, -1));
+
+        jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        jLabel7.setText("Entrenamiento");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -232,5 +309,18 @@ protected void paintComponent(Graphics grphcs) {
     public javax.swing.JLabel Nombre;
     public javax.swing.JLabel Progreso;
     public javax.swing.JLabel imgAspirante;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     // End of variables declaration//GEN-END:variables
 }
