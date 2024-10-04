@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Aspirantes;
 import Vistas.frmAgregarAspirante;
+import Vistas.frmSeguimientoAspirante;
 import Vistas.frmVerRegistroAspirantes;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -63,7 +64,7 @@ public class ctrlAspirantes implements MouseListener {
         }
         
         if(e.getSource() == Vistas.btnVerAspirantes) {
-            frmVerRegistroAspirantes.initfrmVerRegistroAspirantes();
+            frmSeguimientoAspirante.initfrmSeguimientoAspirante();
             Vistas.dispose();
         }
         

@@ -101,7 +101,7 @@ try {
     lblNombre.setText(data.getNombreRecurso());
 
     // Asignar la descripción del recurso
-    String descripcion = "<html><div style='width: " + lblDescripcion.getWidth() + "px;'>" +
+    String descripcion = "<html><div style='width:70px " + lblDescripcion.getWidth() + "px;'>" +
                          data.getDescripcionRecurso() + "</div></html>";
     lblDescripcion.setText(descripcion);
     

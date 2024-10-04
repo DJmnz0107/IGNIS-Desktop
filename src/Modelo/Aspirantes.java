@@ -16,6 +16,8 @@ import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -136,6 +138,17 @@ public class Aspirantes {
     private int id_bombero;
     private String nombre_bombero;
     private String apellido_bombero;
+    private String bombero_Mentor;
+
+    public String getBombero_Mentor() {
+        return bombero_Mentor;
+    }
+
+    public void setBombero_Mentor(String bombero_Mentor) {
+        this.bombero_Mentor = bombero_Mentor;
+    }
+    
+    
 
 
     public String getNombre_bombero() {
@@ -208,6 +221,45 @@ public class Aspirantes {
         }
     }
 
+     public List<Aspirantes> getAspirantes() {
+    List<Aspirantes> listaAspirantes = new ArrayList<>();
+
+    Connection conexion = ClaseConexion.getConexion();
+
+    // Consulta con INNER JOIN para obtener el nombre y apellido del bombero mentor
+    String query = "SELECT a.id_aspirante, a.nombre_aspirante, a.apellido_aspirante, "
+                 + "a.dui_aspirante, a.entrenamiento_aspirante, a.edad_usuario, "
+                 + "a.progreso_aspirante, a.foto_aspirante, "
+                 + "b.nombre_bombero || ' ' || b.apellido_bombero AS bombero_mentor "
+                 + "FROM Aspirantes a "
+                 + "INNER JOIN Bomberos b ON a.id_bombero = b.id_bombero";
+
+    try (PreparedStatement stmt = conexion.prepareStatement(query);
+         ResultSet rs = stmt.executeQuery()) {
+
+        while (rs.next()) {
+            Aspirantes aspirante = new Aspirantes();
+
+            aspirante.setId_aspirante(rs.getInt("id_aspirante"));
+            aspirante.setNombre_aspirante(rs.getString("nombre_aspirante"));
+            aspirante.setApellido_aspirante(rs.getString("apellido_aspirante"));
+            aspirante.setDui_aspirante(rs.getString("dui_aspirante"));
+            aspirante.setEntrenamiento_aspirante(rs.getString("entrenamiento_aspirante"));
+            aspirante.setEdad_usuario(rs.getInt("edad_usuario"));
+            aspirante.setProgreso_aspirante(rs.getString("progreso_aspirante"));
+            aspirante.setFoto_aspirante(rs.getString("foto_aspirante")); // Asumimos que el CLOB es manejado como String
+            aspirante.setBombero_Mentor(rs.getString("bombero_mentor")); // Asumiendo que tienes un método para almacenar el nombre completo del bombero mentor
+
+            // Añadir el objeto aspirante a la lista
+            listaAspirantes.add(aspirante);
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return listaAspirantes;
+}
 
 
     
