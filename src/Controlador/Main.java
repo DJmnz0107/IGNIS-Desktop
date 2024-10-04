@@ -6,7 +6,7 @@ package Controlador;
 
 import Modelo.ClaseConexion;
 import Modelo.Usuarios;
-import Vistas.frmAgregarBomberos;
+
 import Vistas.frmCrearCuenta;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarTransportes;
