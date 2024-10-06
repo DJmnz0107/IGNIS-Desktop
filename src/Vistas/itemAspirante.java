@@ -148,7 +148,7 @@ try {
 
         Apellido.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Apellido.setText("Apellido");
-        add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 123, -1));
+        add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 123, -1));
 
         Nombre.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Nombre.setText("Nombre");
@@ -156,11 +156,11 @@ try {
 
         Dui.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Dui.setText("Dui");
-        add(Dui, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 140, -1));
+        add(Dui, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 140, -1));
 
         Entrenamiento.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Entrenamiento.setText("Entrenamiento");
-        add(Entrenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 400, 20));
+        add(Entrenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 400, 20));
 
         Edad.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Edad.setText("Edad");
@@ -188,11 +188,11 @@ try {
             .addGap(0, 1, Short.MAX_VALUE)
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 100, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, 1));
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel1.setText("Apellido");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 80, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 80, -1));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel2.setText("Bombero mentor");
@@ -208,7 +208,7 @@ try {
 
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel5.setText("Dui");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 50, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 50, -1));
 
         jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel6.setText("Progreso");
@@ -216,7 +216,7 @@ try {
 
         jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel7.setText("Entrenamiento");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 130, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

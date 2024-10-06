@@ -5,14 +5,19 @@
 package Vistas;
 
 
+import Controlador.ctrlSeguimiento;
 import Modelo.Aspirantes;
+import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Font;
+import java.awt.Image;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
+import raven.popup.GlassPanePopup;
 
 /**
  *
@@ -24,8 +29,20 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
      * Creates new form frmSeguimientoAspirante
      */
     public frmSeguimientoAspirante() {
+        GlassPanePopup.install(this);
+        MyDrawerBuilder myDrawerBuilder= new MyDrawerBuilder();
+        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
         cargarTarjetas();
+                int iconWidth = 32;
+        int iconHeight = 32;
+
+        ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+        Image originalImage = iconoOriginal.getImage();
+
+        Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+        setIconImage(scaledImage);
     }
     
     
@@ -35,7 +52,9 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
+        Aspirantes modelo = new Aspirantes();
         frmSeguimientoAspirante vista = new frmSeguimientoAspirante();
+        ctrlSeguimiento controlador = new ctrlSeguimiento(modelo, vista);
         vista.setVisible(true);
 }
     
@@ -112,14 +131,14 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(panelAspirante1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 920, 550));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 950, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
