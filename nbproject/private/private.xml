@@ -36,19 +36,16 @@
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlVerInventario.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerRegistroInventario.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmNotificacionEmergencia.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/PieChart.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarInventario.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmCambarContra.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlVerInformes.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmActualizarTransporte.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlVerRegistroAspirantes.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/drawer/WindowsTabbed.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/imgRedondeada.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarAspirante.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/panelRound3.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/CredencialesRecuContra.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlMisionesTransporte.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/ModelPieChart.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/themes/FlatLaf.properties</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/itemRecurso.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlVerUsuarios.java</file>
@@ -59,7 +56,6 @@
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlLogin.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/Informes.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/CambioSistema.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarBomberos.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerRegistroTransporter.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmRecuperacionContrasena.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerificarCodigo.java</file>
@@ -78,12 +74,10 @@
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlVerRegistroInventario.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/Misiones.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/Misiones.jrxml</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/DuiDocumentFilter.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmInicio.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/drawer/TestForm.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarTransportes.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmLogin.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/resources/ignisLogoPrueba.png</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmActualizarAspirante.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/Recursos.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/Usuarios.java</file>
@@ -91,7 +85,6 @@
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerRegistroAspirantes.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarMision.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/drawer/MyDrawerBuilder.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/TipoEmergenciaData.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerCambios.java</file>
         </group>
     </open-files>

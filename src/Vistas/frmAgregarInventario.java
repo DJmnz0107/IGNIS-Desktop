@@ -51,6 +51,8 @@ Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image
 
 setIconImage(scaledImage);
         setLocationRelativeTo(null);
+                                dtcRecepcion.getDateEditor().setEnabled(false);
+
     
 
     }
@@ -189,9 +191,6 @@ public static frmAgregarInventario getInstance() {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("IGNIS");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, -1, -1));
-
-        dtcRecepcion.setBackground(new java.awt.Color(255, 255, 255));
-        dtcRecepcion.setForeground(new java.awt.Color(240, 139, 77));
         jPanel1.add(dtcRecepcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 230, 40));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));

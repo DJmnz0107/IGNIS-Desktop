@@ -63,6 +63,8 @@ Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image
 
 setIconImage(scaledImage);
         cargarDatos();
+                                        dtcRecepcion.getDateEditor().setEnabled(false);
+
     }
     
     
@@ -225,9 +227,6 @@ setIconImage(scaledImage);
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Fecha de recepción");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, -1, 20));
-
-        dtcRecepcion.setBackground(new java.awt.Color(255, 255, 255));
-        dtcRecepcion.setForeground(new java.awt.Color(240, 139, 77));
         jPanel1.add(dtcRecepcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 230, 40));
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N

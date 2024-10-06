@@ -51,7 +51,7 @@ public class frmLogin extends JFrame  {
         this.setLocationRelativeTo(null);
         
         
-        setTitle("IGNIS");
+        setTitle("IGNIS - Login");
 
         
         txtContrasena.setHint("Ingresa tu contraseña");

@@ -161,40 +161,54 @@ private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
         lblDisponibilidad = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
         lblEstado = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 173, 122));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(imgRecurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 60, 106, 130));
+        add(imgRecurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 50, 110, 140));
 
         lblFecha.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("Fecha de recepción");
-        add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 230, 281, -1));
+        add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 281, -1));
 
-        lblNombre.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 22)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("Text");
-        add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 14, -1, -1));
+        add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 160, -1));
 
         lblDisponibilidad.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         lblDisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
+        lblDisponibilidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDisponibilidad.setText("Disponibilidad");
-        add(lblDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        add(lblDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 120, -1));
 
         lblDescripcion.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Descripción del recurso");
-        add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 86, 169, 100));
+        add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 160, 100));
 
         lblEstado.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         lblEstado.setForeground(new java.awt.Color(255, 255, 255));
         lblEstado.setText("Estado del recurso");
         add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 196, 160, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/decoracion.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 60, 70));
+
+        jSeparator2.setBackground(new java.awt.Color(240, 139, 77));
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 170, 10));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel imgRecurso;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JSeparator jSeparator2;
     public javax.swing.JLabel lblDescripcion;
     public javax.swing.JLabel lblDisponibilidad;
     public javax.swing.JLabel lblEstado;
