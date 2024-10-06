@@ -100,10 +100,10 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 790));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
 
         lblFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 180, 170));
+        jPanel1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 100, 120));
 
         panelRound31.setRoundBottomRight(50);
         panelRound31.setRoundTopLeft(50);
@@ -111,57 +111,62 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel1.setText("Ingresar Especialización");
-        panelRound31.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
+        panelRound31.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         txtNombreBombero.setForeground(new java.awt.Color(0, 0, 0));
         txtNombreBombero.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtNombreBombero.setHint("");
-        panelRound31.add(txtNombreBombero, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 76, 290, 49));
+        panelRound31.add(txtNombreBombero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 330, 40));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel2.setText("Ingresar Apellido");
-        panelRound31.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 46, -1, -1));
+        panelRound31.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, -1, -1));
 
         txtApellidoBombero.setForeground(new java.awt.Color(0, 0, 0));
         txtApellidoBombero.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtApellidoBombero.setHint("");
-        panelRound31.add(txtApellidoBombero, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 76, 290, 49));
+        panelRound31.add(txtApellidoBombero, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 330, 40));
 
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel3.setText("Ingresar nombre");
-        panelRound31.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 46, -1, -1));
+        panelRound31.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel4.setText("Ingresar Experiencia");
-        panelRound31.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 137, -1, -1));
+        panelRound31.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         txtEspecializacion.setForeground(new java.awt.Color(0, 0, 0));
         txtEspecializacion.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtEspecializacion.setHint("");
-        panelRound31.add(txtEspecializacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 389, 49));
+        panelRound31.add(txtEspecializacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 380, 40));
 
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel5.setText("Usuario");
-        panelRound31.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 72, -1));
+        panelRound31.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 72, -1));
 
         cmbUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbUsuarioActionPerformed(evt);
             }
         });
-        panelRound31.add(cmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 208, 40));
+        panelRound31.add(cmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 220, 40));
 
         btnVerRegistro.setText("     Ver registro");
         btnVerRegistro.setToolTipText("");
         btnVerRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         btnVerRegistro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelRound31.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, 174, 50));
+        btnVerRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerRegistroActionPerformed(evt);
+            }
+        });
+        panelRound31.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 170, 40));
 
         btnAgregarInfo1.setText("   Agregar informacion");
         btnAgregarInfo1.setToolTipText("");
         btnAgregarInfo1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         btnAgregarInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelRound31.add(btnAgregarInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 220, 50));
+        panelRound31.add(btnAgregarInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 220, 40));
 
         txtExperiencia.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtExperiencia.setColumns(20);
@@ -169,15 +174,15 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         txtExperiencia.setToolTipText("");
         jScrollPane1.setViewportView(txtExperiencia);
 
-        panelRound31.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 167, 789, -1));
+        panelRound31.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 860, 130));
 
-        jPanel1.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 910, 520));
+        jPanel1.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 960, 450));
 
         btnAgregarFoto1.setText("     Agregar foto");
         btnAgregarFoto1.setToolTipText("");
         btnAgregarFoto1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         btnAgregarFoto1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(btnAgregarFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 220, 50));
+        jPanel1.add(btnAgregarFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 190, 40));
 
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 40, 40));
@@ -186,7 +191,7 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1112, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,6 +209,10 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
     private void cmbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbUsuarioActionPerformed
+
+    private void btnVerRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerRegistroActionPerformed
 
     /**
      * @param args the command line arguments
