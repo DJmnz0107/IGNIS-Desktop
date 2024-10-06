@@ -27,7 +27,7 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        imgBack = new javax.swing.JLabel();
         panelRound1 = new Vistas.PanelRound();
         jLabel9 = new javax.swing.JLabel();
         cmbMision = new javax.swing.JComboBox<>();
@@ -42,8 +42,8 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 18, -1, -1));
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 18, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(150);
@@ -196,7 +196,7 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
     public Vistas.btnRojoForms btnguardar;
     public javax.swing.JComboBox<String> cmbMision;
     public javax.swing.JComboBox<String> cmbRecursos;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel9;

@@ -8,6 +8,7 @@ import Modelo.MisionesRecursos;
 import Vistas.frmAsignarRecursosVer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,7 +21,7 @@ public class ctrlAsignarRecursosVer implements MouseListener{
     
     
     
-    public ctrlAsignarRecursosVer(frmAsignarRecursosVer vista,MisionesRecursos modelo ){
+    public ctrlAsignarRecursosVer(frmAsignarRecursosVer vista, MisionesRecursos modelo ){
     this.modelo = modelo;
     this.vista = vista;
     modelo.Mostrar(vista.jtbVerAsignarRecu);
@@ -33,7 +34,20 @@ public class ctrlAsignarRecursosVer implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         
-    }
+              if(e.getSource()==vista.btnEliminar){
+               modelo.Eliminar(vista.jtbVerAsignarRecu);
+               modelo.Mostrar(vista.jtbVerAsignarRecu);
+               JOptionPane.showMessageDialog(vista, "Registro eliminado exitosamente");
+           
+              }
+              
+              if(e.getSource()==vista.imgBack){
+               
+                  
+              }
+        
+        }
+    
 
     @Override
     public void mousePressed(MouseEvent e) {

@@ -3,16 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Modelo/MisionesTransporte.java</file>
-            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Controlador/ctrlActualizarTransporte.java</file>
+            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Controlador/ctrlRegistroTransporte.java</file>
+            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Controlador/ctrlMisiones.java</file>
             <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Vistas/frmAsignarRecursos.java</file>
             <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Vistas/frmAsignarRecursosVer.java</file>
             <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Vistas/frmVerRegistroTransporter.java</file>
             <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Modelo/MisionesRecursos.java</file>
+            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Controlador/ctrlAsignarRecursosVer.java</file>
             <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Modelo/Transportes.java</file>
-            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Modelo/ClaseConexion.java</file>
-            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Vistas/frmAgregarTransportes.java</file>
-            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Vistas/frmVerRegistroAspirantes.java</file>
+            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Controlador/ctrlAsignarRecursos.java</file>
+            <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Modelo/Misiones.java</file>
             <file>file:/C:/ptc_desktop/IGNIS-Desktop/src/Controlador/ctrlTransportes.java</file>
         </group>
     </open-files>

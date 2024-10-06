@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.MisionesRecursos;
 import Vistas.frmAsignarRecursos;
+import Vistas.frmAsignarRecursosVer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -54,7 +55,8 @@ public class ctrlAsignarRecursos implements MouseListener{
         
         
         if(e.getSource()==Vistas.btnVerAsigRecu){
-            frmAsignarRecursosVer.ini
+            frmAsignarRecursosVer.initFrmAsignarRecursosVer();
+            Vistas.dispose();
         }
         
       
