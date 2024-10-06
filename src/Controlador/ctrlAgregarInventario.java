@@ -8,6 +8,7 @@ import Modelo.CambioSistema;
 import Modelo.Recursos;
 import Modelo.Usuarios;
 import Vistas.frmAgregarInventario;
+import Vistas.frmInicio;
 import Vistas.frmVerInventario;
 import Vistas.frmVerRegistroInventario;
 import java.awt.Image;
@@ -38,12 +39,19 @@ public class ctrlAgregarInventario implements MouseListener {
               vista.imgAgregar.addMouseListener(this);  
              vista.btnVerInventario.addMouseListener(this);
              vista.btnMenu.addMouseListener(this);
+             vista.imgBack.addMouseListener(this);
              
              
           }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== vista.imgBack){
+        
+            frmInicio.initfrmInicio();
+            vista.dispose();
+        }
         
            if (e.getSource() == vista.btnInsertar) {
             if (rutaImagenSeleccionada == null || rutaImagenSeleccionada.isEmpty()) {

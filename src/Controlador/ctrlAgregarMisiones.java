@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.Emergencias;
 import Modelo.Misiones;
 import Vistas.frmAgregarMision;
+import Vistas.frmInicio;
 import Vistas.frmRegistroTransportes;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
@@ -37,10 +38,17 @@ public class ctrlAgregarMisiones implements MouseListener {
     vista.btnVerRegistro.addMouseListener(this);
     vista.btnMenu.addMouseListener(this);
     vista.btnTransportes2.addMouseListener(this);
+    
+    vista.imgBack.addMouseListener(this);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== vista.imgBack){
+        frmInicio.initfrmInicio();
+        vista.dispose();
+        }
          
        if (e.getSource() == vista.btnAgregar) {
         if (vista.txtDescripcion.getText().isEmpty()) {

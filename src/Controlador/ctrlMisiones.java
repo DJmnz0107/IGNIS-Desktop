@@ -8,6 +8,7 @@ import Modelo.Misiones;
 import Modelo.Recursos;
 import Vistas.frmActualizarInventario;
 import Vistas.frmActualizarMision;
+import Vistas.frmAgregarMision;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -34,11 +35,19 @@ public class ctrlMisiones implements MouseListener, KeyListener{
     vistas.btnEliminar.addMouseListener(this);
     vistas.txtBuscar.addKeyListener(this);
     vistas.btnActualizar.addMouseListener(this);
+    vistas.imgBack.addMouseListener(this);
     
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== Vistas.imgBack){
+            
+            frmAgregarMision.initFrmAgregarMision();
+            Vistas.dispose();
+        
+        }
         if (e.getSource() == Vistas.btnEliminar) {
     if (Vistas.jtbMisiones.getSelectedRow() == -1) {
         JOptionPane.showMessageDialog(Vistas, "Debes seleccionar una misión para eliminar", "Error", JOptionPane.ERROR_MESSAGE);

@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.Emergencias;
+import Vistas.frmInicio;
 import Vistas.frmVerEmergencias;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -30,10 +31,15 @@ public class ctrlVerEmergencias implements MouseListener, KeyListener {
         vista.txtBuscarEmergencia.addKeyListener(this);
         vista.btnMenu.addMouseListener(this);
         modelo.Mostrar(vista.jtEmergencias);
+        vista.imgBack.addMouseListener(this);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if(e.getSource()== vista.imgBack){
+        frmInicio.initfrmInicio();
+        vista.dispose();
+        }
       if (e.getSource() == vista.btnEliminar) {
     if (vista.jtEmergencias.getSelectedRow() == -1) {
         JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);

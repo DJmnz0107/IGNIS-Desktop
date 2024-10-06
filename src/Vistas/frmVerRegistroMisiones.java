@@ -95,6 +95,7 @@ setIconImage(scaledImage);
         btnActualizar = new Vistas.btnRojoForms();
         btnEliminar = new Vistas.btnRojoForms();
         btnGenerarReporte = new Vistas.btnNegroForms();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -137,7 +138,7 @@ setIconImage(scaledImage);
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Misiones > Ver Registro ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 47, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
 
         jtbMisiones.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtbMisiones.setModel(new javax.swing.table.DefaultTableModel(
@@ -202,6 +203,9 @@ setIconImage(scaledImage);
             }
         });
         jPanel1.add(btnGenerarReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(884, 568, 266, 66));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -282,6 +286,7 @@ setIconImage(scaledImage);
     public Vistas.btnRojoForms btnEliminar;
     public Vistas.btnNegroForms btnGenerarReporte;
     public javax.swing.JButton btnMenu;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

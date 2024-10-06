@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Recursos;
 import Vistas.frmActualizarInventario;
+import Vistas.frmVerInventario;
 import Vistas.frmVerRegistroInventario;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -31,10 +32,20 @@ public class ctrlVerRegistroInventario implements MouseListener, KeyListener {
         vista.btnActualizar.addMouseListener(this);
         vista.txtBuscar.addKeyListener(this);
         modelo.Mostrar(vista.jtInventario);
+        vista.imgBack.addMouseListener(this);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== vista.imgBack){
+            
+            frmVerInventario.initfrmVerInventario();
+            vista.dispose();
+        }
+        
+        
+        
 if (e.getSource() == vista.btnEliminar) {
     if (vista.jtInventario.getSelectedRow() == -1) {
         JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
@@ -58,6 +69,7 @@ if (e.getSource() == vista.btnEliminar) {
         }
     }
 }
+
 
 
         

@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.Aspirantes;
+import Vistas.frmAgregarAspirante;
 import Vistas.frmSeguimientoAspirante;
 import Vistas.frmVerRegistroAspirantes;
 import java.awt.event.MouseEvent;
@@ -26,6 +27,7 @@ public class ctrlSeguimiento implements MouseListener{
         
         this.Vistas.btnMenu.addMouseListener(this);
         this.Vistas.btnVerRegistro.addMouseListener(this);
+        this.Vistas.imgBack.addMouseListener(this);
         
         
     
@@ -33,6 +35,12 @@ public class ctrlSeguimiento implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource() == Vistas.imgBack){
+            frmAgregarAspirante.initfrmAgregarAspirante();
+            Vistas.dispose();
+        }
+        
         if(e.getSource() == Vistas.btnMenu){
             Drawer.getInstance().showDrawer();
         }

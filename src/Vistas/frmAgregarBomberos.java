@@ -62,6 +62,7 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtExperiencia = new Vistas.TextAreaGris();
         btnAgregarFoto1 = new Vistas.btnRojoForms();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -178,6 +179,9 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         btnAgregarFoto1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(btnAgregarFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 220, 50));
 
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 40, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -242,6 +246,7 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
     public javax.swing.JButton btnMenu;
     public Vistas.btnRojoForms btnVerRegistro;
     public javax.swing.JComboBox<String> cmbUsuario;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -91,6 +91,7 @@ setIconImage(scaledImage);
         jScrollPane1 = new javax.swing.JScrollPane();
         jtEmergencias = new javax.swing.JTable();
         btnEliminar = new Vistas.btnRojoForms();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -134,7 +135,7 @@ setIconImage(scaledImage);
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("> Emergencias");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(192, 109, 58));
         jButton2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
@@ -142,16 +143,16 @@ setIconImage(scaledImage);
         jButton2.setText("Buscar");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setBorderPainted(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 110, 40));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 110, 40));
 
         txtBuscarEmergencia.setBackground(new java.awt.Color(255, 173, 122));
         txtBuscarEmergencia.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         txtBuscarEmergencia.setForeground(new java.awt.Color(255, 255, 255));
         txtBuscarEmergencia.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel1.add(txtBuscarEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 270, 40));
+        jPanel1.add(txtBuscarEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 270, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 40, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 40, 40));
 
         jtEmergencias.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtEmergencias.setModel(new javax.swing.table.DefaultTableModel(
@@ -173,6 +174,9 @@ setIconImage(scaledImage);
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 580, 190, 50));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,6 +234,7 @@ setIconImage(scaledImage);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Vistas.btnRojoForms btnEliminar;
     public javax.swing.JButton btnMenu;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel9;

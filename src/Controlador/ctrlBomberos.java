@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.Bomberos;
+import Vistas.frmAgregarBomberos;
 import Vistas.frmRegistroBomberos;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -22,13 +23,17 @@ public class ctrlBomberos implements MouseListener{
         this.Modelo = modelo;
         
         Modelo.Mostrar(Vistas.jtBomberos);
+        this.Vistas.imgBack.addMouseListener(this);
         
         
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+        if(e.getSource()== Vistas.imgBack){
+        frmAgregarBomberos.initfrmAgregarBomberos();
+        Vistas.dispose();
+        }
     }
 
     @Override

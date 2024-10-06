@@ -110,7 +110,7 @@ public static frmAgregarInventario getInstance() {
         imgAgregar = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescripcionRecurso = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
+        imgBack = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         dtcRecepcion = new com.toedter.calendar.JDateChooser();
         panelRound1 = new Vistas.PanelRound();
@@ -184,8 +184,8 @@ public static frmAgregarInventario getInstance() {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 430, 180));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
         jLabel11.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -298,6 +298,7 @@ public static frmAgregarInventario getInstance() {
     public javax.swing.JComboBox<String> cmbEstado;
     public com.toedter.calendar.JDateChooser dtcRecepcion;
     public javax.swing.JLabel imgAgregar;
+    public javax.swing.JLabel imgBack;
     public javax.swing.JLabel imgInventario;
     public javax.swing.JLabel imgRecurso;
     private javax.swing.JLabel jLabel1;
@@ -308,7 +309,6 @@ public static frmAgregarInventario getInstance() {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private Vistas.PanelRound panelRound1;

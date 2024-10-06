@@ -92,6 +92,8 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         panelAspirante1 = new Vistas.PanelAspirante();
         btnVerRegistro = new Vistas.btnRojoForms();
+        jLabel2 = new javax.swing.JLabel();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -133,12 +135,20 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(panelAspirante1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 950, 550));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 950, 550));
 
         btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/contrato.png"))); // NOI18N
         btnVerRegistro.setText("   Ver Registro");
         btnVerRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jPanel1.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, 220, 70));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Inicio > Seguimiento");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,6 +211,8 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnMenu;
     public Vistas.btnRojoForms btnVerRegistro;
+    public javax.swing.JLabel imgBack;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private Vistas.PanelAspirante panelAspirante1;

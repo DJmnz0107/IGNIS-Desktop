@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Aspirantes;
 import Vistas.frmActualizarAspirante;
+import Vistas.frmSeguimientoAspirante;
 import Vistas.frmVerRegistroAspirantes;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -33,6 +34,7 @@ public ctrlVerRegistroAspirantes(frmVerRegistroAspirantes vistas, Aspirantes mod
     
     vistas.txtBuscar.addKeyListener(this);
     vistas.btnActualizar.addMouseListener(this);
+    vistas.imgBack.addMouseListener(this);
 
     }
   
@@ -41,6 +43,12 @@ public ctrlVerRegistroAspirantes(frmVerRegistroAspirantes vistas, Aspirantes mod
     
    @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== Vistas.imgBack){
+        
+            frmSeguimientoAspirante.initfrmSeguimientoAspirante();
+            Vistas.dispose();
+        }
       if (e.getSource() == Vistas.btnEliminar) {
     if (Vistas.jtAspirantes.getSelectedRow() == -1) {
         JOptionPane.showMessageDialog(Vistas, "Debes seleccionar un aspirante para eliminar", "Error", JOptionPane.ERROR_MESSAGE);

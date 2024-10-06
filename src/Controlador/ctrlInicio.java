@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Usuarios;
 import Vistas.frmAgregarAspirante;
+import Vistas.frmAgregarBomberos;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarMision;
 import Vistas.frmAgregarTransportes;
@@ -74,6 +75,15 @@ public void mouseClicked(MouseEvent e) {
             JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
         } else {
             frmVerCambios.initfrmVerCambios();
+            vista.dispose();
+        }
+    }
+    
+    if (e.getSource() == vista.btnBomberos) {
+        if (!vista.btnBomberos.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para acceder a este formulario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            frmAgregarBomberos.initfrmAgregarBomberos();
             vista.dispose();
         }
     }

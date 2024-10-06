@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Aspirantes;
 import Vistas.frmAgregarAspirante;
+import Vistas.frmInicio;
 import Vistas.frmSeguimientoAspirante;
 import Vistas.frmVerRegistroAspirantes;
 import java.awt.Image;
@@ -38,6 +39,8 @@ public class ctrlAspirantes implements MouseListener {
         this.Vistas.btnAgregarFoto.addMouseListener(this);
         this.Vistas.btnMenu.addMouseListener(this);
         this.Vistas.btnVerAspirantes.addMouseListener(this);
+        vistas.imgBack.addMouseListener(this);
+    
         
 
         
@@ -53,6 +56,13 @@ public class ctrlAspirantes implements MouseListener {
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== Vistas.imgBack){
+        
+            frmInicio.initfrmInicio();
+            Vistas.dispose();
+        
+        }
         
         if(e.getSource()==Vistas.btnMenu){
             
