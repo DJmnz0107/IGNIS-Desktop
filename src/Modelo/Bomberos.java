@@ -120,7 +120,7 @@ public class Bomberos {
         comboBox.removeAllItems();
         try{
             Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery("Select * from Usuarios");
+            ResultSet rs = statement.executeQuery("Select * from Usuarios where id_nivelusuario = 2");
             while (rs.next()) {
                 int id = rs.getInt("id_usuario"); 
                 String nombre = rs.getString("nombre_usuario");
