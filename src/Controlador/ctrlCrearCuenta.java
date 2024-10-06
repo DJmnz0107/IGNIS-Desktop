@@ -7,11 +7,13 @@ import Vistas.frmInicio;
 import Vistas.frmVerUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
-public class ctrlCrearCuenta implements MouseListener {
+public class ctrlCrearCuenta implements MouseListener, KeyListener {
 
     private Niveles ModeloNivel;
     private Usuarios ModeloUsuario;
@@ -25,6 +27,8 @@ public class ctrlCrearCuenta implements MouseListener {
         
         vista.btnCrearCuenta.addMouseListener(this);
         vista.btnVerUsuarios.addMouseListener(this);
+        vista.txtEdadUsuario.addKeyListener(this);
+        vista.txtDuiUsuario.addKeyListener(this);
         vista.imgBack.addMouseListener(this);
         
         modeloNivel.obtenerNiveles(vista.jcmbTipoUsuario);
@@ -32,7 +36,7 @@ public class ctrlCrearCuenta implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-   if (e.getSource() == Vista.btnCrearCuenta) {
+    if (e.getSource() == Vista.btnCrearCuenta) {
 
     Niveles nivelSeleccionado = (Niveles) Vista.jcmbTipoUsuario.getSelectedItem();
     int idNivelSeleccionado = nivelSeleccionado.getId_nivelUsuario();
@@ -66,7 +70,20 @@ public class ctrlCrearCuenta implements MouseListener {
         } else if (dui.length() != 10) {
             JOptionPane.showMessageDialog(Vista, "El formato de DUI no es valido", "Error", JOptionPane.ERROR_MESSAGE);
 
-        } else {
+        } else if (!edad.isEmpty()) {
+            try {
+                int edadNumerica = Integer.parseInt(edad);
+                // Si la edad es menor de 18, muestra error
+                if (edadNumerica < 18) {
+                    JOptionPane.showMessageDialog(Vista, "La edad debe ser mayor o igual a 18", "Error", JOptionPane.ERROR_MESSAGE);
+                    Vista.txtEdadUsuario.setText(""); // Borra la edad si es menor a 18
+                }
+                } catch (NumberFormatException ex) {
+                // Si el campo no puede ser convertido a número, no hacer nada
+                }
+        }
+        
+        else {
             // Crear una instancia de tu modelo para la base de datos
 
             try {
@@ -142,5 +159,23 @@ public class ctrlCrearCuenta implements MouseListener {
         Vista.txtContrasenaUsuario.setText("");
         Vista.txtDuiUsuario.setText("");
         Vista.txtEdadUsuario.setText("");
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if(e.getSource() == Vista.txtEdadUsuario){
+            String edad = Vista.txtEdadUsuario.getText();
+                
+        }
     }
 }

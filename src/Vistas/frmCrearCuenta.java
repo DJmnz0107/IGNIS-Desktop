@@ -61,11 +61,11 @@ setIconImage(scaledImage);
         imgBack = new javax.swing.JLabel();
         jcmbTipoUsuario = new javax.swing.JComboBox();
         txtNombreUsuario = new Vistas.TextFieldBlancoHint();
-        txtContrasenaUsuario = new Vistas.TextFieldBlancoHint();
         txtEdadUsuario = new Vistas.TextFieldBlancoHint();
         txtDuiUsuario = new Vistas.TextFieldBlancoHint();
         btnCrearCuenta = new Vistas.btnRojoForms();
         btnVerUsuarios = new Vistas.btnRojoForms();
+        txtContrasenaUsuario = new Vistas.TextFieldCrearCuenta();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -95,9 +95,6 @@ setIconImage(scaledImage);
         txtNombreUsuario.setHint("Ingresa el nombre del usuario");
         jPanel1.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 336, 49));
 
-        txtContrasenaUsuario.setHint("Ingresa la contraseña del usuario");
-        jPanel1.add(txtContrasenaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 336, 49));
-
         txtEdadUsuario.setHint("Edad");
         jPanel1.add(txtEdadUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 264, 49));
 
@@ -113,6 +110,9 @@ setIconImage(scaledImage);
         btnVerUsuarios.setText("Ver usuarios");
         btnVerUsuarios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         jPanel1.add(btnVerUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 242, 55));
+
+        txtContrasenaUsuario.setHint("Ingresa la contraseña del usuario");
+        jPanel1.add(txtContrasenaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 336, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,7 +178,7 @@ setIconImage(scaledImage);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JComboBox jcmbTipoUsuario;
-    public Vistas.TextFieldBlancoHint txtContrasenaUsuario;
+    public Vistas.TextFieldCrearCuenta txtContrasenaUsuario;
     public Vistas.TextFieldBlancoHint txtDuiUsuario;
     public Vistas.TextFieldBlancoHint txtEdadUsuario;
     public Vistas.TextFieldBlancoHint txtNombreUsuario;
