@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarTransporte.java</file>
-            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarMision.java</file>
-            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarMision.java</file>
-            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarInventario.java</file>
-            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarTransportes.java</file>
-            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarAspirante.java</file>
-            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarBomberos.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Controlador/ctrlVerInformes.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerInformes.java</file>
         </group>
     </open-files>
 </project-private>
