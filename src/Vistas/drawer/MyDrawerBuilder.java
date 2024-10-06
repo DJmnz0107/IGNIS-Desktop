@@ -4,6 +4,7 @@ import Controlador.ctrlLogin;
 import static Controlador.ctrlLogin.nombreUsuario;
 import Modelo.Usuarios;
 import Vistas.frmAgregarAspirante;
+import Vistas.frmAgregarBomberos;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarMision;
 import Vistas.frmAgregarTransportes;
@@ -131,6 +132,12 @@ private void gestionarSeleccionDeMenu(int index) {
     JFrame nuevaVentana = null;
 
     switch (index) {
+        
+        case 1:  // Bomberos
+            frmAgregarBomberos.initfrmAgregarBomberos();
+                ventanaActual.dispose();
+            break;
+            
         case 2:  // Inventario
             frmAgregarInventario.initfrmAgregarInventario();
                 ventanaActual.dispose();
