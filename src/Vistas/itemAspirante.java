@@ -134,11 +134,6 @@ try {
         Mentor = new javax.swing.JLabel();
         Progreso = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -153,7 +148,7 @@ try {
 
         Apellido.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Apellido.setText("Apellido");
-        add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 123, -1));
+        add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 123, -1));
 
         Nombre.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Nombre.setText("Nombre");
@@ -161,11 +156,11 @@ try {
 
         Dui.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Dui.setText("Dui");
-        add(Dui, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 157, 140, -1));
+        add(Dui, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 140, -1));
 
         Entrenamiento.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Entrenamiento.setText("Entrenamiento");
-        add(Entrenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 157, 400, 20));
+        add(Entrenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 400, 20));
 
         Edad.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         Edad.setText("Edad");
@@ -195,84 +190,9 @@ try {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 100, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(240, 139, 77));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 1, -1));
-
-        jPanel3.setBackground(new java.awt.Color(240, 139, 77));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 1, 120));
-
-        jPanel4.setBackground(new java.awt.Color(240, 139, 77));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 1, -1));
-
-        jPanel5.setBackground(new java.awt.Color(240, 139, 77));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 1, 120));
-
-        jPanel6.setBackground(new java.awt.Color(240, 139, 77));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 1, -1));
-
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel1.setText("Apellido");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 80, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 80, -1));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel2.setText("Bombero mentor");
@@ -288,7 +208,7 @@ try {
 
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel5.setText("Dui");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 50, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 50, -1));
 
         jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel6.setText("Progreso");
@@ -296,7 +216,7 @@ try {
 
         jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel7.setText("Entrenamiento");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 130, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -317,10 +237,5 @@ try {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     // End of variables declaration//GEN-END:variables
 }
