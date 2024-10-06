@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
+import Vistas.frmAsignarRecursosVer;
+import Vistas.frmAsignarRecursos;
 import java.sql.*;
+import java.text.ParseException;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
@@ -58,6 +62,98 @@ public class MisionesRecursos {
     private int id_misionRecurso;
     private int id_mision;
     private int id_recurso;
+    
+    public MisionesRecursos(){
+            
+    }
+    
+    public MisionesRecursos(int id_misionRecurso,int id_mision, int id_recurso){
+      this.id_misionRecurso = id_misionRecurso;
+      this.id_mision = id_mision;
+      this.id_recurso = id_recurso;
+    
+    }
+    
+    
+    public MisionesRecursos obtenerDatosTabla (frmAsignarRecursosVer vista ) throws ParseException{
+    
+        int filaSeleccionada = vista.jtbVerAsignarRecu.getSelectedRow();
+        
+        if(filaSeleccionada != -1){
+        
+            
+            int id_misionRecurso =(Integer) vista.jtbVerAsignarRecu.getValueAt(filaSeleccionada,0);
+            int id_mision = (Integer) vista.jtbVerAsignarRecu.getValueAt(filaSeleccionada,1);
+            int id_recurso = (Integer) vista.jtbVerAsignarRecu.getValueAt(filaSeleccionada, 2);
+            
+            
+            return new MisionesRecursos(id_misionRecurso,id_mision,id_recurso);
+            
+        }
+          return null;
+    }
+    
+    
+    public void cargarComboBoxRecursos(JComboBox comboBox, int idRecursoSeleccionado) {    
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Recursos");
+        
+        while (rs.next()) {
+            int id = rs.getInt("id_recurso"); 
+            String nombre = rs.getString("nombre_recurso");
+            comboBox.addItem(new Recursos(id, nombre)); // 
+            System.out.println("Cargando: ID: " + id + ", Nombre: " + nombre); 
+        }
+        
+        System.out.println("ID de recurso seleccionado: " + idRecursoSeleccionado);
+        
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            Recursos recurso = (Recursos) comboBox.getItemAt(i);
+            System.out.println("Comparando con ID: " + recurso.getIdRecurso());
+            if (recurso.getIdRecurso() == idRecursoSeleccionado) {
+                comboBox.setSelectedIndex(i); 
+                break; 
+            }
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+    public void cargarComboBoxMisiones(JComboBox comboBox, int idMisionSeleccionada) {    
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Misiones");
+        
+        while (rs.next()) {
+            int id = rs.getInt("id_mision"); 
+            String descripcion = rs.getString("descripcion_mision");
+            comboBox.addItem(new Misiones(id, descripcion)); // Asume que existe una clase Misiones con constructor id, descripcion
+            System.out.println("Cargando: ID: " + id + ", Descripción: " + descripcion); // Para verificar
+        }
+        
+        System.out.println("ID de misión seleccionada: " + idMisionSeleccionada);
+        
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            Misiones mision = (Misiones) comboBox.getItemAt(i);
+            System.out.println("Comparando con ID: " + mision.getIdMision());
+            if (mision.getIdMision() == idMisionSeleccionada) {
+                comboBox.setSelectedIndex(i); // Selecciona el índice
+                break; // Salir del bucle una vez encontrado
+            }
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+    
+    
+    
+    
     
     
     public void Guardar()

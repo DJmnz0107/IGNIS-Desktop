@@ -8,6 +8,7 @@ import Modelo.MisionesRecursos;
 import Vistas.frmAsignarRecursos;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,6 +33,9 @@ public class ctrlAsignarRecursos implements MouseListener{
     
     private void guardarAsigRecu(){
         
+        int Recurso = (int) Vistas.cmbRecursos.getSelectedItem();
+        int Misiones = (int)Vistas.cmbMision.getSelectedItem();
+        
         
     
     }
@@ -40,6 +44,20 @@ public class ctrlAsignarRecursos implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         
+        if(e.getSource()==Vistas.btnguardar){
+        
+        guardarAsigRecu();
+            Modelo.Guardar();
+            JOptionPane.showMessageDialog(Vistas,"Informacion ingresada con exito","Agregar transporte",JOptionPane.INFORMATION_MESSAGE);
+        
+        }
+        
+        
+        if(e.getSource()==Vistas.btnVerAsigRecu){
+            frmAsignarRecursosVer.ini
+        }
+        
+      
     }
 
     @Override

@@ -135,6 +135,11 @@ public class Recursos {
         return fotoRecurso;
     }
     
+    public Recursos(int idRecurso, String nombreRecurso){
+    this.idRecurso= idRecurso;
+    this.nombreRecurso= nombreRecurso;
+    
+    }
     
 
     /**
