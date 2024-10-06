@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Aspirantes;
 import Vistas.frmSeguimientoAspirante;
+import Vistas.frmVerRegistroAspirantes;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import raven.drawer.Drawer;
@@ -24,6 +25,7 @@ public class ctrlSeguimiento implements MouseListener{
         this.Modelo=  modelo;
         
         this.Vistas.btnMenu.addMouseListener(this);
+        this.Vistas.btnVerRegistro.addMouseListener(this);
         
         
     
@@ -33,6 +35,11 @@ public class ctrlSeguimiento implements MouseListener{
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == Vistas.btnMenu){
             Drawer.getInstance().showDrawer();
+        }
+        
+        if(e.getSource()== Vistas.btnVerRegistro){
+        frmVerRegistroAspirantes.initfrmVerRegistroAspirantes();
+        Vistas.dispose();
         }
     }
 

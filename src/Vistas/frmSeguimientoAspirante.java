@@ -91,6 +91,7 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
         btnMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelAspirante1 = new Vistas.PanelAspirante();
+        btnVerRegistro = new Vistas.btnRojoForms();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,11 +128,16 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 669));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 750));
 
         jScrollPane1.setViewportView(panelAspirante1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 950, 550));
+
+        btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/contrato.png"))); // NOI18N
+        btnVerRegistro.setText("   Ver Registro");
+        btnVerRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jPanel1.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, 220, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,7 +149,9 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,6 +198,7 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnMenu;
+    public Vistas.btnRojoForms btnVerRegistro;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private Vistas.PanelAspirante panelAspirante1;
