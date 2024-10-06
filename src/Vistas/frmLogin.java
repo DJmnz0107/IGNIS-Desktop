@@ -176,6 +176,7 @@ setIconImage(scaledImage);
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

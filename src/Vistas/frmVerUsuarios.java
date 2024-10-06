@@ -77,6 +77,7 @@ setIconImage(scaledImage);
         txtBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,7 +105,6 @@ setIconImage(scaledImage);
         JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
         jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 110, 45));
 
-        jtUsuarios.setBackground(new java.awt.Color(255, 255, 255));
         jtUsuarios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtUsuarios.setForeground(new java.awt.Color(255, 173, 122));
         jtUsuarios.setModel(new javax.swing.table.DefaultTableModel(

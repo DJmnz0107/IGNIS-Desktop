@@ -57,13 +57,14 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         txtEspecializacion = new Vistas.TextFieldGris();
         jLabel5 = new javax.swing.JLabel();
         cmbUsuario = new javax.swing.JComboBox<>();
-        btnAgregarInfo = new Vistas.btnRojoForms();
+        btnVerRegistro = new Vistas.btnRojoForms();
         btnAgregarInfo1 = new Vistas.btnRojoForms();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtExperiencia = new Vistas.TextAreaGris();
         btnAgregarFoto1 = new Vistas.btnRojoForms();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -149,11 +150,11 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         });
         panelRound31.add(cmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 208, 40));
 
-        btnAgregarInfo.setText("     Ver registro");
-        btnAgregarInfo.setToolTipText("");
-        btnAgregarInfo.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        btnAgregarInfo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelRound31.add(btnAgregarInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, 174, 50));
+        btnVerRegistro.setText("     Ver registro");
+        btnVerRegistro.setToolTipText("");
+        btnVerRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnVerRegistro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelRound31.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, 174, 50));
 
         btnAgregarInfo1.setText("   Agregar informacion");
         btnAgregarInfo1.setToolTipText("");
@@ -189,6 +190,7 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
@@ -236,9 +238,9 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Vistas.btnRojoForms btnAgregarFoto1;
-    public Vistas.btnRojoForms btnAgregarInfo;
     public Vistas.btnRojoForms btnAgregarInfo1;
     public javax.swing.JButton btnMenu;
+    public Vistas.btnRojoForms btnVerRegistro;
     public javax.swing.JComboBox<String> cmbUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
