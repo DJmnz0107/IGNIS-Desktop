@@ -7,9 +7,16 @@ package Vistas;
 import Controlador.ctrlCrearCuenta;
 import Modelo.Niveles;
 import Modelo.Usuarios;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.text.AbstractDocument;
 
 /**
@@ -39,6 +46,20 @@ setIconImage(scaledImage);
     }
     
     public static void initFrmCrearCuenta(){
+        FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
+              UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
+        UIManager.put("ComboBox.foreground", Color.DARK_GRAY);              
+        UIManager.put("ComboBox.selectionBackground", new Color(0xFF7043)); 
+        UIManager.put("ComboBox.selectionForeground", Color.WHITE);         
+        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xFFFFFF), 1)); 
+        UIManager.put( "Component.arrowType", "triangle" );
+
+        UIManager.put("TextField.arc", 50); 
+        UIManager.put("ComboBox.arc", 50); 
+        
         Niveles modeloNivel = new Niveles();
         Usuarios modeloUsuarios = new Usuarios();
         frmCrearCuenta vista = new frmCrearCuenta();
