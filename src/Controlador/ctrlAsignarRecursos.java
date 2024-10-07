@@ -25,19 +25,20 @@ public class ctrlAsignarRecursos implements MouseListener{
        this.vista = vista;
        this.vista.btnguardar.addMouseListener(this);
        this.vista.btnVerAsigRecu.addMouseListener(this);
+       this.vista.cmbMision.addMouseListener(this);
+       this.modelo.CargarComboMisiones(vista.cmbMision);
        
        
        
        
     }
     
+    
     private void guardarAsigRecu(){
         
         int Recurso = (int) vista.cmbRecursos.getSelectedItem();
         int Misiones = (int)vista.cmbMision.getSelectedItem();
-        
-        
-    
+
     }
     
 
@@ -57,6 +58,8 @@ public class ctrlAsignarRecursos implements MouseListener{
             frmAsignarRecursosVer.initFrmAsignarRecursosVer();
             vista.dispose();
         }
+        
+      
         
       
     }

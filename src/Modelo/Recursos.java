@@ -29,6 +29,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Recursos {
     
+    
+  
+    
+    
     public Recursos() {
         
     }
@@ -140,6 +144,12 @@ public class Recursos {
     this.nombreRecurso= nombreRecurso;
     
     }
+    
+    @Override
+public String toString() {
+    return this.nombreRecurso; 
+}
+
     
 
     /**

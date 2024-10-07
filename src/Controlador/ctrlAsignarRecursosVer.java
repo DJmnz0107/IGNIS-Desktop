@@ -6,6 +6,8 @@ package Controlador;
 
 import Modelo.MisionesRecursos;
 import Vistas.frmAsignarRecursosVer;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -14,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author USUARIO
  */
-public class ctrlAsignarRecursosVer implements MouseListener{
+public class ctrlAsignarRecursosVer implements MouseListener,KeyListener{
     
     private frmAsignarRecursosVer vista;
     private MisionesRecursos modelo;
@@ -24,6 +26,7 @@ public class ctrlAsignarRecursosVer implements MouseListener{
     public ctrlAsignarRecursosVer(frmAsignarRecursosVer vista, MisionesRecursos modelo ){
     this.modelo = modelo;
     this.vista = vista;
+    vista.txtBuscar.addKeyListener(this);
     vista.btnActualizar.addMouseListener(this);
     vista.btnEliminar.addMouseListener(this);
         modelo.Mostrar(vista.jtbVerAsignarRecu);
@@ -45,6 +48,8 @@ public class ctrlAsignarRecursosVer implements MouseListener{
                
                   
               }
+              
+                
         
         }
     
@@ -63,6 +68,23 @@ public class ctrlAsignarRecursosVer implements MouseListener{
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+       
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+       if(e.getSource()==vista.txtBuscar){
+        modelo.Buscar(vista.jtbVerAsignarRecu, vista.txtBuscar);
+       }
     }
     
 }

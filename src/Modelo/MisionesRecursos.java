@@ -62,95 +62,61 @@ public class MisionesRecursos {
     private int id_misionRecurso;
     private int id_mision;
     private int id_recurso;
+    private String descripcion_Mision;
+    private String nombre_Recurso;
+
+    public String getNombre_Recurso() {
+        return nombre_Recurso;
+    }
+
+    public void setNombre_Recurso(String nombre_Recurso) {
+        this.nombre_Recurso = nombre_Recurso;
+    }
+
+    public String getDescripcion_Mision() {
+        return descripcion_Mision;
+    }
+
+    public void setDescripcion_Mision(String descripcion_Mision) {
+        this.descripcion_Mision = descripcion_Mision;
+    }
     
     public MisionesRecursos(){
             
     }
     
-    public MisionesRecursos(int id_misionRecurso,int id_mision, int id_recurso){
-      this.id_misionRecurso = id_misionRecurso;
-      this.id_mision = id_mision;
-      this.id_recurso = id_recurso;
+    public MisionesRecursos(int id, String nombre){
+      this.id_mision = id;
+      this.descripcion_Mision = nombre;
+    }
     
+    public MisionesRecursos(int id, String nombre){
+      this.id_recurso = id;
+      this.nombre_Recurso = nombre;
+    }
+    
+     @Override
+    public String toString() {
+        return descripcion_Mision;
     }
     
     
-    public MisionesRecursos obtenerDatosTabla (frmAsignarRecursosVer vista ) throws ParseException{
-    
-        int filaSeleccionada = vista.jtbVerAsignarRecu.getSelectedRow();
-        
-        if(filaSeleccionada != -1){
-        
-            
-            int id_misionRecurso =(Integer) vista.jtbVerAsignarRecu.getValueAt(filaSeleccionada,0);
-            int id_mision = (Integer) vista.jtbVerAsignarRecu.getValueAt(filaSeleccionada,1);
-            int id_recurso = (Integer) vista.jtbVerAsignarRecu.getValueAt(filaSeleccionada, 2);
-            
-            
-            return new MisionesRecursos(id_misionRecurso,id_mision,id_recurso);
-            
-        }
-          return null;
-    }
-    
-    
-    public void cargarComboBoxRecursos(JComboBox comboBox, int idRecursoSeleccionado) {    
-    Connection conexion = ClaseConexion.getConexion();
-    comboBox.removeAllItems();
-    try {
-        Statement statement = conexion.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT * FROM Recursos");
-        
-        while (rs.next()) {
-            int id = rs.getInt("id_recurso"); 
-            String nombre = rs.getString("nombre_recurso");
-            comboBox.addItem(new Recursos(id, nombre)); // 
-            System.out.println("Cargando: ID: " + id + ", Nombre: " + nombre); 
-        }
-        
-        System.out.println("ID de recurso seleccionado: " + idRecursoSeleccionado);
-        
-        for (int i = 0; i < comboBox.getItemCount(); i++) {
-            Recursos recurso = (Recursos) comboBox.getItemAt(i);
-            System.out.println("Comparando con ID: " + recurso.getIdRecurso());
-            if (recurso.getIdRecurso() == idRecursoSeleccionado) {
-                comboBox.setSelectedIndex(i); 
-                break; 
-            }
-        }
-    } catch(SQLException ex) {
-        ex.printStackTrace();  
-    }
-}
-    public void cargarComboBoxMisiones(JComboBox comboBox, int idMisionSeleccionada) {    
+    public void CargarComboMisiones(JComboBox comboBox) {
     Connection conexion = ClaseConexion.getConexion();
     comboBox.removeAllItems();
     try {
         Statement statement = conexion.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM Misiones");
-        
+
         while (rs.next()) {
-            int id = rs.getInt("id_mision"); 
-            String descripcion = rs.getString("descripcion_mision");
-            comboBox.addItem(new Misiones(id, descripcion)); // Asume que existe una clase Misiones con constructor id, descripcion
-            System.out.println("Cargando: ID: " + id + ", Descripción: " + descripcion); // Para verificar
-        }
-        
-        System.out.println("ID de misión seleccionada: " + idMisionSeleccionada);
-        
-        for (int i = 0; i < comboBox.getItemCount(); i++) {
-            Misiones mision = (Misiones) comboBox.getItemAt(i);
-            System.out.println("Comparando con ID: " + mision.getIdMision());
-            if (mision.getIdMision() == idMisionSeleccionada) {
-                comboBox.setSelectedIndex(i); // Selecciona el índice
-                break; // Salir del bucle una vez encontrado
-            }
+            int id = rs.getInt("id_mision");
+            String nombre = rs.getString("descripcion_Mision");
+            comboBox.addItem(new MisionesRecursos(id, nombre)); // Añadir nombre y apellido
         }
     } catch(SQLException ex) {
         ex.printStackTrace();  
     }
 }
-    
     
     
     

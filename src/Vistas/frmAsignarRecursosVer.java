@@ -43,8 +43,8 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
         imgBack = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         JTextField = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        txtBuscar = new javax.swing.JTextField();
+        imgBuscar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbVerAsignarRecu = new javax.swing.JTable();
         btnEliminar = new Vistas.btnRojoForms();
@@ -82,13 +82,13 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
         });
         jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 69, 109, 40));
 
-        jTextField1.setBackground(new java.awt.Color(255, 173, 122));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 69, 270, 40));
+        txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
+        txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        txtBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 69, 270, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 69, 40, 40));
+        imgBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
+        jPanel1.add(imgBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 69, 40, 40));
 
         jtbVerAsignarRecu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -182,11 +182,11 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
     public Vistas.btnRojoForms btnActualizar;
     public Vistas.btnRojoForms btnEliminar;
     public javax.swing.JLabel imgBack;
+    public javax.swing.JLabel imgBuscar;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JTable jtbVerAsignarRecu;
+    public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
