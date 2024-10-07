@@ -4,6 +4,9 @@
  */
 package Vistas;
 
+import Controlador.ctrlAsignarRecursos;
+import Modelo.MisionesRecursos;
+
 /**
  *
  * @author USUARIO
@@ -15,6 +18,16 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
      */
     public frmAsignarRecursos() {
         initComponents();
+    }
+    
+    public static void initFrmAsignarRecursos(){
+    frmAsignarRecursos vista = new frmAsignarRecursos();
+    MisionesRecursos modelo = new MisionesRecursos();
+    ctrlAsignarRecursos controlador = new ctrlAsignarRecursos(vista,modelo);
+    
+    vista.setVisible(true);
+    
+    
     }
 
     /**

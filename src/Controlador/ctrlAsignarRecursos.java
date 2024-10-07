@@ -16,16 +16,15 @@ import javax.swing.JOptionPane;
  * @author USUARIO
  */
 public class ctrlAsignarRecursos implements MouseListener{
-    private MisionesRecursos Modelo;
-    private frmAsignarRecursos Vistas;
+        private frmAsignarRecursos vista;
+      private MisionesRecursos modelo;
+   
+    public ctrlAsignarRecursos(frmAsignarRecursos vista,MisionesRecursos modelo ){
     
-    public ctrlAsignarRecursos(MisionesRecursos modelo,frmAsignarRecursos Vistas ){
-    
-       this.Modelo = modelo;
-       this.Vistas = Vistas;
-       
-       this.Vistas.btnguardar.addMouseListener(this);
-       this.Vistas.btnVerAsigRecu.addMouseListener(this);
+       this.modelo = modelo;
+       this.vista = vista;
+       this.vista.btnguardar.addMouseListener(this);
+       this.vista.btnVerAsigRecu.addMouseListener(this);
        
        
        
@@ -34,8 +33,8 @@ public class ctrlAsignarRecursos implements MouseListener{
     
     private void guardarAsigRecu(){
         
-        int Recurso = (int) Vistas.cmbRecursos.getSelectedItem();
-        int Misiones = (int)Vistas.cmbMision.getSelectedItem();
+        int Recurso = (int) vista.cmbRecursos.getSelectedItem();
+        int Misiones = (int)vista.cmbMision.getSelectedItem();
         
         
     
@@ -45,18 +44,18 @@ public class ctrlAsignarRecursos implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         
-        if(e.getSource()==Vistas.btnguardar){
+        if(e.getSource()==vista.btnguardar){
         
         guardarAsigRecu();
-            Modelo.Guardar();
-            JOptionPane.showMessageDialog(Vistas,"Informacion ingresada con exito","Agregar transporte",JOptionPane.INFORMATION_MESSAGE);
+            modelo.Guardar();
+            JOptionPane.showMessageDialog(vista,"Informacion ingresada con exito","Agregar transporte",JOptionPane.INFORMATION_MESSAGE);
         
         }
         
         
-        if(e.getSource()==Vistas.btnVerAsigRecu){
+        if(e.getSource()==vista.btnVerAsigRecu){
             frmAsignarRecursosVer.initFrmAsignarRecursosVer();
-            Vistas.dispose();
+            vista.dispose();
         }
         
       
