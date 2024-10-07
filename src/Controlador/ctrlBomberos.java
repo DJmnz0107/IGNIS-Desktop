@@ -8,12 +8,14 @@ import Modelo.Bomberos;
 import Vistas.frmActualizarBomberos;
 import Vistas.frmAgregarBomberos;
 import Vistas.frmRegistroBomberos;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 
-public class ctrlBomberos implements MouseListener{
+public class ctrlBomberos implements MouseListener, KeyListener{
     
     private frmRegistroBomberos Vistas;
     private Bomberos Modelo;
@@ -28,6 +30,7 @@ public class ctrlBomberos implements MouseListener{
         this.Vistas.imgBack.addMouseListener(this);
         this.Vistas.btnEliminar.addMouseListener(this);
         this.Vistas.btnActualizar.addMouseListener(this);
+        this.Vistas.txtBuscar.addKeyListener(this);
         
         
     }
@@ -98,6 +101,25 @@ public class ctrlBomberos implements MouseListener{
 
     @Override
     public void mouseExited(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+       
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+        if(e.getSource() == Vistas.txtBuscar) {
+            Modelo.Buscar(Vistas.jtBomberos, Vistas.txtBuscar);
+        }
         
     }
 }

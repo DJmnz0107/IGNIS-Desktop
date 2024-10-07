@@ -6,6 +6,8 @@ package Controlador;
 
 import Modelo.Bomberos;
 import Vistas.frmActualizarBomberos;
+import Vistas.frmAgregarBomberos;
+import Vistas.frmRegistroBomberos;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -34,6 +36,7 @@ public class ctrlActualizarBomberos implements MouseListener{
         this.Vistas.btnAgregarFoto1.addMouseListener(this);
         this.Vistas.btnMenu.addMouseListener(this);
         this.Vistas.btnVerRegistro.addMouseListener(this);
+        this.Vistas.imgBack.addMouseListener(this);
         
         
     }
@@ -41,6 +44,16 @@ public class ctrlActualizarBomberos implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         
+        if(e.getSource()== Vistas.btnVerRegistro){
+            frmRegistroBomberos.initfrmRegistroBomberos();
+            Vistas.dispose();
+            
+        }
+        
+        if(e.getSource()== Vistas.imgBack){
+            frmAgregarBomberos.initfrmAgregarBomberos();
+            Vistas.dispose();
+        }
                 if(e.getSource() == Vistas.btnActualizar) {
             
            

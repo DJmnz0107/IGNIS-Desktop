@@ -20,6 +20,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -401,6 +402,42 @@ public class Bomberos {
         Vistas.txtExperiencia.setText("");
         Vistas.txtEspecializacion.setText("");
         
+    }
+        
+        public void Buscar(JTable tabla, JTextField JTextField1) {
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel Transporte = new DefaultTableModel();
+        Transporte.setColumnIdentifiers(new Object[]{"id_Bombero", "Nombre", "Apellido", "Experiencia", "Especializacion", "Foto", "id_Usuario"});
+        try {
+            String sql = "SELECT * FROM Bomberos WHERE nombre_Bombero LIKE ? || '%'";
+            PreparedStatement BomberosBuscar = conexion.prepareStatement(sql);
+            BomberosBuscar.setString(1, JTextField1.getText());
+            ResultSet rs = BomberosBuscar.executeQuery();
+
+            while (rs.next()) {
+                
+                Transporte.addRow(new Object[]{rs.getInt("id_Bombero"), 
+                    rs.getString("nombre_Bombero"), 
+                    rs.getString("apellido_Bombero"),
+                    rs.getString("experiencia_Bombero"),
+                    rs.getString("especializacion_Bombero"),
+                    rs.getString("foto_Bombero"),
+                    rs.getInt("id_Usuario")});
+            }
+            
+            tabla.setModel(Transporte);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setWidth(0);
+            tabla.getColumnModel().getColumn(5).setMinWidth(0);
+            tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(5).setWidth(0);
+            tabla.getColumnModel().getColumn(6).setMinWidth(0);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(6).setWidth(0);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo de buscar " + e);
+        }
     }
          
          
