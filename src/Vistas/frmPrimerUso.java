@@ -14,7 +14,9 @@ import java.awt.Font;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.text.AbstractDocument;
 
 
 /**
@@ -42,6 +44,10 @@ setIconImage(scaledImage);
            this.setSize(1080, 600);
 
         this.setLocationRelativeTo(null);
+        
+        
+            JTextField duiField = txtDUIPrimer; 
+        ((AbstractDocument) duiField.getDocument()).setDocumentFilter(new DuiDocumentFilter());
          
 
         

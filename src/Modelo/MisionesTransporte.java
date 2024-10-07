@@ -61,6 +61,9 @@ public class MisionesTransporte {
    private int id_mision;
    private int id_bombero;
    
+   
+   
+   
    public void Mostrar(JTable tabla) {
     // Creamos una variable de la clase de conexión
     Connection conexion = ClaseConexion.getConexion();

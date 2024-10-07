@@ -28,8 +28,8 @@ public class frmRegistroTransportes extends javax.swing.JFrame {
         GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
-                                jtRegistroTransporte.setDefaultEditor(Object.class, null); // Deshabilita la edición
         initComponents();
+                                        jtRegistroTransporte.setDefaultEditor(Object.class, null); // Deshabilita la edición
     }
     
     public static void initfrmRegistroTransporte() {

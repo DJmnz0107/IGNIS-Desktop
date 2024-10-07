@@ -7,6 +7,8 @@ package Controlador;
 import Modelo.Emergencias;
 import Modelo.Misiones;
 import Vistas.frmAgregarMision;
+import Vistas.frmAsignarRecursos;
+import Vistas.frmAsignarRecursosVer;
 import Vistas.frmInicio;
 import Vistas.frmRegistroTransportes;
 import Vistas.frmVerRegistroMisiones;
@@ -38,6 +40,7 @@ public class ctrlAgregarMisiones implements MouseListener {
     vista.btnVerRegistro.addMouseListener(this);
     vista.btnMenu.addMouseListener(this);
     vista.btnTransportes2.addMouseListener(this);
+    vista.btnRecursos.addMouseListener(this);
     
     vista.imgBack.addMouseListener(this);
     }
@@ -55,6 +58,7 @@ public class ctrlAgregarMisiones implements MouseListener {
             JOptionPane.showMessageDialog(vista, "Por favor, llena todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+     
         
       
           if (vista.cmbEmergencia.getSelectedItem() == null) {
@@ -72,6 +76,11 @@ public class ctrlAgregarMisiones implements MouseListener {
         JOptionPane.showMessageDialog(vista, "Misión ingresada exitosamente.");
         limpiarCampos();
     }
+       
+          if(e.getSource() == vista.btnRecursos) {
+                frmAsignarRecursos.initFrmAsignarRecursos();
+        }
+          
         if(e.getSource() == vista.btnMenu) {
             Drawer.getInstance().showDrawer();
             System.out.println("Hola");

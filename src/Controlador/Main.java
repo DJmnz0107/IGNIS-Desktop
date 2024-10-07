@@ -5,6 +5,8 @@ import Modelo.Usuarios;
 import Vistas.frmCrearCuenta;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarTransportes;
+import Vistas.frmAsignarRecursos;
+import Vistas.frmAsignarRecursosVer;
 import Vistas.frmLogin;
 import java.sql.Connection;
 import Vistas.frmMenu;
@@ -30,9 +32,7 @@ public class Main {
                 
                 frmSplashScreen splash = new frmSplashScreen();
                 
-                frmSplashScreen.initFrmSplash();
-
-                
+                frmSplashScreen.initFrmSplash();                
                 new Thread(new Runnable() {
                     @Override
                     public void run() {

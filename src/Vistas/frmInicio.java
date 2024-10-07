@@ -109,6 +109,7 @@ setIconImage(scaledImage);
 
         jlblTextoInicio.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 28)); // NOI18N
         jlblTextoInicio.setForeground(new java.awt.Color(255, 255, 255));
+        jlblTextoInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlblTextoInicio.setText("Text");
         jPanel1.add(jlblTextoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 890, 50));
 
