@@ -4,44 +4,17 @@
  */
 package Vistas;
 
-import Controlador.ctrlMisionesBomberos;
-import Controlador.ctrlMisionesTransporte;
-import Modelo.MisionesBomberos;
-import Modelo.MisionesTransporte;
-import Vistas.drawer.MyDrawerBuilder;
-import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import java.awt.Font;
-import javax.swing.UIManager;
-import raven.drawer.Drawer;
-import raven.popup.GlassPanePopup;
-
 /**
  *
- * @author angel
+ * @author danie
  */
-public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
+public class frmMisionesTransportes extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmRegistroMisionesBomberos
+     * Creates new form frmMisionesTransportes
      */
-    public frmRegistroMisionesBomberos() {
-        GlassPanePopup.install(this);
-        MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
-        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+    public frmMisionesTransportes() {
         initComponents();
-    }
-    
-    public static void initfrmRegistroMisionesBomberos() {
-        FlatRobotoFont.install();
-        FlatLaf.registerCustomDefaultsSource("vistas.themes");
-        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
-        FlatLightLaf.setup();
-        MisionesBomberos modelo = new MisionesBomberos();
-        frmRegistroMisionesBomberos Vista = new frmRegistroMisionesBomberos();
-        ctrlMisionesBomberos controlador = new ctrlMisionesBomberos(modelo, Vista);
-        Vista.setVisible(true);
     }
 
     /**
@@ -53,33 +26,34 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnInicio21 = new Vistas.btnInicio2();
-        jPanelBombero = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        imgBack = new javax.swing.JLabel();
-        JTextField = new javax.swing.JTextField();
         txtBuscar = new javax.swing.JTextField();
+        JTextField = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtMisionesBomberos = new javax.swing.JTable();
+        jtrandom = new javax.swing.JTable();
         btnEliminar = new Vistas.btnRojoForms();
         btnActualizar = new Vistas.btnRojoForms();
-
-        btnInicio21.setText("btnInicio21");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(239, 138, 76));
 
-        jPanelBombero.setBackground(new java.awt.Color(239, 138, 76));
-        jPanelBombero.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(239, 138, 76));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Asignar bomberos > Ver registro");
-        jPanelBombero.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        jLabel1.setText("Asignar transporte > Ver registro");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
-        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
-        jPanelBombero.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
+        txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        txtBuscar.setBorder(null);
+        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 380, 40));
 
         JTextField.setBackground(new java.awt.Color(192, 109, 58));
         JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -95,21 +69,13 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
                 JTextFieldActionPerformed(evt);
             }
         });
-        jPanelBombero.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 100, 40));
-
-        txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
-        txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        txtBuscar.setBorder(null);
-        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanelBombero.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 380, 40));
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 100, 40));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
         btnBuscar.setToolTipText("");
-        jPanelBombero.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, -1, -1));
 
-        jtMisionesBomberos.setModel(new javax.swing.table.DefaultTableModel(
+        jtrandom.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -120,14 +86,14 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jtMisionesBomberos);
+        jScrollPane1.setViewportView(jtrandom);
 
-        jPanelBombero.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 880, 380));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 880, 380));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanelBombero.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 200, 60));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 200, 60));
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
@@ -137,20 +103,23 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanelBombero.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, 200, 60));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 520, 200, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBombero, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBombero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void JTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldActionPerformed
@@ -178,20 +147,20 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroMisionesBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMisionesTransportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroMisionesBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMisionesTransportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroMisionesBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMisionesTransportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmRegistroMisionesBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMisionesTransportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmRegistroMisionesBomberos().initfrmRegistroMisionesBomberos();
+                new frmMisionesTransportes().setVisible(true);
             }
         });
     }
@@ -201,12 +170,10 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
     public Vistas.btnRojoForms btnActualizar;
     public javax.swing.JLabel btnBuscar;
     public Vistas.btnRojoForms btnEliminar;
-    private Vistas.btnInicio2 btnInicio21;
-    public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;
-    public javax.swing.JPanel jPanelBombero;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jtMisionesBomberos;
+    public javax.swing.JTable jtrandom;
     public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

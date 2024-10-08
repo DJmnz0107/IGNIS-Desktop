@@ -10,11 +10,13 @@ import Vistas.frmAgregarBomberos;
 import Vistas.frmCrearCuenta;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarTransportes;
+import Vistas.frmAsignarMisionesBomberos;
 import Vistas.frmLogin;
 import java.sql.Connection;
 import Vistas.frmMenu;
 import Vistas.frmPrimerUso;
 import Vistas.frmRecuperacionContrasena;
+import Vistas.frmRegistroMisionesBomberos;
 import Vistas.frmVerCambios;
 import Vistas.frmVerRegistroAspirantes;
 import Vistas.frmVerRegistroTransporter;
@@ -37,7 +39,7 @@ public class Main {
                 if (!modeloUsuario.verificarUsuario()) {
                     frmPrimerUso.initFrmCrearCuenta();
                 } else {
-                    frmLogin.initfrmLogin();
+                    frmAsignarMisionesBomberos.initfrmAsignarMisionesBomberos();
                     Connection conexion = ClaseConexion.getConexion();
 
                     // Verifica si el controlador ya ha sido creado
