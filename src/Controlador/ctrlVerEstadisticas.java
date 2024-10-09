@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Misiones;
+import Vistas.frmInicio;
 import Vistas.frmVerEstadisticas;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -20,10 +21,16 @@ public class ctrlVerEstadisticas implements MouseListener {
         this.vista = vista;
         
         vista.btnMenu.addMouseListener(this);
+        vista.imgBack.addMouseListener(this);
     }
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource() == vista.imgBack){
+        frmInicio.initfrmInicio();
+        vista.dispose();
+        }
         if(e.getSource() == vista.btnMenu) {
             Drawer.getInstance().showDrawer();
         }

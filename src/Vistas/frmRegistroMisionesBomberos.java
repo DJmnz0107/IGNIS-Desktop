@@ -31,6 +31,7 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        
     }
     
     public static void initfrmRegistroMisionesBomberos() {
@@ -54,60 +55,24 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
     private void initComponents() {
 
         btnInicio21 = new Vistas.btnInicio2();
-        jPanelBombero = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        imgBack = new javax.swing.JLabel();
-        JTextField = new javax.swing.JTextField();
-        txtBuscar = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtMisionesBomberos = new javax.swing.JTable();
         btnEliminar = new Vistas.btnRojoForms();
         btnActualizar = new Vistas.btnRojoForms();
+        txtBuscar = new javax.swing.JTextField();
+        JTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        imgBack = new javax.swing.JLabel();
 
         btnInicio21.setText("btnInicio21");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(239, 138, 76));
+        setResizable(false);
 
-        jPanelBombero.setBackground(new java.awt.Color(239, 138, 76));
-        jPanelBombero.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Asignar bomberos > Ver registro");
-        jPanelBombero.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
-
-        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
-        jPanelBombero.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-
-        JTextField.setBackground(new java.awt.Color(192, 109, 58));
-        JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        JTextField.setForeground(new java.awt.Color(255, 255, 255));
-        JTextField.setText("   Buscar:");
-        JTextField.setBorder(null);
-        JTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        JTextField.setEnabled(false);
-        JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        JTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTextFieldActionPerformed(evt);
-            }
-        });
-        jPanelBombero.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 100, 40));
-
-        txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
-        txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        txtBuscar.setBorder(null);
-        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanelBombero.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 380, 40));
-
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
-        btnBuscar.setToolTipText("");
-        jPanelBombero.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(240, 139, 77));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtMisionesBomberos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,44 +87,59 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtMisionesBomberos);
 
-        jPanelBombero.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 880, 380));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 880, 380));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanelBombero.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 200, 60));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 200, 50));
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
         btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-        jPanelBombero.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, 200, 60));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, 200, 50));
+
+        txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
+        txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        txtBuscar.setBorder(null);
+        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 380, 40));
+
+        JTextField.setBackground(new java.awt.Color(192, 109, 58));
+        JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        JTextField.setForeground(new java.awt.Color(255, 255, 255));
+        JTextField.setText("   Buscar:");
+        JTextField.setBorder(null);
+        JTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        JTextField.setEnabled(false);
+        JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 100, 40));
+
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Asignar bomberos > Ver registro");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBombero, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBombero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextFieldActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,12 +179,11 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextField;
     public Vistas.btnRojoForms btnActualizar;
-    public javax.swing.JLabel btnBuscar;
     public Vistas.btnRojoForms btnEliminar;
     private Vistas.btnInicio2 btnInicio21;
     public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;
-    public javax.swing.JPanel jPanelBombero;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jtMisionesBomberos;
     public javax.swing.JTextField txtBuscar;

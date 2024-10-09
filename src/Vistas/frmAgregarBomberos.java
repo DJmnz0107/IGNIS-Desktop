@@ -4,6 +4,12 @@
  */
 package Vistas;
 
+import Controlador.ctrlAgregarBomberos;
+import Modelo.Bomberos;
+import Vistas.drawer.MyDrawerBuilder;
+import raven.drawer.Drawer;
+import raven.popup.GlassPanePopup;
+
 /**
  *
  * @author User
@@ -14,8 +20,18 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
      * Creates new form frmAgregarBomberos
      */
     public frmAgregarBomberos() {
+        GlassPanePopup.install(this);
+        MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
+        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
-        
+    }
+    
+    public static void initfrmAgregarBomberos(){
+    
+    Bomberos Modelo = new Bomberos();
+    frmAgregarBomberos Vistas = new frmAgregarBomberos();
+    ctrlAgregarBomberos controlador = new ctrlAgregarBomberos(Modelo, Vistas);
+    Vistas.setVisible(true);
     }
 
     /**
@@ -28,42 +44,39 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
-        panelRound2 = new Vistas.PanelRound();
-        panelRound3 = new Vistas.PanelRound();
-        btnAgregarFoto = new Vistas.ButtonEdit();
-        txtApellido = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtExperiencia = new javax.swing.JTextArea();
-        txtEspecializacion = new javax.swing.JTextField();
-        spUsuario = new javax.swing.JComboBox<>();
+        lblFoto = new javax.swing.JLabel();
+        panelRound31 = new Vistas.panelRound3();
+        jLabel1 = new javax.swing.JLabel();
+        txtNombreBombero = new Vistas.TextFieldGris();
+        jLabel2 = new javax.swing.JLabel();
+        txtApellidoBombero = new Vistas.TextFieldGris();
         jLabel3 = new javax.swing.JLabel();
-        btnAgregarInformacion = new Vistas.ButtonEdit();
-        btnVerRegistro = new Vistas.ButtonEdit();
         jLabel4 = new javax.swing.JLabel();
+        txtEspecializacion = new Vistas.TextFieldGris();
+        jLabel5 = new javax.swing.JLabel();
+        cmbUsuario = new javax.swing.JComboBox<>();
+        btnVerRegistro = new Vistas.btnRojoForms();
+        btnAgregarInfo1 = new Vistas.btnRojoForms();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtExperiencia = new Vistas.TextAreaGris();
+        btnAgregarFoto1 = new Vistas.btnRojoForms();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
-
-        jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("IGNIS");
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("> Bomberos");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopRight(50);
 
-        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/lista.png"))); // NOI18N
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/lista.png"))); // NOI18N
         btnMenu.setBorder(null);
+        btnMenu.setContentAreaFilled(false);
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
@@ -75,184 +88,110 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(btnMenu)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(24, 24, 24)
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
-        panelRound2.setRoundBottomLeft(50);
-        panelRound2.setRoundBottomRight(50);
-        panelRound2.setRoundTopLeft(50);
-        panelRound2.setRoundTopRight(50);
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
 
-        panelRound3.setBackground(new java.awt.Color(245, 178, 74));
-        panelRound3.setRoundBottomLeft(50);
-        panelRound3.setRoundBottomRight(50);
-        panelRound3.setRoundTopLeft(50);
-        panelRound3.setRoundTopRight(50);
+        lblFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 100, 120));
 
-        btnAgregarFoto.setBackground(new java.awt.Color(217, 71, 62));
-        btnAgregarFoto.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarFoto.setText("Agregar foto");
-        btnAgregarFoto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnAgregarFoto.setRadius(30);
+        panelRound31.setRoundBottomRight(50);
+        panelRound31.setRoundTopLeft(50);
+        panelRound31.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtApellido.setText("Ingresar apellido");
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel1.setText("Ingresar Especialización");
+        panelRound31.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNombre.setText("Ingresar nombre");
+        txtNombreBombero.setForeground(new java.awt.Color(0, 0, 0));
+        txtNombreBombero.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        txtNombreBombero.setHint("");
+        panelRound31.add(txtNombreBombero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 330, 40));
 
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel2.setText("Ingresar Apellido");
+        panelRound31.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, -1, -1));
+
+        txtApellidoBombero.setForeground(new java.awt.Color(0, 0, 0));
+        txtApellidoBombero.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        txtApellidoBombero.setHint("");
+        panelRound31.add(txtApellidoBombero, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 330, 40));
+
+        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel3.setText("Ingresar nombre");
+        panelRound31.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel4.setText("Ingresar Experiencia");
+        panelRound31.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        txtEspecializacion.setForeground(new java.awt.Color(0, 0, 0));
+        txtEspecializacion.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        txtEspecializacion.setHint("");
+        panelRound31.add(txtEspecializacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 380, 40));
+
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel5.setText("Usuario");
+        panelRound31.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 72, -1));
+
+        cmbUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbUsuarioActionPerformed(evt);
+            }
+        });
+        panelRound31.add(cmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 220, 40));
+
+        btnVerRegistro.setText("     Ver registro");
+        btnVerRegistro.setToolTipText("");
+        btnVerRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnVerRegistro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVerRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerRegistroActionPerformed(evt);
+            }
+        });
+        panelRound31.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 170, 40));
+
+        btnAgregarInfo1.setText("   Agregar informacion");
+        btnAgregarInfo1.setToolTipText("");
+        btnAgregarInfo1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnAgregarInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelRound31.add(btnAgregarInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 220, 40));
+
+        txtExperiencia.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtExperiencia.setColumns(20);
         txtExperiencia.setRows(5);
+        txtExperiencia.setToolTipText("");
         jScrollPane1.setViewportView(txtExperiencia);
 
-        txtEspecializacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEspecializacion.setText("Ingresar especialización");
+        panelRound31.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 860, 130));
 
-        spUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 960, 450));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setText("Usuario");
+        btnAgregarFoto1.setText("     Agregar foto");
+        btnAgregarFoto1.setToolTipText("");
+        btnAgregarFoto1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnAgregarFoto1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(btnAgregarFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 190, 40));
 
-        btnAgregarInformacion.setBackground(new java.awt.Color(217, 71, 62));
-        btnAgregarInformacion.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/mas (1).png"))); // NOI18N
-        btnAgregarInformacion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnAgregarInformacion.setLabel("  Agregar información");
-        btnAgregarInformacion.setRadius(30);
-
-        btnVerRegistro.setBackground(new java.awt.Color(217, 71, 62));
-        btnVerRegistro.setForeground(new java.awt.Color(255, 255, 255));
-        btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/contrato.png"))); // NOI18N
-        btnVerRegistro.setText("  Ver registro");
-        btnVerRegistro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnVerRegistro.setRadius(30);
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel4.setText("Ingresar experencia");
-
-        javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
-        panelRound3.setLayout(panelRound3Layout);
-        panelRound3Layout.setHorizontalGroup(
-            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound3Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(btnAgregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(panelRound3Layout.createSequentialGroup()
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtEspecializacion, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
-                    .addGroup(panelRound3Layout.createSequentialGroup()
-                        .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnVerRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAgregarInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))))
-                .addGap(12, 12, 12))
-        );
-        panelRound3Layout.setVerticalGroup(
-            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound3Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEspecializacion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                        .addComponent(btnAgregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117))
-                    .addGroup(panelRound3Layout.createSequentialGroup()
-                        .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelRound3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelRound3Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(btnAgregarInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-
-        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
-        panelRound2.setLayout(panelRound2Layout);
-        panelRound2Layout.setHorizontalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        panelRound2Layout.setVerticalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 820, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(63, 63, 63))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
-                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,11 +199,20 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
+        Drawer.getInstance().showDrawer();
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void cmbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbUsuarioActionPerformed
+
+    private void btnVerRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerRegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,23 +250,25 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public Vistas.ButtonEdit btnAgregarFoto;
-    public Vistas.ButtonEdit btnAgregarInformacion;
+    public Vistas.btnRojoForms btnAgregarFoto1;
+    public Vistas.btnRojoForms btnAgregarInfo1;
     public javax.swing.JButton btnMenu;
-    public Vistas.ButtonEdit btnVerRegistro;
+    public Vistas.btnRojoForms btnVerRegistro;
+    public javax.swing.JComboBox<String> cmbUsuario;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel lblFoto;
     private Vistas.PanelRound panelRound1;
-    private Vistas.PanelRound panelRound2;
-    private Vistas.PanelRound panelRound3;
-    public javax.swing.JComboBox<String> spUsuario;
-    public javax.swing.JTextField txtApellido;
-    public javax.swing.JTextField txtEspecializacion;
-    public javax.swing.JTextArea txtExperiencia;
-    public javax.swing.JTextField txtNombre;
+    private Vistas.panelRound3 panelRound31;
+    public Vistas.TextFieldGris txtApellidoBombero;
+    public Vistas.TextFieldGris txtEspecializacion;
+    public Vistas.TextAreaGris txtExperiencia;
+    public Vistas.TextFieldGris txtNombreBombero;
     // End of variables declaration//GEN-END:variables
 }

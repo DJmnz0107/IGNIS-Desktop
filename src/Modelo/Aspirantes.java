@@ -16,6 +16,8 @@ import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -26,6 +28,20 @@ import javax.swing.table.DefaultTableModel;
  * @author User
  */
 public class Aspirantes {
+
+    /**
+     * @return the apellido_bombero
+     */
+    public String getApellido_bombero() {
+        return apellido_bombero;
+    }
+
+    /**
+     * @param apellido_bombero the apellido_bombero to set
+     */
+    public void setApellido_bombero(String apellido_bombero) {
+        this.apellido_bombero = apellido_bombero;
+    }
     
     public Aspirantes(){
     }
@@ -121,6 +137,19 @@ public class Aspirantes {
     private String foto_aspirante;
     private int id_bombero;
     private String nombre_bombero;
+    private String apellido_bombero;
+    private String bombero_Mentor;
+
+    public String getBombero_Mentor() {
+        return bombero_Mentor;
+    }
+
+    public void setBombero_Mentor(String bombero_Mentor) {
+        this.bombero_Mentor = bombero_Mentor;
+    }
+    
+    
+
 
     public String getNombre_bombero() {
         return nombre_bombero;
@@ -138,18 +167,21 @@ public class Aspirantes {
         this.id_bombero = id_bombero;
     }
     
-    public Aspirantes(int id, String nombre)
+    public Aspirantes(int id, String nombre, String apellido)
     {
         this.id_bombero = id;
         this.nombre_bombero = nombre;
+                this.apellido_bombero = apellido;
         
         /*LA TABLA ES RELACIONADA Y NECESITO TRAER OTRO GET POR QUE NO EXISTE BOMBEROS*/
     }
     
-    @Override
+      @Override
     public String toString() {
-        return nombre_bombero;  
+        return nombre_bombero + " " + apellido_bombero; // Devuelve el nombre completo
     }
+
+    
     
     
     public Aspirantes obtenerDatosTabla(frmVerRegistroAspirantes vista) {
@@ -171,23 +203,80 @@ public class Aspirantes {
     }
     return null;
 }
+    
+     public boolean verificarDui(String dui) throws SQLException {
+        Connection conexion = ClaseConexion.getConexion();
+        String sql = "SELECT dui_aspirante FROM Aspirantes WHERE dui_aspirante = ?";
 
+        try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+            statement.setString(1, dui);
+            ResultSet resultSet = statement.executeQuery();
+
+            // Retorna true si se encuentra el DUI, false de lo contrario
+            return resultSet.next(); 
+        } finally {
+            if (conexion != null) {
+                conexion.close(); // Asegúrate de cerrar la conexión
+            }
+        }
+    }
+
+     public List<Aspirantes> getAspirantes() {
+    List<Aspirantes> listaAspirantes = new ArrayList<>();
+
+    Connection conexion = ClaseConexion.getConexion();
+
+    // Consulta con INNER JOIN para obtener el nombre y apellido del bombero mentor
+    String query = "SELECT a.id_aspirante, a.nombre_aspirante, a.apellido_aspirante, "
+                 + "a.dui_aspirante, a.entrenamiento_aspirante, a.edad_usuario, "
+                 + "a.progreso_aspirante, a.foto_aspirante, "
+                 + "b.nombre_bombero || ' ' || b.apellido_bombero AS bombero_mentor "
+                 + "FROM Aspirantes a "
+                 + "INNER JOIN Bomberos b ON a.id_bombero = b.id_bombero";
+
+    try (PreparedStatement stmt = conexion.prepareStatement(query);
+         ResultSet rs = stmt.executeQuery()) {
+
+        while (rs.next()) {
+            Aspirantes aspirante = new Aspirantes();
+
+            aspirante.setId_aspirante(rs.getInt("id_aspirante"));
+            aspirante.setNombre_aspirante(rs.getString("nombre_aspirante"));
+            aspirante.setApellido_aspirante(rs.getString("apellido_aspirante"));
+            aspirante.setDui_aspirante(rs.getString("dui_aspirante"));
+            aspirante.setEntrenamiento_aspirante(rs.getString("entrenamiento_aspirante"));
+            aspirante.setEdad_usuario(rs.getInt("edad_usuario"));
+            aspirante.setProgreso_aspirante(rs.getString("progreso_aspirante"));
+            aspirante.setFoto_aspirante(rs.getString("foto_aspirante")); // Asumimos que el CLOB es manejado como String
+            aspirante.setBombero_Mentor(rs.getString("bombero_mentor")); // Asumiendo que tienes un método para almacenar el nombre completo del bombero mentor
+
+            // Añadir el objeto aspirante a la lista
+            listaAspirantes.add(aspirante);
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return listaAspirantes;
+}
 
 
     
-public void CargarComboBomberosUpdate(JComboBox comboBox, int idBomberoSeleccionado) {    
+public void CargarComboBomberosUpdate(JComboBox comboBox, int idBomberoSeleccionado) {
     Connection conexion = ClaseConexion.getConexion();
     comboBox.removeAllItems();
     try {
         Statement statement = conexion.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM Bomberos");
-        
+
         while (rs.next()) {
-            int id = rs.getInt("id_bombero"); 
+            int id = rs.getInt("id_bombero");
             String nombre = rs.getString("nombre_bombero");
-            comboBox.addItem(new Aspirantes(id, nombre));   
+            String apellido = rs.getString("apellido_bombero"); // Obtener apellido
+            comboBox.addItem(new Aspirantes(id, nombre, apellido)); // Añadir nombre y apellido
         }
-        
+
         // Seleccionar el bombero que coincide con el ID
         for (int i = 0; i < comboBox.getItemCount(); i++) {
             Aspirantes bombero = (Aspirantes) comboBox.getItemAt(i);
@@ -202,26 +291,28 @@ public void CargarComboBomberosUpdate(JComboBox comboBox, int idBomberoSeleccion
 }
 
 
+
     
      
     
-        public void CargarComboBomberos(JComboBox comboBox){    
-        Connection conexion = ClaseConexion.getConexion();
-        comboBox.removeAllItems();
-        try{
-            Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery("Select * from Bomberos");
-            while (rs.next()) {
-                int id = rs.getInt("id_bombero"); 
-                String nombre = rs.getString("nombre_bombero");
-                comboBox.addItem(new Aspirantes(id,nombre));   
-            }
+       public void CargarComboBomberos(JComboBox comboBox) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Bomberos");
+
+        while (rs.next()) {
+            int id = rs.getInt("id_bombero");
+            String nombre = rs.getString("nombre_bombero");
+            String apellido = rs.getString("apellido_bombero"); // Obtener apellido
+            comboBox.addItem(new Aspirantes(id, nombre, apellido)); // Añadir nombre y apellido
         }
-        catch(SQLException ex)
-        {
-            ex.printStackTrace();  
-        }
-      }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+
         
         
         
@@ -356,6 +447,9 @@ public void Mostrar(JTable tabla) {
         tabla.getColumnModel().getColumn(9).setMinWidth(0);
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
         tabla.getColumnModel().getColumn(9).setWidth(0);
+            tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setWidth(0);
         
     } catch (Exception e) {
         System.out.println("Este es el error en el modelo, método mostrar: " + e);

@@ -26,17 +26,18 @@ public class btnInicio extends JButton {
     private static final int ICON_SIZE = 40; // Tamaño predeterminado del icono aumentado
 
     public btnInicio() {
-        fillOriginal = new Color(255, 255, 255); // Fondo blanco
-        fillOver = new Color(245, 245, 245); // Color al pasar el mouse (ligeramente gris)
-        fillClick = new Color(230, 230, 230); // Color al hacer clic (gris más oscuro)
-        fill = fillOriginal;
+  fillOriginal = new Color(0xFFAD7A); // Color original
+fillOver = new Color(0xFFB58A); // Color al pasar el mouse (más acorde al original)
+fillClick = new Color(0xD58B5A); // Color al hacer clic (un tono más oscuro que fillOriginal)
+fill = fillOriginal;
 
-        setOpaque(false);
-        setBorder(null);
-        setFocusPainted(false);
-        setContentAreaFilled(false);
-        setBackground(fillOriginal);
-        setForeground(new Color(0, 0, 0)); // Color del texto negro
+setOpaque(false);
+setBorder(null);
+setFocusPainted(false);
+setContentAreaFilled(false);
+setBackground(fillOriginal);
+setForeground(new Color(255, 255, 255)); // Color del texto negro
+
 
         addMouseListener(new MouseAdapter() {
             @Override

@@ -13,7 +13,10 @@ import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
 /**
@@ -30,13 +33,33 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        
+                jtAspirantes.setDefaultEditor(Object.class, null); // Deshabilita la edición
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
     }
     
     public static void initfrmVerRegistroAspirantes() {
-        FlatRobotoFont.install();
+               FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
+             UIManager.put("Table.background", new Color(0xFFFFFF));              
+        UIManager.put("Table.foreground", Color.BLACK);                       
+        UIManager.put("Table.selectionBackground", new Color(0xFFAD7A));       
+        UIManager.put("Table.selectionForeground", Color.WHITE);               
+        UIManager.put("Table.gridColor", new Color(0xDDDDDD));              
+        UIManager.put("TableHeader.background", new Color(0xF5F5F5));          
+        UIManager.put("TableHeader.foreground", Color.BLACK);                  
+        UIManager.put("TableHeader.font", new Font("Microsoft Jheng UI", Font.BOLD, 14));  
+        UIManager.put("Table.alternateRowColor", new Color(0xF8F8F8));  
         Aspirantes modelo = new Aspirantes();
         frmVerRegistroAspirantes vistas = new frmVerRegistroAspirantes();
         ctrlVerRegistroAspirantes controlador = new ctrlVerRegistroAspirantes(vistas, modelo);
@@ -53,7 +76,6 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        imgBack = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAspirantes = new javax.swing.JTable();
@@ -64,6 +86,7 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
         btnMenu = new javax.swing.JButton();
         btnEliminar = new Vistas.btnRojoForms();
         btnActualizar = new Vistas.btnRojoForms();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -71,14 +94,12 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
-        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
-
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seguimiento > Ver aspirantes > Ver registro");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
+        jtAspirantes.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtAspirantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -173,6 +194,9 @@ public class frmVerRegistroAspirantes extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, 200, 60));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

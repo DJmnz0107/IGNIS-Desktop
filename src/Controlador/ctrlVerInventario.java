@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Vistas.frmAgregarInventario;
 import Vistas.frmVerInventario;
 import Vistas.frmVerRegistroInventario;
 import java.awt.event.MouseEvent;
@@ -20,11 +21,18 @@ public class ctrlVerInventario implements MouseListener {
     public ctrlVerInventario(frmVerInventario vista) {
         this.vista = vista;
         vista.btnVerRegistro.addMouseListener(this);
+        this.vista.imgBack.addMouseListener(this);
         
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== vista.imgBack){
+            frmAgregarInventario.initfrmAgregarInventario();
+            vista.dispose();
+        }
+        
         if(e.getSource() == vista.btnVerRegistro) {
             frmVerRegistroInventario.initfrmVerRegistroInventario();
             vista.dispose();

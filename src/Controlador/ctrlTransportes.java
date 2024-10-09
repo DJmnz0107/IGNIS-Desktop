@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.Transportes;
 import Vistas.frmAgregarTransportes;
+import Vistas.frmInicio;
 import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -27,6 +28,7 @@ public class ctrlTransportes implements MouseListener{
          this.VistasverRegistroTransporter.btnVerRegistro.addMouseListener(this);
          this.VistasverRegistroTransporter.btnMenu.addMouseListener(this);
         
+         this.VistasverRegistroTransporter.imgBack.addMouseListener(this);
         
     }
         
@@ -50,6 +52,11 @@ public class ctrlTransportes implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== this.VistasverRegistroTransporter.imgBack){
+        frmInicio.initfrmInicio();
+        VistasverRegistroTransporter.dispose();
+        }
         
        if(e.getSource()== VistasverRegistroTransporter.btnAgregar){
                 

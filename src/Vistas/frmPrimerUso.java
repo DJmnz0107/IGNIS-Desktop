@@ -7,7 +7,16 @@ package Vistas;
 import Controlador.ctrlPrimerUso;
 import Modelo.Niveles;
 import Modelo.Usuarios;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.text.AbstractDocument;
 
 
 /**
@@ -23,9 +32,22 @@ public class frmPrimerUso extends javax.swing.JFrame {
      */
     public frmPrimerUso() {
          initComponents();
+                 int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
            this.setSize(1080, 600);
 
         this.setLocationRelativeTo(null);
+        
+        
+            JTextField duiField = txtDUIPrimer; 
+        ((AbstractDocument) duiField.getDocument()).setDocumentFilter(new DuiDocumentFilter());
          
 
         
@@ -55,6 +77,10 @@ public class frmPrimerUso extends javax.swing.JFrame {
     
     
       public static void initFrmCrearCuenta(){
+                    FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
         Usuarios modeloUsuarios = new Usuarios();
         Niveles modeloNiveles = new Niveles();
         frmPrimerUso vista = new frmPrimerUso();
@@ -92,6 +118,7 @@ public class frmPrimerUso extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(245, 216, 99));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,6 +183,7 @@ public class frmPrimerUso extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

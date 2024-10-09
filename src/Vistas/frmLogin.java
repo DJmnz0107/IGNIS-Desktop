@@ -17,7 +17,10 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
+import java.awt.Image;
 import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -46,11 +49,24 @@ public class frmLogin extends JFrame  {
         this.setSize(1250, 800);
         this.getContentPane().setBackground(new Color(0, 0, 0, 0));
         this.setLocationRelativeTo(null);
+        
+        
+        setTitle("IGNIS - Login");
 
         
         txtContrasena.setHint("Ingresa tu contraseña");
         txtUsuario.setHint("Ingresa tu usuario");
         
+int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
+
         
 
     }
@@ -117,7 +133,7 @@ public class frmLogin extends JFrame  {
         lblRecuContra.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 13)); // NOI18N
         lblRecuContra.setForeground(new java.awt.Color(255, 255, 255));
         lblRecuContra.setText("Recuperar la contraseña");
-        loginBackground1.add(lblRecuContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 540, 150, -1));
+        loginBackground1.add(lblRecuContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 530, 150, -1));
 
         btnLogin.setForeground(new java.awt.Color(240, 139, 77));
         btnLogin.setText("Iniciar Sesión");
@@ -160,6 +176,7 @@ public class frmLogin extends JFrame  {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

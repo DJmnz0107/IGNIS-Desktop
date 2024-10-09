@@ -1,7 +1,10 @@
 package Vistas.drawer;
 
+import Controlador.ctrlLogin;
+import static Controlador.ctrlLogin.nombreUsuario;
 import Modelo.Usuarios;
 import Vistas.frmAgregarAspirante;
+import Vistas.frmAgregarBomberos;
 import Vistas.frmAgregarInventario;
 import Vistas.frmAgregarMision;
 import Vistas.frmAgregarTransportes;
@@ -27,70 +30,89 @@ import raven.drawer.component.menu.SimpleMenuOption;
 import raven.swing.AvatarIcon;
 
 public class MyDrawerBuilder extends SimpleDrawerBuilder {
+    
+    
+
 
     @Override
     public SimpleHeaderData getSimpleHeaderData() {
+                                    String usuario = ctrlLogin.nombreUsuario;      
         return new SimpleHeaderData()
-                .setIcon(new AvatarIcon(getClass().getResource("/Vistas/resources/iconoLogin.png"), 60, 60, 999))
-                .setTitle("Ignis")
-                .setDescription("ignissoftwaredevelopers@gmail.com");
+                .setIcon(new AvatarIcon(getClass().getResource("/Vistas/resources/ignisCompleto.png"), 60, 60, 999))
+                .setTitle("Bienvenido a IGNIS")
+                .setDescription("Hola, " + usuario);
     }
 
      // Opciones del menú del Drawer
-    @Override
-    public SimpleMenuOption getSimpleMenuOption() {
-        String[][] menus = {
-             {"~Menu~"},
-            {"Dashboard"},
-            {"Bomberos"},
-            {"Inventario"},
-            {"Calendar"},
-            {"Transporte"},
-            {"Seguimiento"},
-            {"Estadisticas"},
-            {"Emergencias"},
-            {"Misiones"},
-            {"Informes"},
-            {"~Cuenta~"},
-            {"Cerrar sesion"},
-            {"Inicio"}
-        };
+   @Override
+public SimpleMenuOption getSimpleMenuOption() {
+    String[][] menus = {
+        {"~Menu~"},
+        {"Dashboard"},
+        {"Bomberos"},
+        {"Inventario"},
+        {"Calendar"},
+        {"Transporte"},
+        {"Seguimiento"},
+        {"Estadisticas"},
+        {"Emergencias"},
+        {"Misiones"},
+        {"Informes"},
+        {"~Cuenta~"},
+        {"Cerrar sesion"},
+        {"Inicio"}
+    };
 
-        String[] icons = {
-            "dashboard.svg",
-            "firefighter1.svg",
-            "manguera.svg",
-            "calendar.svg",
-            "fire-truck.svg",
-            "seguimiento.svg",
-            "staticircle.svg",
-            "emergencia.svg",
-            "mision.svg",
-            "informe.svg",
-            "logout_1.svg",
-            "inicio.svg"
-        };
+    String[] icons = {
+        "dashboard.svg",
+        "firefighter1.svg",
+        "manguera.svg",
+        "calendar.svg",
+        "fire-truck.svg",
+        "seguimiento.svg",
+        "staticircle.svg",
+        "emergencia.svg",
+        "mision.svg",
+        "informe.svg",
+        "logout_1.svg",
+        "inicio.svg"
+    };
+
+    return new SimpleMenuOption()
+            .setMenus(menus)
+            .setIcons(icons)
+            .setBaseIconPath("Vistas/drawer/icon")
+            .setIconScale(0.45f)
+            .addMenuEvent(new MenuEvent() {
+                @Override
+                public void selected(MenuAction action, int index, int subIndex) {
+                    // Lógica de selección de menú
+                    gestionarSeleccionDeMenu(index);
+                }
+            })
+          .setMenuValidation(new MenuValidation() {
+    @Override
+    public boolean menuValidation(int index, int subIndex) {
+        int nivelUsuario = Usuarios.nivelUsuario;
+
+        // Deshabilitar las opciones de los índices 0 y 3 para todos los niveles
+        if (index == 0 || index == 3) {
+            return false; // Deshabilitar el menú del índice 0 y 3
+        }
+
+      if (nivelUsuario == 4) {
+            // Si el nivel es 4, habilitar solo las opciones permitidas
+            return index == 2 || index == 4 || index == 10 || index == 11; // Habilitar Bomberos, Transporte, Cerrar sesión, Inicio
+        }
         
-        return new SimpleMenuOption()
-                .setMenus(menus)
-                .setIcons(icons)
-                .setBaseIconPath("Vistas/drawer/icon")
-                .setIconScale(0.45f)
-                .addMenuEvent(new MenuEvent() {
-                    @Override
-                    public void selected(MenuAction action, int index, int subIndex) {
-                        // Lógica de selección de menú
-                        gestionarSeleccionDeMenu(index);
-                    }
-                })
-                .setMenuValidation(new MenuValidation() {
-                    @Override
-                    public boolean menuValidation(int index, int subIndex) {
-                        // Deshabilitamos las opciones del índice 0 y 3
-                        return index != 0 && index != 3;
-                    }
-                });
+        // Habilitar todo para otros niveles
+        return true; // Habilitar todas las opciones para otros niveles
     }
+});
+
+
+}
+
     
 private JFrame abrirVentana(Class<? extends JFrame> ventanaClass) {
     JFrame instancia = null;
@@ -110,6 +132,12 @@ private void gestionarSeleccionDeMenu(int index) {
     JFrame nuevaVentana = null;
 
     switch (index) {
+        
+        case 1:  // Bomberos
+            frmAgregarBomberos.initfrmAgregarBomberos();
+                ventanaActual.dispose();
+            break;
+            
         case 2:  // Inventario
             frmAgregarInventario.initfrmAgregarInventario();
                 ventanaActual.dispose();
@@ -188,24 +216,29 @@ private void cambiarVentana(Window ventanaActual, JFrame nuevaVentana) {
 
 
     // Método para confirmar el cierre de sesión
-    private boolean confirmarCierreSesion(Window ventanaActual) {
-        int opcion = JOptionPane.showConfirmDialog(
-            ventanaActual, 
-            "¿Estás seguro de que deseas cerrar sesión?", 
-            "Confirmar Cierre de Sesión", 
-            JOptionPane.YES_NO_OPTION, 
-            JOptionPane.QUESTION_MESSAGE
-        );
+private boolean confirmarCierreSesion(Window ventanaActual) {
+    Object[] opciones = {"Sí", "No"}; // Opciones en español
+    int opcion = JOptionPane.showOptionDialog(
+        ventanaActual,
+        "¿Estás seguro de que deseas cerrar sesión?",
+        "Confirmar Cierre de Sesión",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,
+        null,
+        opciones,
+        opciones[0] // Establecer "Sí" como opción predeterminada
+    );
 
-        return opcion == JOptionPane.YES_OPTION;
-    }
+    return opcion == 0; // Devuelve true si se seleccionó "Sí"
+}
+
 
     @Override
-    public SimpleFooterData getSimpleFooterData() {
-        return new SimpleFooterData()
-                .setTitle("Java Swing Drawer")
-                .setDescription("Version 1.1.0");
-    }
+public SimpleFooterData getSimpleFooterData() {
+    return new SimpleFooterData()
+            .setTitle("IGNIS DEVELOPERS ©") 
+            .setDescription("Version 1.1.0");
+}
 
     @Override
     public int getDrawerWidth() {

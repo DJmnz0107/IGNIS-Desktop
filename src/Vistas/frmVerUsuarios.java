@@ -6,6 +6,14 @@ package Vistas;
 
 import Controlador.ctrlVerUsuarios;
 import Modelo.Usuarios;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
 
 /**
  *
@@ -18,9 +26,31 @@ public class frmVerUsuarios extends javax.swing.JFrame {
      */
     public frmVerUsuarios() {
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
     }
     
     public static void initfrmVerUsuarios(){
+                FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
+             UIManager.put("Table.background", new Color(0xFFFFFF));              
+        UIManager.put("Table.foreground", Color.BLACK);                       
+        UIManager.put("Table.selectionBackground", new Color(0xFFAD7A));       
+        UIManager.put("Table.selectionForeground", Color.WHITE);               
+        UIManager.put("Table.gridColor", new Color(0xDDDDDD));              
+        UIManager.put("TableHeader.background", new Color(0xF5F5F5));          
+        UIManager.put("TableHeader.foreground", Color.BLACK);                  
+        UIManager.put("TableHeader.font", new Font("Microsoft Jheng UI", Font.BOLD, 14));  
+        UIManager.put("Table.alternateRowColor", new Color(0xF8F8F8));  
         Usuarios Usuarios = new Usuarios();
         frmVerUsuarios vista = new frmVerUsuarios();
         ctrlVerUsuarios controlador  = new ctrlVerUsuarios(Usuarios, vista);
@@ -47,20 +77,25 @@ public class frmVerUsuarios extends javax.swing.JFrame {
         txtBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 18, -1, 55));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Crear cuenta > Ver usuarios");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 31, -1, -1));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
         btnBuscar.setToolTipText("");
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 30, 45));
 
         JTextField.setBackground(new java.awt.Color(192, 109, 58));
-        JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        JTextField.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
         JTextField.setForeground(new java.awt.Color(255, 255, 255));
         JTextField.setText("   Buscar:");
         JTextField.setBorder(null);
@@ -68,9 +103,10 @@ public class frmVerUsuarios extends javax.swing.JFrame {
         JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         JTextField.setEnabled(false);
         JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 110, 45));
 
-        jtUsuarios.setBackground(new java.awt.Color(255, 173, 122));
-        jtUsuarios.setForeground(new java.awt.Color(0, 0, 0));
+        jtUsuarios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
+        jtUsuarios.setForeground(new java.awt.Color(255, 173, 122));
         jtUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -86,70 +122,27 @@ public class frmVerUsuarios extends javax.swing.JFrame {
         jtUsuarios.setShowGrid(false);
         jScrollPane1.setViewportView(jtUsuarios);
 
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Trash.png"))); // NOI18N
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 920, 460));
+
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
-        btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, 190, 48));
 
         txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
-        txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        txtBuscar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
         txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
         txtBuscar.setBorder(null);
         txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(imgBack)
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(436, 436, 436)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imgBack, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel2)))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 350, 45));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1036, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

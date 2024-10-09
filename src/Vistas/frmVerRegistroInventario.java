@@ -10,7 +10,10 @@ import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
@@ -29,6 +32,17 @@ public class frmVerRegistroInventario extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+jtInventario.setDefaultEditor(Object.class, null); // Deshabilita la edición
+
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
     }
     
     public static void initfrmVerRegistroInventario() {
@@ -36,6 +50,17 @@ public class frmVerRegistroInventario extends javax.swing.JFrame {
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
+     UIManager.put("Table.background", new Color(0xFFFFFF));              
+        UIManager.put("Table.foreground", Color.BLACK);                       
+        UIManager.put("Table.selectionBackground", new Color(0xFFAD7A));       
+        UIManager.put("Table.selectionForeground", Color.WHITE);               
+        UIManager.put("Table.gridColor", new Color(0xDDDDDD));              
+        UIManager.put("TableHeader.background", new Color(0xF5F5F5));          
+        UIManager.put("TableHeader.foreground", Color.BLACK);                  
+        UIManager.put("TableHeader.font", new Font("Microsoft Jheng UI", Font.BOLD, 14));  
+        UIManager.put("Table.alternateRowColor", new Color(0xF8F8F8));  
+
+
         Recursos modelo = new Recursos();
         frmVerRegistroInventario vista = new frmVerRegistroInventario();
         ctrlVerRegistroInventario controlador = new ctrlVerRegistroInventario(modelo, vista);
@@ -65,8 +90,10 @@ public class frmVerRegistroInventario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,14 +133,14 @@ public class frmVerRegistroInventario extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Inventario > Ver inventario > Ver registro");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("IGNIS");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, -1, -1));
 
-        jtInventario.setForeground(new java.awt.Color(255, 173, 122));
+        jtInventario.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -159,6 +186,9 @@ public class frmVerRegistroInventario extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 540, 40, 40));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,6 +252,7 @@ public class frmVerRegistroInventario extends javax.swing.JFrame {
     public Vistas.btnRojoForms btnActualizar;
     public Vistas.btnRojoForms btnEliminar;
     public javax.swing.JButton btnMenu;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

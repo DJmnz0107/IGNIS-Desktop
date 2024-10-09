@@ -8,14 +8,61 @@ import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 
 public class MisionesBomberos {
+
+    /**
+     * @return the nombre_bombero
+     */
+    public String getNombre_bombero() {
+        return nombre_bombero;
+    }
+
+    /**
+     * @param nombre_bombero the nombre_bombero to set
+     */
+    public void setNombre_bombero(String nombre_bombero) {
+        this.nombre_bombero = nombre_bombero;
+    }
+
+    /**
+     * @return the apellido_bombero
+     */
+    public String getApellido_bombero() {
+        return apellido_bombero;
+    }
+
+    /**
+     * @param apellido_bombero the apellido_bombero to set
+     */
+    public void setApellido_bombero(String apellido_bombero) {
+        this.apellido_bombero = apellido_bombero;
+    }
+
+    /**
+     * @return the descipcionMision
+     */
+    public String getDescipcionMision() {
+        return descipcionMision;
+    }
+
+    /**
+     * @param descipcionMision the descipcionMision to set
+     */
+    public void setDescipcionMision(String descipcionMision) {
+        this.descipcionMision = descipcionMision;
+    }
     
    private int id_misionesbombero;
    private int id_mision;
    private int id_bombero;
+   private String descipcionMision;
+      private String nombre_bombero;
+    private String apellido_bombero;
 
     public int getId_misionesbombero() {
         return id_misionesbombero;
@@ -40,6 +87,19 @@ public class MisionesBomberos {
     public void setId_bombero(int id_bombero) {
         this.id_bombero = id_bombero;
     }
+    
+        public MisionesBomberos(int id, String nombre, String apellido){
+        this.id_bombero = id;
+        this.nombre_bombero = nombre;
+        this.apellido_bombero = apellido;
+        
+    }
+        
+           public MisionesBomberos(){
+        
+    }
+    
+
     
      public void Mostrar(JTable tabla) {
     // Creamos una variable de la clase de conexión
@@ -96,18 +156,98 @@ public class MisionesBomberos {
     }
 }
      
-     public void guardar() {
+     
+     public void cargarComboBoxMisiones(JComboBox comboBox, int idMisionSeleccionada) {    
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Misiones");
+        
+        while (rs.next()) {
+            int id = rs.getInt("id_mision"); 
+            String descripcion = rs.getString("id_mision");
+            comboBox.addItem(new Misiones(id, descripcion)); // Asume que existe una clase Misiones con constructor id, descripcion
+            System.out.println("Cargando: ID: " + id + ", Descripción: " + descripcion); // Para verificar
+        }
+        
+        System.out.println("ID de misión seleccionada: " + idMisionSeleccionada);
+        
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            Misiones mision = (Misiones) comboBox.getItemAt(i);
+            System.out.println("Comparando con ID: " + mision.getIdMision());
+            if (mision.getIdMision() == idMisionSeleccionada) {
+                comboBox.setSelectedIndex(i); // Selecciona el índice
+                break; // Salir del bucle una vez encontrado
+            }
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+     
+public void obtenerMisiones(JComboBox comboBox) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Misiones");
+
+        while (rs.next()) {
+            int id = rs.getInt("id_mision");
+            String descripcionMision = rs.getString("descripcion_mision");
+
+            Misiones mision = new Misiones(id, descripcionMision, false);
+            comboBox.addItem(new MisionDisplay(mision)); // Añadir el wrapper
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+
+
+
+
+public void obtenerBomberos(JComboBox comboBox) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Bomberos");
+
+        while (rs.next()) {
+            int id = rs.getInt("id_bombero");
+            String nombre = rs.getString("nombre_bombero");
+            String apellido = rs.getString("apellido_bombero");
+            comboBox.addItem(new BomberoDisplay(new Bomberos(id, nombre, apellido)));
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+
+
+
+
+     
+public void guardar() {
     // Creamos una variable igual a ejecutar el método de la clase de conexión
     Connection conexion = ClaseConexion.getConexion();
     try {
-        // Creamos el PreparedStatement que ejecutará la Query
+        // Crear el PreparedStatement que ejecutará la Query
         PreparedStatement addMisionBombero = conexion.prepareStatement(
             "INSERT INTO Misiones_Bomberos (id_mision, id_bombero) VALUES (?, ?)"
         );
 
         // Establecer valores de la consulta SQL
-        addMisionBombero.setInt(1, getId_misionesbombero());
-        addMisionBombero.setInt(2, getId_bombero());
+        int idMision = getId_mision();
+        int idBombero = getId_bombero();
+
+        System.out.println("ID Misión: " + idMision);
+        System.out.println("ID Bombero: " + idBombero);
+
+        addMisionBombero.setInt(1, idMision);
+        addMisionBombero.setInt(2, idBombero);
 
         // Ejecutar la consulta
         addMisionBombero.executeUpdate();

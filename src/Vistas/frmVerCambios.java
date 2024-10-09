@@ -10,7 +10,10 @@ import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
@@ -30,6 +33,17 @@ public class frmVerCambios extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+                        JtbVerCambios.setDefaultEditor(Object.class, null); // Deshabilita la edición
+
+                int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
     }
   public static void initfrmVerCambios(){
       
@@ -37,6 +51,15 @@ public class frmVerCambios extends javax.swing.JFrame {
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
+             UIManager.put("Table.background", new Color(0xFFFFFF));              
+        UIManager.put("Table.foreground", Color.BLACK);                       
+        UIManager.put("Table.selectionBackground", new Color(0xFFAD7A));       
+        UIManager.put("Table.selectionForeground", Color.WHITE);               
+        UIManager.put("Table.gridColor", new Color(0xDDDDDD));              
+        UIManager.put("TableHeader.background", new Color(0xF5F5F5));          
+        UIManager.put("TableHeader.foreground", Color.BLACK);                  
+        UIManager.put("TableHeader.font", new Font("Microsoft Jheng UI", Font.BOLD, 14));  
+        UIManager.put("Table.alternateRowColor", new Color(0xF8F8F8));  
         
         CambioSistema  CambioSistema= new CambioSistema();
         frmVerCambios vista = new frmVerCambios();
@@ -65,6 +88,7 @@ public class frmVerCambios extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,7 +133,7 @@ public class frmVerCambios extends javax.swing.JFrame {
         imgVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 6, -1, -1));
 
-        JtbVerCambios.setBackground(new java.awt.Color(255, 173, 122));
+        JtbVerCambios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         JtbVerCambios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -121,7 +145,6 @@ public class frmVerCambios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        JtbVerCambios.setSelectionBackground(new java.awt.Color(239, 138, 76));
         JtbVerCambios.setShowGrid(false);
         jScrollPane1.setViewportView(JtbVerCambios);
 

@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Usuarios;
 import Vistas.frmAgregarInventario;
 import Vistas.frmCrearCuenta;
@@ -45,18 +46,42 @@ public void mouseClicked(MouseEvent e) {
             
             boolean usuarioValido = modelo.revisarLogin();
             
-            if (usuarioValido) {
-                JOptionPane.showMessageDialog(vista, "Sesión iniciada con éxito", "Inicio de sesión", JOptionPane.INFORMATION_MESSAGE);
-                
-                vista.dispose();
-                
-                nombreUsuario = modelo.obtenerUsuario();
-                
-                frmInicio.initfrmInicio();
-                
-            } else {
-                JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            System.out.println(Usuarios.nivelUsuario);
+            
+            
+        
+            
+          if (usuarioValido) {
+    modelo.obtenerNivelUsuario();
+    
+    // Verifica el nivel del usuario
+    if (Usuarios.nivelUsuario == 1) {
+        JOptionPane.showMessageDialog(vista, "Ingresa con un usuario válido", "Inicio de sesión", JOptionPane.ERROR_MESSAGE);
+        return;
+    } else {
+        JOptionPane.showMessageDialog(vista, "Sesión iniciada con éxito", "Inicio de sesión", JOptionPane.INFORMATION_MESSAGE);
+        
+        vista.dispose();
+        nombreUsuario = modelo.obtenerUsuario();
+
+        
+        int idUsuario = modelo.obtenerIdUsuario(nombreUsuario);
+        String descripcionCambio = "Usuario " + nombreUsuario + " ha iniciado sesión"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idUsuario, descripcionCambio);
+        
+        
+        System.out.println(Usuarios.nivelUsuario);
+        
+        frmInicio.initfrmInicio();
+    }
+} else {
+    JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+}
+
+
         }
     }
     if(e.getSource() == vista.lblRecuContra) {
@@ -64,6 +89,8 @@ public void mouseClicked(MouseEvent e) {
 
     }
 }
+
+
 
 
     @Override

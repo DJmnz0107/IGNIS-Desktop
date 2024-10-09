@@ -29,6 +29,7 @@ public class frmRegistroTransportes extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+                                        jtRegistroTransporte.setDefaultEditor(Object.class, null); // Deshabilita la edición
     }
     
     public static void initfrmRegistroTransporte() {
@@ -63,6 +64,7 @@ public class frmRegistroTransportes extends javax.swing.JFrame {
         imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,12 +77,12 @@ public class frmRegistroTransportes extends javax.swing.JFrame {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, 200, 60));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 520, 200, 50));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 200, 60));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 520, 200, 50));
 
         jtRegistroTransporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -98,7 +100,7 @@ public class frmRegistroTransportes extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 880, 380));
 
         JTextField.setBackground(new java.awt.Color(192, 109, 58));
-        JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        JTextField.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
         JTextField.setForeground(new java.awt.Color(255, 255, 255));
         JTextField.setText("   Buscar:");
         JTextField.setBorder(null);
@@ -114,7 +116,7 @@ public class frmRegistroTransportes extends javax.swing.JFrame {
         jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 100, 40));
 
         txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
-        txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        txtBuscar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
         txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
         txtBuscar.setBorder(null);
         txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));

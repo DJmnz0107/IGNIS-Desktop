@@ -28,6 +28,10 @@ public class Usuarios {
     private String DUI_usuario;
     private int id_nivelUsuario;
     
+    
+        public static int nivelUsuario;
+
+    
      public int getEdad_usuario() {
         return edad_usuario;
     }
@@ -95,6 +99,68 @@ public class Usuarios {
         }
         return login;
     }
+    
+    public void obtenerNivelUsuario() {
+    Connection conexion = ClaseConexion.getConexion();
+    
+    try {
+        // Consulta SQL para obtener el nivel de usuario basado en el nombre de usuario
+        String sql = "SELECT id_nivelUsuario FROM Usuarios WHERE nombre_usuario = ?";
+        PreparedStatement stmt = conexion.prepareStatement(sql);
+        stmt.setString(1, getNombre_usuario());
+        
+        ResultSet rs = stmt.executeQuery();
+        
+        if (rs.next()) {
+            nivelUsuario = rs.getInt("id_nivelUsuario");
+            System.out.println("Nivel de usuario obtenido: " + nivelUsuario);
+        } else {
+            System.out.println("Usuario no encontrado.");
+        }
+        
+        rs.close();
+        stmt.close();
+        
+    } catch (SQLException e) {
+        System.out.println("Error al obtener el nivel de usuario: " + e);
+    }
+}
+    
+    public boolean verificarDui(String dui) throws SQLException {
+        Connection conexion = ClaseConexion.getConexion();
+        String sql = "SELECT dui_usuario FROM Usuarios WHERE dui_usuario = ?";
+
+        try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+            statement.setString(1, dui);
+            ResultSet resultSet = statement.executeQuery();
+
+            // Retorna true si se encuentra el DUI, false de lo contrario
+            return resultSet.next(); 
+        } finally {
+            if (conexion != null) {
+                conexion.close(); // Asegúrate de cerrar la conexión
+            }
+        }
+    }
+    
+      public boolean verificarUsuario(String nombreUsuario) throws SQLException {
+    Connection conexion = ClaseConexion.getConexion();
+    String sql = "SELECT nombre_usuario FROM Usuarios WHERE nombre_usuario = ?";
+
+    try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+        statement.setString(1, nombreUsuario); // Cambia 'nombre_usuario' a 'nombreUsuario'
+        ResultSet resultSet = statement.executeQuery();
+
+        // Retorna true si se encuentra el nombre de usuario, false de lo contrario
+        return resultSet.next(); 
+    } finally {
+        if (conexion != null) {
+            conexion.close(); // Asegúrate de cerrar la conexión
+        }
+    }
+}
+
+    
 public String obtenerUsuario() {
     String nombreUsuario = null;
     Connection conexion = ClaseConexion.getConexion();
@@ -120,6 +186,31 @@ public String obtenerUsuario() {
     
     return nombreUsuario;
 }
+public int obtenerIdUsuario(String nombreUsuario) {
+    int idUsuario = 0;
+    Connection conexion = ClaseConexion.getConexion();
+    
+    try {
+        PreparedStatement verificarLogin = conexion.prepareStatement("SELECT id_usuario FROM Usuarios WHERE nombre_usuario = ?");
+        
+        verificarLogin.setString(1, nombreUsuario);
+        
+        ResultSet rs = verificarLogin.executeQuery();
+        
+        if (rs.next()) {
+            idUsuario = rs.getInt("id_usuario");
+        }
+        
+        rs.close();
+        verificarLogin.close();
+        
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+    
+    return idUsuario;
+}
+
     
     public boolean revisarRecuperacionContra() {
     boolean recu = false;

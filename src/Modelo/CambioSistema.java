@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JTextField;
 
 /**
@@ -106,6 +107,21 @@ public class CambioSistema {
             
        
        }
+    
+      public void insertarCambio(int idUsuario, String descripcionCambio) {
+    Connection conexion = ClaseConexion.getConexion();
+    String sql = "INSERT INTO Cambios_Sistema (descripcion_cambio, fecha_cambio, id_usuario) VALUES (?, ?, ?)"; // Se eliminó id_cambioSistema ya que es autoincremental
+    
+    try (PreparedStatement preparedStatement = conexion.prepareStatement(sql)) {
+        preparedStatement.setString(1, descripcionCambio);
+        preparedStatement.setDate(2, new java.sql.Date(new Date().getTime())); // Fecha actual
+        preparedStatement.setInt(3, idUsuario); // Asegúrate de que idUsuario no sea null
+
+        preparedStatement.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace(); 
+    }
+}
        
     
     public void BuscarSistema(JTable tablaJ ,JTextField txtBuscarr){

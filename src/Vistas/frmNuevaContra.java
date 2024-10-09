@@ -15,6 +15,7 @@ public class frmNuevaContra extends javax.swing.JFrame {
      */
     public frmNuevaContra() {
         initComponents();
+                        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -136,6 +137,7 @@ public class frmNuevaContra extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 800, 500));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNuevaContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevaContraActionPerformed

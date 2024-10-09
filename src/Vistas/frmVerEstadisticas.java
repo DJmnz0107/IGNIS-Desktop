@@ -19,6 +19,9 @@ import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 import Vistas.PieChart;
 import Vistas.ModelPieChart;
+import java.awt.Image;
+import java.util.Random;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -31,6 +34,15 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
      */
     public frmVerEstadisticas() {       
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
         GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
@@ -39,22 +51,40 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
          pieChart1.setChartType(PieChart.PeiChartType.DONUT_CHART);
                 
         for (int i = 0; i < datosMisiones.size(); i++) {
-            TipoEmergenciaData dato = datosMisiones.get(i);
-            // Usar un color basado en el índice,
-            Color color = COLORES[i % COLORES.length];
-            pieChart1.addData(new ModelPieChart(dato.getTipoEmergencia(), dato.getCantidadMisiones(), color));      
-
-
-        
-        
+        TipoEmergenciaData dato = datosMisiones.get(i);
+        // Generar un color basado en la paleta personalizada
+        Color color = generarColorConVariacion(i);
+        pieChart1.addData(new ModelPieChart(dato.getTipoEmergencia(), dato.getCantidadMisiones(), color));
     }
     }
-       private static final Color[] COLORES = {
-        new Color(23, 126, 238), 
-        new Color(221, 65, 65),  
-        new Color(47, 157, 64),  
-        new Color(196, 151, 58)  
+    
+public Color generarColorConVariacion(int index) {
+    Color[] coloresBase = {
+        new Color(217, 71, 62),  // #D9473E
+        new Color(240, 139, 77), // #F08B4D
+        new Color(245, 216, 99)  // #F5D863
     };
+
+    // Obtener el color base
+    Color colorBase = coloresBase[index % coloresBase.length];
+
+    // Convertir a HSB (Tonalidad, Saturación, Brillo) para generar variaciones
+    float[] hsb = Color.RGBtoHSB(colorBase.getRed(), colorBase.getGreen(), colorBase.getBlue(), null);
+
+    // Variar el brillo o saturación
+    float saturation = (index % 2 == 0) ? hsb[1] * 0.9f : hsb[1] * 1.1f;
+    float brightness = (index % 2 == 0) ? hsb[2] * 0.9f : hsb[2] * 1.1f;
+
+    // Asegurar que los valores están en el rango permitido
+    saturation = Math.min(1.0f, Math.max(0.0f, saturation));
+    brightness = Math.min(1.0f, Math.max(0.0f, brightness));
+
+    return Color.getHSBColor(hsb[0], saturation, brightness);
+}
+
+
+    
+   
 
 
 
@@ -91,8 +121,10 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         pieChart1 = new Vistas.PieChart();
         jLabel1 = new javax.swing.JLabel();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -137,11 +169,14 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("> Ver estadísticas");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 25, -1, -1));
-        jPanel1.add(pieChart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 440, 370));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
+        jPanel1.add(pieChart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 590, 420));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Rectangle 46.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 81, -1, -1));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,6 +235,7 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnMenu;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

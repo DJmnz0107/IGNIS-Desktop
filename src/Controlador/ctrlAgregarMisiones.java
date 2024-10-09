@@ -7,7 +7,11 @@ package Controlador;
 import Modelo.Emergencias;
 import Modelo.Misiones;
 import Vistas.frmAgregarMision;
+import Vistas.frmAsignarMisionesBomberos;
 import Vistas.frmRegistroMisionesBomberos;
+import Vistas.frmAsignarRecursos;
+import Vistas.frmAsignarRecursosVer;
+import Vistas.frmInicio;
 import Vistas.frmRegistroTransportes;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
@@ -39,16 +43,25 @@ public class ctrlAgregarMisiones implements MouseListener {
     vista.btnMenu.addMouseListener(this);
     vista.btnTransportes2.addMouseListener(this);
     vista.btnBomberos.addMouseListener(this);
+      vista.btnRecursos.addMouseListener(this);   
+    vista.imgBack.addMouseListener(this);
+
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== vista.imgBack){
+        frmInicio.initfrmInicio();
+        vista.dispose();
+        }
          
        if (e.getSource() == vista.btnAgregar) {
         if (vista.txtDescripcion.getText().isEmpty()) {
             JOptionPane.showMessageDialog(vista, "Por favor, llena todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+     
         
       
           if (vista.cmbEmergencia.getSelectedItem() == null) {
@@ -67,12 +80,17 @@ public class ctrlAgregarMisiones implements MouseListener {
         limpiarCampos();
     }
        
-       if(e.getSource() == vista.btnBomberos){
+              if(e.getSource() == vista.btnBomberos){
             //1-Creo un objeto del panel que quiero mostrar
-            frmRegistroMisionesBomberos.initfrmRegistroMisionesBomberos();
+            frmAsignarMisionesBomberos.initfrmAsignarMisionesBomberos();
             vista.dispose();
         }
        
+
+          if(e.getSource() == vista.btnRecursos) {
+                frmAsignarRecursos.initFrmAsignarRecursos();
+        }
+          
         if(e.getSource() == vista.btnMenu) {
             Drawer.getInstance().showDrawer();
             System.out.println("Hola");

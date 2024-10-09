@@ -6,6 +6,8 @@ package Vistas;
 
 import Controlador.ctrlRecuContrasena;
 import Modelo.CredencialesRecuContra;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -18,6 +20,17 @@ public class frmRecuperacionContrasena extends javax.swing.JFrame {
      */
     public frmRecuperacionContrasena() {
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
     
     public static void initfrmRecuperacionContrasena(){
@@ -25,6 +38,8 @@ public class frmRecuperacionContrasena extends javax.swing.JFrame {
     CredencialesRecuContra Modelo = new CredencialesRecuContra();
     frmRecuperacionContrasena Vistas = new frmRecuperacionContrasena();
     ctrlRecuContrasena Controlador = new ctrlRecuContrasena(Modelo,Vistas);
+    
+    
     
     Vistas.setVisible(true);
     
@@ -52,6 +67,7 @@ public class frmRecuperacionContrasena extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));

@@ -10,7 +10,10 @@ import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
@@ -30,6 +33,17 @@ public class frmVerEmergencias extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+                        jtEmergencias.setDefaultEditor(Object.class, null); // Deshabilita la edición
+
+                int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
     }
     
     public static void initfrmVerEmergencias() {
@@ -37,6 +51,15 @@ public class frmVerEmergencias extends javax.swing.JFrame {
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
+             UIManager.put("Table.background", new Color(0xFFFFFF));              
+        UIManager.put("Table.foreground", Color.BLACK);                       
+        UIManager.put("Table.selectionBackground", new Color(0xFFAD7A));       
+        UIManager.put("Table.selectionForeground", Color.WHITE);               
+        UIManager.put("Table.gridColor", new Color(0xDDDDDD));              
+        UIManager.put("TableHeader.background", new Color(0xF5F5F5));          
+        UIManager.put("TableHeader.foreground", Color.BLACK);                  
+        UIManager.put("TableHeader.font", new Font("Microsoft Jheng UI", Font.BOLD, 14));  
+        UIManager.put("Table.alternateRowColor", new Color(0xF8F8F8));  
         Emergencias modelo = new Emergencias();
         frmVerEmergencias vista = new frmVerEmergencias();
         ctrlVerEmergencias controlador = new ctrlVerEmergencias(modelo, vista);
@@ -68,8 +91,10 @@ public class frmVerEmergencias extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtEmergencias = new javax.swing.JTable();
         btnEliminar = new Vistas.btnRojoForms();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,7 +135,7 @@ public class frmVerEmergencias extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("> Emergencias");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(192, 109, 58));
         jButton2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
@@ -118,18 +143,18 @@ public class frmVerEmergencias extends javax.swing.JFrame {
         jButton2.setText("Buscar");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setBorderPainted(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 110, 40));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 110, 40));
 
         txtBuscarEmergencia.setBackground(new java.awt.Color(255, 173, 122));
         txtBuscarEmergencia.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         txtBuscarEmergencia.setForeground(new java.awt.Color(255, 255, 255));
         txtBuscarEmergencia.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel1.add(txtBuscarEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 270, 40));
+        jPanel1.add(txtBuscarEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 270, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 40, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 40, 40));
 
-        jtEmergencias.setForeground(new java.awt.Color(255, 173, 122));
+        jtEmergencias.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtEmergencias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -149,6 +174,9 @@ public class frmVerEmergencias extends javax.swing.JFrame {
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 580, 190, 50));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,6 +234,7 @@ public class frmVerEmergencias extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Vistas.btnRojoForms btnEliminar;
     public javax.swing.JButton btnMenu;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel9;

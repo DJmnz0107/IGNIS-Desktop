@@ -10,6 +10,7 @@ import Vistas.frmActualizarMision;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import raven.drawer.Drawer;
 
@@ -28,6 +29,7 @@ public class ctrlActualizarMision implements MouseListener {
                vista.btnActualizar.addMouseListener(this);
                vista.btnVerRegistro.addMouseListener(this);
                vista.btnMenu.addMouseListener(this);
+                   vista.dtcEmergencia.setMaxSelectableDate(new Date());
             }
 
     @Override

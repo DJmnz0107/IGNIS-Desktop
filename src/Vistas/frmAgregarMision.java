@@ -13,7 +13,11 @@ import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
@@ -32,7 +36,21 @@ public class frmAgregarMision extends javax.swing.JFrame {
                  GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+        
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
+        
+                dtcEmergencia.getDateEditor().setEnabled(false);
+
+        
     }
     
     public static void initFrmAgregarMision() {
@@ -40,6 +58,15 @@ public class frmAgregarMision extends javax.swing.JFrame {
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
         FlatLightLaf.setup();
+           UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
+        UIManager.put("ComboBox.foreground", Color.DARK_GRAY);              
+        UIManager.put("ComboBox.selectionBackground", new Color(0xFF7043)); 
+        UIManager.put("ComboBox.selectionForeground", Color.WHITE);         
+        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xD9D9D9), 1)); 
+        UIManager.put( "Component.arrowType", "triangle" );
+
+        UIManager.put("TextField.arc", 50); 
+        UIManager.put("ComboBox.arc", 50);   
         frmAgregarMision vista = new frmAgregarMision();
         Emergencias emergencia = new Emergencias();
         Misiones modelo = new Misiones();
@@ -68,7 +95,6 @@ public class frmAgregarMision extends javax.swing.JFrame {
         txtDescripcion = new Vistas.TextFieldGris();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        dtcEmergencia = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         cmbEmergencia = new javax.swing.JComboBox<>();
         btnBomberos = new Vistas.btnRojoForms();
@@ -80,6 +106,8 @@ public class frmAgregarMision extends javax.swing.JFrame {
         btnInformes = new Vistas.btnRojoForms();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        dtcEmergencia = new com.toedter.calendar.JDateChooser();
+        imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -123,7 +151,7 @@ public class frmAgregarMision extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("> Misiones");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setRoundBottomLeft(50);
@@ -138,22 +166,17 @@ public class frmAgregarMision extends javax.swing.JFrame {
         panelRound2.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 490, 120));
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Emergencia tratada");
         panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Descripción de la misión");
         panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
-        panelRound2.add(dtcEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 230, 40));
 
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Fecha de la misión");
         panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        cmbEmergencia.setForeground(new java.awt.Color(240, 139, 77));
         panelRound2.add(cmbEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 230, 40));
 
         btnBomberos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Arrowmini.png"))); // NOI18N
@@ -216,14 +239,17 @@ public class frmAgregarMision extends javax.swing.JFrame {
         panelRound2.add(btnInformes, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Informe");
         panelRound2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/misionNew.png"))); // NOI18N
         panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 300, 270));
+        panelRound2.add(dtcEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 230, 40));
 
         jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 910, 540));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -309,6 +335,7 @@ public class frmAgregarMision extends javax.swing.JFrame {
     public Vistas.btnNaranjaForms btnVerRegistro;
     public javax.swing.JComboBox<String> cmbEmergencia;
     public com.toedter.calendar.JDateChooser dtcEmergencia;
+    public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

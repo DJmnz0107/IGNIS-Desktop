@@ -6,6 +6,8 @@ package Controlador;
 
 import Modelo.Aspirantes;
 import Vistas.frmAgregarAspirante;
+import Vistas.frmInicio;
+import Vistas.frmSeguimientoAspirante;
 import Vistas.frmVerRegistroAspirantes;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -14,6 +16,11 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 import raven.drawer.Drawer;
 
 
@@ -32,14 +39,30 @@ public class ctrlAspirantes implements MouseListener {
         this.Vistas.btnAgregarFoto.addMouseListener(this);
         this.Vistas.btnMenu.addMouseListener(this);
         this.Vistas.btnVerAspirantes.addMouseListener(this);
+        vistas.imgBack.addMouseListener(this);
+    
+        
+
         
          
     
     }
+    
+   
 
+    
+
+      
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== Vistas.imgBack){
+        
+            frmInicio.initfrmInicio();
+            Vistas.dispose();
+        
+        }
         
         if(e.getSource()==Vistas.btnMenu){
             
@@ -51,11 +74,22 @@ public class ctrlAspirantes implements MouseListener {
         }
         
         if(e.getSource() == Vistas.btnVerAspirantes) {
-            frmVerRegistroAspirantes.initfrmVerRegistroAspirantes();
+            frmSeguimientoAspirante.initfrmSeguimientoAspirante();
             Vistas.dispose();
         }
         
        if (e.getSource() == Vistas.btnAñadirInfo) {
+           
+            try {
+                 boolean duiExiste = Modelo.verificarDui(Vistas.txtDuiAspirante.getText());
+                if (duiExiste) {
+                    JOptionPane.showMessageDialog(Vistas, "El DUI ya está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return; // Detener la ejecución si el DUI existe
+                }
+            } catch(Exception ex) {
+                                JOptionPane.showMessageDialog(Vistas, "Error al guardar la cuenta: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+           
               if(Vistas.txtApellidoAspirante.getText().isEmpty() || Vistas.txtDuiAspirante.getText().isEmpty() || Vistas.txtEdadAspirante.getText().isEmpty() || Vistas.txtEntrenamientoAspirante.getText().isEmpty() || Vistas.txtNombreAspirante.getText().isEmpty() || Vistas.txtProgresoAspirante.getText().isEmpty() ) {
                  JOptionPane.showMessageDialog(Vistas, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             return; // Salir del método si hay campos vacíos
