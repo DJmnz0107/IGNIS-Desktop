@@ -9,7 +9,9 @@ import Modelo.BomberoDisplay;
 import Modelo.MisionDisplay;
     import Modelo.Misiones;
     import Modelo.MisionesBomberos;
+import Vistas.frmAgregarMision;
     import Vistas.frmAsignarMisionesBomberos;
+import Vistas.frmRegistroMisionesBomberos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
     import java.awt.event.MouseEvent;
@@ -33,6 +35,7 @@ import java.awt.event.ActionListener;
             this.vista = vista;
             this.vista.btnguardar.addMouseListener(this);
             this.vista.btnVerRegistros.addMouseListener(this);
+            vista.imgBack.addMouseListener(this);
             
             modelo.obtenerBomberos(vista.cmbBombero);
 
@@ -81,6 +84,18 @@ import java.awt.event.ActionListener;
         @Override
         public void mouseClicked(MouseEvent e) {
 if (e.getSource() == vista.btnguardar) {
+    
+        if (vista.cmbMision.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(vista, "No se puede añadir una misión nula, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (vista.cmbBombero.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(vista, "No se puede añadir un bombero nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+    
     BomberoDisplay bomberoSeleccionado = (BomberoDisplay) vista.cmbBombero.getSelectedItem();
     MisionDisplay misionSeleccionada = (MisionDisplay) vista.cmbMision.getSelectedItem();
 
@@ -112,17 +127,16 @@ if (e.getSource() == vista.btnguardar) {
     }
 }
 
+if(e.getSource() == vista.imgBack) {
+    frmAgregarMision.initFrmAgregarMision();
+    vista.dispose();
+}
 
+if(e.getSource() == vista.btnVerRegistros) {
+    frmRegistroMisionesBomberos.initfrmRegistroMisionesBomberos();
+        vista.dispose();
+}
 
-
-
-
-
-
-            if (e.getSource() == vista.btnVerRegistros) {
-                frmAsignarMisionesBomberos.initfrmAsignarMisionesBomberos();
-                vista.dispose();
-            }
         }
 
         @Override

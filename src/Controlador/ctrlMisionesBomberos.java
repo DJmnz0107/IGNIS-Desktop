@@ -2,11 +2,14 @@
 package Controlador;
 
 import Modelo.MisionesBomberos;
+import Vistas.frmActualizarMisionBombero;
+import Vistas.frmAsignarMisionesBomberos;
 import Vistas.frmRegistroMisionesBomberos;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 
 public class ctrlMisionesBomberos implements MouseListener, KeyListener {
@@ -20,6 +23,7 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
         this.Vista = Vista;
         Vista.txtBuscar.addKeyListener(this);
         Vista.btnEliminar.addMouseListener(this);
+        Vista.btnActualizar.addMouseListener(this);
         Vista.imgBack.addMouseListener(this);
         modelo.Mostrar(Vista.jtMisionesBomberos);
     }
@@ -27,12 +31,48 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == Vista.btnEliminar){
+            
+                if (Vista.jtMisionesBomberos.getSelectedRow() == -1) {
+        JOptionPane.showMessageDialog(Vista, "Debes seleccionar una fila para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+    } else {
+        Object[] opciones = {"Sí", "No"}; // Opciones en español
+
+        int respuesta = JOptionPane.showOptionDialog(
+            Vista, 
+            "¿Estás seguro de que deseas eliminar este aspirante?", 
+            "Confirmación", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            opciones, 
+            opciones[0]
+        );
+
+        if (respuesta == JOptionPane.YES_OPTION) {
             modelo.Eliminar(Vista.jtMisionesBomberos);
             modelo.Mostrar(Vista.jtMisionesBomberos);
+            JOptionPane.showMessageDialog(Vista, "Aspirante eliminado exitosamente");
         }
-        if(e.getSource() == Vista.imgBack){
+           
+        }
+ 
+    }
+        
+        
+         if(e.getSource() == Vista.btnActualizar) {
+            MisionesBomberos registroSeleccionado = modelo.obtenerDatosTabla(Vista);
+
+        if (registroSeleccionado != null) {
+            frmActualizarMisionBombero.initFrmActulizarMisionesBomberos(registroSeleccionado);
             Vista.dispose();
-            frmRegistroMisionesBomberos.initfrmRegistroMisionesBomberos();
+        } else {
+            JOptionPane.showMessageDialog(Vista, "Por favor, seleccione una fila para actualizar.");
+        }
+        }
+        
+               if(e.getSource() == Vista.imgBack){
+            frmAsignarMisionesBomberos.initfrmAsignarMisionesBomberos();
+                        Vista.dispose();
         }
     }
 

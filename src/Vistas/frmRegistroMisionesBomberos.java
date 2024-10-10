@@ -12,6 +12,7 @@ import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
@@ -38,6 +39,15 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
         FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+                    UIManager.put("Table.background", new Color(0xFFFFFF));              
+        UIManager.put("Table.foreground", Color.BLACK);                       
+        UIManager.put("Table.selectionBackground", new Color(0xFFAD7A));       
+        UIManager.put("Table.selectionForeground", Color.WHITE);               
+        UIManager.put("Table.gridColor", new Color(0xDDDDDD));              
+        UIManager.put("TableHeader.background", new Color(0xF5F5F5));          
+        UIManager.put("TableHeader.foreground", Color.BLACK);                  
+        UIManager.put("TableHeader.font", new Font("Microsoft Jheng UI", Font.BOLD, 14));  
+        UIManager.put("Table.alternateRowColor", new Color(0xF8F8F8));  
         FlatLightLaf.setup();
         MisionesBomberos modelo = new MisionesBomberos();
         frmRegistroMisionesBomberos Vista = new frmRegistroMisionesBomberos();
@@ -87,17 +97,17 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtMisionesBomberos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 880, 380));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 880, 380));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 200, 50));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 200, 50));
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
         btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, 200, 50));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 520, 200, 50));
 
         txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
         txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -105,7 +115,7 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
         txtBuscar.setBorder(null);
         txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 380, 40));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 380, 40));
 
         JTextField.setBackground(new java.awt.Color(192, 109, 58));
         JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -116,25 +126,27 @@ public class frmRegistroMisionesBomberos extends javax.swing.JFrame {
         JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         JTextField.setEnabled(false);
         JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 100, 40));
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 100, 40));
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Asignar bomberos > Ver registro");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
-        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
-        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

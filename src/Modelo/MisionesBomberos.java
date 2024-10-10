@@ -1,6 +1,8 @@
 
 package Modelo;
 
+import Vistas.frmRegistroMisionesBomberos;
+import Vistas.frmVerRegistroMisiones;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -9,11 +11,22 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 
 public class MisionesBomberos {
+
+    private MisionesBomberos(String descripcionMision, String nombreBombero, String apellidoBombero, int idMisionBombero, int idMision, int idBombero) {
+        this.descipcionMision = descripcionMision;
+        this.nombre_bombero = nombreBombero;
+        this.apellido_bombero = apellidoBombero;
+        this.id_misionesbombero = idMisionBombero;
+        this.id_mision = idMision;
+        this.id_bombero = idBombero;
+    }
 
     /**
      * @return the nombre_bombero
@@ -157,34 +170,69 @@ public class MisionesBomberos {
 }
      
      
-     public void cargarComboBoxMisiones(JComboBox comboBox, int idMisionSeleccionada) {    
+     public void CargarComboBomberosUpdate(JComboBox comboBox, int idBomberoSeleccionado) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Bomberos");
+
+        while (rs.next()) {
+            int id = rs.getInt("id_bombero");
+            String nombre = rs.getString("nombre_bombero");
+            String apellido = rs.getString("apellido_bombero"); // Obtener apellido
+            comboBox.addItem(new BomberoDisplay(new Bomberos(id, nombre, apellido))); // Añadir el wrapper
+        }
+
+        // Seleccionar el bombero que coincide con el ID
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            BomberoDisplay bomberoDisplay = (BomberoDisplay) comboBox.getItemAt(i); // Obtener el wrapper
+            Bomberos bombero = bomberoDisplay.getBombero(); // Obtener el objeto Bomberos
+
+            if (bombero.getId_bombero() == idBomberoSeleccionado) {
+                comboBox.setSelectedIndex(i); // Selecciona el índice
+                break; // Salir del bucle una vez encontrado
+            }
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+
+     
+     
+ public void cargarComboBoxMisiones(JComboBox comboBox, int idMisionSeleccionada) {
     Connection conexion = ClaseConexion.getConexion();
     comboBox.removeAllItems();
     try {
         Statement statement = conexion.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM Misiones");
-        
+
         while (rs.next()) {
             int id = rs.getInt("id_mision"); 
-            String descripcion = rs.getString("id_mision");
-            comboBox.addItem(new Misiones(id, descripcion)); // Asume que existe una clase Misiones con constructor id, descripcion
-            System.out.println("Cargando: ID: " + id + ", Descripción: " + descripcion); // Para verificar
+            String descripcionMision = rs.getString("descripcion_mision"); // Ajustado para descripción
+            Misiones mision = new Misiones(id, descripcionMision, false);
+            comboBox.addItem(new MisionDisplay(mision)); // Añadir el wrapper
+            System.out.println("Cargando: ID: " + id + ", Descripción: " + descripcionMision); // Para verificar
         }
-        
+
         System.out.println("ID de misión seleccionada: " + idMisionSeleccionada);
-        
+
         for (int i = 0; i < comboBox.getItemCount(); i++) {
-            Misiones mision = (Misiones) comboBox.getItemAt(i);
+            MisionDisplay misionDisplay = (MisionDisplay) comboBox.getItemAt(i); // Obtener el wrapper
+            Misiones mision = misionDisplay.getMision(); // Obtener el objeto Misiones
+
             System.out.println("Comparando con ID: " + mision.getIdMision());
             if (mision.getIdMision() == idMisionSeleccionada) {
                 comboBox.setSelectedIndex(i); // Selecciona el índice
                 break; // Salir del bucle una vez encontrado
             }
         }
-    } catch(SQLException ex) {
-        ex.printStackTrace();  
+    } catch (SQLException ex) {
+        ex.printStackTrace();
     }
 }
+
      
 public void obtenerMisiones(JComboBox comboBox) {
     Connection conexion = ClaseConexion.getConexion();
@@ -264,6 +312,77 @@ public void guardar() {
         }
     }
 }
+
+public void actualizarRegistro() {
+    // Creamos una variable igual a ejecutar el método de la clase de conexión
+    Connection conexion = ClaseConexion.getConexion();
+    try {
+        // Crear el PreparedStatement que ejecutará la Query de actualización
+        PreparedStatement updateMisionBombero = conexion.prepareStatement(
+            "UPDATE Misiones_Bomberos SET id_mision = ?, id_bombero = ? WHERE id_misionBombero = ?"
+        );
+
+        // Establecer los valores que se van a actualizar
+        int idMision = getId_mision(); // ID de la misión actualizado
+        int idBombero = getId_bombero(); // ID del bombero actualizado
+        int idMisionBombero = getId_misionesbombero(); // Este es el identificador único del registro a actualizar
+
+        System.out.println("ID Misión: " + idMision);
+        System.out.println("ID Bombero: " + idBombero);
+        System.out.println("ID Misión Bombero: " + idMisionBombero);
+
+        // Asignar valores a los placeholders de la consulta SQL
+        updateMisionBombero.setInt(1, idMision); // Establecer nuevo id_mision
+        updateMisionBombero.setInt(2, idBombero); // Establecer nuevo id_bombero
+        updateMisionBombero.setInt(3, idMisionBombero); // Condición para saber qué registro actualizar
+
+        // Ejecutar la actualización
+        int filasActualizadas = updateMisionBombero.executeUpdate();
+
+        // Confirmar si se actualizó alguna fila
+        if (filasActualizadas > 0) {
+            System.out.println("Registro actualizado correctamente.");
+        } else {
+            System.out.println("No se encontró el registro a actualizar.");
+        }
+    } catch (Exception ex) {
+        System.out.println("Este es el error en el modelo: método actualizar " + ex);
+    } finally {
+        // Asegúrate de cerrar la conexión en el bloque finally para liberar recursos
+        try {
+            if (conexion != null) {
+                conexion.close();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cerrar la conexión: " + e);
+        }
+    }
+}
+
+
+
+   public MisionesBomberos obtenerDatosTabla(frmRegistroMisionesBomberos vista) {
+    // Obtener la fila seleccionada de la tabla
+    int filaSeleccionada = vista.jtMisionesBomberos.getSelectedRow();
+
+    // Si hay una fila seleccionada
+    if (filaSeleccionada != -1) {
+        // Obtener los datos de la fila seleccionada
+        String descripcionMision = vista.jtMisionesBomberos.getValueAt(filaSeleccionada, 3).toString();
+        String nombreBombero = vista.jtMisionesBomberos.getValueAt(filaSeleccionada, 0).toString();
+        String apellidoBombero = vista.jtMisionesBomberos.getValueAt(filaSeleccionada, 1).toString();
+        int idMisionBombero = (Integer) vista.jtMisionesBomberos.getValueAt(filaSeleccionada, 7);
+        int idMision = (Integer) vista.jtMisionesBomberos.getValueAt(filaSeleccionada, 5);
+        int idBombero = (Integer) vista.jtMisionesBomberos.getValueAt(filaSeleccionada, 6);
+
+        // Devolver un nuevo objeto Mision con los datos obtenidos
+        return new MisionesBomberos(descripcionMision, nombreBombero, apellidoBombero, idMisionBombero, idMision, idBombero);
+    }
+
+    // Si no hay una fila seleccionada, devolver null
+    return null;
+}
+
 
 
      public void Eliminar(JTable tabla) {

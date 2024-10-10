@@ -4,7 +4,7 @@
  */
 package Vistas;
 
-import Controlador.ctrlAsignarBomberos;
+import Controlador.ctrlActualizarMisionBombero;
 import Modelo.MisionesBomberos;
 import Vistas.drawer.MyDrawerBuilder;
 import com.formdev.flatlaf.FlatLaf;
@@ -12,45 +12,99 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 
 /**
  *
- * @author danie
+ * @author Diego
  */
-public class frmAsignarMisionesBomberos extends javax.swing.JFrame {
+public class frmActualizarMisionBombero extends javax.swing.JFrame {
 
+    
+      private MisionesBomberos misionBombero;
+            private int idMisionBombero;
     /**
-     * Creates new form frmAsignarMisionesBomberos
+     * Creates new form frmActualizarMisionBombero
      */
-    public frmAsignarMisionesBomberos() {
+    public frmActualizarMisionBombero(MisionesBomberos misionBombero    ) {
         GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+        
+        this.misionBombero = misionBombero;
+        
+        
+               if (misionBombero == null) {
+        System.out.println("El objeto aspirante es null");
+    } else {
+        System.out.println("El recurso tiene los siguientes datos: ");
+        System.out.println("Nombre: " + misionBombero.getNombre_bombero());
+        System.out.println("Apellido: " + misionBombero.getApellido_bombero());
+        System.out.println("Descripcion mision: " + misionBombero.getDescipcionMision());
+        System.out.println("id registro: " + misionBombero.getId_misionesbombero());
+        System.out.println("id mision " + misionBombero.getId_mision());
+        System.out.println("id bombero" + misionBombero.getId_bombero());
+    }
         initComponents();
+                 
+
+                int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
+
+cargarDatos();
+        
+        
     }
     
-    public static void initfrmAsignarMisionesBomberos() {
+    
+    public static void initFrmActulizarMisionesBomberos(MisionesBomberos misionBombero) {
         FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
-                 UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
+        FlatLightLaf.setup();
+              UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
         UIManager.put("ComboBox.foreground", Color.DARK_GRAY);              
         UIManager.put("ComboBox.selectionBackground", new Color(0xFF7043)); 
         UIManager.put("ComboBox.selectionForeground", Color.WHITE);         
-        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xD9D9D9), 1)); 
+        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xFFFFFF), 1)); 
         UIManager.put( "Component.arrowType", "triangle" );
 
         UIManager.put("TextField.arc", 50); 
         UIManager.put("ComboBox.arc", 50);  
-        FlatLightLaf.setup();
+        
+        frmActualizarMisionBombero vista = new frmActualizarMisionBombero(misionBombero);
         MisionesBomberos modelo = new MisionesBomberos();
-        frmAsignarMisionesBomberos vista = new frmAsignarMisionesBomberos();
-        ctrlAsignarBomberos controlador = new ctrlAsignarBomberos(vista, modelo);
+        ctrlActualizarMisionBombero controlador = new ctrlActualizarMisionBombero(modelo, vista);
         vista.setVisible(true);
+    }
+    
+    
+      //Cargar datos traidos desde la tabla
+       public void cargarDatos() {
+    // Cargar los datos del aspirante
+            MisionesBomberos modelo = new MisionesBomberos();
+                modelo.CargarComboBomberosUpdate(cmbBombero, misionBombero.getId_bombero());
+                
+                modelo.cargarComboBoxMisiones(cmbMision, misionBombero.getId_mision());
+                
+                idMisionBombero = misionBombero.getId_misionesbombero();
+               
+}
+       
+         public int obtenerIdRegistro() {
+        return idMisionBombero; 
     }
 
     /**
@@ -62,13 +116,9 @@ public class frmAsignarMisionesBomberos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        btnEliminar = new Vistas.btnRojoForms();
-        btnEliminar1 = new Vistas.btnRojoForms();
-        btnActualizar = new Vistas.btnRojoForms();
         jPanel1 = new javax.swing.JPanel();
         panelRound1 = new Vistas.PanelRound();
-        btnguardar = new Vistas.btnRojoForms();
+        btnActualizar = new Vistas.btnRojoForms();
         btnVerRegistros = new Vistas.btnRojoForms();
         cmbMision = new javax.swing.JComboBox<>();
         cmbBombero = new javax.swing.JComboBox<>();
@@ -77,29 +127,8 @@ public class frmAsignarMisionesBomberos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         imgBack = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Asignar bomberos > Ver registro");
-
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-
-        btnEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
-        btnEliminar1.setText("Eliminar");
-        btnEliminar1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(239, 138, 76));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,15 +139,15 @@ public class frmAsignarMisionesBomberos extends javax.swing.JFrame {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/anadir.png"))); // NOI18N
-        btnguardar.setText("Añadir informacion");
-        btnguardar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Update.png"))); // NOI18N
+        btnActualizar.setText("Actualizar datos");
+        btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardarActionPerformed(evt);
+                btnActualizarActionPerformed(evt);
             }
         });
-        panelRound1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 229, 60));
+        panelRound1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 229, 60));
 
         btnVerRegistros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/informe.png"))); // NOI18N
         btnVerRegistros.setText("Ver Registros");
@@ -179,10 +208,6 @@ public class frmAsignarMisionesBomberos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarActionPerformed
 
-    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnguardarActionPerformed
-
     private void btnVerRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRegistrosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVerRegistrosActionPerformed
@@ -204,34 +229,29 @@ public class frmAsignarMisionesBomberos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmAsignarMisionesBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarMisionBombero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmAsignarMisionesBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarMisionBombero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmAsignarMisionesBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarMisionBombero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmAsignarMisionesBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarMisionBombero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmAsignarMisionesBomberos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Vistas.btnRojoForms btnActualizar;
-    public Vistas.btnRojoForms btnEliminar;
-    public Vistas.btnRojoForms btnEliminar1;
     public Vistas.btnRojoForms btnVerRegistros;
-    public Vistas.btnRojoForms btnguardar;
     public javax.swing.JComboBox<String> cmbBombero;
     public javax.swing.JComboBox<String> cmbMision;
     public javax.swing.JLabel imgBack;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
