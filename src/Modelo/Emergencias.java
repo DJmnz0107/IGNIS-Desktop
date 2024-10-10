@@ -166,7 +166,7 @@ public class Emergencias {
          public void obtenerEmergencias(JComboBox comboBox) {
         Connection conexion = ClaseConexion.getConexion();
         try (PreparedStatement pstmt = conexion.prepareStatement(
-            "SELECT * FROM Emergencias")) {
+            "SELECT * FROM Emergencias where respuesta_notificacion = 'En camino'")) {
             
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -183,6 +183,24 @@ public class Emergencias {
             System.out.println("Error al obtener Emergencias: " + e.getMessage());
         }
     }
+         
+         public void actualizarEstado() {
+             
+             try {
+                        Connection conexion = ClaseConexion.getConexion();
+                        String updateSql = "UPDATE Emergencias SET respuesta_notificacion = ? WHERE id_emergencia = ?";
+                        PreparedStatement updateStmt = conexion.prepareStatement(updateSql);
+                        updateStmt.setString(1, getRespuestaNotificacion());
+                        updateStmt.setInt(2, getIdEmergencia());
+                        
+                        updateStmt.executeUpdate();
+                        updateStmt.close();
+             }catch(Exception e) {
+                             System.out.println("Error al actualizar respuesta notificacion emergencias: " + e.getMessage());
+             }
+             
+      
+         }
         
      public void Eliminar(JTable tabla) {
     Connection conexion = ClaseConexion.getConexion();

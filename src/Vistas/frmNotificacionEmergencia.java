@@ -5,6 +5,7 @@
 package Vistas;
 
 import Controlador.ctrlNotificacion;
+import Modelo.Emergencias;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -38,7 +39,8 @@ public void initfrmNotificacionEmergencia(String descripcion, String gravedad, S
 
     if (vistaNotificacion == null) {
         vistaNotificacion = new frmNotificacionEmergencia();
-        ctrlNotificacion controlador = new ctrlNotificacion(vistaNotificacion);
+        Emergencias modelo = new Emergencias();
+        ctrlNotificacion controlador = new ctrlNotificacion(vistaNotificacion, modelo);
     }
 
     // Actualiza los textos de los labels en la instancia actual
@@ -66,8 +68,7 @@ public void initfrmNotificacionEmergencia(String descripcion, String gravedad, S
         lblGravedad = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
         lblDenegar = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblAyuda = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -93,29 +94,26 @@ public void initfrmNotificacionEmergencia(String descripcion, String gravedad, S
         lblGravedad.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         lblGravedad.setForeground(new java.awt.Color(239, 138, 76));
         lblGravedad.setText("Gravedad");
-        panelRound1.add(lblGravedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
+        panelRound1.add(lblGravedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 330, -1));
 
         lblDescripcion.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(239, 138, 76));
+        lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDescripcion.setText("Descripción:");
+        lblDescripcion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         panelRound1.add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 330, 50));
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 15, 480, 140));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 15, 500, 140));
 
         lblDenegar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         lblDenegar.setForeground(new java.awt.Color(255, 255, 255));
         lblDenegar.setText("Denegar ayuda");
-        jPanel1.add(lblDenegar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
+        jPanel1.add(lblDenegar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Ayuda enviada");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Ayuda en proceso");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
+        lblAyuda.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        lblAyuda.setForeground(new java.awt.Color(255, 255, 255));
+        lblAyuda.setText("Ayuda enviada");
+        jPanel1.add(lblAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,9 +166,8 @@ public void initfrmNotificacionEmergencia(String descripcion, String gravedad, S
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel lblAyuda;
     public javax.swing.JLabel lblDenegar;
     public javax.swing.JLabel lblDescripcion;
     public javax.swing.JLabel lblGravedad;

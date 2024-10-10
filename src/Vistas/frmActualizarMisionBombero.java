@@ -183,8 +183,8 @@ cargarDatos();
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Misiones > Asignar Bomberos");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+        jLabel2.setText("Ver Registro > Actualizar ");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));

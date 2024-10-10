@@ -4,9 +4,11 @@
  */
 package Controlador;
 
+import Modelo.Emergencias;
 import Vistas.frmNotificacionEmergencia;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -15,16 +17,32 @@ import java.awt.event.MouseListener;
 public class ctrlNotificacion implements MouseListener {
     
     private frmNotificacionEmergencia vista;
+    private Emergencias modelo;
     
-    public ctrlNotificacion(frmNotificacionEmergencia vista) {
+    public ctrlNotificacion(frmNotificacionEmergencia vista,  Emergencias modelo) {
         this.vista = vista;
+        this.modelo = modelo;
         
         vista.lblDenegar.addMouseListener(this);
+        vista.lblAyuda.addMouseListener(this);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == vista.lblDenegar) {
+            
+            modelo.setIdEmergencia(EmergenciaController.idEmergencia);
+            modelo.setRespuestaNotificacion("Denegada");
+            modelo.actualizarEstado();
+            
+            vista.dispose();
+        }
+        
+        if(e.getSource() == vista.lblAyuda) {
+                   modelo.setIdEmergencia(EmergenciaController.idEmergencia);
+            modelo.setRespuestaNotificacion("En camino");
+            modelo.actualizarEstado();
+            
             vista.dispose();
         }
     }

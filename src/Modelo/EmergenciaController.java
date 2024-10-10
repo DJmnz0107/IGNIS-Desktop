@@ -15,6 +15,8 @@ public class EmergenciaController {
     private Connection conexion;
     private Set<Integer> emergenciasMostradas = new HashSet<>();
         private frmNotificacionEmergencia vistaNotificacion;
+        
+       public static int idEmergencia =0;
 
     public EmergenciaController(Connection conexion) {
         this.conexion = conexion;
@@ -35,7 +37,7 @@ public class EmergenciaController {
                 rs = stmt.executeQuery();
 
                 while (rs.next()) {
-                    int idEmergencia = rs.getInt("id_emergencia");
+                     idEmergencia = rs.getInt("id_emergencia");
                     if (!emergenciasMostradas.contains(idEmergencia)) {
                         String descripcion = rs.getString("descripcion_emergencia");
                         String gravedad = rs.getString("gravedad_emergencia");

@@ -159,7 +159,7 @@ public void cargarComboBoxEmergencias(JComboBox comboBox, int idEmergenciaSelecc
     comboBox.removeAllItems();
     try {
         Statement statement = conexion.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT * FROM Emergencias");
+        ResultSet rs = statement.executeQuery("SELECT * FROM Emergencias where respuesta_notificacion = 'En camino' ");
         
         while (rs.next()) {
             int id = rs.getInt("id_emergencia"); 
