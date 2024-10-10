@@ -4,16 +4,13 @@
  */
 package Vistas;
 
-import Controlador.ctrlAgregarBomberos;
+import Controlador.ctrlActualizarBomberos;
 import Modelo.Bomberos;
 import Vistas.drawer.MyDrawerBuilder;
-import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.BorderFactory;
-import javax.swing.UIManager;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 
@@ -21,40 +18,95 @@ import raven.popup.GlassPanePopup;
  *
  * @author User
  */
-public class frmAgregarBomberos extends javax.swing.JFrame {
+public class frmActualizarBomberos extends javax.swing.JFrame {
 
+    
+    private Bomberos bomberos;
+    private int idBombero;
+    private String rutaImagen;
     /**
-     * Creates new form frmAgregarBomberos
+     * Creates new form frmActualizarBomberos
      */
-    public frmAgregarBomberos() {
+    public frmActualizarBomberos(Bomberos bomberos) {
         GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+        
+        this.bomberos = bomberos;
+        
+        if (bomberos == null) {
+        System.out.println("El objeto aspirante es null");
+    } else {
+        System.out.println("El recurso tiene los siguientes datos: ");
+        System.out.println("Nombre: " + bomberos.getNombre_bombero());
+        System.out.println("Apellido: " + bomberos.getApellido_bombero());
+        System.out.println("Experiencia: " + bomberos.getExperiencia_bombero());
+        System.out.println("Especializacion: " + bomberos.getEspecializacion_bombero());
+        System.out.println("Foto: " + bomberos.getFoto_bombero());
+        System.out.println("idUsuario: " + bomberos.getId_usuario());
+         System.out.println("NombreUsuario: " + bomberos.getNombre_usuario());
+         
+                System.out.println("idBombero: " + bomberos.getId_bombero());
+
+                  
+
+
+    }
+
         initComponents();
+        int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
+                   
+        cargarDatos();
     }
     
-    public static void initfrmAgregarBomberos(){
-        
-        FlatRobotoFont.install();
-        FlatLaf.registerCustomDefaultsSource("vistas.themes");
-        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
-        FlatLightLaf.setup();
-              UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
-        UIManager.put("ComboBox.foreground", Color.DARK_GRAY);              
-        UIManager.put("ComboBox.selectionBackground", new Color(0xFF7043)); 
-        UIManager.put("ComboBox.selectionForeground", Color.WHITE);         
-        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xFFFFFF), 1)); 
-        UIManager.put( "Component.arrowType", "triangle" );
-
-        UIManager.put("TextField.arc", 50); 
-        UIManager.put("ComboBox.arc", 50); 
+    public static void initfrmActualizarBomberos(Bomberos bomberos){
     
     Bomberos Modelo = new Bomberos();
-    frmAgregarBomberos Vistas = new frmAgregarBomberos();
-    ctrlAgregarBomberos controlador = new ctrlAgregarBomberos(Modelo, Vistas);
+    frmActualizarBomberos Vistas = new frmActualizarBomberos(bomberos);
+    ctrlActualizarBomberos controlador = new ctrlActualizarBomberos(Modelo, Vistas);
     Vistas.setVisible(true);
+    
     }
+    
+    
+    public void cargarDatos() {
+    // Cargar los datos del aspirante
+    txtNombreBombero.setText(bomberos.getNombre_bombero());
+    txtApellidoBombero.setText(bomberos.getApellido_bombero());
+    txtExperiencia.setText(bomberos.getExperiencia_bombero());
+    txtEspecializacion.setText(bomberos.getEspecializacion_bombero());
 
+            Bomberos modelo = new Bomberos();
+                modelo.CargarComboUsuariosUpdate(cmbUsuario, bomberos.getId_usuario());
+
+    lblFoto.setIcon(redimensionarImagen(bomberos.getFoto_bombero(), 150, 150));
+    idBombero = bomberos.getId_bombero();
+    rutaImagen = bomberos.getFoto_bombero();
+}
+    
+                 private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
+    ImageIcon imagenOriginal = new ImageIcon(rutaImagen);
+    Image imagenEscalada = imagenOriginal.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+    return new ImageIcon(imagenEscalada);
+}
+    
+    
+         public int obtenerIdBombero() {
+             
+        return idBombero; 
+    }
+        
+        public String obtenerRutaImagen() {
+        return rutaImagen; 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,14 +131,13 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         cmbUsuario = new javax.swing.JComboBox<>();
         btnVerRegistro = new Vistas.btnRojoForms();
-        btnAgregarInfo1 = new Vistas.btnRojoForms();
+        btnActualizar = new Vistas.btnRojoForms();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtExperiencia = new Vistas.TextAreaGris();
         btnAgregarFoto1 = new Vistas.btnRojoForms();
         imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -181,13 +232,13 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
                 btnVerRegistroActionPerformed(evt);
             }
         });
-        panelRound31.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 170, 40));
+        panelRound31.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 170, 50));
 
-        btnAgregarInfo1.setText("   Agregar informacion");
-        btnAgregarInfo1.setToolTipText("");
-        btnAgregarInfo1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        btnAgregarInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelRound31.add(btnAgregarInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 220, 40));
+        btnActualizar.setText("    Actualizar Informacion");
+        btnActualizar.setToolTipText("");
+        btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelRound31.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 220, 50));
 
         txtExperiencia.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtExperiencia.setColumns(20);
@@ -220,7 +271,6 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
@@ -252,27 +302,27 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmActualizarBomberos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmAgregarBomberos().setVisible(true);
+               
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public Vistas.btnRojoForms btnActualizar;
     public Vistas.btnRojoForms btnAgregarFoto1;
-    public Vistas.btnRojoForms btnAgregarInfo1;
     public javax.swing.JButton btnMenu;
     public Vistas.btnRojoForms btnVerRegistro;
     public javax.swing.JComboBox<String> cmbUsuario;
