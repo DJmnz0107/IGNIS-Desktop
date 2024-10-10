@@ -7,9 +7,16 @@ package Vistas;
 import Controlador.ctrlActualizarBomberos;
 import Modelo.Bomberos;
 import Vistas.drawer.MyDrawerBuilder;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.text.AbstractDocument;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
@@ -68,6 +75,20 @@ setIconImage(scaledImage);
     }
     
     public static void initfrmActualizarBomberos(Bomberos bomberos){
+        FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+        FlatLightLaf.setup();
+              UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
+        UIManager.put("ComboBox.foreground", Color.DARK_GRAY);              
+        UIManager.put("ComboBox.selectionBackground", new Color(0xFF7043)); 
+        UIManager.put("ComboBox.selectionForeground", Color.WHITE);         
+        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xFFFFFF), 1)); 
+        UIManager.put( "Component.arrowType", "triangle" );
+
+        UIManager.put("TextField.arc", 50); 
+        UIManager.put("ComboBox.arc", 50); 
+        
     
     Bomberos Modelo = new Bomberos();
     frmActualizarBomberos Vistas = new frmActualizarBomberos(bomberos);
@@ -138,6 +159,7 @@ setIconImage(scaledImage);
         imgBack = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -271,6 +293,7 @@ setIconImage(scaledImage);
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
