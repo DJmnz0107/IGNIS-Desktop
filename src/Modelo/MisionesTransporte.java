@@ -6,8 +6,10 @@ package Modelo;
 
 import javax.swing.JTable;
 import java.sql.*;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -15,53 +17,112 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MisionesTransporte {
 
-    /**
-     * @return the id_misionesbombero
-     */
-    public int getId_misionesbombero() {
-        return id_misionesbombero;
+    public int getId_misionTransporte() {
+        return id_misionTransporte;
     }
 
-    /**
-     * @param id_misionesbombero the id_misionesbombero to set
-     */
-    public void setId_misionesbombero(int id_misionesbombero) {
-        this.id_misionesbombero = id_misionesbombero;
+    public void setId_misionTransporte(int id_misionTransporte) {
+        this.id_misionTransporte = id_misionTransporte;
     }
 
-    /**
-     * @return the id_mision
-     */
     public int getId_mision() {
         return id_mision;
     }
 
-    /**
-     * @param id_mision the id_mision to set
-     */
     public void setId_mision(int id_mision) {
         this.id_mision = id_mision;
     }
 
-    /**
-     * @return the id_bombero
-     */
-    public int getId_bombero() {
-        return id_bombero;
+    public int getId_transporte() {
+        return id_transporte;
     }
 
-    /**
-     * @param id_bombero the id_bombero to set
-     */
-    public void setId_bombero(int id_bombero) {
-        this.id_bombero = id_bombero;
+    public void setId_transporte(int id_transporte) {
+        this.id_transporte = id_transporte;
     }
     
-   private int id_misionesbombero;
-   private int id_mision;
-   private int id_bombero;
+    private int id_misionTransporte;
+    private int id_mision;
+    private int id_transporte;
+
+
+    
    
    
+   
+   
+   public void obtenerMisiones(JComboBox comboBox) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Misiones");
+
+        while (rs.next()) {
+            int id = rs.getInt("id_mision");
+            String descripcionMision = rs.getString("descripcion_mision");
+
+            Misiones mision = new Misiones(id, descripcionMision, false);
+            comboBox.addItem(new MisionDisplay(mision)); // Añadir el wrapper
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+   
+   public void obtenerTransporte(JComboBox comboBox) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Transportes");
+
+        while (rs.next()) {
+            int id = rs.getInt("id_Transporte");
+            String nombre = rs.getString("tipoVehiculo_Transporte");
+            
+            Transportes transporte = new Transportes(id, nombre, false);
+            comboBox.addItem(new TransporteDisplay(transporte));
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+   
+   public void guardar() {
+    // Creamos una variable igual a ejecutar el método de la clase de conexión
+    Connection conexion = ClaseConexion.getConexion();
+    try {
+        // Crear el PreparedStatement que ejecutará la Query
+        PreparedStatement addMisionBombero = conexion.prepareStatement(
+            "INSERT INTO Misiones_Transportes (id_mision, id_Transporte) VALUES (?, ?)"
+        );
+
+        // Establecer valores de la consulta SQL
+        int idMision = getId_mision();
+        int idTransporte = getId_transporte();
+
+        System.out.println("ID Misión: " + idMision);
+        System.out.println("ID Bombero: " + idTransporte);
+
+        addMisionBombero.setInt(1, idMision);
+        addMisionBombero.setInt(2, idTransporte);
+
+        // Ejecutar la consulta
+        addMisionBombero.executeUpdate();
+    } catch (Exception ex) {
+        System.out.println("Este es el error en el modelo: método guardar " + ex);
+    } finally {
+        // Asegúrate de cerrar la conexión en el bloque finally para liberar recursos
+        try {
+            if (conexion != null) {
+                conexion.close();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cerrar la conexión: " + e);
+        }
+    }
+}
    
    
    public void Mostrar(JTable tabla) {

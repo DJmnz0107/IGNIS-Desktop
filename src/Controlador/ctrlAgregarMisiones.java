@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.Emergencias;
 import Modelo.Misiones;
 import Vistas.frmAgregarMision;
+import Vistas.frmAgregarMisionTransportes;
 import Vistas.frmAsignarMisionesBomberos;
 import Vistas.frmRegistroMisionesBomberos;
 import Vistas.frmAsignarRecursos;
@@ -102,7 +103,7 @@ public class ctrlAgregarMisiones implements MouseListener {
         }
         
         if(e.getSource() == vista.btnTransportes2){
-            frmRegistroTransportes.initfrmRegistroTransporte();
+            frmAgregarMisionTransportes.initfrmAgregarMisionTransportes();
             vista.dispose();
         }
     }
