@@ -32,10 +32,16 @@ public class ctrlActualizarMisionBombero implements MouseListener {
         
         vista.btnVerRegistros.addMouseListener(this);
         vista.btnActualizar.addMouseListener(this);
+        vista.imgBack.addMouseListener(this);
     }
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()==vista.imgBack){
+        frmRegistroMisionesBomberos.initfrmRegistroMisionesBomberos();
+        vista.dispose();
+        }
         
         if(e.getSource() == vista.btnVerRegistros) {
             frmRegistroMisionesBomberos.initfrmRegistroMisionesBomberos();

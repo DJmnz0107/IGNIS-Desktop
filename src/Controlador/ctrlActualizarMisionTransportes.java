@@ -30,12 +30,18 @@ public class ctrlActualizarMisionTransportes implements MouseListener{
         
         vistas.btnVerRegistros.addMouseListener(this);
         vistas.btnActualizar.addMouseListener(this);
+        vistas.imgBack.addMouseListener(this);
         
         
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+            if(e.getSource() == Vistas.imgBack) {
+            frmRegistroTransportes.initfrmRegistroTransporte();
+            Vistas.dispose();
+        }
         
                 if(e.getSource() == Vistas.btnVerRegistros) {
             frmRegistroTransportes.initfrmRegistroTransporte();
