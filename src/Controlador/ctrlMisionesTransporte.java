@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Vistas.frmActualizarMisionTransporte;
 import Modelo.MisionesTransporte;
 import Vistas.frmAgregarMision;
 import Vistas.frmRegistroTransportes;
@@ -11,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -30,6 +32,7 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         Vista.btnEliminar.addMouseListener(this);
         Vista.imgBack.addMouseListener(this);
         modelo.Mostrar(Vista.jtRegistroTransporte);
+        Vista.btnActualizar.addMouseListener(this);
     }
 
     @Override
@@ -41,6 +44,17 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         if(e.getSource() == Vista.imgBack){
             Vista.dispose();
             frmAgregarMision.initFrmAgregarMision();
+        }
+        
+         if(e.getSource() == Vista.btnActualizar) {
+            MisionesTransporte registroSeleccionado = modelo.obtenerDatosTabla(Vista);
+
+        if (registroSeleccionado != null) {
+            frmActualizarMisionTransporte.initfrmActualizarMisionTransporte(registroSeleccionado);
+            Vista.dispose();
+        } else {
+            JOptionPane.showMessageDialog(Vista, "Por favor, seleccione una fila para actualizar.");
+        }
         }
     }
 
