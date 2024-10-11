@@ -6,6 +6,12 @@ package Vistas;
 
 import Controlador.ctrlAsignarRecursosVer;
 import Modelo.MisionesRecursos;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.UIManager;
 
 
 /**
@@ -23,6 +29,19 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
 
     
     public static void initFrmAsignarRecursosVer(){
+             FlatRobotoFont.install();
+        FlatLaf.registerCustomDefaultsSource("vistas.themes");
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
+                    UIManager.put("Table.background", new Color(0xFFFFFF));              
+        UIManager.put("Table.foreground", Color.BLACK);                       
+        UIManager.put("Table.selectionBackground", new Color(0xFFAD7A));       
+        UIManager.put("Table.selectionForeground", Color.WHITE);               
+        UIManager.put("Table.gridColor", new Color(0xDDDDDD));              
+        UIManager.put("TableHeader.background", new Color(0xF5F5F5));          
+        UIManager.put("TableHeader.foreground", Color.BLACK);                  
+        UIManager.put("TableHeader.font", new Font("Microsoft Jheng UI", Font.BOLD, 14));  
+        UIManager.put("Table.alternateRowColor", new Color(0xF8F8F8));  
+        FlatLightLaf.setup();
       frmAsignarRecursosVer vista = new frmAsignarRecursosVer();
       MisionesRecursos modelo = new MisionesRecursos();
       ctrlAsignarRecursosVer controlador = new ctrlAsignarRecursosVer(vista,modelo);
@@ -41,14 +60,14 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         imgBack = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         JTextField = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtbVerAsignarRecu = new javax.swing.JTable();
+        txtBuscar = new javax.swing.JTextField();
+        imgBuscar = new javax.swing.JLabel();
         btnEliminar = new Vistas.btnRojoForms();
         btnActualizar = new Vistas.btnRojoForms();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtbVerAsignarRecu = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -60,11 +79,6 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
         imgBack.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 19, 40, -1));
-
-        jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Misiones >Asignar Recursos");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 19, 530, -1));
 
         JTextField.setBackground(new java.awt.Color(192, 109, 58));
         JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -80,15 +94,35 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
                 JTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 69, 109, 40));
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 109, 40));
 
-        jTextField1.setBackground(new java.awt.Color(255, 173, 122));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 69, 270, 40));
+        txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
+        txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        txtBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 300, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 69, 40, 40));
+        imgBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
+        jPanel1.add(imgBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 40, 40));
+
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 200, 50));
+
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 520, 190, 50));
+
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Asignar recursos > Ver registro");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
 
         jtbVerAsignarRecu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,32 +137,17 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtbVerAsignarRecu);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 121, 782, -1));
-
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 576, 200, 70));
-
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 576, 190, 70));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 880, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 989, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -182,11 +201,11 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
     public Vistas.btnRojoForms btnActualizar;
     public Vistas.btnRojoForms btnEliminar;
     public javax.swing.JLabel imgBack;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel imgBuscar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JTable jtbVerAsignarRecu;
+    public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

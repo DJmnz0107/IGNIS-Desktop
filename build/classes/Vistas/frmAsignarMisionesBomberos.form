@@ -107,10 +107,10 @@
       <SubComponents>
         <Container class="Vistas.PanelRound" name="panelRound1">
           <Properties>
-            <Property name="roundBottomLeft" type="int" value="50"/>
-            <Property name="roundBottomRight" type="int" value="50"/>
-            <Property name="roundTopLeft" type="int" value="50"/>
-            <Property name="roundTopRight" type="int" value="50"/>
+            <Property name="roundBottomLeft" type="int" value="150"/>
+            <Property name="roundBottomRight" type="int" value="150"/>
+            <Property name="roundTopLeft" type="int" value="150"/>
+            <Property name="roundTopRight" type="int" value="150"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
