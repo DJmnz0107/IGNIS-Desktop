@@ -32,9 +32,9 @@ public class frmActualizarMisionBombero extends javax.swing.JFrame {
      * Creates new form frmActualizarMisionBombero
      */
     public frmActualizarMisionBombero(MisionesBomberos misionBombero    ) {
-        GlassPanePopup.install(this);
-        MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
-        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+            GlassPanePopup.install(this);
+            MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
+            Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         
         this.misionBombero = misionBombero;
         

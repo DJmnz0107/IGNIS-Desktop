@@ -6,8 +6,7 @@ package Controlador;
 
 import Modelo.MisionDisplay;
 import Modelo.MisionesRecursos;
-import Vistas.frmAgregarMision;
-import Vistas.frmAsignarRecursos;
+import Vistas.frmActualizarMisionRecurso;
 import Vistas.frmAsignarRecursosVer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -15,51 +14,33 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author USUARIO
+ * @author Diego
  */
-public class ctrlAsignarRecursos implements MouseListener{
-        private frmAsignarRecursos vista;
-      private MisionesRecursos modelo;
-   
-    public ctrlAsignarRecursos(frmAsignarRecursos vista,MisionesRecursos modelo ){
+public class ctrlActualizarMisionRecurso implements MouseListener  {
     
-       this.modelo = modelo;
-       this.vista = vista;
-       this.vista.btnguardar.addMouseListener(this);
-       this.vista.btnVerAsigRecu.addMouseListener(this);
-       this.vista.cmbMision.addMouseListener(this);
-       this.modelo.CargarComboMisiones(vista.cmbMision);
-       this.modelo.CargarComboRecursos(vista.cmbRecursos);
-       vista.imgBack.addMouseListener(this);
-       
-       modelo.CargarComboMisiones(vista.cmbMision);
-       modelo.CargarComboRecursos(vista.cmbRecursos);
-       
-      
-       
+    private frmActualizarMisionRecurso vista;
+    private MisionesRecursos modelo;
+    
+    public ctrlActualizarMisionRecurso(MisionesRecursos modelo, frmActualizarMisionRecurso vista) {
+        this.vista = vista;
+        this.modelo = modelo;
+        
+        vista.imgBack.addMouseListener(this);
+        vista.btnVerAsigRecu.addMouseListener(this);
+        vista.btnActualizar.addMouseListener(this);
     }
-    
-    
-   
-    
 
     @Override
     public void mouseClicked(MouseEvent e) {
         
-        if(e.getSource() == vista.imgBack) {
-            frmAgregarMision.initFrmAgregarMision();
-            vista.dispose();
-        }
-        
-        if(e.getSource()==vista.btnguardar){
-        
-      if (vista.cmbMision.getSelectedItem() == null) {
+        if(e.getSource() == vista.btnActualizar) {
+              if (vista.cmbMision.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(vista, "No se puede añadir una misión nula, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
         if (vista.cmbRecursos.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(vista, "No se puede añadir un bombero nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista, "No se puede añadir un recurso nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -77,53 +58,49 @@ public class ctrlAsignarRecursos implements MouseListener{
         if (idMisionSeleccionada > 0 && idRecursoSelect > 0) {
             modelo.setId_recurso(idRecursoSelect);
             modelo.setId_mision(idMisionSeleccionada);
+            modelo.setId_misionRecurso(vista.obtenerIdRegistro());
 
             try {
-                modelo.Guardar();// Asegúrate de que este método esté implementado correctamente
-                JOptionPane.showMessageDialog(vista, "Información ingresada con éxito", "Agregar transporte", JOptionPane.INFORMATION_MESSAGE);
+                modelo.actualizarRegistro();// Asegúrate de que este método esté implementado correctamente
+                JOptionPane.showMessageDialog(vista, "Información actualizada con éxito", "Agregar recurso", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 ex.printStackTrace(); // Manejo de excepciones
-                JOptionPane.showMessageDialog(vista, "Error al guardar la información: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "Error al actualizar la información: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            System.out.println("ID Misión o Bombero no válido.");
-            JOptionPane.showMessageDialog(vista, "ID Misión o Bombero no válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println("ID Misión o Recurso no válido.");
+            JOptionPane.showMessageDialog(vista, "ID Misión o Recurso no válido.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     } else {
-        System.out.println("No se ha seleccionado ningún bombero o misión.");
+        System.out.println("No se ha seleccionado ningún recurso o misión.");
     }
-        
         }
         
-        
-        if(e.getSource()==vista.btnVerAsigRecu){
+        if(e.getSource() == vista.imgBack) {
             frmAsignarRecursosVer.initFrmAsignarRecursosVer();
             vista.dispose();
         }
         
-      
-        
-      
+        if(e.getSource() == vista.btnVerAsigRecu) {
+             frmAsignarRecursosVer.initFrmAsignarRecursosVer();
+            vista.dispose();
+        }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-      
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-       
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
     }
-  
     
 }

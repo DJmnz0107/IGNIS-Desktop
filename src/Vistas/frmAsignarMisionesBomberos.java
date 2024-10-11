@@ -104,10 +104,10 @@ public class frmAsignarMisionesBomberos extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound1.setRoundBottomLeft(50);
-        panelRound1.setRoundBottomRight(50);
-        panelRound1.setRoundTopLeft(50);
-        panelRound1.setRoundTopRight(50);
+        panelRound1.setRoundBottomLeft(150);
+        panelRound1.setRoundBottomRight(150);
+        panelRound1.setRoundTopLeft(150);
+        panelRound1.setRoundTopRight(150);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/anadir.png"))); // NOI18N

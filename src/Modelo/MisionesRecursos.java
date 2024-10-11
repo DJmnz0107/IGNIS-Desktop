@@ -18,6 +18,29 @@ import javax.swing.JTextField;
 public class MisionesRecursos {
 
     /**
+     * @return the descripcionRecurso
+     */
+    public String getDescripcionRecurso() {
+        return descripcionRecurso;
+    }
+
+    /**
+     * @param descripcionRecurso the descripcionRecurso to set
+     */
+    public void setDescripcionRecurso(String descripcionRecurso) {
+        this.descripcionRecurso = descripcionRecurso;
+    }
+
+    private MisionesRecursos(int idMisionRecurso, int idMision, int idRecurso, String descripcionMision, String nombreRecurso, String descripcionRecurso) {
+        this.id_misionRecurso = idMisionRecurso;
+        this.id_mision = idMision;
+        this.id_recurso = idRecurso;
+        this.descripcion_Mision = descripcionMision;
+        this.nombre_Recurso = nombreRecurso;
+        this.descripcionRecurso = descripcionRecurso;
+    }
+
+    /**
      * @return the id_misionRecurso
      */
     public int getId_misionRecurso() {
@@ -64,6 +87,7 @@ public class MisionesRecursos {
     private int id_recurso;
     private String descripcion_Mision;
     private String nombre_Recurso;
+    private String descripcionRecurso;
 
     public String getNombre_Recurso() {
         return nombre_Recurso;
@@ -99,6 +123,109 @@ public class MisionesRecursos {
     public String toString() {
         return nombre_Recurso;
     }
+    
+    
+    public MisionesRecursos obtenerDatosTabla(JTable tabla) {
+    // Obtener la fila seleccionada de la tabla
+    int filaSeleccionada = tabla.getSelectedRow();
+
+    // Si hay una fila seleccionada
+    if (filaSeleccionada != -1) {
+        // Obtener los datos de la fila seleccionada
+        int idMisionRecurso = (Integer) tabla.getValueAt(filaSeleccionada, 0);
+        int idMision = (Integer) tabla.getValueAt(filaSeleccionada, 1);
+        int idRecurso = (Integer) tabla.getValueAt(filaSeleccionada, 2);
+        String descripcionMision = tabla.getValueAt(filaSeleccionada, 3).toString();
+        String nombreRecurso = tabla.getValueAt(filaSeleccionada, 5).toString();
+        String descripcionRecurso = tabla.getValueAt(filaSeleccionada, 6).toString();
+
+        // Devolver un nuevo objeto MisionesRecurso con los datos obtenidos
+        return new MisionesRecursos(idMisionRecurso, idMision, idRecurso, descripcionMision, nombreRecurso, descripcionRecurso);
+    }
+
+    // Si no hay una fila seleccionada, devolver null
+    return null;
+}
+    
+    
+    public void cargarComboRecursosUpdate(JComboBox comboBox, int idRecursoSeleccionado) {    
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT id_recurso, nombre_Recurso FROM Recursos");
+        
+        while (rs.next()) {
+            int id = rs.getInt("id_recurso"); 
+            String nombre = rs.getString("nombre_Recurso");
+     MisionesRecursos recurso = new MisionesRecursos(id, nombre, false); // Se usa el constructor adecuado
+            comboBox.addItem(recurso); // Añade el objeto recurso al JComboBox
+            System.out.println("Cargando: ID: " + id + ", Descripción: " + nombre); // Para verificar
+        }
+        
+        System.out.println("ID de emergencia seleccionada: " + idRecursoSeleccionado);
+        
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            MisionesRecursos mision = (MisionesRecursos) comboBox.getItemAt(i);
+            System.out.println("Comparando con ID: " + mision.getId_recurso());
+            if (mision.getId_recurso() == idRecursoSeleccionado) {
+                comboBox.setSelectedIndex(i); // Selecciona el índice
+                break; // Salir del bucle una vez encontrado
+            }
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
+    
+    public void actualizarRegistro() {
+    // Creamos una variable igual a ejecutar el método de la clase de conexión
+    Connection conexion = ClaseConexion.getConexion();
+    try {
+        // Crear el PreparedStatement que ejecutará la Query de actualización
+        PreparedStatement updateMisionRecurso = conexion.prepareStatement(
+            "UPDATE Misiones_Recursos SET id_mision = ?, id_recurso = ? WHERE id_misionRecurso = ?"
+        );
+
+        // Establecer los valores que se van a actualizar
+        int idMision = getId_mision(); // ID de la misión actualizada
+        int idRecurso = getId_recurso(); // ID del recurso actualizado
+        int idMisionRecurso = getId_misionRecurso(); // Este es el identificador único del registro a actualizar
+
+        // Mensajes de depuración para confirmar los valores
+        System.out.println("ID Misión: " + idMision);
+        System.out.println("ID Recurso: " + idRecurso);
+        System.out.println("ID Misión Recurso: " + idMisionRecurso);
+
+        // Asignar valores a los placeholders de la consulta SQL
+        updateMisionRecurso.setInt(1, idMision); // Establecer nuevo id_mision
+        updateMisionRecurso.setInt(2, idRecurso); // Establecer nuevo id_recurso
+        updateMisionRecurso.setInt(3, idMisionRecurso); // Condición para saber qué registro actualizar
+
+        // Ejecutar la actualización
+        int filasActualizadas = updateMisionRecurso.executeUpdate();
+
+        // Confirmar si se actualizó alguna fila
+        if (filasActualizadas > 0) {
+            System.out.println("Registro actualizado correctamente.");
+        } else {
+            System.out.println("No se encontró el registro a actualizar.");
+        }
+    } catch (Exception ex) {
+        System.out.println("Este es el error en el modelo: método actualizar " + ex);
+    } finally {
+        // Asegúrate de cerrar la conexión en el bloque finally para liberar recursos
+        try {
+            if (conexion != null) {
+                conexion.close();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cerrar la conexión: " + e);
+        }
+    }
+}
+
+
     
     
     
@@ -148,7 +275,40 @@ public class MisionesRecursos {
         }
     }
 }
+    
+    public void cargarComboBoxMisiones(JComboBox comboBox, int idMisionSeleccionada) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Misiones");
 
+        while (rs.next()) {
+            int id = rs.getInt("id_mision"); 
+            String descripcionMision = rs.getString("descripcion_mision"); // Ajustado para descripción
+            Misiones mision = new Misiones(id, descripcionMision, false);
+            comboBox.addItem(new MisionDisplay(mision)); // Añadir el wrapper
+            System.out.println("Cargando: ID: " + id + ", Descripción: " + descripcionMision); // Para verificar
+        }
+
+        System.out.println("ID de misión seleccionada: " + idMisionSeleccionada);
+
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            MisionDisplay misionDisplay = (MisionDisplay) comboBox.getItemAt(i); // Obtener el wrapper
+            Misiones mision = misionDisplay.getMision(); // Obtener el objeto Misiones
+
+            System.out.println("Comparando con ID: " + mision.getIdMision());
+            if (mision.getIdMision() == idMisionSeleccionada) {
+                comboBox.setSelectedIndex(i); // Selecciona el índice
+                break; // Salir del bucle una vez encontrado
+            }
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+
+     
     
     
     
@@ -189,22 +349,7 @@ public class MisionesRecursos {
         System.out.println("Este es el error en el método de eliminar: " + e);
     }
     }
-    public void Actualizar(){
-      Connection conexion = ClaseConexion.getConexion();
-      
-    try{
-        PreparedStatement updateMisionRecurso = conexion.prepareStatement("UPDATE Misiones_Recursos SET id_mision = ?, id_recurso = ? WHERE id_misionRecurso = ?");
-        
-        
-        updateMisionRecurso.setInt(1, getId_mision());
-        updateMisionRecurso.setInt(2,getId_recurso());
-        updateMisionRecurso.setInt(3,getId_misionRecurso());
-        
-        updateMisionRecurso.executeUpdate();
-    }catch (Exception e) {
-        System.out.println("este es el error en el metodo de actualizar" + e);
-    }
-    }
+   
     
 public void Mostrar(JTable tabla) {
     Connection conexion = ClaseConexion.getConexion();

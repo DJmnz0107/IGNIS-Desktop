@@ -5,6 +5,8 @@
 package Controlador;
 
 import Modelo.MisionesRecursos;
+import Vistas.frmActualizarMisionRecurso;
+import Vistas.frmAsignarRecursos;
 import Vistas.frmAsignarRecursosVer;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -29,6 +31,7 @@ public class ctrlAsignarRecursosVer implements MouseListener,KeyListener{
     vista.txtBuscar.addKeyListener(this);
     vista.btnActualizar.addMouseListener(this);
     vista.btnEliminar.addMouseListener(this);
+    vista.imgBack.addMouseListener(this);
         modelo.Mostrar(vista.jtbVerAsignarRecu);
     
     }
@@ -38,14 +41,51 @@ public class ctrlAsignarRecursosVer implements MouseListener,KeyListener{
     public void mouseClicked(MouseEvent e) {
         
               if(e.getSource()==vista.btnEliminar){
-               modelo.Eliminar(vista.jtbVerAsignarRecu);
+                  
+                     if (vista.jtbVerAsignarRecu.getSelectedRow() == -1) {
+        JOptionPane.showMessageDialog(vista, "Debes seleccionar una fila para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+    } else {
+        Object[] opciones = {"Sí", "No"}; // Opciones en español
+
+        int respuesta = JOptionPane.showOptionDialog(
+            vista, 
+            "¿Estás seguro de que deseas eliminar este aspirante?", 
+            "Confirmación", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            opciones, 
+            opciones[0]
+        );
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            modelo.Eliminar(vista.jtbVerAsignarRecu);
                modelo.Mostrar(vista.jtbVerAsignarRecu);
-               JOptionPane.showMessageDialog(vista, "Registro eliminado exitosamente");
+       JOptionPane.showMessageDialog(vista, "Registro eliminado exitosamente");    
+        }
+           
+        }
+  
            
               }
               
               if(e.getSource()==vista.imgBack){
                
+                  frmAsignarRecursos.initFrmAsignarRecursos();
+                  vista.dispose();
+                  
+              }
+              
+              if(e.getSource() == vista.btnActualizar) {
+                  
+                  MisionesRecursos registroSeleccionado = modelo.obtenerDatosTabla(vista.jtbVerAsignarRecu);
+
+        if (registroSeleccionado != null) {
+            frmActualizarMisionRecurso.initFrmActulizarMisionesBomberos(registroSeleccionado);
+            vista.dispose();
+        } else {
+            JOptionPane.showMessageDialog(vista, "Por favor, seleccione una fila para actualizar.");
+        }
                   
               }
               
