@@ -90,15 +90,18 @@ public class MisionesRecursos {
       this.descripcion_Mision = nombre;
     }
     
-    public MisionesRecursos(int id, String nombre){
+    public MisionesRecursos(int id, String nombre,boolean Misiones){
       this.id_recurso = id;
       this.nombre_Recurso = nombre;
     }
     
      @Override
     public String toString() {
-        return descripcion_Mision;
+        return nombre_Recurso;
     }
+    
+    
+    
     
     
     public void CargarComboMisiones(JComboBox comboBox) {
@@ -111,14 +114,41 @@ public class MisionesRecursos {
         while (rs.next()) {
             int id = rs.getInt("id_mision");
             String nombre = rs.getString("descripcion_Mision");
-            comboBox.addItem(new MisionesRecursos(id, nombre)); // Añadir nombre y apellido
+          Misiones mision = new Misiones(id, nombre, false);
+            comboBox.addItem(new MisionDisplay(mision)); // Añadir el wrapper
         }
     } catch(SQLException ex) {
         ex.printStackTrace();  
     }
 }
-    
-    
+    public void CargarComboRecursos(JComboBox comboBox) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();  // Limpia los elementos anteriores en el combo
+    try {
+        Statement statement = conexion.createStatement();
+        String sql = "SELECT id_recurso, nombre_Recurso FROM Recursos";
+        ResultSet rs = statement.executeQuery(sql);
+
+        while (rs.next()) {
+            int id = rs.getInt("id_recurso");
+            String nombre = rs.getString("nombre_Recurso");
+
+            // Crea un nuevo objeto MisionesRecursos para cada recurso y añádelo al combo
+            MisionesRecursos recurso = new MisionesRecursos(id, nombre, false); // Se usa el constructor adecuado
+            comboBox.addItem(recurso); // Añade el objeto recurso al JComboBox
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();
+    } finally {
+        // Cerrar recursos
+        try {
+            conexion.close();
+        } catch(SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+
     
     
     
@@ -126,11 +156,11 @@ public class MisionesRecursos {
     {
           Connection conexion = ClaseConexion.getConexion();
           try{
-             PreparedStatement addProducto = conexion.prepareStatement("INSERT INTO Misiones_Recursos (id_mision, id_recurso) VALUES (?,?)");
-               addProducto.setInt(1,getId_mision());
-                addProducto.setInt(1,getId_recurso());
+             PreparedStatement addRecu = conexion.prepareStatement("INSERT INTO Misiones_Recursos (id_mision, id_recurso) VALUES (?,?)");
+               addRecu.setInt(1,getId_mision());
+                addRecu.setInt(2,getId_recurso());
                 
-                addProducto.executeUpdate();
+                addRecu.executeUpdate();
           
           
           }catch (SQLException ex) {
