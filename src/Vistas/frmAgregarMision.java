@@ -347,4 +347,10 @@ setIconImage(scaledImage);
     private Vistas.PanelRound panelRound2;
     public Vistas.TextFieldGris txtDescripcion;
     // End of variables declaration//GEN-END:variables
+
+    public class jpPanelBomberos {
+
+        public jpPanelBomberos() {
+        }
+    }
 }

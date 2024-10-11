@@ -37,6 +37,7 @@ public class ctrlMisiones implements MouseListener, KeyListener{
     vistas.btnActualizar.addMouseListener(this);
     vistas.imgBack.addMouseListener(this);
     
+    
     }
 
     @Override

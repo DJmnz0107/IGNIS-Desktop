@@ -108,22 +108,22 @@ setIconImage(scaledImage);
     
     
     
-    //Cargar datos traidos desde la tabla
-       public void cargarDatos() {
-    // Cargar los datos del aspirante
-    txtNombreAspirante.setText(aspirante.getNombre_aspirante());
-    txtApellidoAspirante.setText(aspirante.getApellido_aspirante());
-    txtEdadAspirante.setText(Integer.toString(aspirante.getEdad_usuario()));
-    txtDuiAspirante.setText(aspirante.getDui_aspirante());
-    txtEntrenamientoAspirante.setText(aspirante.getEntrenamiento_aspirante());
-            Aspirantes modelo = new Aspirantes();
-                modelo.CargarComboBomberosUpdate(cmbBomberoMentor, aspirante.getId_bombero());
+        //Cargar datos traidos desde la tabla
+           public void cargarDatos() {
+        // Cargar los datos del aspirante
+        txtNombreAspirante.setText(aspirante.getNombre_aspirante());
+        txtApellidoAspirante.setText(aspirante.getApellido_aspirante());
+        txtEdadAspirante.setText(Integer.toString(aspirante.getEdad_usuario()));
+        txtDuiAspirante.setText(aspirante.getDui_aspirante());
+        txtEntrenamientoAspirante.setText(aspirante.getEntrenamiento_aspirante());
+                Aspirantes modelo = new Aspirantes();
+                    modelo.CargarComboBomberosUpdate(cmbBomberoMentor, aspirante.getId_bombero());
 
-    txtProgresoAspirante.setText(aspirante.getProgreso_aspirante());
-    imgAspirante.setIcon(redimensionarImagen(aspirante.getFoto_aspirante(), 150, 150));
-    idAspirante = aspirante.getId_aspirante();
-    rutaImagen = aspirante.getFoto_aspirante();
-}
+        txtProgresoAspirante.setText(aspirante.getProgreso_aspirante());
+        imgAspirante.setIcon(redimensionarImagen(aspirante.getFoto_aspirante(), 150, 150));
+        idAspirante = aspirante.getId_aspirante();
+        rutaImagen = aspirante.getFoto_aspirante();
+    }
 
        
       //Redimensionar la imagen para que se vea bien 

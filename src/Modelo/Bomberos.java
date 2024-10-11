@@ -4,8 +4,10 @@
  */
 package Modelo;
 
+import Vistas.frmActualizarBomberos;
 import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarBomberos;
+import Vistas.frmRegistroBomberos;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,8 +17,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -36,6 +40,31 @@ public class Bomberos {
    private String foto_bombero; 
    private int id_usuario;
    private String nombre_usuario;
+   
+   /*id, nombreBombero, apellidoBombero, experiencia, especializacion, imagen, idUsuario*/
+   
+   public Bomberos (int id, String nombre, String apellido, String experiencia, String especializacion, String foto, int idUsuario, String nombreUsuario ){
+   
+       this.id_bombero = id;
+       this.nombre_bombero = nombre;
+       this.apellido_bombero = apellido;
+       this.experiencia_bombero = experiencia;
+       this.especializacion_bombero = especializacion;
+       this.foto_bombero = foto;
+       this.id_usuario = idUsuario;
+       this.nombre_usuario = nombreUsuario;
+   }
+   
+   public Bomberos (int id, String nombre, String apellido, String experiencia, String especializacion, String foto, int idUsuario){
+   
+       this.id_bombero = id;
+       this.nombre_bombero = nombre;
+       this.apellido_bombero = apellido;
+       this.experiencia_bombero = experiencia;
+       this.especializacion_bombero = especializacion;
+       this.foto_bombero = foto;
+       this.id_usuario = idUsuario;
+   }
 
     public String getNombre_usuario() {
         return nombre_usuario;
@@ -102,13 +131,25 @@ public class Bomberos {
         this.id_usuario = id_usuario;
     }
     
-     public Bomberos (int id, String nombre)
-    {
+     public Bomberos (int id, String nombre){
         this.id_usuario = id;
         this.nombre_usuario = nombre;
         
+    }
+     
+     public Bomberos (int id, String nombre, String apellido)
+    {
+        this.id_bombero = id;
+        this.nombre_bombero = nombre;
+        this.apellido_bombero = apellido;
+        
         
     }
+     
+     public String getNombreCompleto() {
+    return nombre_bombero + " " + apellido_bombero;
+}
+     
      @Override
      public String toString() {
         return nombre_usuario;  
@@ -132,6 +173,32 @@ public class Bomberos {
             ex.printStackTrace();  
         }
       }
+    
+    public void CargarComboUsuariosUpdate(JComboBox comboBox, int idUsuarioSeleccionado) {
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems();
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("Select * from Usuarios where id_nivelusuario = 2");
+
+        while (rs.next()) {
+            int id = rs.getInt("id_Usuario");
+            String nombre = rs.getString("nombre_Usuario");
+            comboBox.addItem(new Bomberos(id, nombre)); // Añadir nombre y apellido
+        }
+
+        // Seleccionar el bombero que coincide con el ID
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            Bomberos Usuario = (Bomberos) comboBox.getItemAt(i);
+            if (Usuario.getId_usuario()== idUsuarioSeleccionado) {
+                comboBox.setSelectedIndex(i); // Selecciona el índice
+                break; // Salir del bucle una vez encontrado
+            }
+        }
+    } catch(SQLException ex) {
+        ex.printStackTrace();  
+    }
+}
     
     public void Guardar(String rutaImagen){
         //primero lo que hacemos es llamar a la clase conexion para a continuacion hacer
@@ -240,6 +307,155 @@ public class Bomberos {
             System.out.println("Este es el error en el modelo, metodo mostrar " + e);
         }
     }
+        
+        
+    
+    public void Eliminar(JTable tabla) {
+    Connection conexion = ClaseConexion.getConexion();
+
+    int filaSeleccionada = tabla.getSelectedRow();
+
+    String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
+    
+    try {
+        String sql = "DELETE FROM Bomberos WHERE id_Bombero = ?";
+        PreparedStatement deleteBombero = conexion.prepareStatement(sql);
+
+        
+        int idBombero = Integer.parseInt(miId);
+        deleteBombero.setInt(1, idBombero);
+
+        deleteBombero.executeUpdate();
+        
+    } catch (Exception e) {
+        System.out.println("Este es el error en el método de eliminar: " + e);
+    }
+}
   
+    public void actualizarBomberos(String rutaImagen) {
+        
+    if (getId_bombero()== 0) {
+        System.out.println("ID del aspirante es 0. No se puede actualizar.");
+        return;
+    }
+
+    Connection conexion = ClaseConexion.getConexion();
+    
+    String escritorio = System.getProperty("user.home") + File.separator + "Desktop";
+    String carpetaImagenes = escritorio + File.separator + "RecursosImágenes";
+    File carpeta = new File(carpetaImagenes);
+
+    if (!carpeta.exists()) {
+        carpeta.mkdirs();
+    }
+
+    String nombreImagen = new File(rutaImagen).getName();
+    File destinoImagen = new File(carpeta, nombreImagen);
+
+    try {
+        Files.copy(new File(rutaImagen).toPath(), destinoImagen.toPath(), StandardCopyOption.REPLACE_EXISTING);
+    } catch (IOException e) {
+        System.out.println("Error al guardar la imagen: " + e.getMessage());
+        return;
+    }
+
+    String sql = "update Bomberos set nombre_Bombero = ?, apellido_Bombero = ?, experiencia_Bombero = ?,  especializacion_Bombero  = ?,  foto_Bombero = ?, id_Usuario= ? where  id_Bombero = ?";
+
+    try (PreparedStatement updateBombero = conexion.prepareStatement(sql)) {
+        updateBombero.setString(1, getNombre_bombero());
+        updateBombero.setString(2, getApellido_bombero());
+        updateBombero.setString(3, getExperiencia_bombero());
+        updateBombero.setString(4, getEspecializacion_bombero());
+        updateBombero.setString(5, destinoImagen.getAbsolutePath());
+        updateBombero.setInt(6, getId_usuario());
+        updateBombero.setInt(7, getId_bombero());
+
+        int filasActualizadas = updateBombero.executeUpdate();
+        if (filasActualizadas > 0) {
+            System.out.println("Bombero actualizado correctamente.");
+        } else {
+            System.out.println("No se encontró el aspirante con ID: " + getId_bombero());
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+    
+    
+  
+    public Bomberos obtenerDatosTabla(frmRegistroBomberos vista) {
+    try {
+        int filaSeleccionada = vista.jtBomberos.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+            int id = (Integer) vista.jtBomberos.getValueAt(filaSeleccionada, 0);
+            String nombreBombero = vista.jtBomberos.getValueAt(filaSeleccionada, 1).toString();
+            String apellidoBombero = vista.jtBomberos.getValueAt(filaSeleccionada, 2).toString();
+            String experiencia = vista.jtBomberos.getValueAt(filaSeleccionada, 3).toString();
+            String especializacion = vista.jtBomberos.getValueAt(filaSeleccionada, 4).toString();
+            String foto = vista.jtBomberos.getValueAt(filaSeleccionada, 5).toString();
+            int idUsuario = (Integer) vista.jtBomberos.getValueAt(filaSeleccionada, 6);
+
+            return new Bomberos(id, nombreBombero, apellidoBombero, experiencia, especializacion, foto, idUsuario);
+        }
+    } catch (Exception e) {
+        // Manejo de la excepción: puedes registrar el error o mostrar un mensaje al usuario
+        System.err.println("Error al obtener los datos de la tabla: " + e.getMessage());
+        e.printStackTrace(); // Opcional: para obtener más detalles sobre el error
+    }
+    return null;
+}
+
+         
+        public void Limpiar(frmActualizarBomberos Vistas){
+        
+        Vistas.txtNombreBombero.setText("");
+        Vistas.txtApellidoBombero.setText("");
+        Vistas.txtExperiencia.setText("");
+        Vistas.txtEspecializacion.setText("");
+        
+    }
+        
+        public void Buscar(JTable tabla, JTextField JTextField1) {
+        Connection conexion = ClaseConexion.getConexion();
+        DefaultTableModel Transporte = new DefaultTableModel();
+        Transporte.setColumnIdentifiers(new Object[]{"id_Bombero", "Nombre", "Apellido", "Experiencia", "Especializacion", "Foto", "id_Usuario"});
+        try {
+            String sql = "SELECT * FROM Bomberos WHERE nombre_Bombero LIKE ? || '%'";
+            PreparedStatement BomberosBuscar = conexion.prepareStatement(sql);
+            BomberosBuscar.setString(1, JTextField1.getText());
+            ResultSet rs = BomberosBuscar.executeQuery();
+
+            while (rs.next()) {
+                
+                Transporte.addRow(new Object[]{rs.getInt("id_Bombero"), 
+                    rs.getString("nombre_Bombero"), 
+                    rs.getString("apellido_Bombero"),
+                    rs.getString("experiencia_Bombero"),
+                    rs.getString("especializacion_Bombero"),
+                    rs.getString("foto_Bombero"),
+                    rs.getInt("id_Usuario")});
+            }
+            
+            tabla.setModel(Transporte);
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(0).setWidth(0);
+            tabla.getColumnModel().getColumn(5).setMinWidth(0);
+            tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(5).setWidth(0);
+            tabla.getColumnModel().getColumn(6).setMinWidth(0);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(6).setWidth(0);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo de buscar " + e);
+        }
+    }
+         
+         
+ 
+     
+     
+     
 }
 

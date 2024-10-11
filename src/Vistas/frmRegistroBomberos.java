@@ -51,6 +51,9 @@ public class frmRegistroBomberos extends javax.swing.JFrame {
         btnActualizar = new Vistas.btnRojoForms();
         imgBack = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        txtBuscar = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JLabel();
+        JTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -129,6 +132,39 @@ public class frmRegistroBomberos extends javax.swing.JFrame {
         jLabel1.setText("Agregar Bomberos > Ver registro Bomberos");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
+        txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
+        txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        txtBuscar.setBorder(null);
+        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 600, 300, 50));
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
+        btnBuscar.setToolTipText("");
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 610, -1, -1));
+
+        JTextField.setBackground(new java.awt.Color(192, 109, 58));
+        JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        JTextField.setForeground(new java.awt.Color(255, 255, 255));
+        JTextField.setText("   Buscar:");
+        JTextField.setBorder(null);
+        JTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        JTextField.setEnabled(false);
+        JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        JTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, 100, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,6 +187,14 @@ public class frmRegistroBomberos extends javax.swing.JFrame {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarActionPerformed
+
+    private void JTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,7 +232,9 @@ public class frmRegistroBomberos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField JTextField;
     public Vistas.btnRojoForms btnActualizar;
+    public javax.swing.JLabel btnBuscar;
     public Vistas.btnRojoForms btnEliminar;
     public javax.swing.JButton btnMenu;
     public javax.swing.JLabel imgBack;
@@ -197,5 +243,6 @@ public class frmRegistroBomberos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jtBomberos;
     private Vistas.PanelRound panelRound1;
+    public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

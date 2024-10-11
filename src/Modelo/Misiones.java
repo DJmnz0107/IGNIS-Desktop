@@ -58,10 +58,18 @@ public class Misiones {
         this.fechaMision = fecha;
     }
     
-    public Misiones(int idEmergencia, String descripcionEmergencia) {
-        this.idEmergencia = idEmergencia;
-        this.descripcionEmergencia = descripcionEmergencia;
-    }
+  public Misiones(int idEmergencia, String descripcionEmergencia) {
+    this.idEmergencia = idEmergencia;
+    this.descripcionEmergencia = descripcionEmergencia;
+}
+
+public Misiones(int id, String descripcionMision, boolean esMision) {
+    this.idMision = id;
+    this.descripcionMision = descripcionMision;
+}
+
+    
+    
 
     /**
      * @return the idMision
@@ -120,6 +128,8 @@ public class Misiones {
     }
     
     
+    
+    
     private int idMision;
     private String descripcionMision;
     private Date fechaMision;
@@ -128,8 +138,19 @@ public class Misiones {
     
     @Override
 public String toString() {
-    return this.descripcionEmergencia; // o el atributo que desees mostrar
+    return this.descripcionEmergencia;
+    // o el atributo que desees mostrar
 }
+
+ 
+    public String toStringMision() {
+    return this.descripcionMision;
+}
+
+   
+  
+
+
     
     
     
@@ -138,7 +159,7 @@ public void cargarComboBoxEmergencias(JComboBox comboBox, int idEmergenciaSelecc
     comboBox.removeAllItems();
     try {
         Statement statement = conexion.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT * FROM Emergencias");
+        ResultSet rs = statement.executeQuery("SELECT * FROM Emergencias where respuesta_notificacion = 'En camino' ");
         
         while (rs.next()) {
             int id = rs.getInt("id_emergencia"); 
@@ -278,6 +299,8 @@ public void actualizarMision() {
         System.out.println("Error al actualizar la misión: " + e.getMessage());
     }
 }
+
+ 
 
     
     

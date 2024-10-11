@@ -7,6 +7,8 @@ package Controlador;
 import Modelo.Emergencias;
 import Modelo.Misiones;
 import Vistas.frmAgregarMision;
+import Vistas.frmAsignarMisionesBomberos;
+import Vistas.frmRegistroMisionesBomberos;
 import Vistas.frmAsignarRecursos;
 import Vistas.frmAsignarRecursosVer;
 import Vistas.frmInicio;
@@ -40,9 +42,10 @@ public class ctrlAgregarMisiones implements MouseListener {
     vista.btnVerRegistro.addMouseListener(this);
     vista.btnMenu.addMouseListener(this);
     vista.btnTransportes2.addMouseListener(this);
-    vista.btnRecursos.addMouseListener(this);
-    
+    vista.btnBomberos.addMouseListener(this);
+      vista.btnRecursos.addMouseListener(this);   
     vista.imgBack.addMouseListener(this);
+
     }
 
     @Override
@@ -77,6 +80,13 @@ public class ctrlAgregarMisiones implements MouseListener {
         limpiarCampos();
     }
        
+              if(e.getSource() == vista.btnBomberos){
+            //1-Creo un objeto del panel que quiero mostrar
+            frmAsignarMisionesBomberos.initfrmAsignarMisionesBomberos();
+            vista.dispose();
+        }
+       
+
           if(e.getSource() == vista.btnRecursos) {
                 frmAsignarRecursos.initFrmAsignarRecursos();
         }

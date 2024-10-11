@@ -196,11 +196,8 @@ public class MisionesTransporte {
         System.out.println("Este es el error en el modelo, método BuscarPorPlaca: " + e);
     }
 }
-
    
-   
-   
-    
+  
 }
 
 
