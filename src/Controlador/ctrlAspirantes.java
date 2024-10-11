@@ -5,6 +5,8 @@
 package Controlador;
 
 import Modelo.Aspirantes;
+import Modelo.CambioSistema;
+import Modelo.Usuarios;
 import Vistas.frmAgregarAspirante;
 import Vistas.frmInicio;
 import Vistas.frmSeguimientoAspirante;
@@ -160,6 +162,22 @@ if (!edadText.matches("\\d+")) {
         JOptionPane.showMessageDialog(Vistas, "Aspirante ingresado exitosamente.");
         Modelo.Limpiar(Vistas);
         
+        
+        String txtNombreAspirante = Modelo.getNombre_aspirante();
+        
+        String nombreAspirante = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreAspirante);
+                  
+        String descripcionCambio = "Aspirante " + txtNombreAspirante + " Actualizado en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("El nombre del Aspirante es: " + txtNombreAspirante);
         
         }
         

@@ -1,7 +1,9 @@
 
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.MisionesBomberos;
+import Modelo.Usuarios;
 import Vistas.frmActualizarMisionBombero;
 import Vistas.frmAsignarMisionesBomberos;
 import Vistas.frmRegistroMisionesBomberos;
@@ -55,6 +57,18 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
         }
            
         }
+                
+        String nombreMisiones = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
+                  
+        String descripcionCambio = "Una mision de bombero ha sido eliminada "; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
  
     }
         
@@ -68,6 +82,18 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
         } else {
             JOptionPane.showMessageDialog(Vista, "Por favor, seleccione una fila para actualizar.");
         }
+        
+        String nombreMisiones = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
+                  
+        String descripcionCambio = "Una mision de bombero ha sido actualizada "; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         }
         
                if(e.getSource() == Vista.imgBack){

@@ -6,9 +6,11 @@
 
 import Modelo.BomberoDisplay;
     import Modelo.Bomberos;
+import Modelo.CambioSistema;
 import Modelo.MisionDisplay;
     import Modelo.Misiones;
     import Modelo.MisionesBomberos;
+import Modelo.Usuarios;
 import Vistas.frmAgregarMision;
     import Vistas.frmAsignarMisionesBomberos;
 import Vistas.frmRegistroMisionesBomberos;
@@ -125,6 +127,22 @@ if (e.getSource() == vista.btnguardar) {
     } else {
         System.out.println("No se ha seleccionado ningún bombero o misión.");
     }
+    
+            
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuarios = new Usuarios();
+                 
+         int idsUsuario = usuarios.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambios = "Se a asignado un bobmero a una mision"; // Descripción del cambio
+        
+        CambioSistema cambiosSistemas = new CambioSistema();
+        
+        cambiosSistemas.insertarCambio(idsUsuario, descripcionCambios);
+        
+    
 }
 
 if(e.getSource() == vista.imgBack) {

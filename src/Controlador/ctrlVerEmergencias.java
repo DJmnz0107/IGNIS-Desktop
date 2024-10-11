@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Emergencias;
+import Modelo.Usuarios;
 import Vistas.frmInicio;
 import Vistas.frmVerEmergencias;
 import java.awt.event.KeyEvent;
@@ -62,6 +64,22 @@ public class ctrlVerEmergencias implements MouseListener, KeyListener {
             modelo.Mostrar(vista.jtEmergencias);
         }
     }
+    
+
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Una emergencia ha sido eliminada del sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+
 }
 
         if(e.getSource() == vista.btnMenu) {

@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Transportes;
+import Modelo.Usuarios;
 import Vistas.frmActualizarTransporte;
 import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
@@ -75,6 +77,23 @@ if (!capacidadText.matches("\\d+")) {
         if (frmRegistro != null) {
             modelo.Mostrar(frmRegistro.jtTransportes); // Actualiza la tabla
         }
+        
+        
+        String txtNombreVehiculo = modelo.getTipoVehiculo_transporte();
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Vehiculo:  " + txtNombreVehiculo + " Actualizado en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("El nombre del Vehiculo es:  " + txtNombreVehiculo);
     }
 }
 

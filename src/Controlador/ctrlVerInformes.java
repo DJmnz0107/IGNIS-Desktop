@@ -1,6 +1,8 @@
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Informes;
+import Modelo.Usuarios;
 import Vistas.frmInicio;
 import Vistas.frmVerInformes;
 import java.awt.event.KeyEvent;
@@ -61,6 +63,18 @@ public class ctrlVerInformes implements MouseListener, KeyListener {
             modelo.Mostrar(vista.jtInformes);
         }
     }
+    
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Un informe ha sido eliminado"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
 }
 
         if(e.getSource() == vista.btnMenu) {

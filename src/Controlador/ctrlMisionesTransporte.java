@@ -4,8 +4,10 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Vistas.frmActualizarMisionTransporte;
 import Modelo.MisionesTransporte;
+import Modelo.Usuarios;
 import Vistas.frmAgregarMision;
 import Vistas.frmRegistroTransportes;
 import java.awt.event.KeyEvent;
@@ -40,6 +42,18 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         if(e.getSource() == Vista.btnEliminar){
             modelo.Eliminar(Vista.jtRegistroTransporte);
             modelo.Mostrar(Vista.jtRegistroTransporte);
+            
+        String nombreMisiones = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
+                  
+        String descripcionCambio = "Una transporte de misión a sido eliminado "; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         }
         if(e.getSource() == Vista.imgBack){
             Vista.dispose();
@@ -55,6 +69,18 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         } else {
             JOptionPane.showMessageDialog(Vista, "Por favor, seleccione una fila para actualizar.");
         }
+        
+        String nombreMisiones = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
+                  
+        String descripcionCambio = "Una transporte de misión a sido actualizada "; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         }
     }
 

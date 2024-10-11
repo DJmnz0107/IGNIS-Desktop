@@ -5,6 +5,8 @@
 package Controlador;
 
 import Modelo.Aspirantes;
+import Modelo.CambioSistema;
+import Modelo.Usuarios;
 import Vistas.frmActualizarAspirante;
 import Vistas.frmVerRegistroAspirantes;
 import java.awt.Image;
@@ -122,6 +124,25 @@ if (edadInt < 18) {
         modelo.actualizarAspirante(rutaImagenSeleccionada);
                     JOptionPane.showMessageDialog(vista, "Aspirante actualizado exitosamente.");
         modelo.Limpiar(vista);
+        
+        String txtNombreAspirante = modelo.getNombre_aspirante();
+        
+        String nombreUsuario = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idUsuario = usuario.obtenerIdUsuario(nombreUsuario);
+                  
+        String descripcionCambio = "Aspirante " + txtNombreAspirante + " Actualizado en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idUsuario, descripcionCambio);
+        
+        System.out.println("El nombre del aspirante es: " + txtNombreAspirante);
+        
+        
+        
         }
         
         if(e.getSource() == vista.btnAgregarFoto) {

@@ -5,6 +5,8 @@
 package Controlador;
 
 import Modelo.Bomberos;
+import Modelo.CambioSistema;
+import Modelo.Usuarios;
 import Vistas.frmActualizarBomberos;
 import Vistas.frmAgregarBomberos;
 import Vistas.frmRegistroBomberos;
@@ -90,6 +92,23 @@ public class ctrlActualizarBomberos implements MouseListener{
         Modelo.actualizarBomberos(rutaImagenSeleccionada);
         JOptionPane.showMessageDialog(Vistas, "Bombero actualizado exitosamente.");
         Modelo.Limpiar(Vistas);
+        
+        
+        String txtNombreBombero = Modelo.getNombre_bombero();
+        
+        String nombreUsuario = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreUsuario);
+                  
+        String descripcionCambio = "Bombero " + txtNombreBombero + " Actualizado en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("El nombre del bombero es: " + txtNombreBombero);
         
                 }
                 

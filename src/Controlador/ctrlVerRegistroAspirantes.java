@@ -5,6 +5,8 @@
 package Controlador;
 
 import Modelo.Aspirantes;
+import Modelo.CambioSistema;
+import Modelo.Usuarios;
 import Vistas.frmActualizarAspirante;
 import Vistas.frmSeguimientoAspirante;
 import Vistas.frmVerRegistroAspirantes;
@@ -72,6 +74,18 @@ public ctrlVerRegistroAspirantes(frmVerRegistroAspirantes vistas, Aspirantes mod
             JOptionPane.showMessageDialog(Vistas, "Aspirante eliminado exitosamente");
         }
     }
+    
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Un aspirante a sido eliminado"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
 }
 
         if(e.getSource() == Vistas.btnActualizar) {
@@ -83,6 +97,18 @@ public ctrlVerRegistroAspirantes(frmVerRegistroAspirantes vistas, Aspirantes mod
         } else {
             JOptionPane.showMessageDialog(Vistas, "Por favor, seleccione una fila para actualizar.");
         }
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Una aspirante a sido actualizado"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         }
     }
 

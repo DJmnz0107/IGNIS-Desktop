@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Transportes;
+import Modelo.Usuarios;
 import Vistas.frmActualizarTransporte;
 import Vistas.frmAgregarTransportes;
 import Vistas.frmVerRegistroTransporter;
@@ -45,6 +47,22 @@ public ctrlRegistroTransporte(frmVerRegistroTransporter vista, Transportes model
             } else {
                 JOptionPane.showMessageDialog(vista, "Por favor, seleccione una fila para actualizar.");
             }   
+            
+        
+        
+        String nombreVehiculo = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreVehiculo);
+                  
+        String descripcionCambio = "Vehiculo actualizado en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+       
         }
         
     if (e.getSource() == vista.btnEliminar) {
@@ -70,6 +88,22 @@ public ctrlRegistroTransporte(frmVerRegistroTransporter vista, Transportes model
             JOptionPane.showMessageDialog(vista, "Registro eliminado exitosamente");
         }
     }
+    
+        
+        
+        String nombreVehiculo = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreVehiculo);
+                  
+        String descripcionCambio = "Vehiculo eliminado en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        
 }
 
         

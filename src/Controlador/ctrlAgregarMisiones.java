@@ -4,8 +4,10 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Emergencias;
 import Modelo.Misiones;
+import Modelo.Usuarios;
 import Vistas.frmAgregarMision;
 import Vistas.frmAgregarMisionTransportes;
 import Vistas.frmAsignarMisionesBomberos;
@@ -79,6 +81,23 @@ public class ctrlAgregarMisiones implements MouseListener {
         modelo.insertarMision();
         JOptionPane.showMessageDialog(vista, "Misión ingresada exitosamente.");
         limpiarCampos();
+        
+        
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuarios = new Usuarios();
+                 
+         int idsUsuario = usuarios.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambios = "Recurso agregado al inventario"; // Descripción del cambio
+        
+        CambioSistema cambiosSistemas = new CambioSistema();
+        
+        cambiosSistemas.insertarCambio(idsUsuario, descripcionCambios);
+        
+        
+        
     }
        
               if(e.getSource() == vista.btnBomberos){

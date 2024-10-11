@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Recursos;
+import Modelo.Usuarios;
 import Vistas.frmActualizarInventario;
 import Vistas.frmVerInventario;
 import Vistas.frmVerRegistroInventario;
@@ -68,6 +70,18 @@ if (e.getSource() == vista.btnEliminar) {
             modelo.Mostrar(vista.jtInventario);
         }
     }
+    
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Un recurso ha sido eliminado"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
 }
 
 
@@ -87,6 +101,18 @@ if (e.getSource() == vista.btnEliminar) {
         JOptionPane.showMessageDialog(vista, "Error al convertir la fecha. Por favor, verifica el formato.");
         ex.printStackTrace(); // Opcionalmente imprime la traza del error en consola
     }
+    
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Un recurso a sido actualizado"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
 }
 
     }

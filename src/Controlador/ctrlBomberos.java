@@ -5,6 +5,8 @@
 package Controlador;
 
 import Modelo.Bomberos;
+import Modelo.CambioSistema;
+import Modelo.Usuarios;
 import Vistas.frmActualizarBomberos;
 import Vistas.frmAgregarBomberos;
 import Vistas.frmRegistroBomberos;
@@ -13,6 +15,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import raven.drawer.Drawer;
 
 
 public class ctrlBomberos implements MouseListener, KeyListener{
@@ -31,12 +34,17 @@ public class ctrlBomberos implements MouseListener, KeyListener{
         this.Vistas.btnEliminar.addMouseListener(this);
         this.Vistas.btnActualizar.addMouseListener(this);
         this.Vistas.txtBuscar.addKeyListener(this);
+        this.Vistas.btnMenu.addMouseListener(this);
         
         
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource()== Vistas.btnMenu){
+            Drawer.getInstance().showDrawer();
+        }
         
         if (e.getSource() == Vistas.btnActualizar) {
     try {
@@ -51,6 +59,22 @@ public class ctrlBomberos implements MouseListener, KeyListener{
     } catch (Exception ex) {
         ex.printStackTrace();  
     }
+    
+        String txtNombreAspirante = Modelo.getNombre_bombero();
+        
+        String nombreBombero = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreBombero);
+                  
+        String descripcionCambio = "Aspirante " + txtNombreAspirante + " Actualizado en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("El nombre del Aspirante es: " + txtNombreAspirante);
 }
         
         if(e.getSource()== Vistas.imgBack){

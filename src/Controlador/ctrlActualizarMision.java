@@ -4,8 +4,10 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Emergencias;
 import Modelo.Misiones;
+import Modelo.Usuarios;
 import Vistas.frmActualizarMision;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
@@ -59,6 +61,22 @@ public class ctrlActualizarMision implements MouseListener {
               limpiarCampos();
               
               
+
+        
+        String nombreMision = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMision);
+                  
+        String descripcionCambio = "Mision Actualizada en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        
+        
             
         }
         

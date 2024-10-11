@@ -186,6 +186,7 @@ public String obtenerUsuario() {
     
     return nombreUsuario;
 }
+
 public int obtenerIdUsuario(String nombreUsuario) {
     int idUsuario = 0;
     Connection conexion = ClaseConexion.getConexion();

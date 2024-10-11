@@ -83,6 +83,25 @@ public void mouseClicked(MouseEvent e) {
 
 
         }
+        /*POR SI QUIERE SER OCUPADO*/
+        /*
+        String txtCuenta = modelo.getNombre_usuario();
+        
+        String nombreUsuarios = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreUsuarios);
+                  
+        String descripcionCambio = "Cuenta de: " + txtCuenta + " Iniciada en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("El nombre del usuario es: " + txtCuenta);
+        
+        */
     }
     if(e.getSource() == vista.lblRecuContra) {
                         frmRecuperacionContrasena.initfrmRecuperacionContrasena();

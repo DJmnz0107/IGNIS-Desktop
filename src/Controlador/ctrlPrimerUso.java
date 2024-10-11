@@ -4,6 +4,7 @@
      */
     package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.EncryptSHA256;
     import Modelo.Usuarios;
     import Vistas.frmPrimerUso;
@@ -120,6 +121,22 @@ JOptionPane.showMessageDialog(vista,
             }
         }
     }
+        
+        String txtNombreUsuario = modelo.getNombre_usuario();
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Usuario: " + txtNombreUsuario + "Se a creado en el sistema "; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("La gravedad de la notfi es: " + txtNombreUsuario);
     }
 
          

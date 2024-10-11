@@ -4,8 +4,10 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Misiones;
 import Modelo.Recursos;
+import Modelo.Usuarios;
 import Vistas.frmActualizarInventario;
 import Vistas.frmActualizarMision;
 import Vistas.frmAgregarMision;
@@ -72,6 +74,22 @@ public class ctrlMisiones implements MouseListener, KeyListener{
             JOptionPane.showMessageDialog(Vistas, "Misión eliminada exitosamente");
         }
     }
+    
+         
+        
+        String nombreMisiones = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
+                  
+        String descripcionCambio = "Una mision ha sido eliminada "; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+
 }
 
         if(e.getSource() == Vistas.btnActualizar) {
@@ -89,6 +107,18 @@ public class ctrlMisiones implements MouseListener, KeyListener{
         ex.printStackTrace(); // Opcionalmente imprime la traza del error en consola
     }
         }
+        
+        String nombreMisiones = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
+                  
+        String descripcionCambio = "Una mision ha sido Actualizada "; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
     }
 
     @Override

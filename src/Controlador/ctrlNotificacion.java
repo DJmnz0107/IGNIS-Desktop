@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Emergencias;
+import Modelo.Usuarios;
 import Vistas.frmNotificacionEmergencia;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -36,6 +38,23 @@ public class ctrlNotificacion implements MouseListener {
             modelo.actualizarEstado();
             
             vista.dispose();
+            
+        String txtNombreNoti = modelo.getGravedadEmergencia();
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Notificacion con gravedad:  " + txtNombreNoti + " denegada"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("La gravedad de la notfi es: " + txtNombreNoti);
+        
         }
         
         if(e.getSource() == vista.lblAyuda) {
@@ -44,6 +63,22 @@ public class ctrlNotificacion implements MouseListener {
             modelo.actualizarEstado();
             
             vista.dispose();
+            
+        String txtNombreNoti = modelo.getGravedadEmergencia();
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Notificacion con gravedad:  " + txtNombreNoti + " Aceptada"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("La gravedad de la notfi es: " + txtNombreNoti);
         }
     }
 

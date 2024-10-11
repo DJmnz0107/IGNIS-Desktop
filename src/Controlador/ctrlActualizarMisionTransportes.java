@@ -4,9 +4,11 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.MisionDisplay;
 import Modelo.MisionesTransporte;
 import Modelo.TransporteDisplay;
+import Modelo.Usuarios;
 import Vistas.frmActualizarMisionTransporte;
 import Vistas.frmRegistroTransportes;
 import java.awt.event.MouseEvent;
@@ -82,6 +84,23 @@ public class ctrlActualizarMisionTransportes implements MouseListener{
     } else {
         System.out.println("No se ha seleccionado ningún bombero o misión.");
     }
+    
+    
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Mision transporte actualizada en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+     
+    
         }
         
     }

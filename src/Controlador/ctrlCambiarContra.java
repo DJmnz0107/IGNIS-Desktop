@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Usuarios;
 import Vistas.frmCambarContra;
 import Vistas.frmLogin;
@@ -55,6 +56,23 @@ public class ctrlCambiarContra implements MouseListener {
 
                  }
              }
+             
+             
+        
+        
+        String nombreBombero = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreBombero);
+                  
+        String descripcionCambio = "Contraseña de un usuario actualizada en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+       
         
     }
         

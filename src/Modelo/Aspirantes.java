@@ -183,6 +183,31 @@ public class Aspirantes {
 
     
     
+   
+    public int obtenerIdAspirante(String nombreAspirante) {
+    int idAspirante = 0;
+    Connection conexion = ClaseConexion.getConexion();
+    
+    try {
+        PreparedStatement verificarLogin = conexion.prepareStatement("SELECT id_Aspirante FROM Aspirantes WHERE nombre_Aspirante = ?");
+        
+        verificarLogin.setString(1, nombreAspirante);
+        
+        ResultSet rs = verificarLogin.executeQuery();
+        
+        if (rs.next()) {
+            idAspirante = rs.getInt("id_Aspirante");
+        }
+        
+        rs.close();
+        verificarLogin.close();
+        
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+    
+    return idAspirante;
+}
     
     public Aspirantes obtenerDatosTabla(frmVerRegistroAspirantes vista) {
     int filaSeleccionada = vista.jtAspirantes.getSelectedRow();

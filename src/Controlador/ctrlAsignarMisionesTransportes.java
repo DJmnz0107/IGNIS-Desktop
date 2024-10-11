@@ -4,11 +4,13 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.MisionDisplay;
 import Modelo.Misiones;
 import Modelo.MisionesTransporte;
 import Modelo.TransporteDisplay;
 import Modelo.Transportes;
+import Modelo.Usuarios;
 import Vistas.frmAgregarMision;
 import Vistas.frmAgregarMisionTransportes;
 import Vistas.frmRegistroTransportes;
@@ -116,6 +118,22 @@ public class ctrlAsignarMisionesTransportes implements MouseListener{
     } else {
         System.out.println("No se ha seleccionado ningún Transporte o misión.");
     }
+    
+    
+        
+        String nombreTransporte = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreTransporte);
+                  
+        String descripcionCambio = "Se ha asignado un tranporte a una mision"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        
 }
         if(e.getSource()== Vistas.imgBack){
         frmAgregarMision.initFrmAgregarMision();

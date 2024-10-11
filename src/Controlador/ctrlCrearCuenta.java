@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Niveles;
 import Modelo.Usuarios;
 import Vistas.frmCrearCuenta;
@@ -102,6 +103,23 @@ public class ctrlCrearCuenta implements MouseListener {
             }
         }
     }
+    
+    
+        String txtCuenta = ModeloUsuario.getNombre_usuario();
+        
+        String nombreUsuario = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreUsuario);
+                  
+        String descripcionCambio = "Cuenta de: " + txtCuenta + " Creada en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("El nombre del usuario es: " + txtCuenta);
 }
 
 

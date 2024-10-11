@@ -108,6 +108,24 @@ public class ctrlAgregarInventario implements MouseListener {
         
         cambiosSistema.insertarCambio(idUsuario, descripcionCambio);
             limpiarCampos();
+            
+            
+        String txtNombreRecurso = modelo.getNombreRecurso();
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuarios = new Usuarios();
+                 
+         int idsUsuario = usuarios.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambios = "Recurso:  " + txtNombreRecurso + " Agregado al inventario"; // Descripción del cambio
+        
+        CambioSistema cambiosSistemas = new CambioSistema();
+        
+        cambiosSistemas.insertarCambio(idsUsuario, descripcionCambios);
+        
+        System.out.println("El nombre del Recurso es:  " + txtNombreRecurso);
+            
         } 
         // Detectar si el clic fue en imgAgregar para seleccionar la imagen
         else if (e.getSource() == vista.imgAgregar) {

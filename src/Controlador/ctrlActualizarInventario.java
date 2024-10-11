@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.Recursos;
+import Modelo.Usuarios;
 import Vistas.frmActualizarInventario;
 import Vistas.frmVerInventario;
 import java.awt.Image;
@@ -66,6 +68,22 @@ public class ctrlActualizarInventario implements MouseListener {
             modelo.actualizarRecurso(rutaImagenSeleccionada);
             JOptionPane.showMessageDialog(vista, "Recurso actualizado exitosamente.");
             limpiarCampos();
+            
+        String txtNombreRecurso = modelo.getNombreRecurso();
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Recurso " + txtNombreRecurso + " Actualizado en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("El nombre del Recurso es: " + txtNombreRecurso);
         }
         
         if(e.getSource() == vista.imgAgregar) {

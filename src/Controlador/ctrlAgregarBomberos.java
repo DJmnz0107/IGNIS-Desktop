@@ -6,6 +6,8 @@ package Controlador;
 
 
 import Modelo.Bomberos;
+import Modelo.CambioSistema;
+import Modelo.Usuarios;
 import Vistas.frmAgregarBomberos;
 import Vistas.frmInicio;
 import Vistas.frmRegistroBomberos;
@@ -98,6 +100,23 @@ public class ctrlAgregarBomberos implements MouseListener{
         Modelo.Guardar(rutaImagenSeleccionada);
         Modelo.Limpiar(Vistas);
         
+        
+        
+        String txtNombreBombero = Modelo.getNombre_bombero();
+        
+        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Bombero:  " + txtNombreBombero + " Agregado"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        
+        System.out.println("El nombre del Bombero es:  " + txtNombreBombero);
         
         }
         
