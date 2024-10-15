@@ -131,12 +131,12 @@ setIconImage(scaledImage);
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 669));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
 
         btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/comprobado (2).png"))); // NOI18N
         btnVerRegistro.setText("     Ver Registro");
-        btnVerRegistro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jPanel1.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 600, 212, 57));
+        btnVerRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jPanel1.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 587, 212, 50));
 
         jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,7 +146,7 @@ setIconImage(scaledImage);
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Inicio > Inventario > Ver inventario ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(240, 139, 77));
         jScrollPane1.setBorder(null);
@@ -154,7 +154,7 @@ setIconImage(scaledImage);
         panelRecurso1.setBackground(new java.awt.Color(240, 139, 77));
         jScrollPane1.setViewportView(panelRecurso1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 950, 490));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 950, 470));
 
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));

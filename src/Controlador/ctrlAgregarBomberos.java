@@ -99,6 +99,7 @@ public class ctrlAgregarBomberos implements MouseListener{
         //y el metodo guardar para insertar a la base de datos 
         Modelo.Guardar(rutaImagenSeleccionada);
         Modelo.Limpiar(Vistas);
+        JOptionPane.showMessageDialog(Vistas, "Bombero ingresado exitosamente.");
         
         
         

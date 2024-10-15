@@ -8,11 +8,13 @@ import Vistas.frmInicio;
 import Vistas.frmVerUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
-public class ctrlCrearCuenta implements MouseListener {
+public class ctrlCrearCuenta implements MouseListener, KeyListener {
 
     private Niveles ModeloNivel;
     private Usuarios ModeloUsuario;
@@ -26,6 +28,8 @@ public class ctrlCrearCuenta implements MouseListener {
         
         vista.btnCrearCuenta.addMouseListener(this);
         vista.btnVerUsuarios.addMouseListener(this);
+        vista.txtEdadUsuario.addKeyListener(this);
+        vista.txtDuiUsuario.addKeyListener(this);
         vista.imgBack.addMouseListener(this);
         
         modeloNivel.obtenerNiveles(vista.jcmbTipoUsuario);
@@ -34,7 +38,6 @@ public class ctrlCrearCuenta implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
    if (e.getSource() == Vista.btnCrearCuenta) {
-
     Niveles nivelSeleccionado = (Niveles) Vista.jcmbTipoUsuario.getSelectedItem();
     int idNivelSeleccionado = nivelSeleccionado.getId_nivelUsuario();
 
@@ -61,41 +64,48 @@ public class ctrlCrearCuenta implements MouseListener {
 
         // Verificar que la edad no tenga más de 3 dígitos
         } else if (edad.length() >= 3) {
-            JOptionPane.showMessageDialog(Vista, "Ingrese una edad valida", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(Vista, "Ingrese una edad válida", "Error", JOptionPane.ERROR_MESSAGE);
         
-        // Verificar que el DUI no tenga más de 10 dígitos
+        // Verificar que el DUI no tenga exactamente 10 dígitos
         } else if (dui.length() != 10) {
-            JOptionPane.showMessageDialog(Vista, "El formato de DUI no es valido", "Error", JOptionPane.ERROR_MESSAGE);
-
+            JOptionPane.showMessageDialog(Vista, "El formato de DUI no es válido", "Error", JOptionPane.ERROR_MESSAGE);
+        
         } else {
-            // Crear una instancia de tu modelo para la base de datos
-
             try {
-                // Verificar si el DUI ya existe
-                boolean duiExiste = ModeloUsuario.verificarDui(dui);
-                if (duiExiste) {
-                    JOptionPane.showMessageDialog(Vista, "El DUI ya está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return; // Detener la ejecución si el DUI existe
+                int edadNumerica = Integer.parseInt(edad);
+                
+                // Si la edad es menor de 18, muestra error
+                if (edadNumerica < 18) {
+                    JOptionPane.showMessageDialog(Vista, "La edad debe ser mayor o igual a 18", "Error", JOptionPane.ERROR_MESSAGE);
+                    Vista.txtEdadUsuario.setText(""); // Borra la edad si es menor a 18
+                } else {
+                    // Crear una instancia de tu modelo para la base de datos
+
+                    // Verificar si el DUI ya existe
+                    boolean duiExiste = ModeloUsuario.verificarDui(dui);
+                    if (duiExiste) {
+                        JOptionPane.showMessageDialog(Vista, "El DUI ya está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return; // Detener la ejecución si el DUI existe
+                    }
+
+                    // Verificar si el nombre de usuario ya existe
+                    boolean usuarioExiste = ModeloUsuario.verificarUsuario(nombreUsuario);
+                    if (usuarioExiste) {
+                        JOptionPane.showMessageDialog(Vista, "El nombre de usuario ya está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return; // Detener la ejecución si el nombre de usuario existe
+                    }
+
+                    // Guardar los datos del nuevo usuario si todo es válido
+                    ModeloUsuario.setNombre_usuario(nombreUsuario);
+                    ModeloUsuario.setContrasena_usuario(contrasena);
+                    ModeloUsuario.setEdad_usuario(edadNumerica); // Usar edadNumerica
+                    ModeloUsuario.setDUI_usuario(dui);
+                    ModeloUsuario.setId_nivelUsuario(idNivelSeleccionado);
+                    ModeloUsuario.Guardar();
+
+                    JOptionPane.showMessageDialog(Vista, "Cuenta creada con éxito", "Creación de cuenta", JOptionPane.INFORMATION_MESSAGE);
+                    LimpiarCampos();
                 }
-
-                // Verificar si el nombre de usuario ya existe
-                boolean usuarioExiste = ModeloUsuario.verificarUsuario(nombreUsuario);
-                if (usuarioExiste) {
-                    JOptionPane.showMessageDialog(Vista, "El nombre de usuario ya está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return; // Detener la ejecución si el nombre de usuario existe
-                }
-
-                // Guardar los datos del nuevo usuario si todo es válido
-                ModeloUsuario.setNombre_usuario(nombreUsuario);
-                ModeloUsuario.setContrasena_usuario(contrasena);
-                ModeloUsuario.setEdad_usuario(Integer.parseInt(edad));
-                ModeloUsuario.setDUI_usuario(dui);
-                ModeloUsuario.setId_nivelUsuario(idNivelSeleccionado);
-                ModeloUsuario.Guardar();
-
-                JOptionPane.showMessageDialog(Vista, "Cuenta creada con éxito", "Creación de cuenta", JOptionPane.INFORMATION_MESSAGE);
-
-                LimpiarCampos();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(Vista, "La edad debe ser un número válido", "Error", JOptionPane.ERROR_MESSAGE);
             } catch (Exception ex) {
@@ -103,9 +113,8 @@ public class ctrlCrearCuenta implements MouseListener {
             }
         }
     }
-    
-
 }
+
 
 
     if (e.getSource() == Vista.btnVerUsuarios) {
@@ -145,5 +154,23 @@ public class ctrlCrearCuenta implements MouseListener {
         Vista.txtContrasenaUsuario.setText("");
         Vista.txtDuiUsuario.setText("");
         Vista.txtEdadUsuario.setText("");
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if(e.getSource() == Vista.txtEdadUsuario){
+            String edad = Vista.txtEdadUsuario.getText();
+                
+        }
     }
 }

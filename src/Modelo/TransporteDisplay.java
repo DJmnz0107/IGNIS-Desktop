@@ -18,7 +18,7 @@ public class TransporteDisplay {
 
     @Override
     public String toString() {
-        return transportes.getTipoVehiculo_transporte(); // Mostrar el nombre completo
+        return transportes.getPlaca_transporte(); // Mostrar el nombre completo
     }
 
     public Transportes getTransportes() {

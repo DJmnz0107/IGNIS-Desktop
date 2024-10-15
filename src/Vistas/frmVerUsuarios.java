@@ -83,8 +83,8 @@ setIconImage(scaledImage);
         jPanel1.setBackground(new java.awt.Color(239, 138, 76));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
-        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 18, -1, 55));
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 18, -1, 40));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -107,7 +107,6 @@ setIconImage(scaledImage);
         jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 110, 45));
 
         jtUsuarios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
-        jtUsuarios.setForeground(new java.awt.Color(255, 173, 122));
         jtUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -119,17 +118,21 @@ setIconImage(scaledImage);
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jtUsuarios.setSelectionBackground(new java.awt.Color(239, 138, 76));
         jtUsuarios.setShowGrid(false);
         jScrollPane1.setViewportView(jtUsuarios);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 920, 460));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 920, 450));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, 190, 48));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 600, 190, 50));
 
         txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
         txtBuscar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
@@ -147,12 +150,18 @@ setIconImage(scaledImage);
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments

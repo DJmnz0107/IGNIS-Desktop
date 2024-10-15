@@ -79,7 +79,7 @@
         <Component class="javax.swing.JLabel" name="imgBack">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Vistas/resources/Back_arrow.png"/>
+              <Image iconType="3" name="/Vistas/resources/Volver.png"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -87,7 +87,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="10" width="-1" height="-1"/>
+              <AbsoluteConstraints x="10" y="10" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -112,6 +112,9 @@
         </Component>
         <Component class="Vistas.TextFieldBlancoHint" name="txtNombreUsuario">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="hint" type="java.lang.String" value="Ingresa el nombre del usuario"/>
           </Properties>
           <AuxValues>
@@ -123,21 +126,11 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="Vistas.TextFieldBlancoHint" name="txtContrasenaUsuario">
-          <Properties>
-            <Property name="hint" type="java.lang.String" value="Ingresa la contrase&#xf1;a del usuario"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="180" y="350" width="336" height="49"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="Vistas.TextFieldBlancoHint" name="txtEdadUsuario">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="hint" type="java.lang.String" value="Edad"/>
           </Properties>
           <AuxValues>
@@ -151,6 +144,9 @@
         </Component>
         <Component class="Vistas.TextFieldBlancoHint" name="txtDuiUsuario">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="hint" type="java.lang.String" value="DUI del usuario"/>
           </Properties>
           <AuxValues>
@@ -197,6 +193,22 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="500" y="510" width="242" height="55"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Vistas.TextFieldCrearCuenta" name="txtContrasenaUsuario">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="hint" type="java.lang.String" value="Ingresa la contrase&#xf1;a del usuario"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="180" y="350" width="336" height="50"/>
             </Constraint>
           </Constraints>
         </Component>

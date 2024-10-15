@@ -9,6 +9,7 @@ import Vistas.frmActualizarMisionTransporte;
 import Modelo.MisionesTransporte;
 import Modelo.Usuarios;
 import Vistas.frmAgregarMision;
+import Vistas.frmAgregarMisionTransportes;
 import Vistas.frmRegistroTransportes;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -57,7 +58,7 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         }
         if(e.getSource() == Vista.imgBack){
             Vista.dispose();
-            frmAgregarMision.initFrmAgregarMision();
+            frmAgregarMisionTransportes.initfrmAgregarMisionTransportes();
         }
         
          if(e.getSource() == Vista.btnActualizar) {

@@ -109,7 +109,7 @@ public class MisionesTransporte {
 
         while (rs.next()) {
             int id = rs.getInt("id_Transporte");
-            String nombre = rs.getString("tipoVehiculo_Transporte");
+            String nombre = rs.getString("placa_transporte");
             
             comboBox.addItem(new TransporteDisplay(new Transportes(id, nombre, false))); // Añadir el wrapper
         }
@@ -275,7 +275,7 @@ public MisionesTransporte obtenerDatosTabla(frmRegistroTransportes vista) {
 
         while (rs.next()) {
             int id = rs.getInt("id_Transporte");
-            String nombre = rs.getString("tipoVehiculo_Transporte");
+            String nombre = rs.getString("placa_transporte");
             
             Transportes transporte = new Transportes(id, nombre, false);
             comboBox.addItem(new TransporteDisplay(transporte));

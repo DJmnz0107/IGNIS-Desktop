@@ -153,10 +153,10 @@ setIconImage(scaledImage);
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Asignar Transporte > Ver registro");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
-        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Back_arrow.png"))); // NOI18N
-        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

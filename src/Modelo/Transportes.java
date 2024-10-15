@@ -39,9 +39,9 @@ public class Transportes {
         this.estado_transporte = estado;
     }
     
-    public Transportes(int id, String tipoVehiculo_transporte, boolean esTransporte) {
+    public Transportes(int id, String placa_transporte, boolean esTransporte) {
     this.id_transporte = id;
-    this.tipoVehiculo_transporte = tipoVehiculo_transporte;
+    this.placa_transporte = placa_transporte;
 }
     
     public int getId_transporte() {

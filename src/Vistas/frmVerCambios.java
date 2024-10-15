@@ -165,7 +165,7 @@ setIconImage(scaledImage);
                 JTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 110, 45));
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, 45));
 
         txtBuscarVerCambios.setBackground(new java.awt.Color(255, 173, 122));
         txtBuscarVerCambios.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -181,7 +181,7 @@ setIconImage(scaledImage);
         jPanel1.add(txtBuscarVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 350, 45));
 
         btnBuscarVerCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
-        jPanel1.add(btnBuscarVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, 46, 45));
+        jPanel1.add(btnBuscarVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, -1, 45));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

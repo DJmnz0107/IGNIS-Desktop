@@ -55,7 +55,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="-1" height="669"/>
+              <AbsoluteConstraints x="0" y="0" width="-1" height="650"/>
             </Constraint>
           </Constraints>
 
@@ -107,7 +107,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="     Ver Registro"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="1"/>
+              <Font name="Microsoft JhengHei UI" size="18" style="1"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -115,7 +115,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="490" y="600" width="212" height="57"/>
+              <AbsoluteConstraints x="480" y="587" width="212" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -147,7 +147,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="60" width="-1" height="-1"/>
+              <AbsoluteConstraints x="160" y="50" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -162,7 +162,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="90" width="950" height="490"/>
+              <AbsoluteConstraints x="130" y="90" width="950" height="470"/>
             </Constraint>
           </Constraints>
 
