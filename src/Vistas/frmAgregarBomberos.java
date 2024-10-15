@@ -92,8 +92,8 @@ setIconImage(scaledImage);
         cmbUsuario = new javax.swing.JComboBox<>();
         btnVerRegistro = new Vistas.btnRojoForms();
         btnAgregarInfo1 = new Vistas.btnRojoForms();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtExperiencia = new Vistas.TextAreaGris();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtExperiencia = new javax.swing.JTextArea();
         btnAgregarFoto1 = new Vistas.btnRojoForms();
         imgBack = new javax.swing.JLabel();
 
@@ -177,6 +177,7 @@ setIconImage(scaledImage);
         jLabel5.setText("Usuario");
         panelRound31.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 72, -1));
 
+        cmbUsuario.setBackground(new java.awt.Color(217, 217, 217));
         cmbUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbUsuarioActionPerformed(evt);
@@ -201,13 +202,12 @@ setIconImage(scaledImage);
         btnAgregarInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelRound31.add(btnAgregarInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 220, 40));
 
-        txtExperiencia.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtExperiencia.setBackground(new java.awt.Color(217, 217, 217));
         txtExperiencia.setColumns(20);
         txtExperiencia.setRows(5);
-        txtExperiencia.setToolTipText("");
-        jScrollPane1.setViewportView(txtExperiencia);
+        jScrollPane2.setViewportView(txtExperiencia);
 
-        panelRound31.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 860, 130));
+        panelRound31.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 830, 130));
 
         jPanel1.add(panelRound31, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 960, 450));
 
@@ -295,13 +295,13 @@ setIconImage(scaledImage);
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JLabel lblFoto;
     private Vistas.PanelRound panelRound1;
     private Vistas.panelRound3 panelRound31;
     public Vistas.TextFieldGris txtApellidoBombero;
     public Vistas.TextFieldGris txtEspecializacion;
-    public Vistas.TextAreaGris txtExperiencia;
+    public javax.swing.JTextArea txtExperiencia;
     public Vistas.TextFieldGris txtNombreBombero;
     // End of variables declaration//GEN-END:variables
 }
