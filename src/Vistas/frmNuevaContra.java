@@ -4,6 +4,9 @@
  */
 package Vistas;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author USUARIO
@@ -16,6 +19,15 @@ public class frmNuevaContra extends javax.swing.JFrame {
     public frmNuevaContra() {
         initComponents();
         setTitle("IGNIS - Codigo de contraseña");
+                int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 

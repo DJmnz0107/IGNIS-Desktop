@@ -11,6 +11,8 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
 
@@ -27,6 +29,16 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
         initComponents();
         
         setTitle("IGNIS - Ver Recursos");
+        
+                int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
     }
 
     

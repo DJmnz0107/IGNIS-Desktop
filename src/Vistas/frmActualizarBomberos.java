@@ -42,6 +42,7 @@ public class frmActualizarBomberos extends javax.swing.JFrame {
         
         setTitle("IGNIS - Actualizar Bomberos");
         
+        
         this.bomberos = bomberos;
         
         if (bomberos == null) {

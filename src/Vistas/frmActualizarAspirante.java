@@ -44,6 +44,8 @@ public class frmActualizarAspirante extends javax.swing.JFrame {
         
         setTitle("IGNIS - Actualizar Aspirante");
         
+        
+        
         this.aspirante = aspirante;
         
         

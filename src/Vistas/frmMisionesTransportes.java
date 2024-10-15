@@ -4,6 +4,9 @@
  */
 package Vistas;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author danie
@@ -16,6 +19,15 @@ public class frmMisionesTransportes extends javax.swing.JFrame {
     public frmMisionesTransportes() {
         initComponents();
         setTitle("IGNIS - Registro Transportes");
+                int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
     }
 
     /**

@@ -7,6 +7,8 @@ package Vistas;
 import Controlador.ctrlBomberos;
 import Modelo.Bomberos;
 import Vistas.drawer.MyDrawerBuilder;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import raven.drawer.Drawer;
 import raven.popup.GlassPanePopup;
 
@@ -25,6 +27,16 @@ public class frmRegistroBomberos extends javax.swing.JFrame {
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
         setTitle("IGNIS - Registro Bomberos");
+        
+                int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+
+setIconImage(scaledImage);
     }
     
     public static void initfrmRegistroBomberos(){
