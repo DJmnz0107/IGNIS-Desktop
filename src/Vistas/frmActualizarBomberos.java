@@ -269,6 +269,7 @@ setIconImage(scaledImage);
 
         txtExperiencia.setBackground(new java.awt.Color(217, 217, 217));
         txtExperiencia.setColumns(20);
+        txtExperiencia.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         txtExperiencia.setRows(5);
         jScrollPane2.setViewportView(txtExperiencia);
 
