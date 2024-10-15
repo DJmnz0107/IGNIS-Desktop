@@ -125,7 +125,7 @@ if (edadInt < 18) {
                     JOptionPane.showMessageDialog(vista, "Aspirante actualizado exitosamente.");
         modelo.Limpiar(vista);
         
-        String txtNombreAspirante = modelo.getNombre_aspirante();
+
         
         String nombreUsuario = ctrlLogin.nombreUsuario;   
                    
@@ -133,13 +133,12 @@ if (edadInt < 18) {
                  
          int idUsuario = usuario.obtenerIdUsuario(nombreUsuario);
                   
-        String descripcionCambio = "Aspirante " + txtNombreAspirante + " Actualizado en el sistema"; // Descripción del cambio
+        String descripcionCambio = "Un aspirante ha sido actualizado en el sistema"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idUsuario, descripcionCambio);
         
-        System.out.println("El nombre del aspirante es: " + txtNombreAspirante);
         
         
         

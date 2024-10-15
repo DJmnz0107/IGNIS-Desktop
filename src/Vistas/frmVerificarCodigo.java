@@ -19,6 +19,7 @@ public class frmVerificarCodigo extends javax.swing.JFrame {
      */
     public frmVerificarCodigo() {
         initComponents();
+        setTitle("IGNIS - Verificar Codigo");
         int iconWidth = 32;
 int iconHeight = 32;
 

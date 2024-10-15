@@ -37,6 +37,8 @@ public class frmActualizarInventario extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         
+        setTitle("IGNIS - Actualizar Inventario");
+        
         this.recurso = recurso;
         
             if (recurso == null) {

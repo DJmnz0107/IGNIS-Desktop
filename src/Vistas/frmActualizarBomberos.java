@@ -28,6 +28,7 @@ import raven.popup.GlassPanePopup;
 public class frmActualizarBomberos extends javax.swing.JFrame {
 
     
+    
     private Bomberos bomberos;
     private int idBombero;
     private String rutaImagen;
@@ -38,6 +39,8 @@ public class frmActualizarBomberos extends javax.swing.JFrame {
         GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+        
+        setTitle("IGNIS - Actualizar Bomberos");
         
         this.bomberos = bomberos;
         

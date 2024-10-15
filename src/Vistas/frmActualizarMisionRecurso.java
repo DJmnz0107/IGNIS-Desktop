@@ -39,6 +39,8 @@ public class frmActualizarMisionRecurso extends javax.swing.JFrame {
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
         
+        setTitle("IGNIS - Recurso de misiones");
+        
         this.misionRecurso = misionRecurso;
         
               if (misionRecurso == null) {

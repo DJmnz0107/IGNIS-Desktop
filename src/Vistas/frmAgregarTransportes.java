@@ -36,6 +36,7 @@ public class frmAgregarTransportes extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Ingresar Transporte");
         int iconWidth = 32;
 int iconHeight = 32;
 

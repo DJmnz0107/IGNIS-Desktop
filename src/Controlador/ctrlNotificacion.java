@@ -39,7 +39,6 @@ public class ctrlNotificacion implements MouseListener {
             
             vista.dispose();
             
-        String txtNombreNoti = modelo.getGravedadEmergencia();
         
         String nombreRecurso = ctrlLogin.nombreUsuario;   
                    
@@ -47,13 +46,13 @@ public class ctrlNotificacion implements MouseListener {
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
                   
-        String descripcionCambio = "Notificacion con gravedad:  " + txtNombreNoti + " denegada"; // Descripción del cambio
+        String descripcionCambio = "Notificacion de ayuda denegada"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         
-        System.out.println("La gravedad de la notfi es: " + txtNombreNoti);
+        
         
         }
         
@@ -64,7 +63,7 @@ public class ctrlNotificacion implements MouseListener {
             
             vista.dispose();
             
-        String txtNombreNoti = modelo.getGravedadEmergencia();
+
         
         String nombreRecurso = ctrlLogin.nombreUsuario;   
                    
@@ -72,13 +71,12 @@ public class ctrlNotificacion implements MouseListener {
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
                   
-        String descripcionCambio = "Notificacion con gravedad:  " + txtNombreNoti + " Aceptada"; // Descripción del cambio
+        String descripcionCambio = "Notificacion de ayuda aceptada"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         
-        System.out.println("La gravedad de la notfi es: " + txtNombreNoti);
         }
     }
 

@@ -31,6 +31,7 @@ public class frmAsignarRecursos extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Asignar Recurso");
     }
     
     public static void initFrmAsignarRecursos(){

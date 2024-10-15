@@ -15,6 +15,7 @@ public class frmNuevaContra extends javax.swing.JFrame {
      */
     public frmNuevaContra() {
         initComponents();
+        setTitle("IGNIS - Codigo de contraseña");
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 

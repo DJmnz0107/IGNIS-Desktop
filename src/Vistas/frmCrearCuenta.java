@@ -31,6 +31,7 @@ public class frmCrearCuenta extends javax.swing.JFrame {
     public frmCrearCuenta() {
                 setSize(900, 600);
         initComponents();
+        setTitle("IGNIS - Crear Cuenta");
                 int iconWidth = 32;
 int iconHeight = 32;
 

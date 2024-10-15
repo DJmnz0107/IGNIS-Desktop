@@ -31,6 +31,7 @@ public class frmVerInformes extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Registro Informes");
         
                         jtInformes.setDefaultEditor(Object.class, null); // Deshabilita la edición
         int iconWidth = 32;

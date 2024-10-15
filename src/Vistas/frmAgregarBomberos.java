@@ -31,6 +31,7 @@ public class frmAgregarBomberos extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Ingresar Bomberos");
     }
     
     public static void initfrmAgregarBomberos(){

@@ -60,21 +60,7 @@ public class ctrlBomberos implements MouseListener, KeyListener{
         ex.printStackTrace();  
     }
     
-        String txtNombreAspirante = Modelo.getNombre_bombero();
-        
-        String nombreBombero = ctrlLogin.nombreUsuario;   
-                   
-        Usuarios usuario = new Usuarios();
-                 
-         int idsUsuario = usuario.obtenerIdUsuario(nombreBombero);
-                  
-        String descripcionCambio = "Aspirante " + txtNombreAspirante + " Actualizado en el sistema"; // Descripción del cambio
-        
-        CambioSistema cambiosSistema = new CambioSistema();
-        
-        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
-        
-        System.out.println("El nombre del Aspirante es: " + txtNombreAspirante);
+
 }
         
         if(e.getSource()== Vistas.imgBack){

@@ -34,6 +34,7 @@ public class frmAgregarAspirante extends javax.swing.JFrame {
         GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+        setTitle("IGNIS - Ingresar Aspirantes");
         initComponents();
         int iconWidth = 32;
 int iconHeight = 32;

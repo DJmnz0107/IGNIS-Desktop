@@ -24,6 +24,7 @@ public class frmRegistroBomberos extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Registro Bomberos");
     }
     
     public static void initfrmRegistroBomberos(){

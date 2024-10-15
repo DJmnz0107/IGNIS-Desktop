@@ -37,6 +37,9 @@ public class frmActualizarTransporte extends javax.swing.JFrame {
          GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+        
+        setTitle("IGNIS - Actualizar Transportes");
+        
                 this.transporte = transporte;
         initComponents();
            UIManager.put("ComboBox.background", new Color(0xFFFFFF));       

@@ -33,6 +33,7 @@ public class frmVerCambios extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Cambios del sistema");
                         JtbVerCambios.setDefaultEditor(Object.class, null); // Deshabilita la edición
 
                 int iconWidth = 32;

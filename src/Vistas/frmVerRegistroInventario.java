@@ -32,6 +32,7 @@ public class frmVerRegistroInventario extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Registro Inventario");
         int iconWidth = 32;
 int iconHeight = 32;
 jtInventario.setDefaultEditor(Object.class, null); // Deshabilita la edición

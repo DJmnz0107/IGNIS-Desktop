@@ -20,6 +20,7 @@ public class frmCambarContra extends javax.swing.JFrame {
      */
     public frmCambarContra() {
         initComponents();
+        setTitle("IGNIS - Cambiar Contraseña");
                 int iconWidth = 32;
 int iconHeight = 32;
 

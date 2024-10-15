@@ -30,7 +30,9 @@ public class frmRegistroTransportes extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
-                                        jtRegistroTransporte.setDefaultEditor(Object.class, null); // Deshabilita la edición
+        setTitle("IGNIS - Registro Transporte");
+        
+        jtRegistroTransporte.setDefaultEditor(Object.class, null); // Deshabilita la edición
     }
     
     public static void initfrmRegistroTransporte() {

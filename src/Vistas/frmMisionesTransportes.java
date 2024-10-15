@@ -15,6 +15,7 @@ public class frmMisionesTransportes extends javax.swing.JFrame {
      */
     public frmMisionesTransportes() {
         initComponents();
+        setTitle("IGNIS - Registro Transportes");
     }
 
     /**

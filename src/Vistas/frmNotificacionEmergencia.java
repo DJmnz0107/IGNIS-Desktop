@@ -22,6 +22,7 @@ public class frmNotificacionEmergencia extends javax.swing.JFrame {
     
     public frmNotificacionEmergencia() {
         initComponents();
+        setTitle("IGNIS - Notificación de emergencia");
         int iconWidth = 32;
 int iconHeight = 32;
 

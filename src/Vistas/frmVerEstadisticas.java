@@ -34,6 +34,7 @@ public class frmVerEstadisticas extends javax.swing.JFrame {
      */
     public frmVerEstadisticas() {       
         initComponents();
+        setTitle("IGNIS - Estadisticas");
         int iconWidth = 32;
 int iconHeight = 32;
 

@@ -20,6 +20,7 @@ public class frmRecuperacionContrasena extends javax.swing.JFrame {
      */
     public frmRecuperacionContrasena() {
         initComponents();
+        setTitle("IGNIS - Recuperar contraseña");
         int iconWidth = 32;
 int iconHeight = 32;
 

@@ -108,17 +108,7 @@ public class ctrlMisiones implements MouseListener, KeyListener{
     }
         }
         
-        String nombreMisiones = ctrlLogin.nombreUsuario;   
-                   
-        Usuarios usuario = new Usuarios();
-                 
-         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
-                  
-        String descripcionCambio = "Una mision ha sido Actualizada "; // Descripción del cambio
-        
-        CambioSistema cambiosSistema = new CambioSistema();
-        
-        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+
     }
 
     @Override

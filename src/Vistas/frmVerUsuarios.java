@@ -26,6 +26,7 @@ public class frmVerUsuarios extends javax.swing.JFrame {
      */
     public frmVerUsuarios() {
         initComponents();
+        setTitle("IGNIS - Registro Usuarios");
         int iconWidth = 32;
 int iconHeight = 32;
 

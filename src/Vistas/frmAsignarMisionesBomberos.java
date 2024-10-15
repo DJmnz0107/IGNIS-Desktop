@@ -31,6 +31,7 @@ public class frmAsignarMisionesBomberos extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Asignar Bomberos");
     }
     
     public static void initfrmAsignarMisionesBomberos() {

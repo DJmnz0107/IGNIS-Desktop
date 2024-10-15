@@ -4,8 +4,10 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.MisionDisplay;
 import Modelo.MisionesRecursos;
+import Modelo.Usuarios;
 import Vistas.frmAgregarMision;
 import Vistas.frmAsignarRecursos;
 import Vistas.frmAsignarRecursosVer;
@@ -92,6 +94,18 @@ public class ctrlAsignarRecursos implements MouseListener{
     } else {
         System.out.println("No se ha seleccionado ningún bombero o misión.");
     }
+    
+        String nombreTransporte = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreTransporte);
+                  
+        String descripcionCambio = "Se ha asignado un recurso a una mision"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         
         }
         

@@ -42,6 +42,8 @@ public class frmActualizarAspirante extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         
+        setTitle("IGNIS - Actualizar Aspirante");
+        
         this.aspirante = aspirante;
         
         

@@ -35,6 +35,8 @@ public class frmActualizarMisionBombero extends javax.swing.JFrame {
             GlassPanePopup.install(this);
             MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
             Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+            
+            setTitle("IGNIS - Mision de bomberos");
         
         this.misionBombero = misionBombero;
         

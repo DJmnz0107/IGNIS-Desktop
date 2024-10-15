@@ -25,6 +25,8 @@ public class frmAsignarRecursosVer extends javax.swing.JFrame {
      */
     public frmAsignarRecursosVer() {
         initComponents();
+        
+        setTitle("IGNIS - Ver Recursos");
     }
 
     

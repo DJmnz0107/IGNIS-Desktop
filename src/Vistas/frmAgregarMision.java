@@ -36,6 +36,7 @@ public class frmAgregarMision extends javax.swing.JFrame {
                  GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+        setTitle("IGNIS - Ingresar Misión");
         
         initComponents();
         int iconWidth = 32;

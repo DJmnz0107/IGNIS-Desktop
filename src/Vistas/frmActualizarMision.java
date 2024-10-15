@@ -38,6 +38,8 @@ public class frmActualizarMision extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         
+        setTitle("IGNIS - Actualizar Misión");
+        
         this.mision = mision;
         
           if (mision == null) {

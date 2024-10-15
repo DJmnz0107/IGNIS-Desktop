@@ -39,6 +39,7 @@ public class frmVerRegistroMisiones extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Registro Misiones");
         
         jtbMisiones.setDefaultEditor(Object.class, null); // Deshabilita la edición
 

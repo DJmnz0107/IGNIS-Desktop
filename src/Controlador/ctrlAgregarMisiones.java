@@ -90,7 +90,7 @@ public class ctrlAgregarMisiones implements MouseListener {
                  
          int idsUsuario = usuarios.obtenerIdUsuario(nombreRecurso);
                   
-        String descripcionCambios = "Recurso agregado al inventario"; // Descripción del cambio
+        String descripcionCambios = "Mision agregada al Sistema"; // Descripción del cambio
         
         CambioSistema cambiosSistemas = new CambioSistema();
         

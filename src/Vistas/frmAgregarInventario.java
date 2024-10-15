@@ -37,6 +37,8 @@ public class frmAgregarInventario extends javax.swing.JFrame {
          GlassPanePopup.install(this);
         MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
+        
+        setTitle("IGNIS - Ingresar Recurso");
     
         initComponents();
         

@@ -26,6 +26,7 @@ public class frmAgregarMisionTransportes extends javax.swing.JFrame {
      */
     public frmAgregarMisionTransportes() {
         initComponents();
+        setTitle("IGNIS - Agregar Transporte");
     }
 
     

@@ -33,6 +33,7 @@ public class frmSeguimientoAspirante extends javax.swing.JFrame {
         MyDrawerBuilder myDrawerBuilder= new MyDrawerBuilder();
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
+        setTitle("IGNIS - Registro Aspirantes");
         cargarTarjetas();
                 int iconWidth = 32;
         int iconHeight = 32;
