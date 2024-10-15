@@ -83,9 +83,8 @@ if (!capacidadText.matches("\\d+")) {
                    JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Información ingresada con éxito", "Agregar transporte", JOptionPane.INFORMATION_MESSAGE);
                   Modelo.Limpiar(VistasverRegistroTransporter);
                   
-         String placa = VistasverRegistroTransporter.txtPlaca.getText();
                   
-        String placaVehiculo = placa;
+        String txtNombreRecurso = Modelo.getTipoVehiculo_transporte();
         
         String nombreRecurso = ctrlLogin.nombreUsuario;   
                    
@@ -93,13 +92,13 @@ if (!capacidadText.matches("\\d+")) {
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
                   
-        String descripcionCambio = "Vehiculo con placa " + placaVehiculo + " Ingresado en el sistema"; // Descripción del cambio
+        String descripcionCambio = "Vehiculo " + txtNombreRecurso + " Ingresado en el sistema"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         
-        System.out.println("El nombre del Vehiculo es: " + placaVehiculo);
+        System.out.println("El nombre del Vehiculo es: " + txtNombreRecurso);
                   
            
            } 
