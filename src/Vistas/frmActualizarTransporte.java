@@ -122,6 +122,7 @@ setIconImage(scaledImage);
         txtEstado = new Vistas.TextFieldRedondeado();
         jLabel8 = new javax.swing.JLabel();
         cmbDisponibilidad = new javax.swing.JComboBox<>();
+        btnVerRegistro = new Vistas.btnNaranjaForms();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -132,12 +133,12 @@ setIconImage(scaledImage);
         jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("IGNIS");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 20, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("> Ver registro transporte > Actualizar transporte");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setPreferredSize(new java.awt.Dimension(120, 800));
@@ -183,20 +184,20 @@ setIconImage(scaledImage);
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/camionBombero.png"))); // NOI18N
-        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
+        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Tipo:");
-        panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+        jLabel3.setText("Tipo de transporte");
+        panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
 
         cmbAgregarTransportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Camión de bomberos", "PickUp" }));
-        panelRound2.add(cmbAgregarTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 160, 40));
+        panelRound2.add(cmbAgregarTransportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 160, 40));
 
         btnActualizar.setForeground(new java.awt.Color(240, 139, 77));
         btnActualizar.setText("Actualizar");
         btnActualizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        panelRound2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 150, 50));
+        panelRound2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 180, 50));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
@@ -238,7 +239,12 @@ setIconImage(scaledImage);
         cmbDisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "No disponible", " " }));
         panelRound2.add(cmbDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 150, 40));
 
-        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 720, 450));
+        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 720, 430));
+
+        btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/contrato.png"))); // NOI18N
+        btnVerRegistro.setText("Ver registro");
+        btnVerRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jPanel1.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, 210, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,6 +310,7 @@ setIconImage(scaledImage);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Vistas.buttonLogin btnActualizar;
     public javax.swing.JButton btnMenu;
+    public Vistas.btnNaranjaForms btnVerRegistro;
     public javax.swing.JComboBox<String> cmbAgregarTransportes;
     public javax.swing.JComboBox<String> cmbDisponibilidad;
     public javax.swing.JLabel imgVolver;

@@ -52,12 +52,12 @@ public void mouseClicked(MouseEvent e) {
         boolean ReviarUser = verificarUsuario.revisarRecuperacionContra();
         if (ReviarUser) {
            
-            String recipient = Vistas.txtRecuCorreo.getText();
-            String subject = "Recuperación de contraseña";
-            String content = "Este es el código de recuperación: " + numeroAleatorio;
+        String recipient = Vistas.txtRecuCorreo.getText();
+        String subject = "Recuperación de contraseña";
+        String codigoRecu = String.valueOf(numeroAleatorio); // Convertir el número aleatorio a String
+        String mensaje = "Hola, aquí tienes tu código de recuperación"; // Mensaje personalizado
 
-            EnviarCodigo.enviarCorreo(recipient, subject, content);
-            JOptionPane.showMessageDialog(Vistas, "Correo enviado", "Recuperación de Contraseña", JOptionPane.INFORMATION_MESSAGE);
+        EnviarCodigo.enviarCorreo(recipient, subject, codigoRecu, mensaje);
         } else {
             JOptionPane.showMessageDialog(Vistas, "Usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
         }

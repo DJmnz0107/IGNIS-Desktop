@@ -26,10 +26,16 @@ public class ctrlActualizarTransporte implements MouseListener {
     this.vista = vista;
     vista.btnActualizar.addMouseListener(this);
     vista.imgVolver.addMouseListener(this);
+    vista.btnVerRegistro.addMouseListener(this);
 }    
 
    @Override
 public void mouseClicked(MouseEvent e) {
+    
+    if(e.getSource() == vista.btnVerRegistro) {
+         frmVerRegistroTransporter.initFrmVerRegistroTransportes();
+        vista.dispose();
+    }
     if (e.getSource() == vista.imgVolver) {
         frmVerRegistroTransporter.initFrmVerRegistroTransportes();
         vista.dispose();

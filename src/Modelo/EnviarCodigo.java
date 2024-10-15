@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 @author USUARIO*/
 public class EnviarCodigo {
 
-    public static void enviarCorreo(String recipient, String subject, String content) {
+    public static void enviarCorreo(String recipient, String subject, String codigoRecu, String mensaje) {
 
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
@@ -47,8 +47,30 @@ public class EnviarCodigo {
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
             message.setSubject(subject);
-            message.setText(content);
 
+                        // Aquí establecemos el contenido HTML del mensaje
+            String htmlContent = "<html>" +
+                    "<body style='background-color: #fefefe; font-family: Arial, sans-serif;'>" +
+                    "<div style='max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;'>" +
+                    "<h2 style='color: #FF7043; text-align: center;'>Recuperación de Contraseña</h2>" +
+                    "<p style='color: #555; font-size: 16px;'>" +
+                    "<strong>" + mensaje + "</strong>,<br><br>" +
+                    "Te saluda el equipo de Ignis Software Developers.<br>" +
+                    "Aquí tienes tu código de recuperación:" +
+                    "</p>" +
+                    "<div style='background-color: #FF7043; color: white; font-size: 24px; text-align: center; padding: 15px; border-radius: 5px;'>" +
+                    codigoRecu +
+                    "</div>" +
+                    "<p style='color: #555; font-size: 14px;'>" +
+                    "Si no has solicitado este código, por favor ignora este mensaje.<br><br>" +
+                    "Gracias,<br>" +
+                    "El equipo de Ignis." +
+                    "</p>" +
+                    "</div>" +
+                    "</body>" +
+                    "</html>";
+
+            message.setContent(htmlContent, "text/html");
 
             Transport.send(message);
 

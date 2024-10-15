@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/EnviarCodigo.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Controlador/ctrlAspirantes.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Modelo/ClaseConexion.java</file>
@@ -91,6 +92,49 @@
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmAgregarMision.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/drawer/MyDrawerBuilder.java</file>
             <file>file:/C:/Users/Diego/Desktop/Ignis/IGNIS-Desktop/src/Vistas/frmVerCambios.java</file>
+=======
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarTransporte.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarMision.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmNotificacionEmergencia.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerCambios.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerificarCodigo.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarMisionTransporte.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarTransportes.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAsignarRecursos.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmRegistroMisionesBomberos.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmMisionesTransportes.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAsignarMisionesBomberos.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarInventario.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmNuevaContra.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmRecuperacionContrasena.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarMision.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroMisiones.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAsignarRecursosVer.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmCrearCuenta.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerInventario.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmRegistroBomberos.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarInventario.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmSplashScreen.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarAspirante.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmPrimerUso.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarMisionRecurso.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroAspirantes.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarBomberos.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmCambarContra.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmInicio.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerUsuarios.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmAgregarMisionTransportes.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerEmergencias.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmRegistroTransportes.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroInventario.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerRegistroTransporter.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerInformes.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarBomberos.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmVerEstadisticas.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmLogin.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmActualizarMisionBombero.java</file>
+            <file>file:/C:/IGNIS-Desktop/src/Vistas/frmSeguimientoAspirante.java</file>
+>>>>>>> Nataren
         </group>
     </open-files>
 </project-private>

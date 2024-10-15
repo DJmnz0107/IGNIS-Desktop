@@ -16,6 +16,8 @@ import Vistas.frmAsignarRecursos;
 import Vistas.frmAsignarRecursosVer;
 import Vistas.frmInicio;
 import Vistas.frmRegistroTransportes;
+import Vistas.frmVerEmergencias;
+import Vistas.frmVerInformes;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -48,11 +50,23 @@ public class ctrlAgregarMisiones implements MouseListener {
     vista.btnBomberos.addMouseListener(this);
       vista.btnRecursos.addMouseListener(this);   
     vista.imgBack.addMouseListener(this);
+    vista.btnEmergencias.addMouseListener(this);
+    vista.btnInformes.addMouseListener(this);
 
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource() == vista.btnEmergencias) {
+            frmVerEmergencias.initfrmVerEmergencias();
+            vista.dispose();
+        }
+        
+        if(e.getSource() == vista.btnInformes) {
+            frmVerInformes.initfrmVerInformes();
+            vista.dispose();
+        }
         
         if(e.getSource()== vista.imgBack){
         frmInicio.initfrmInicio();

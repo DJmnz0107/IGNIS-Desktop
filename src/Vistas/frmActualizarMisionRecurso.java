@@ -71,19 +71,19 @@ cargarDatos();
     
     
       public static void initFrmActulizarMisionesBomberos(MisionesRecursos misionRecurso) {
-        FlatRobotoFont.install();
+     FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("vistas.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
-        FlatLightLaf.setup();
-              UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
+                 UIManager.put("ComboBox.background", new Color(0xFFFFFF));       
         UIManager.put("ComboBox.foreground", Color.DARK_GRAY);              
         UIManager.put("ComboBox.selectionBackground", new Color(0xFF7043)); 
         UIManager.put("ComboBox.selectionForeground", Color.WHITE);         
-        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xFFFFFF), 1)); 
+        UIManager.put("ComboBox.border", BorderFactory.createLineBorder(new Color(0xD9D9D9), 1)); 
         UIManager.put( "Component.arrowType", "triangle" );
 
         UIManager.put("TextField.arc", 50); 
         UIManager.put("ComboBox.arc", 50);  
+        FlatLightLaf.setup();
         
         frmActualizarMisionRecurso vista = new frmActualizarMisionRecurso(misionRecurso);
         MisionesRecursos modelo = new MisionesRecursos();
@@ -152,16 +152,16 @@ cargarDatos();
         jLabel9.setText("Misión");
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
 
-        cmbMision.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelRound1.add(cmbMision, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 247, 66));
+        cmbMision.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound1.add(cmbMision, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 280, 66));
 
         jLabel11.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(240, 139, 77));
         jLabel11.setText("Recursos");
         panelRound1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
-        cmbRecursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelRound1.add(cmbRecursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 247, 66));
+        cmbRecursos.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        panelRound1.add(cmbRecursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 280, 66));
 
         btnVerAsigRecu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/verificar (2).png"))); // NOI18N
         btnVerAsigRecu.setText("Ver Registro ");
@@ -185,7 +185,7 @@ cargarDatos();
 
         jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Ver registro >Actualizar recursos");
+        jLabel10.setText("Ver registro > Actualizar recursos");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 530, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

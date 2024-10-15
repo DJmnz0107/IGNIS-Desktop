@@ -90,6 +90,7 @@ setIconImage(scaledImage);
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 139, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,16 +110,18 @@ setIconImage(scaledImage);
         jLabel9.setText("Misión");
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
 
+        cmbMision.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         cmbMision.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelRound1.add(cmbMision, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 247, 66));
+        panelRound1.add(cmbMision, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 280, 66));
 
         jLabel11.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(240, 139, 77));
         jLabel11.setText("Recursos");
         panelRound1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
+        cmbRecursos.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         cmbRecursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelRound1.add(cmbRecursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 247, 66));
+        panelRound1.add(cmbRecursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 280, 66));
 
         btnVerAsigRecu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/verificar (2).png"))); // NOI18N
         btnVerAsigRecu.setText("Ver Registro ");
@@ -141,7 +144,7 @@ setIconImage(scaledImage);
 
         jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Misiones >Asignar Recursos");
+        jLabel10.setText("Misiones > Asignar Recursos");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 530, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
