@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Aspirantes;
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Usuarios;
 import Vistas.frmActualizarAspirante;
 import Vistas.frmVerRegistroAspirantes;
@@ -13,9 +14,11 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.sql.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 import raven.drawer.Drawer;
 
 /**
@@ -27,6 +30,7 @@ public class ctrlActualizarAspirantes implements MouseListener {
     private Aspirantes modelo;
     private frmActualizarAspirante vista;
      private String rutaImagenSeleccionada;
+             private static EmergenciaController controller; // Mueve el controlador a un campo estático
      
      public ctrlActualizarAspirantes(Aspirantes modelo, frmActualizarAspirante vista ) {
          this.vista = vista;
@@ -42,6 +46,12 @@ public class ctrlActualizarAspirantes implements MouseListener {
          
          
              rutaImagenSeleccionada = vista.obtenerRutaImagen();
+             
+               Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
 
      }
 

@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.MisionDisplay;
 import Modelo.MisionesRecursos;
 import Modelo.Usuarios;
@@ -13,7 +14,9 @@ import Vistas.frmAsignarRecursos;
 import Vistas.frmAsignarRecursosVer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -22,6 +25,8 @@ import javax.swing.JOptionPane;
 public class ctrlAsignarRecursos implements MouseListener{
         private frmAsignarRecursos vista;
       private MisionesRecursos modelo;
+                                       private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
    
     public ctrlAsignarRecursos(frmAsignarRecursos vista,MisionesRecursos modelo ){
     
@@ -36,6 +41,12 @@ public class ctrlAsignarRecursos implements MouseListener{
        
        modelo.CargarComboMisiones(vista.cmbMision);
        modelo.CargarComboRecursos(vista.cmbRecursos);
+       
+         Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
        
       
        

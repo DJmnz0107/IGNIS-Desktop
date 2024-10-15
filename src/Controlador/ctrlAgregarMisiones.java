@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Emergencias;
 import Modelo.Misiones;
 import Modelo.Usuarios;
@@ -21,8 +22,10 @@ import Vistas.frmVerInformes;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 import raven.drawer.Drawer;
 
 /**
@@ -34,6 +37,8 @@ public class ctrlAgregarMisiones implements MouseListener {
     private Emergencias emergencia;
     private Misiones modelo;
     private frmAgregarMision vista;
+                     private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     public ctrlAgregarMisiones(Emergencias emergencia, Misiones modelo, frmAgregarMision vista ) {
      this.emergencia = emergencia;
@@ -52,6 +57,13 @@ public class ctrlAgregarMisiones implements MouseListener {
     vista.imgBack.addMouseListener(this);
     vista.btnEmergencias.addMouseListener(this);
     vista.btnInformes.addMouseListener(this);
+    
+                 
+            Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
 
     }
 

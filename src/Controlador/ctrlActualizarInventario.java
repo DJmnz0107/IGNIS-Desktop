@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Recursos;
 import Modelo.Usuarios;
 import Vistas.frmActualizarInventario;
@@ -13,9 +14,11 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.sql.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -26,6 +29,7 @@ public class ctrlActualizarInventario implements MouseListener {
     private Recursos modelo;
     private frmActualizarInventario vista;
      private String rutaImagenSeleccionada;
+                      private static EmergenciaController controller; // Mueve el controlador a un campo estático
 
     public ctrlActualizarInventario( Recursos modelo, frmActualizarInventario vista ) {
         this.vista = vista;
@@ -36,6 +40,11 @@ public class ctrlActualizarInventario implements MouseListener {
         vista.imgAgregar.addMouseListener(this);
         
             rutaImagenSeleccionada = vista.obtenerRutaImagen();
+           Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
 
     }
     @Override

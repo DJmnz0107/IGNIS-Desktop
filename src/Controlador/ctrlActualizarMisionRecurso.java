@@ -4,13 +4,16 @@
  */
 package Controlador;
 
+import Modelo.ClaseConexion;
 import Modelo.MisionDisplay;
 import Modelo.MisionesRecursos;
 import Vistas.frmActualizarMisionRecurso;
 import Vistas.frmAsignarRecursosVer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -20,6 +23,9 @@ public class ctrlActualizarMisionRecurso implements MouseListener  {
     
     private frmActualizarMisionRecurso vista;
     private MisionesRecursos modelo;
+                                      private static EmergenciaController controller; // Mueve el controlador a un campo estático
+                                      
+
     
     public ctrlActualizarMisionRecurso(MisionesRecursos modelo, frmActualizarMisionRecurso vista) {
         this.vista = vista;
@@ -28,6 +34,13 @@ public class ctrlActualizarMisionRecurso implements MouseListener  {
         vista.imgBack.addMouseListener(this);
         vista.btnVerAsigRecu.addMouseListener(this);
         vista.btnActualizar.addMouseListener(this);
+        
+        
+                  Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
     }
 
     @Override

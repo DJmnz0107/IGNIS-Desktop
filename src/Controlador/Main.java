@@ -23,9 +23,7 @@ import modelo.EmergenciaController;
  * @author Diego
  */
 public class Main {
-
-    private static EmergenciaController controller; // Mueve el controlador a un campo estático
-
+    
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -50,16 +48,13 @@ public class Main {
                             frmPrimerUso.initFrmCrearCuenta();
                         } else {
                             frmLogin.initfrmLogin();
-                            Connection conexion = ClaseConexion.getConexion();
 
-                            // Verifica si el controlador ya ha sido creado
-                            if (controller == null) {
-                                controller = new EmergenciaController(conexion);
-                            }
+
                         }
                     }
                 }).start();
             }
         });
     }
+    
 }

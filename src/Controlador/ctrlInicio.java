@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.ClaseConexion;
 import Modelo.Usuarios;
 import Vistas.frmAgregarAspirante;
 import Vistas.frmAgregarBomberos;
@@ -21,7 +22,9 @@ import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 import raven.drawer.Drawer;
+import java.sql.Connection;
 
 /**
  *
@@ -30,6 +33,7 @@ import raven.drawer.Drawer;
 public class ctrlInicio implements MouseListener {
     
     private frmInicio vista;
+        private static EmergenciaController controller; // Mueve el controlador a un campo estático
     
     public ctrlInicio(frmInicio vista) {
         this.vista = vista;
@@ -64,6 +68,13 @@ public class ctrlInicio implements MouseListener {
             vista.btnMisiones.setEnabled(false);
             
         }
+        
+              Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
+
     
     }
 

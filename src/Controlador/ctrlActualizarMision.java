@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Emergencias;
 import Modelo.Misiones;
 import Modelo.Usuarios;
@@ -12,8 +13,10 @@ import Vistas.frmActualizarMision;
 import Vistas.frmVerRegistroMisiones;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 import raven.drawer.Drawer;
 
 /**
@@ -23,6 +26,7 @@ import raven.drawer.Drawer;
 public class ctrlActualizarMision implements MouseListener {
             private Misiones modelo;
             private frmActualizarMision vista;
+                                  private static EmergenciaController controller; // Mueve el controlador a un campo estático
 
             public ctrlActualizarMision(Misiones modelo, frmActualizarMision vista ) {
                 this.vista = vista;
@@ -32,6 +36,13 @@ public class ctrlActualizarMision implements MouseListener {
                vista.btnVerRegistro.addMouseListener(this);
                vista.btnMenu.addMouseListener(this);
                    vista.dtcEmergencia.setMaxSelectableDate(new Date());
+                   
+                   
+                    Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
             }
 
     @Override

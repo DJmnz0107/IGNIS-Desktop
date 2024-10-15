@@ -5,13 +5,16 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Transportes;
 import Modelo.Usuarios;
 import Vistas.frmActualizarTransporte;
 import Vistas.frmVerRegistroTransporter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -20,6 +23,7 @@ import javax.swing.JOptionPane;
 public class ctrlActualizarTransporte implements MouseListener {
         private Transportes modelo;
     private frmActualizarTransporte vista;
+        private static EmergenciaController controller; // Mueve el controlador a un campo estático
     
     public ctrlActualizarTransporte(Transportes modelo, frmActualizarTransporte vista) {
     this.modelo = modelo;
@@ -27,6 +31,12 @@ public class ctrlActualizarTransporte implements MouseListener {
     vista.btnActualizar.addMouseListener(this);
     vista.imgVolver.addMouseListener(this);
     vista.btnVerRegistro.addMouseListener(this);
+    
+    Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
 }    
 
    @Override

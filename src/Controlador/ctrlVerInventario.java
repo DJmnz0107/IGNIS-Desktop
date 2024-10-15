@@ -4,11 +4,14 @@
  */
 package Controlador;
 
+import Modelo.ClaseConexion;
 import Vistas.frmAgregarInventario;
 import Vistas.frmVerInventario;
 import Vistas.frmVerRegistroInventario;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -17,11 +20,19 @@ import java.awt.event.MouseListener;
 public class ctrlVerInventario implements MouseListener {
     
     private frmVerInventario vista;
+    private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     public ctrlVerInventario(frmVerInventario vista) {
         this.vista = vista;
         vista.btnVerRegistro.addMouseListener(this);
         this.vista.imgBack.addMouseListener(this);
+        
+        Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
         
     }
 

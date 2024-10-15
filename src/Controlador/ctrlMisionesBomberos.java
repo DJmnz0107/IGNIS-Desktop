@@ -2,6 +2,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.MisionesBomberos;
 import Modelo.Usuarios;
 import Vistas.frmActualizarMisionBombero;
@@ -11,13 +12,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 
 public class ctrlMisionesBomberos implements MouseListener, KeyListener {
     
     private MisionesBomberos modelo; 
     private  frmRegistroMisionesBomberos Vista;
+                    private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     public ctrlMisionesBomberos (MisionesBomberos modelo, frmRegistroMisionesBomberos Vista){
     
@@ -28,6 +33,12 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
         Vista.btnActualizar.addMouseListener(this);
         Vista.imgBack.addMouseListener(this);
         modelo.Mostrar(Vista.jtMisionesBomberos);
+        
+         Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
     }
     
     @Override

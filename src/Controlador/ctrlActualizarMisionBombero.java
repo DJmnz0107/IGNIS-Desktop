@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.BomberoDisplay;
 import Modelo.Bomberos;
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.MisionDisplay;
 import Modelo.MisionesBomberos;
 import Modelo.Usuarios;
@@ -14,7 +15,9 @@ import Vistas.frmActualizarMisionBombero;
 import Vistas.frmRegistroMisionesBomberos;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -24,6 +27,8 @@ public class ctrlActualizarMisionBombero implements MouseListener {
     
     private MisionesBomberos modelo;
     private frmActualizarMisionBombero vista;
+                                      private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
 
     public ctrlActualizarMisionBombero(MisionesBomberos modelo,  frmActualizarMisionBombero vista ) {
@@ -33,6 +38,12 @@ public class ctrlActualizarMisionBombero implements MouseListener {
         vista.btnVerRegistros.addMouseListener(this);
         vista.btnActualizar.addMouseListener(this);
         vista.imgBack.addMouseListener(this);
+        
+                  Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
     }
     
     @Override

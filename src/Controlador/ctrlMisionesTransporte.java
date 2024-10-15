@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Vistas.frmActualizarMisionTransporte;
 import Modelo.MisionesTransporte;
 import Modelo.Usuarios;
@@ -15,7 +16,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 
 /**
@@ -26,6 +29,9 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
     
     private MisionesTransporte modelo; 
     private  frmRegistroTransportes Vista;
+                        private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
+    
     
     public ctrlMisionesTransporte (MisionesTransporte modelo, frmRegistroTransportes Vista){
     
@@ -36,6 +42,12 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         Vista.imgBack.addMouseListener(this);
         modelo.Mostrar(Vista.jtRegistroTransporte);
         Vista.btnActualizar.addMouseListener(this);
+        
+           Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
     }
 
     @Override

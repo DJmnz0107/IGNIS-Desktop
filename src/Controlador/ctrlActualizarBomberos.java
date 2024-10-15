@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Bomberos;
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Usuarios;
 import Vistas.frmActualizarBomberos;
 import Vistas.frmAgregarBomberos;
@@ -14,9 +15,11 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.sql.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -27,6 +30,7 @@ public class ctrlActualizarBomberos implements MouseListener{
     private Bomberos Modelo;
     private frmActualizarBomberos Vistas;
     private String rutaImagenSeleccionada;
+                 private static EmergenciaController controller; // Mueve el controlador a un campo estático
     
     
     public ctrlActualizarBomberos( Bomberos modelo, frmActualizarBomberos vistas){
@@ -39,6 +43,12 @@ public class ctrlActualizarBomberos implements MouseListener{
         this.Vistas.btnMenu.addMouseListener(this);
         this.Vistas.btnVerRegistro.addMouseListener(this);
         this.Vistas.imgBack.addMouseListener(this);
+        
+                    Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
         
         
     }

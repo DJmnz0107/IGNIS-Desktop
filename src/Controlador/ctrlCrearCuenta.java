@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Niveles;
 import Modelo.Usuarios;
 import Vistas.frmCrearCuenta;
@@ -12,13 +13,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 public class ctrlCrearCuenta implements MouseListener, KeyListener {
 
     private Niveles ModeloNivel;
     private Usuarios ModeloUsuario;
     private frmCrearCuenta Vista;
+                private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
 
     public ctrlCrearCuenta(Niveles modeloNivel, Usuarios modeloUsuarios, frmCrearCuenta vista) {
         this.ModeloNivel = modeloNivel;
@@ -33,6 +38,12 @@ public class ctrlCrearCuenta implements MouseListener, KeyListener {
         vista.imgBack.addMouseListener(this);
         
         modeloNivel.obtenerNiveles(vista.jcmbTipoUsuario);
+        
+           Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
     }
 
     @Override

@@ -5,11 +5,14 @@
 package Controlador;
 
 import Modelo.Aspirantes;
+import Modelo.ClaseConexion;
 import Vistas.frmAgregarAspirante;
 import Vistas.frmSeguimientoAspirante;
 import Vistas.frmVerRegistroAspirantes;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import modelo.EmergenciaController;
 import raven.drawer.Drawer;
 
 /**
@@ -20,6 +23,8 @@ public class ctrlSeguimiento implements MouseListener{
     
     private Aspirantes Modelo;
     private frmSeguimientoAspirante Vistas;
+                            private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     public ctrlSeguimiento(Aspirantes modelo, frmSeguimientoAspirante vistas){
         this.Vistas = vistas;
@@ -28,6 +33,12 @@ public class ctrlSeguimiento implements MouseListener{
         this.Vistas.btnMenu.addMouseListener(this);
         this.Vistas.btnVerRegistro.addMouseListener(this);
         this.Vistas.imgBack.addMouseListener(this);
+        
+               Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
         
         
     

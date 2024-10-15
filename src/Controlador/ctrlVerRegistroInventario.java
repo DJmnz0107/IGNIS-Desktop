@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Recursos;
 import Modelo.Usuarios;
 import Vistas.frmActualizarInventario;
@@ -14,8 +15,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -25,6 +28,8 @@ public class ctrlVerRegistroInventario implements MouseListener, KeyListener {
     
      private Recursos modelo;
     private frmVerRegistroInventario vista;
+        private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     public ctrlVerRegistroInventario(Recursos modelo, frmVerRegistroInventario vista) {
         this.vista = vista;
@@ -35,6 +40,12 @@ public class ctrlVerRegistroInventario implements MouseListener, KeyListener {
         vista.txtBuscar.addKeyListener(this);
         modelo.Mostrar(vista.jtInventario);
         vista.imgBack.addMouseListener(this);
+        
+           Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
     }
 
     @Override

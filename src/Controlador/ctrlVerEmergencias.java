@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Emergencias;
 import Modelo.Usuarios;
 import Vistas.frmInicio;
@@ -13,7 +14,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 import raven.drawer.Drawer;
 
 /**
@@ -24,6 +27,8 @@ public class ctrlVerEmergencias implements MouseListener, KeyListener {
     
     private Emergencias modelo;
     private frmVerEmergencias vista;
+                                        private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     public ctrlVerEmergencias (Emergencias modelo, frmVerEmergencias vista) {
         this.modelo = modelo;
@@ -34,6 +39,12 @@ public class ctrlVerEmergencias implements MouseListener, KeyListener {
         vista.btnMenu.addMouseListener(this);
         modelo.Mostrar(vista.jtEmergencias);
         vista.imgBack.addMouseListener(this);
+        
+           Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
     }
 
     @Override

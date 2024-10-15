@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.ClaseConexion;
 import Modelo.Usuarios;
 import Vistas.frmCrearCuenta;
 import Vistas.frmVerUsuarios;
@@ -7,7 +8,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -17,6 +20,8 @@ public class ctrlVerUsuarios implements MouseListener, KeyListener{
     
     private Usuarios modelo;
     private frmVerUsuarios vista;
+            private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     public ctrlVerUsuarios(Usuarios usuarios, frmVerUsuarios vista){
         this.modelo = usuarios;
@@ -26,6 +31,12 @@ public class ctrlVerUsuarios implements MouseListener, KeyListener{
         vista.btnEliminar.addMouseListener(this);
         vista.imgBack.addMouseListener(this);
         usuarios.Mostrar(vista.jtUsuarios);
+        
+           Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
     }
 
     @Override

@@ -7,6 +7,7 @@
 import Modelo.BomberoDisplay;
     import Modelo.Bomberos;
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.MisionDisplay;
     import Modelo.Misiones;
     import Modelo.MisionesBomberos;
@@ -26,11 +27,14 @@ import java.awt.event.ActionListener;
      */
     import java.awt.event.MouseEvent;
     import java.awt.event.MouseListener;
+import java.sql.Connection;
     import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
     public class ctrlAsignarBomberos implements MouseListener {
         private frmAsignarMisionesBomberos vista;
         private MisionesBomberos modelo;
+                             private static EmergenciaController controller; // Mueve el controlador a un campo estático
 
         public ctrlAsignarBomberos(frmAsignarMisionesBomberos vista, MisionesBomberos modelo) {
             this.modelo = modelo;
@@ -43,40 +47,12 @@ import java.awt.event.ActionListener;
 
             modelo.obtenerMisiones(vista.cmbMision);
             
-            
-       vista.cmbBombero.addActionListener(new ActionListener() {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        BomberoDisplay bomberoSeleccionado = (BomberoDisplay) vista.cmbBombero.getSelectedItem(); // Cambiar a BomberoDisplay
-        if (bomberoSeleccionado != null) {
-            Bomberos bombero = bomberoSeleccionado.getBombero(); // Obtener el objeto Bomberos
-            System.out.println("Bombero seleccionado: " + bombero.getNombreCompleto());
-            System.out.println("ID Bombero: " + bombero.getId_bombero());
-        }
-    }
-});
-       
-     vista.cmbMision.addActionListener(new ActionListener() {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // Obtener el elemento seleccionado del JComboBox
-        MisionDisplay misionSeleccionada = (MisionDisplay) vista.cmbMision.getSelectedItem();
-        
-        // Comprobar si hay una misión seleccionada
-        if (misionSeleccionada != null) {
-            // Obtener el objeto Misiones desde MisionDisplay
-        Misiones mision = misionSeleccionada.getMision();
-        
-            
-            // Ahora puedes usar los métodos de Misiones sin problemas
-            System.out.println("Misión seleccionada: " + mision.getDescripcionMision());
-            System.out.println("ID Misión: " + mision.getIdMision());
-        }
-    }
-});
-
-
-           
+                  Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
+                     
         }
 
 

@@ -5,12 +5,15 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Vistas.frmInicio;
 import Vistas.frmVerCambios;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -20,6 +23,8 @@ public class ctrlVerCambios implements MouseListener, KeyListener{
     
     private CambioSistema CambioSistema;
     private frmVerCambios Vista;
+                                    private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     public ctrlVerCambios(CambioSistema cambioSistema,frmVerCambios vista){
         
@@ -29,6 +34,12 @@ public class ctrlVerCambios implements MouseListener, KeyListener{
         vista.txtBuscarVerCambios.addKeyListener(this);
         vista.imgVolver.addMouseListener(this);
         CambioSistema.Mostar(vista.JtbVerCambios);
+        
+                Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
     
     
     

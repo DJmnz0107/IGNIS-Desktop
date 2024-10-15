@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Bomberos;
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Usuarios;
 import Vistas.frmActualizarBomberos;
 import Vistas.frmAgregarBomberos;
@@ -14,7 +15,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 import raven.drawer.Drawer;
 
 
@@ -22,6 +25,8 @@ public class ctrlBomberos implements MouseListener, KeyListener{
     
     private frmRegistroBomberos Vistas;
     private Bomberos Modelo;
+            private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     
     public ctrlBomberos (frmRegistroBomberos vistas, Bomberos modelo){
@@ -35,6 +40,12 @@ public class ctrlBomberos implements MouseListener, KeyListener{
         this.Vistas.btnActualizar.addMouseListener(this);
         this.Vistas.txtBuscar.addKeyListener(this);
         this.Vistas.btnMenu.addMouseListener(this);
+        
+           Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
         
         
     }

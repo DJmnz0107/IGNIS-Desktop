@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.MisionDisplay;
 import Modelo.Misiones;
 import Modelo.MisionesTransporte;
@@ -18,7 +19,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -28,6 +31,8 @@ public class ctrlAsignarMisionesTransportes implements MouseListener{
     
     private frmAgregarMisionTransportes Vistas;
     private MisionesTransporte Modelo;
+                                 private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
     public ctrlAsignarMisionesTransportes(frmAgregarMisionTransportes vistas, MisionesTransporte modelo){
         this.Vistas = vistas;
@@ -38,6 +43,12 @@ public class ctrlAsignarMisionesTransportes implements MouseListener{
         this.Vistas.btnVerRegistros.addMouseListener(this);
         this.Vistas.btnguardar.addMouseListener(this);
         vistas.imgBack.addMouseListener(this);
+        
+          Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
         
         
           vistas.cmbTransporte.addActionListener(new ActionListener() {

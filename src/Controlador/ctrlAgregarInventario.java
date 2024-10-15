@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Recursos;
 import Modelo.Usuarios;
 import Vistas.frmAgregarInventario;
@@ -15,10 +16,12 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.sql.Connection;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 import raven.drawer.Drawer;
 
 /**
@@ -29,6 +32,8 @@ public class ctrlAgregarInventario implements MouseListener {
     private frmAgregarInventario vista;
     private Recursos modelo;
      private String rutaImagenSeleccionada; // Variable para almacenar la ruta de la imagen seleccionada
+                 private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
           public ctrlAgregarInventario(frmAgregarInventario vista, Recursos modelo)  {
               this.vista = vista;
@@ -40,6 +45,13 @@ public class ctrlAgregarInventario implements MouseListener {
              vista.btnVerInventario.addMouseListener(this);
              vista.btnMenu.addMouseListener(this);
              vista.imgBack.addMouseListener(this);
+             
+                     
+            Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
              
              
           }

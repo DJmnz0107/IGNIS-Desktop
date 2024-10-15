@@ -8,6 +8,7 @@ import Controlador.ctrlNotificacion;
 import Modelo.Emergencias;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -32,7 +33,7 @@ Image originalImage = iconoOriginal.getImage();
 Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
 
 setIconImage(scaledImage);
-                        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                 setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
     
 public void initfrmNotificacionEmergencia(String descripcion, String gravedad, String tipo) {

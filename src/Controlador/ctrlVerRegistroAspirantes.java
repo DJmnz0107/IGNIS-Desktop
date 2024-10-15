@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Aspirantes;
 import Modelo.CambioSistema;
+import Modelo.ClaseConexion;
 import Modelo.Usuarios;
 import Vistas.frmActualizarAspirante;
 import Vistas.frmSeguimientoAspirante;
@@ -14,8 +15,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import java.util.Locale;
 import javax.swing.JOptionPane;
+import modelo.EmergenciaController;
 
 /**
  *
@@ -24,7 +27,9 @@ import javax.swing.JOptionPane;
 public class ctrlVerRegistroAspirantes implements MouseListener,KeyListener {
     
     private frmVerRegistroAspirantes Vistas;
-    private Aspirantes Modelo;
+    private Aspirantes Modelo;    
+    private static EmergenciaController controller; // Mueve el controlador a un campo estático
+
     
 public ctrlVerRegistroAspirantes(frmVerRegistroAspirantes vistas, Aspirantes modelo ){
  
@@ -37,6 +42,12 @@ public ctrlVerRegistroAspirantes(frmVerRegistroAspirantes vistas, Aspirantes mod
     vistas.txtBuscar.addKeyListener(this);
     vistas.btnActualizar.addMouseListener(this);
     vistas.imgBack.addMouseListener(this);
+    
+      Connection conexion = ClaseConexion.getConexion();
+                            // Verifica si el controlador ya ha sido creado
+                            if (controller == null) {
+                                controller = new EmergenciaController(conexion);
+                            }
 
     }
   
