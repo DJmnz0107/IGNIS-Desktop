@@ -7,6 +7,7 @@
 import Modelo.CambioSistema;
 import Modelo.EncryptSHA256;
     import Modelo.Usuarios;
+import Vistas.frmLogin;
     import Vistas.frmPrimerUso;
     import java.awt.event.MouseEvent;
     import java.awt.event.MouseListener;
@@ -37,6 +38,12 @@ import java.io.InputStreamReader;
             
         }
         
+        // Método para reiniciar la ventana
+private void reiniciarVentana() {
+ vista.dispose();
+ frmLogin.initfrmLogin();
+}
+        
          @Override
     public void mouseClicked(MouseEvent e) {
            if (e.getSource() == vista.btnCrearPrimerCuenta) {
@@ -66,6 +73,11 @@ import java.io.InputStreamReader;
         } else {
             try {
                 int edad = Integer.parseInt(edadtxt);
+               
+                 if (edad <= 18) {
+                    JOptionPane.showMessageDialog(vista, "Debes ser mayor de 18 años para crear una cuenta", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 modelo.setNombre_usuario(vista.txtNombreUsuarioPrimer.getText());
                 modelo.setContrasena_usuario(contrasena);
                 modelo.setEdad_usuario(edad);
@@ -80,32 +92,13 @@ import java.io.InputStreamReader;
                 vista.txtDUIPrimer.setText("");
 
                 JOptionPane.showMessageDialog(vista, "Cuenta creada con éxito", "Creación de cuenta", JOptionPane.INFORMATION_MESSAGE);
-                JOptionPane.showMessageDialog(vista, "La aplicación se va a reiniciar para aplicar los cambios.", "Reinicio requerido", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "La aplicación abrirá el formulario de login para que inicies sesión", "Próximo paso", JOptionPane.WARNING_MESSAGE);
 
-                String javaBin = System.getProperty("java.home") + "/bin/java";
-                String jarPath = new java.io.File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getAbsolutePath();
-
-                ProcessBuilder builder = new ProcessBuilder(javaBin, "-jar", jarPath);
-                builder.redirectErrorStream(true);
-
-                Process process = builder.start();
-
-                // Leer salida del proceso (opcional)
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        System.out.println(line);
-                    }
-                }
-
-                // Cerrar la aplicación actual
-                System.exit(0);
+                reiniciarVentana();
 
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(vista, "La edad debe ser un número válido", "Error", JOptionPane.ERROR_MESSAGE);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(vista, "Error al reiniciar la aplicación: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            } 
         }
     }
 }
