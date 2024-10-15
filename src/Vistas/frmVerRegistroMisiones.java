@@ -14,9 +14,17 @@ import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.sql.Connection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -42,6 +50,10 @@ public class frmVerRegistroMisiones extends javax.swing.JFrame {
         setTitle("IGNIS - Registro Misiones");
         
         jtbMisiones.setDefaultEditor(Object.class, null); // Deshabilita la edición
+        dtcFechaReporte.setMaxSelectableDate(new Date());
+        dtcFechaReporte.getDateEditor().setEnabled(false);
+
+
 
         int iconWidth = 32;
 int iconHeight = 32;
@@ -95,8 +107,11 @@ setIconImage(scaledImage);
         btnBuscar = new javax.swing.JLabel();
         btnActualizar = new Vistas.btnRojoForms();
         btnEliminar = new Vistas.btnRojoForms();
-        btnGenerarReporte = new Vistas.btnNegroForms();
+        btnGenerarReporteFecha = new Vistas.btnNegroForms();
         imgBack = new javax.swing.JLabel();
+        btnGenerarReporte = new Vistas.btnNegroForms();
+        jLabel10 = new javax.swing.JLabel();
+        dtcFechaReporte = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -136,10 +151,10 @@ setIconImage(scaledImage);
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 673));
 
-        jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Misiones > Ver Registro ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
+        jLabel9.setText("Seleccionar fecha para reporte");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 570, -1, -1));
 
         jtbMisiones.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtbMisiones.setModel(new javax.swing.table.DefaultTableModel(
@@ -195,18 +210,34 @@ setIconImage(scaledImage);
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(975, 372, 190, 60));
 
+        btnGenerarReporteFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/calendarMini.png"))); // NOI18N
+        btnGenerarReporteFecha.setText("  Generar reporte por fecha");
+        btnGenerarReporteFecha.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        btnGenerarReporteFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarReporteFechaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnGenerarReporteFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 266, 50));
+
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
+
         btnGenerarReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/informe.png"))); // NOI18N
-        btnGenerarReporte.setText("  Generar reporte");
-        btnGenerarReporte.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 20)); // NOI18N
+        btnGenerarReporte.setText("  Generar reporte completo");
+        btnGenerarReporte.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         btnGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarReporteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGenerarReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(884, 568, 266, 66));
+        jPanel1.add(btnGenerarReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 550, 266, 50));
 
-        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
-        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
+        jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Misiones > Ver Registro ");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
+        jPanel1.add(dtcFechaReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 220, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -231,20 +262,85 @@ setIconImage(scaledImage);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    private void btnGenerarReporteFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteFechaActionPerformed
+  
+        try {
+            
+              if (dtcFechaReporte == null || dtcFechaReporte.getDate() == null) {
+        JOptionPane.showMessageDialog(this, "Por favor, seleccione una fecha para generar el reporte.", "Error", JOptionPane.ERROR_MESSAGE);
+        return; // Detener la ejecución si no hay fecha seleccionada
+    }
+           
+            // Crear un mapa para los parámetros del reporte
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("fechaMision", dtcFechaReporte.getDate()); // Asegúrate de que 'receta' sea un valor válido que espera el reporte
+
+            // Compilar el archivo .jrxml y generar el archivo .jasper
+            String rutaJRXML = "src/Vistas/Misiones_Fecha.jrxml";
+            String rutaJasper = "src/Vistas/Misiones_Fecha.jasper"; // Ruta completa o relativa
+            JasperCompileManager.compileReportToFile(rutaJRXML, rutaJasper);
+
+            // Cargar el archivo .jasper compilado
+            JasperReport report = (JasperReport) JRLoader.loadObjectFromFile(rutaJasper);
+            if (report == null) {
+                System.out.println("No se pudo cargar el archivo .jasper");
+                return;
+            }
+
+            // Obtener la conexión a la base de datos
+            Connection conexion = ClaseConexion.getConexion();
+
+            // Llenar el reporte con datos, pasando los parámetros y la conexión
+            JasperPrint jprint = JasperFillManager.fillReport(report, parametros, conexion);
+
+            // Mostrar el visor de JasperReports
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setTitle("Misiones por fecha");
+            view.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+            
+                    int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+view.setIconImage(scaledImage);
+        } catch (JRException e) {
+            System.out.println("Error al llenar el reporte: " + e.getMessage());
+            e.printStackTrace(); // Mostrar el stack trace para mayor detalle del error
+        } catch (Exception ex) {
+            System.out.println("Error general al mostrar el reporte: " + ex.getMessage());
+            ex.printStackTrace(); // Mostrar el stack trace para mayor detalle del error
+        }
+        
+        
+    }//GEN-LAST:event_btnGenerarReporteFechaActionPerformed
+
     private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
     try {
     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-    JasperReport report = (JasperReport) JRLoader.loadObject(getClass().getResource("/Vistas/Misiones.jasper"));
+    JasperReport report = (JasperReport) JRLoader.loadObject(getClass().getResource("/Vistas/Misiones_Simple.jasper"));
     JasperPrint jprint = JasperFillManager.fillReport(report, null, ClaseConexion.getConexion());
 
     JasperViewer view = new JasperViewer(jprint, false);
     view.setTitle("Reporte de misiones");
     view.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     view.setVisible(true);
+    
+                      int iconWidth = 32;
+int iconHeight = 32;
+
+ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/Vistas/resources/ignisFormsCircular.png"));
+Image originalImage = iconoOriginal.getImage();
+
+Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+view.setIconImage(scaledImage);
+
 } catch (Exception e) {
     System.out.println("Error al mostrar el reporte: " + e);
-}
-    }//GEN-LAST:event_btnGenerarReporteActionPerformed
+}    }//GEN-LAST:event_btnGenerarReporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,8 +382,11 @@ setIconImage(scaledImage);
     public javax.swing.JLabel btnBuscar;
     public Vistas.btnRojoForms btnEliminar;
     public Vistas.btnNegroForms btnGenerarReporte;
+    public Vistas.btnNegroForms btnGenerarReporteFecha;
     public javax.swing.JButton btnMenu;
+    public com.toedter.calendar.JDateChooser dtcFechaReporte;
     public javax.swing.JLabel imgBack;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

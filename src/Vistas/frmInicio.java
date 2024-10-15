@@ -112,7 +112,7 @@ setIconImage(scaledImage);
         jlblTextoInicio.setForeground(new java.awt.Color(255, 255, 255));
         jlblTextoInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlblTextoInicio.setText("Text");
-        jPanel1.add(jlblTextoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 890, 50));
+        jPanel1.add(jlblTextoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 830, 50));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomRight(50);
@@ -149,17 +149,17 @@ setIconImage(scaledImage);
         btnCrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoAgregarU.png"))); // NOI18N
         btnCrearUsuario.setText("Crear nuevo usuario");
         btnCrearUsuario.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 580, 250, 50));
+        jPanel1.add(btnCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 250, 50));
 
         btnCerrarSesión.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoCerrar.png"))); // NOI18N
         btnCerrarSesión.setText("Cerrar sesión");
         btnCerrarSesión.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 18)); // NOI18N
-        jPanel1.add(btnCerrarSesión, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 580, 240, 50));
+        jPanel1.add(btnCerrarSesión, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 580, 240, 50));
 
         btnVerCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/iconoVer.png"))); // NOI18N
         btnVerCambios.setText("Ver cambios");
         btnVerCambios.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 580, 230, 50));
+        jPanel1.add(btnVerCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 580, 230, 50));
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setRoundBottomLeft(50);
@@ -216,13 +216,13 @@ setIconImage(scaledImage);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ignisMinii.png"))); // NOI18N
         panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, -1));
 
-        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 780, 460));
+        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 780, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1045, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

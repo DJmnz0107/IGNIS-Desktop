@@ -3,9 +3,18 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Misiones" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="666dc6b7-5c78-44a1-a557-8dc8d894cf39">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ConexionIgnis"/>
+	<parameter name="fechaMision" class="java.sql.Date"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT M.descripcion_mision AS "Mision asignada", M.fecha_mision AS "Fecha de la misión", E.descripcion_emergencia AS "Descripcion de la emergencia", E.tipo_emergencia AS "Tipo de mision", E.gravedad_emergencia AS "Gravedad de la emergencia", E.estado_emergencia AS "Estado de la emergencia" From MISIONES M
-INNER JOIN EMERGENCIAS E on M.id_emergencia = E.id_emergencia]]>
+		<![CDATA[SELECT 
+    M.descripcion_mision AS "Mision asignada", 
+    M.fecha_mision AS "Fecha de la misión", 
+    E.descripcion_emergencia AS "Descripcion de la emergencia", 
+    E.tipo_emergencia AS "Tipo de mision", 
+    E.gravedad_emergencia AS "Gravedad de la emergencia", 
+    E.estado_emergencia AS "Estado de la emergencia" 
+FROM MISIONES M
+INNER JOIN EMERGENCIAS E ON M.id_emergencia = E.id_emergencia 
+WHERE TRUNC(M.fecha_mision) = TRUNC($P{fechaMision})]]>
 	</queryString>
 	<field name="Mision asignada" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="Mision asignada"/>
@@ -45,7 +54,7 @@ INNER JOIN EMERGENCIAS E on M.id_emergencia = E.id_emergencia]]>
 				<textField>
 					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#F08B4D" backcolor="#FFFFFF" uuid="4c09b605-3a69-49e6-89d0-db22dc56427a"/>
 					<textElement>
-						<font size="24" isBold="true"/>
+						<font size="18" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Mision asignada}]]></textFieldExpression>
 				</textField>
@@ -72,7 +81,7 @@ INNER JOIN EMERGENCIAS E on M.id_emergencia = E.id_emergencia]]>
 				<textField>
 					<reportElement x="100" y="0" width="455" height="32" forecolor="#F08B4D" uuid="9c1048f5-ea5d-40f7-9057-df109be6819a"/>
 					<textElement>
-						<font size="20" isBold="true"/>
+						<font size="16" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Descripcion de la emergencia}]]></textFieldExpression>
 				</textField>

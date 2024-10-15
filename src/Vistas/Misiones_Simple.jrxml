@@ -45,7 +45,7 @@ INNER JOIN EMERGENCIAS E on M.id_emergencia = E.id_emergencia]]>
 				<textField>
 					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#F08B4D" backcolor="#FFFFFF" uuid="4c09b605-3a69-49e6-89d0-db22dc56427a"/>
 					<textElement>
-						<font size="24" isBold="true"/>
+						<font size="18" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Mision asignada}]]></textFieldExpression>
 				</textField>
@@ -72,7 +72,7 @@ INNER JOIN EMERGENCIAS E on M.id_emergencia = E.id_emergencia]]>
 				<textField>
 					<reportElement x="100" y="0" width="455" height="32" forecolor="#F08B4D" uuid="9c1048f5-ea5d-40f7-9057-df109be6819a"/>
 					<textElement>
-						<font size="20" isBold="true"/>
+						<font size="16" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Descripcion de la emergencia}]]></textFieldExpression>
 				</textField>

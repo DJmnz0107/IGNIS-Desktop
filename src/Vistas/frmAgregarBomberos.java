@@ -185,6 +185,7 @@ setIconImage(scaledImage);
         });
         panelRound31.add(cmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 220, 40));
 
+        btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/contrato.png"))); // NOI18N
         btnVerRegistro.setText("     Ver registro");
         btnVerRegistro.setToolTipText("");
         btnVerRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
@@ -194,13 +195,14 @@ setIconImage(scaledImage);
                 btnVerRegistroActionPerformed(evt);
             }
         });
-        panelRound31.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 170, 40));
+        panelRound31.add(btnVerRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, 220, 60));
 
+        btnAgregarInfo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/anadir.png"))); // NOI18N
         btnAgregarInfo1.setText("   Agregar informacion");
         btnAgregarInfo1.setToolTipText("");
         btnAgregarInfo1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         btnAgregarInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelRound31.add(btnAgregarInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 220, 40));
+        panelRound31.add(btnAgregarInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 270, 60));
 
         txtExperiencia.setBackground(new java.awt.Color(217, 217, 217));
         txtExperiencia.setColumns(20);
