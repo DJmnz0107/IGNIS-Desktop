@@ -20,10 +20,12 @@ public class ctrlNotificacion implements MouseListener {
     
     private frmNotificacionEmergencia vista;
     private Emergencias modelo;
+        private int idEmergencia; // Campo para almacenar el ID de la emergencia
     
-    public ctrlNotificacion(frmNotificacionEmergencia vista,  Emergencias modelo) {
+    public ctrlNotificacion(frmNotificacionEmergencia vista,  Emergencias modelo, int idEmergencia) {
         this.vista = vista;
         this.modelo = modelo;
+                this.idEmergencia = idEmergencia; // Asigna el ID de la emergencia
         
         vista.lblDenegar.addMouseListener(this);
         vista.lblAyuda.addMouseListener(this);
@@ -33,7 +35,7 @@ public class ctrlNotificacion implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == vista.lblDenegar) {
             
-            modelo.setIdEmergencia(EmergenciaController.idEmergencia);
+            modelo.setIdEmergencia(idEmergencia);
             modelo.setRespuestaNotificacion("Denegada");
             modelo.actualizarEstado();
             
@@ -57,7 +59,7 @@ public class ctrlNotificacion implements MouseListener {
         }
         
         if(e.getSource() == vista.lblAyuda) {
-                   modelo.setIdEmergencia(EmergenciaController.idEmergencia);
+                   modelo.setIdEmergencia(idEmergencia);
             modelo.setRespuestaNotificacion("En camino");
             modelo.actualizarEstado();
             

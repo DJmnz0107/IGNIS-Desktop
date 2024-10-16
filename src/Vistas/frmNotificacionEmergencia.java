@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 public class frmNotificacionEmergencia extends javax.swing.JFrame {
 
     private frmNotificacionEmergencia vistaNotificacion; 
+        private int idEmergencia; // Campo para almacenar el ID de la emergencia
     /**
      * Creates new form frmNotificacionEmergencia
      */
@@ -36,23 +37,24 @@ setIconImage(scaledImage);
                  setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
     
-public void initfrmNotificacionEmergencia(String descripcion, String gravedad, String tipo) {
-    System.out.println(descripcion + gravedad + tipo);
+ public void initfrmNotificacionEmergencia(String descripcion, String gravedad, String tipo, int idEmergencia) {
+        System.out.println(descripcion + gravedad + tipo);
+        this.idEmergencia = idEmergencia; // Asigna el ID de emergencia a la variable de instancia
 
-    if (vistaNotificacion == null) {
-        vistaNotificacion = new frmNotificacionEmergencia();
-        Emergencias modelo = new Emergencias();
-        ctrlNotificacion controlador = new ctrlNotificacion(vistaNotificacion, modelo);
+        if (vistaNotificacion == null) {
+            vistaNotificacion = new frmNotificacionEmergencia();
+            Emergencias modelo = new Emergencias();
+            ctrlNotificacion controlador = new ctrlNotificacion(vistaNotificacion, modelo, this.idEmergencia); // Pasa el ID
+        }
+
+        // Actualiza los textos de los labels en la instancia actual
+        vistaNotificacion.lblDescripcion.setText("Descripción: " + descripcion);
+        vistaNotificacion.lblGravedad.setText("Gravedad: " + gravedad);
+        vistaNotificacion.lblTipo.setText("Se ha enviado una señal de " + tipo);
+
+        // Asegúrate de que la vista actual sea visible
+        vistaNotificacion.setVisible(true);
     }
-
-    // Actualiza los textos de los labels en la instancia actual
-    vistaNotificacion.lblDescripcion.setText("Descripción: " + descripcion);
-    vistaNotificacion.lblGravedad.setText("Gravedad: " + gravedad);
-    vistaNotificacion.lblTipo.setText("Se ha enviado una señal de " + tipo);
-
-    // Asegúrate de que la vista actual sea visible
-    vistaNotificacion.setVisible(true);
-}
 
     /**
      * This method is called from within the constructor to initialize the form.
