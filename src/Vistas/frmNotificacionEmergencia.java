@@ -7,6 +7,8 @@ package Vistas;
 import Controlador.ctrlNotificacion;
 import Modelo.Emergencias;
 import java.awt.Image;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -18,6 +20,8 @@ public class frmNotificacionEmergencia extends javax.swing.JFrame {
 
     private frmNotificacionEmergencia vistaNotificacion; 
         private int idEmergencia; // Campo para almacenar el ID de la emergencia
+            private static Set<String> notificacionesMostradas = new HashSet<>();
+
     /**
      * Creates new form frmNotificacionEmergencia
      */
@@ -37,9 +41,21 @@ setIconImage(scaledImage);
                  setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
     
- public void initfrmNotificacionEmergencia(String descripcion, String gravedad, String tipo, int idEmergencia) {
+public void initfrmNotificacionEmergencia(String descripcion, String gravedad, String tipo, int idEmergencia) {
         System.out.println(descripcion + gravedad + tipo);
         this.idEmergencia = idEmergencia; // Asigna el ID de emergencia a la variable de instancia
+        
+        // Crear una clave única para esta notificación basada en sus datos
+        String clave = descripcion + gravedad + tipo + idEmergencia;
+        
+        // Verificar si ya existe una notificación con esta clave
+        if (notificacionesMostradas.contains(clave)) {
+            System.out.println("Ya existe una notificación para esta emergencia.");
+            return; // No crear otra notificación
+        }
+
+        // Agregar la clave al conjunto de notificaciones mostradas
+        notificacionesMostradas.add(clave);
 
         if (vistaNotificacion == null) {
             vistaNotificacion = new frmNotificacionEmergencia();
@@ -54,7 +70,7 @@ setIconImage(scaledImage);
 
         // Asegúrate de que la vista actual sea visible
         vistaNotificacion.setVisible(true);
-    }
+    }  
 
     /**
      * This method is called from within the constructor to initialize the form.
