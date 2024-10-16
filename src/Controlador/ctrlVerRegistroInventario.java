@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import static Controlador.ctrlLogin.nombreUsuario;
 import Modelo.CambioSistema;
 import Modelo.ClaseConexion;
 import Modelo.Recursos;
@@ -41,6 +42,15 @@ public class ctrlVerRegistroInventario implements MouseListener, KeyListener {
         modelo.Mostrar(vista.jtInventario);
         vista.imgBack.addMouseListener(this);
         
+        
+        
+         int nivelUsuario = Usuarios.nivelUsuario;
+         
+         if(nivelUsuario == 2 || nivelUsuario == 4 ) {
+             vista.btnEliminar.setEnabled(false);
+         }
+
+        
            Connection conexion = ClaseConexion.getConexion();
                             // Verifica si el controlador ya ha sido creado
                             if (controller == null) {
@@ -60,6 +70,10 @@ public class ctrlVerRegistroInventario implements MouseListener, KeyListener {
         
         
 if (e.getSource() == vista.btnEliminar) {
+    
+      if (!vista.btnEliminar.isEnabled()) {
+            JOptionPane.showMessageDialog(vista, "No tienes permiso para eliminar en el inventario.", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+        } else {
     if (vista.jtInventario.getSelectedRow() == -1) {
         JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
     } else {
@@ -80,6 +94,8 @@ if (e.getSource() == vista.btnEliminar) {
             modelo.Eliminar(vista.jtInventario);
             modelo.Mostrar(vista.jtInventario);
         }
+        }
+
     }
     
         String nombreRecurso = ctrlLogin.nombreUsuario;   

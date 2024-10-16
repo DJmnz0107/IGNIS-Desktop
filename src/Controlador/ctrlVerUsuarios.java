@@ -45,9 +45,18 @@ public class ctrlVerUsuarios implements MouseListener, KeyListener{
             if (vista.jtUsuarios.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                 int respuesta = JOptionPane.showConfirmDialog(vista, "¿Estás seguro de que deseas eliminar este registro?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                
-                // Si el usuario selecciona "Sí/Yes"
+                  Object[] opciones = {"Sí", "No"}; // Opciones en español
+
+        int respuesta = JOptionPane.showOptionDialog(
+            vista, 
+            "¿Estás seguro de que deseas eliminar este usuario?", 
+            "Confirmación", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            opciones, 
+            opciones[0]
+        );
                 if (respuesta == JOptionPane.YES_OPTION) {
                     modelo.Eliminar(vista.jtUsuarios);
                     modelo.Mostrar(vista.jtUsuarios);

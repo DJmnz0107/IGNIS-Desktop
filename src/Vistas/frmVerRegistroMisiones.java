@@ -112,6 +112,8 @@ setIconImage(scaledImage);
         btnGenerarReporte = new Vistas.btnNegroForms();
         jLabel10 = new javax.swing.JLabel();
         dtcFechaReporte = new com.toedter.calendar.JDateChooser();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -146,15 +148,15 @@ setIconImage(scaledImage);
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(634, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 673));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 690));
 
-        jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Seleccionar fecha para reporte");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 570, -1, -1));
+        jLabel9.setText("Ó");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 460, -1, 20));
 
         jtbMisiones.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
         jtbMisiones.setModel(new javax.swing.table.DefaultTableModel(
@@ -170,7 +172,7 @@ setIconImage(scaledImage);
         ));
         jScrollPane1.setViewportView(jtbMisiones);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 107, 774, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 107, 774, 430));
 
         txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
         txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -178,7 +180,7 @@ setIconImage(scaledImage);
         txtBuscar.setBorder(null);
         txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 556, 350, 45));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 540, 350, 45));
 
         JTextField.setBackground(new java.awt.Color(192, 109, 58));
         JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -189,11 +191,11 @@ setIconImage(scaledImage);
         JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         JTextField.setEnabled(false);
         JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 556, 110, 45));
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, 110, 45));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
         btnBuscar.setToolTipText("");
-        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 556, 30, 45));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 540, 30, 45));
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
@@ -203,12 +205,12 @@ setIconImage(scaledImage);
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(975, 212, 190, 60));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 200, 190, 50));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EliminarNew.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(975, 372, 190, 60));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 310, 190, 50));
 
         btnGenerarReporteFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/calendarMini.png"))); // NOI18N
         btnGenerarReporteFecha.setText("  Generar reporte por fecha");
@@ -218,7 +220,7 @@ setIconImage(scaledImage);
                 btnGenerarReporteFechaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGenerarReporteFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 266, 50));
+        jPanel1.add(btnGenerarReporteFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 490, 250, 50));
 
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
         jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
@@ -231,19 +233,29 @@ setIconImage(scaledImage);
                 btnGenerarReporteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGenerarReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 550, 266, 50));
+        jPanel1.add(btnGenerarReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 390, 250, 50));
 
         jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Misiones > Ver Registro ");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
-        jPanel1.add(dtcFechaReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 220, 40));
+        jPanel1.add(dtcFechaReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 580, 250, 40));
+
+        jLabel11.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Seleccionar fecha para reporte");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 560, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("IGNIS");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1192, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1202, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,6 +399,8 @@ view.setIconImage(scaledImage);
     public com.toedter.calendar.JDateChooser dtcFechaReporte;
     public javax.swing.JLabel imgBack;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

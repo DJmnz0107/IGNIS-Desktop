@@ -10,6 +10,7 @@ import Modelo.Recursos;
 import Modelo.Usuarios;
 import Vistas.frmActualizarInventario;
 import Vistas.frmVerInventario;
+import Vistas.frmVerRegistroInventario;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -38,6 +39,8 @@ public class ctrlActualizarInventario implements MouseListener {
         vista.btnActualizar.addMouseListener(this);
         vista.btnVerInventario.addMouseListener(this);
         vista.imgAgregar.addMouseListener(this);
+        vista.imgBack.addMouseListener(this);
+        
         
             rutaImagenSeleccionada = vista.obtenerRutaImagen();
            Connection conexion = ClaseConexion.getConexion();
@@ -49,6 +52,11 @@ public class ctrlActualizarInventario implements MouseListener {
     }
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource() == vista.imgBack) {
+            frmVerRegistroInventario.initfrmVerRegistroInventario();
+            vista.dispose();
+        }
             System.out.println(vista.obtenerRutaImagen());
         if(e.getSource() == vista.btnActualizar) {
             if(vista.txtDescripcionRecurso.getText().isEmpty() || vista.txtNombreInventario.getText().isEmpty()) {

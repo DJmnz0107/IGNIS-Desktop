@@ -130,7 +130,7 @@ setIconImage(scaledImage);
         jPanel1 = new javax.swing.JPanel();
         panelRound1 = new Vistas.PanelRound();
         btnMenu = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        imgBack = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNombreInventario = new Vistas.TextFieldBlanco();
@@ -189,8 +189,8 @@ setIconImage(scaledImage);
 
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 650));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Volver.png"))); // NOI18N
+        jPanel1.add(imgBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 40, 40));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -329,6 +329,7 @@ setIconImage(scaledImage);
     public javax.swing.JComboBox<String> cmbEstado;
     public com.toedter.calendar.JDateChooser dtcRecepcion;
     public javax.swing.JLabel imgAgregar;
+    public javax.swing.JLabel imgBack;
     public javax.swing.JLabel imgInventario;
     public javax.swing.JLabel imgRecurso;
     private javax.swing.JLabel jLabel1;
@@ -339,7 +340,6 @@ setIconImage(scaledImage);
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private Vistas.PanelRound panelRound1;

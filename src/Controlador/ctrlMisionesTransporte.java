@@ -53,8 +53,29 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == Vista.btnEliminar){
+            
+            
+              if (Vista.jtRegistroTransporte.getSelectedRow() == -1) {
+        JOptionPane.showMessageDialog(Vista, "Debes seleccionar una fila para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+    } else {
+        Object[] opciones = {"Sí", "No"}; // Opciones en español
+
+        int respuesta = JOptionPane.showOptionDialog(
+            Vista, 
+            "¿Estás seguro de que deseas eliminar este registro?", 
+            "Confirmación", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            opciones, 
+            opciones[0]
+        );
+
+        if (respuesta == JOptionPane.YES_OPTION) {
             modelo.Eliminar(Vista.jtRegistroTransporte);
             modelo.Mostrar(Vista.jtRegistroTransporte);
+            JOptionPane.showMessageDialog(Vista, "Registro eliminado exitosamente");
+        }
             
         String nombreMisiones = ctrlLogin.nombreUsuario;   
                    
@@ -62,13 +83,16 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
                   
-        String descripcionCambio = "Una transporte de misión a sido eliminado "; // Descripción del cambio
+        String descripcionCambio = "Un transporte de misión a sido eliminado "; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         }
-        if(e.getSource() == Vista.imgBack){
+      
+    }
+        
+         if(e.getSource() == Vista.imgBack){
             Vista.dispose();
             frmAgregarMisionTransportes.initfrmAgregarMisionTransportes();
         }
@@ -94,7 +118,7 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
-        }
+    }
     }
 
     @Override

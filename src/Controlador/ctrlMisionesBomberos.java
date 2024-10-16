@@ -52,7 +52,7 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
 
         int respuesta = JOptionPane.showOptionDialog(
             Vista, 
-            "¿Estás seguro de que deseas eliminar este aspirante?", 
+            "¿Estás seguro de que deseas eliminar este registro?", 
             "Confirmación", 
             JOptionPane.YES_NO_OPTION, 
             JOptionPane.QUESTION_MESSAGE, 
@@ -64,7 +64,7 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
         if (respuesta == JOptionPane.YES_OPTION) {
             modelo.Eliminar(Vista.jtMisionesBomberos);
             modelo.Mostrar(Vista.jtMisionesBomberos);
-            JOptionPane.showMessageDialog(Vista, "Aspirante eliminado exitosamente");
+            JOptionPane.showMessageDialog(Vista, "Registro eliminado exitosamente");
         }
            
         }
