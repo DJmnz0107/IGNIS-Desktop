@@ -26,16 +26,24 @@ public class ctrlVerificarCodigo implements MouseListener{
  }
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (Integer.parseInt(Vistas.txtVeriCodi.getText()) == ctrlRecuContrasena.numeroAleatorio) {
+        if(e.getSource() == Vistas.btnVeriCodi) {
+                    if(Vistas.txtVeriCodi.getText().isEmpty()) {            
+            JOptionPane.showMessageDialog(Vistas, "Porfavor, el campo", "Error", JOptionPane.ERROR_MESSAGE);
+                 return;            
+        }
+                    
+            if (Integer.parseInt(Vistas.txtVeriCodi.getText()) == ctrlRecuContrasena.numeroAleatorio) {
             
             frmCambarContra.initFrmCambiar();
             Vistas.dispose();
             
 
         } else {
-                                    JOptionPane.showMessageDialog(Vistas, "Codigo Incorrecto", "Recuperación de Contraseña", JOptionPane.WARNING_MESSAGE);
+           JOptionPane.showMessageDialog(Vistas, "Codigo Incorrecto", "Recuperación de Contraseña", JOptionPane.WARNING_MESSAGE);
 
         }
+        }
+      
     }
 
     @Override

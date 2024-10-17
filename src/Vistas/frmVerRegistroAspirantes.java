@@ -80,7 +80,6 @@ setIconImage(scaledImage);
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAspirantes = new javax.swing.JTable();
-        JTextField = new javax.swing.JTextField();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JLabel();
         panelRound1 = new Vistas.PanelRound();
@@ -89,6 +88,7 @@ setIconImage(scaledImage);
         btnActualizar = new Vistas.btnRojoForms();
         imgBack = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -117,24 +117,8 @@ setIconImage(scaledImage);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 91, 750, 470));
 
-        JTextField.setBackground(new java.awt.Color(192, 109, 58));
-        JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        JTextField.setForeground(new java.awt.Color(255, 255, 255));
-        JTextField.setText("   Buscar:");
-        JTextField.setBorder(null);
-        JTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        JTextField.setEnabled(false);
-        JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        JTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 100, 50));
-
         txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
-        txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        txtBuscar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
         txtBuscar.setBorder(null);
         txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -144,7 +128,7 @@ setIconImage(scaledImage);
                 txtBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 300, 50));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 580, 300, 40));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
         btnBuscar.setToolTipText("");
@@ -205,6 +189,14 @@ setIconImage(scaledImage);
         jLabel11.setText("IGNIS");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, -1, -1));
 
+        jButton2.setBackground(new java.awt.Color(192, 109, 58));
+        jButton2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Buscar");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setBorderPainted(false);
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 580, 110, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -223,10 +215,6 @@ setIconImage(scaledImage);
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
-
-    private void JTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextFieldActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         Drawer.getInstance().showDrawer();
@@ -273,12 +261,12 @@ setIconImage(scaledImage);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField JTextField;
     public Vistas.btnRojoForms btnActualizar;
     public javax.swing.JLabel btnBuscar;
     public Vistas.btnRojoForms btnEliminar;
     public javax.swing.JButton btnMenu;
     public javax.swing.JLabel imgBack;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;

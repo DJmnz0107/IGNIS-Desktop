@@ -86,21 +86,21 @@ setIconImage(scaledImage);
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(imgBack)
-                .addGap(91, 91, 91)
+                .addGap(103, 103, 103)
                 .addComponent(jLabel5)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(imgBack, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .addComponent(imgBack, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel5)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 140));
@@ -111,39 +111,39 @@ setIconImage(scaledImage);
         btnRecuContra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/EnviarCodenEW.png"))); // NOI18N
         btnRecuContra.setText("Enviar código");
         btnRecuContra.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
-        jPanel2.add(btnRecuContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 230, 40));
+        jPanel2.add(btnRecuContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 230, 40));
 
         btnVerficarCode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/VerificarCODEn.png"))); // NOI18N
         btnVerficarCode.setText("Verificar código");
         btnVerficarCode.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
-        jPanel2.add(btnVerficarCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 230, 40));
+        jPanel2.add(btnVerficarCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 230, 40));
 
         txtRecuCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRecuCorreoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtRecuCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 350, 50));
+        jPanel2.add(txtRecuCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 350, 50));
 
         jLabel2.setBackground(new java.awt.Color(240, 139, 77));
         jLabel2.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(240, 139, 77));
         jLabel2.setText("Ingresa tu correo");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
 
         txtRecuUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRecuUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(txtRecuUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 350, 50));
+        jPanel2.add(txtRecuUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 350, 50));
 
         jLabel4.setBackground(new java.awt.Color(240, 139, 77));
         jLabel4.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(240, 139, 77));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Ingresa tu nombre de usuario");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 280, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 280, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 460));
 

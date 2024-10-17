@@ -95,7 +95,7 @@ public class ctrlAsignarMisionesTransportes implements MouseListener{
         }
         
         if (Vistas.cmbTransporte.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(Vistas, "No se puede añadir un bombero nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(Vistas, "No se puede añadir un transporte nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 

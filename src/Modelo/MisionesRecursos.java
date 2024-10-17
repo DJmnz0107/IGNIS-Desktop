@@ -116,12 +116,12 @@ public class MisionesRecursos {
     
     public MisionesRecursos(int id, String nombre,boolean Misiones){
       this.id_recurso = id;
-      this.nombre_Recurso = nombre;
+      this.descripcionRecurso = nombre;
     }
     
      @Override
     public String toString() {
-        return nombre_Recurso;
+        return descripcionRecurso;
     }
     
     
@@ -153,11 +153,11 @@ public class MisionesRecursos {
     comboBox.removeAllItems();
     try {
         Statement statement = conexion.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT id_recurso, nombre_Recurso FROM Recursos");
+        ResultSet rs = statement.executeQuery("SELECT id_recurso, descripcion_recurso FROM Recursos");
         
         while (rs.next()) {
             int id = rs.getInt("id_recurso"); 
-            String nombre = rs.getString("nombre_Recurso");
+            String nombre = rs.getString("descripcion_recurso");
      MisionesRecursos recurso = new MisionesRecursos(id, nombre, false); // Se usa el constructor adecuado
             comboBox.addItem(recurso); // Añade el objeto recurso al JComboBox
             System.out.println("Cargando: ID: " + id + ", Descripción: " + nombre); // Para verificar
@@ -253,12 +253,12 @@ public class MisionesRecursos {
     comboBox.removeAllItems();  // Limpia los elementos anteriores en el combo
     try {
         Statement statement = conexion.createStatement();
-        String sql = "SELECT id_recurso, nombre_Recurso FROM Recursos";
+        String sql = "SELECT id_recurso, descripcion_recurso FROM Recursos";
         ResultSet rs = statement.executeQuery(sql);
 
         while (rs.next()) {
             int id = rs.getInt("id_recurso");
-            String nombre = rs.getString("nombre_Recurso");
+            String nombre = rs.getString("descripcion_recurso");
 
             // Crea un nuevo objeto MisionesRecursos para cada recurso y añádelo al combo
             MisionesRecursos recurso = new MisionesRecursos(id, nombre, false); // Se usa el constructor adecuado

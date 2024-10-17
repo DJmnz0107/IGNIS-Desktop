@@ -46,6 +46,13 @@ public class ctrlRecuContrasena implements MouseListener {
 public void mouseClicked(MouseEvent e) {
     if(e.getSource() == Vistas.btnRecuContra) {
         
+        
+        
+        if(Vistas.txtRecuCorreo.getText().isEmpty() || Vistas.txtRecuUsuario.getText().isEmpty()) {            
+            JOptionPane.showMessageDialog(Vistas, "Porfavor, llena todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                 return;            
+        }
+        
         verificarUsuario.setNombre_usuario(Vistas.txtRecuUsuario.getText()); 
         
         
@@ -69,7 +76,6 @@ public void mouseClicked(MouseEvent e) {
     }
     
     if(e.getSource() == Vistas.imgBack) {
-        frmLogin.initfrmLogin();
         Vistas.dispose();
     }
 }

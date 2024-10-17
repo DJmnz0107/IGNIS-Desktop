@@ -72,7 +72,7 @@ public class ctrlAsignarRecursos implements MouseListener{
         }
         
         if (vista.cmbRecursos.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(vista, "No se puede añadir un bombero nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista, "No se puede añadir un recurso nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         

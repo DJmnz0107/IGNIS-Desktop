@@ -155,6 +155,7 @@ public static frmVerRegistroTransporter getInstance() {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 110, 40));
 
         jTextField1.setBackground(new java.awt.Color(255, 173, 122));
+        jTextField1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, 270, 40));
