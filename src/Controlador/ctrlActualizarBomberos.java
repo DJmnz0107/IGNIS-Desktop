@@ -69,21 +69,7 @@ public class ctrlActualizarBomberos implements MouseListener{
         }
                 if(e.getSource() == Vistas.btnActualizar) {
                     
-                     Bomberos seleccionado = (Bomberos) Vistas.cmbUsuario.getSelectedItem();
-            
-                        int idUsuarioVerificar = seleccionado.getId_usuario();
-            
-            
-            
-            try {
-                   boolean usuarioExiste = Modelo.verificarUsaurio(idUsuarioVerificar);
-                if (usuarioExiste) {
-                    JOptionPane.showMessageDialog(Vistas, "El usuario ya está registrado en un bombero.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return; // Detener la ejecución si el DUI existe
-                }
-            } catch(Exception ex) {
-                                JOptionPane.showMessageDialog(Vistas, "Error al hacer la sentencia:  " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
+                    
             
            
              
