@@ -180,7 +180,7 @@ setIconImage(scaledImage);
         txtBuscar.setBorder(null);
         txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 540, 350, 45));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 350, 45));
 
         JTextField.setBackground(new java.awt.Color(192, 109, 58));
         JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -191,11 +191,11 @@ setIconImage(scaledImage);
         JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         JTextField.setEnabled(false);
         JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, 110, 45));
+        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 560, 110, 45));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
         btnBuscar.setToolTipText("");
-        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 540, 30, 45));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 560, 30, 45));
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/ActualizarNew.png"))); // NOI18N
         btnActualizar.setText("Actualizar");

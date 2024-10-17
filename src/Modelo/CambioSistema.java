@@ -82,31 +82,38 @@ public class CambioSistema {
     private int id_usuario;
     
     
-    public void Mostar(JTable tabla){
-       Connection conexion = ClaseConexion.getConexion();
-       DefaultTableModel modelo = new DefaultTableModel();
-       modelo.setColumnIdentifiers(new Object[]{"ID_CambioSistema","Descripcion","Fecha","Nombre del usuario"});
-       try{
-         String query ="SELECT C.id_CambioSistema, U.nombre_usuario, C.descripcion_cambio, C.fecha_cambio FROM Cambios_Sistema C INNER JOIN Usuarios U ON U.id_usuario = C.id_usuario";
+public void Mostar(JTable tabla){
+    Connection conexion = ClaseConexion.getConexion();
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.setColumnIdentifiers(new Object[]{"ID_CambioSistema","Descripcion","Fecha","Nombre del usuario"});
+    try{
+        // Agregar ORDER BY para ordenar por fecha
+        String query = "SELECT C.id_CambioSistema, U.nombre_usuario, C.descripcion_cambio, C.fecha_cambio " +
+                       "FROM Cambios_Sistema C " +
+                       "INNER JOIN Usuarios U ON U.id_usuario = C.id_usuario " +
+                       "ORDER BY C.fecha_cambio ASC"; // Ordena por fecha de manera ascendente
+
         Statement statement = conexion.createStatement();
         ResultSet rs = statement.executeQuery(query);
-            while(rs.next()){
-            modelo.addRow(new Object[]{rs.getInt("ID_CambioSistema"), 
-                    rs.getString("DESCRIPCION_CAMBIO"), 
-                    rs.getString("FECHA_CAMBIO"), 
-                    rs.getString("nombre_usuario")});
-            }
-            tabla.setModel(modelo);
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(0).setWidth(0);
-       }catch(Exception e){
-        System.out.println("Este es el error en el modelo, metodo mostrar " + e);
 
-       }
-            
-       
-       }
+        while(rs.next()){
+            modelo.addRow(new Object[]{
+                rs.getInt("ID_CambioSistema"),
+                rs.getString("DESCRIPCION_CAMBIO"),
+                rs.getString("FECHA_CAMBIO"),
+                rs.getString("nombre_usuario")
+            });
+        }
+
+        tabla.setModel(modelo);
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setWidth(0);
+    } catch(Exception e){
+        System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+    }
+}
+
     
       public void insertarCambio(int idUsuario, String descripcionCambio) {
     Connection conexion = ClaseConexion.getConexion();

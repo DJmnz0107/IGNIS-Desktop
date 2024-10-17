@@ -182,7 +182,7 @@ if (!edadText.matches("\\d+")) {
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreAspirante);
                   
-        String descripcionCambio = "Aspirante " + txtNombreAspirante + " Actualizado en el sistema"; // Descripción del cambio
+        String descripcionCambio = "Aspirante " + txtNombreAspirante + " Creado en el sistema"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         
