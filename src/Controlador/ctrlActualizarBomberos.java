@@ -68,6 +68,22 @@ public class ctrlActualizarBomberos implements MouseListener{
             Vistas.dispose();
         }
                 if(e.getSource() == Vistas.btnActualizar) {
+                    
+                     Bomberos seleccionado = (Bomberos) Vistas.cmbUsuario.getSelectedItem();
+            
+                        int idUsuarioVerificar = seleccionado.getId_usuario();
+            
+            
+            
+            try {
+                   boolean usuarioExiste = Modelo.verificarUsaurio(idUsuarioVerificar);
+                if (usuarioExiste) {
+                    JOptionPane.showMessageDialog(Vistas, "El usuario ya está registrado en un bombero.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return; // Detener la ejecución si el DUI existe
+                }
+            } catch(Exception ex) {
+                                JOptionPane.showMessageDialog(Vistas, "Error al hacer la sentencia:  " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
             
            
              
@@ -79,8 +95,8 @@ public class ctrlActualizarBomberos implements MouseListener{
 
             
             
-              if (Vistas.cmbUsuario.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(Vistas, "No se puede añadir un bombero nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+           if (Vistas.cmbUsuario.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(Vistas, "No se puede añadir un usuario nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
               

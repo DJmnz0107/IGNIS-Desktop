@@ -83,6 +83,23 @@ public class ctrlAgregarBomberos implements MouseListener{
         
         if (e.getSource() == Vistas.btnAgregarInfo1) {
             
+            
+            Bomberos seleccionado = (Bomberos) Vistas.cmbUsuario.getSelectedItem();
+            
+                        int idUsuarioVerificar = seleccionado.getId_usuario();
+            
+            
+            
+            try {
+                   boolean usuarioExiste = Modelo.verificarUsaurio(idUsuarioVerificar);
+                if (usuarioExiste) {
+                    JOptionPane.showMessageDialog(Vistas, "El usuario ya está registrado en un bombero.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return; // Detener la ejecución si el DUI existe
+                }
+            } catch(Exception ex) {
+                                JOptionPane.showMessageDialog(Vistas, "Error al hacer la sentencia:  " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
             if(Vistas.txtNombreBombero.getText().isEmpty() || Vistas.txtApellidoBombero.getText().isEmpty() || Vistas.txtEspecializacion.getText().isEmpty() || Vistas.txtExperiencia.getText().isEmpty()) {
                  JOptionPane.showMessageDialog(Vistas, "Debes llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             return; // Salir del método si hay campos vacíos
@@ -91,8 +108,13 @@ public class ctrlAgregarBomberos implements MouseListener{
               JOptionPane.showMessageDialog(Vistas, "Debes seleccionar una imagen antes de actualizar", "Error", JOptionPane.ERROR_MESSAGE);
                 return; 
             }
+               
+                if (Vistas.cmbUsuario.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(Vistas, "No se puede añadir un usuario nulo, asegurate que existan registros", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
               
-        Bomberos seleccionado = (Bomberos) Vistas.cmbUsuario.getSelectedItem();
+        
         if (seleccionado != null) {
             int idUsuario = seleccionado.getId_usuario();
             System.out.println("ID del bombero seleccionado: " + idUsuario);

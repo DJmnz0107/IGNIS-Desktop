@@ -481,6 +481,23 @@ public class Bomberos {
         System.out.println("Este es el error en el modelo, metodo de buscar " + e);
     }
 }
+       
+       public boolean verificarUsaurio(int id) throws SQLException {
+        Connection conexion = ClaseConexion.getConexion();
+        String sql = "SELECT id_usuario FROM Bomberos WHERE id_usuario = ?";
+
+        try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            // Retorna true si se encuentra el DUI, false de lo contrario
+            return resultSet.next(); 
+        } finally {
+            if (conexion != null) {
+                conexion.close(); // Asegúrate de cerrar la conexión
+            }
+        }
+    }
 
          
          
