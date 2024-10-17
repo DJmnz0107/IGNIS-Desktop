@@ -114,7 +114,7 @@ public class ctrlAgregarInventario implements MouseListener {
          
 
             
-        String descripcionCambio = "Recurso " + txtNombreInventario + " ingresado al sistema"; // Descripción del cambio
+        String descripcionCambio = "Recurso " + txtNombreInventario + " agregado al sistema"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         

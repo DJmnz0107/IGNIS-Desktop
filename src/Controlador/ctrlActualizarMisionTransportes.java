@@ -109,7 +109,7 @@ public class ctrlActualizarMisionTransportes implements MouseListener{
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
                   
-        String descripcionCambio = "Mision transporte actualizada en el sistema"; // Descripción del cambio
+        String descripcionCambio = "Un registro de mision a transporte ha sido actualizado en el sistema"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         

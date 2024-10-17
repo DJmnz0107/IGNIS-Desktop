@@ -73,12 +73,10 @@ public class ctrlVerEmergencias implements MouseListener, KeyListener {
         if (respuesta == JOptionPane.YES_OPTION) {
             modelo.Eliminar(vista.jtEmergencias);
             modelo.Mostrar(vista.jtEmergencias);
-        }
-    }
-    
+                   JOptionPane.showMessageDialog(vista, "Emergencia eliminada exitosamente");    
 
-        
-        String nombreRecurso = ctrlLogin.nombreUsuario;   
+            
+                    String nombreRecurso = ctrlLogin.nombreUsuario;   
                    
         Usuarios usuario = new Usuarios();
                  
@@ -89,6 +87,12 @@ public class ctrlVerEmergencias implements MouseListener, KeyListener {
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        }
+    }
+    
+
+        
+
         
 
 }

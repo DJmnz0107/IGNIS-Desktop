@@ -59,19 +59,7 @@ public ctrlRegistroTransporte(frmVerRegistroTransporter vista, Transportes model
                 JOptionPane.showMessageDialog(vista, "Por favor, seleccione una fila para actualizar.");
             }   
             
-        
-        
-        String nombreVehiculo = ctrlLogin.nombreUsuario;   
-                   
-        Usuarios usuario = new Usuarios();
-                 
-         int idsUsuario = usuario.obtenerIdUsuario(nombreVehiculo);
-                  
-        String descripcionCambio = "Vehiculo actualizado en el sistema"; // Descripción del cambio
-        
-        CambioSistema cambiosSistema = new CambioSistema();
-        
-        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+ 
         
        
         }
@@ -97,12 +85,7 @@ public ctrlRegistroTransporte(frmVerRegistroTransporter vista, Transportes model
             modelo.Eliminar(vista.jtTransportes);
             modelo.Mostrar(vista.jtTransportes);
             JOptionPane.showMessageDialog(vista, "Registro eliminado exitosamente");
-        }
-    }
-    
-        
-        
-        String nombreVehiculo = ctrlLogin.nombreUsuario;   
+                String nombreVehiculo = ctrlLogin.nombreUsuario;   
                    
         Usuarios usuario = new Usuarios();
                  
@@ -113,6 +96,12 @@ public ctrlRegistroTransporte(frmVerRegistroTransporter vista, Transportes model
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        }
+    }
+    
+        
+        
+    
         
         
 }

@@ -37,6 +37,9 @@ Image originalImage = iconoOriginal.getImage();
 Image scaledImage = originalImage.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
 
 setIconImage(scaledImage);
+        jtBomberos.setDefaultEditor(Object.class, null); // Deshabilita la edición
+
+
     }
     
     public static void initfrmRegistroBomberos(){

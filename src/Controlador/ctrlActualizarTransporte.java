@@ -103,7 +103,7 @@ if (!capacidadText.matches("\\d+")) {
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
                   
-        String descripcionCambio = "Vehiculo:  " + txtNombreVehiculo + " Actualizado en el sistema"; // Descripción del cambio
+        String descripcionCambio = "Vehiculo:  " + txtNombreVehiculo + " actualizado en el sistema"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         

@@ -4,9 +4,11 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.ClaseConexion;
 import Modelo.MisionDisplay;
 import Modelo.MisionesRecursos;
+import Modelo.Usuarios;
 import Vistas.frmActualizarMisionRecurso;
 import Vistas.frmAsignarRecursosVer;
 import java.awt.event.MouseEvent;
@@ -76,6 +78,17 @@ public class ctrlActualizarMisionRecurso implements MouseListener  {
             try {
                 modelo.actualizarRegistro();// Asegúrate de que este método esté implementado correctamente
                 JOptionPane.showMessageDialog(vista, "Información actualizada con éxito", "Agregar recurso", JOptionPane.INFORMATION_MESSAGE);
+                  String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Un registro de misiones a recursos ha sido actualizado en el sistema"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
             } catch (Exception ex) {
                 ex.printStackTrace(); // Manejo de excepciones
                 JOptionPane.showMessageDialog(vista, "Error al actualizar la información: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

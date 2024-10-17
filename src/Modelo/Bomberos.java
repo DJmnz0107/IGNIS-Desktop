@@ -262,51 +262,61 @@ public class Bomberos {
     }
  
             
-        public void Mostrar(JTable tabla) {
+     public void Mostrar(JTable tabla) {
+    
+    Connection conexion = ClaseConexion.getConexion();
+    
+    // Actualizamos las columnas del modelo de datos
+    DefaultTableModel modeloDeDatos = new DefaultTableModel();
+    modeloDeDatos.setColumnIdentifiers(new Object[]{
+        "id_Bombero", "Nombre", "Apellido", "Experiencia", "Especializacion", "Foto", "id_Usuario", "Nombre de usuario"
+    });
+
+    try {
+        Statement statement = conexion.createStatement();
         
-        Connection conexion = ClaseConexion.getConexion();
- 
+        // Actualizamos la consulta SQL con el INNER JOIN
+        String consulta = "SELECT b.id_bombero, b.nombre_bombero, b.apellido_bombero, " +
+                          "b.experiencia_bombero, b.especializacion_bombero, b.foto_bombero, " +
+                          "b.id_usuario, u.nombre_usuario " +
+                          "FROM Bomberos b " +
+                          "INNER JOIN Usuarios u ON b.id_usuario = u.id_usuario";
         
-        DefaultTableModel modeloDeDatos = new DefaultTableModel();
-        modeloDeDatos.setColumnIdentifiers(new Object[]{"id_Bombero", "Nombre", "Apellido", "Experiencia", "Especializacion", "Foto", "id_Usuario"});
- 
-        try {
-            
-            Statement statement = conexion.createStatement();
- 
-           
-            ResultSet rs = statement.executeQuery("SELECT * FROM Bomberos");
- 
-            
-            while (rs.next()) {
-                
-                modeloDeDatos.addRow(new Object[]{
-                    rs.getInt("id_Bombero"),
-                    rs.getString("nombre_Bombero"),
-                    rs.getString("apellido_Bombero"),
-                    rs.getString("experiencia_Bombero"),
-                    rs.getString("especializacion_Bombero"),
-                    rs.getString("foto_Bombero"),
-                    rs.getInt("id_Usuario")});
-            }
- 
-          
-            tabla.setModel(modeloDeDatos);
-            
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(0).setWidth(0);
-            tabla.getColumnModel().getColumn(5).setMinWidth(0);
-            tabla.getColumnModel().getColumn(5).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(5).setWidth(0);
-            tabla.getColumnModel().getColumn(6).setMinWidth(0);
-            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(6).setWidth(0);
-            
-        } catch (Exception e) {
-            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+        ResultSet rs = statement.executeQuery(consulta);
+        
+        // Recorremos el resultado y añadimos las filas al modelo de datos
+        while (rs.next()) {
+            modeloDeDatos.addRow(new Object[]{
+                rs.getInt("id_bombero"),
+                rs.getString("nombre_bombero"),
+                rs.getString("apellido_bombero"),
+                rs.getString("experiencia_bombero"),
+                rs.getString("especializacion_bombero"),
+                rs.getString("foto_bombero"),
+                rs.getInt("id_usuario"),  // Mantenemos el id_Usuario
+                rs.getString("nombre_usuario")  // Añadimos el nombre del usuario
+            });
         }
+        
+        // Asignamos el modelo de datos a la tabla
+        tabla.setModel(modeloDeDatos);
+        
+        // Opcional: ocultamos ciertas columnas si no quieres mostrarlas
+       tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setWidth(0);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(6).setWidth(0);
+        
+    } catch (Exception e) {
+        System.out.println("Este es el error en el modelo, metodo mostrar " + e);
     }
+}
+
         
         
     
@@ -413,44 +423,65 @@ public class Bomberos {
         Vistas.txtApellidoBombero.setText("");
         Vistas.txtExperiencia.setText("");
         Vistas.txtEspecializacion.setText("");
+        Vistas.lblFoto.setIcon(null);
         
     }
         
-        public void Buscar(JTable tabla, JTextField JTextField1) {
-        Connection conexion = ClaseConexion.getConexion();
-        DefaultTableModel Transporte = new DefaultTableModel();
-        Transporte.setColumnIdentifiers(new Object[]{"id_Bombero", "Nombre", "Apellido", "Experiencia", "Especializacion", "Foto", "id_Usuario"});
-        try {
-            String sql = "SELECT * FROM Bomberos WHERE nombre_Bombero LIKE ? || '%'";
-            PreparedStatement BomberosBuscar = conexion.prepareStatement(sql);
-            BomberosBuscar.setString(1, JTextField1.getText());
-            ResultSet rs = BomberosBuscar.executeQuery();
+       public void Buscar(JTable tabla, JTextField JTextField1) {
+    Connection conexion = ClaseConexion.getConexion();
+    DefaultTableModel Transporte = new DefaultTableModel();
+    
+    // Actualizamos las columnas del modelo de datos
+    Transporte.setColumnIdentifiers(new Object[]{
+        "id_Bombero", "Nombre", "Apellido", "Experiencia", "Especializacion", "Foto", "id_Usuario", "Nombre de usuario"
+    });
+    
+    try {
+        // Actualizamos la consulta SQL con el INNER JOIN
+        String sql = "SELECT b.id_bombero, b.nombre_bombero, b.apellido_bombero, " +
+                     "b.experiencia_bombero, b.especializacion_bombero, b.foto_bombero, " +
+                     "b.id_usuario, u.nombre_usuario " +
+                     "FROM Bomberos b " +
+                     "INNER JOIN Usuarios u ON b.id_usuario = u.id_usuario " +
+                     "WHERE b.nombre_bombero LIKE ? || '%'";
+        
+        PreparedStatement BomberosBuscar = conexion.prepareStatement(sql);
+        BomberosBuscar.setString(1, JTextField1.getText());
+        ResultSet rs = BomberosBuscar.executeQuery();
 
-            while (rs.next()) {
-                
-                Transporte.addRow(new Object[]{rs.getInt("id_Bombero"), 
-                    rs.getString("nombre_Bombero"), 
-                    rs.getString("apellido_Bombero"),
-                    rs.getString("experiencia_Bombero"),
-                    rs.getString("especializacion_Bombero"),
-                    rs.getString("foto_Bombero"),
-                    rs.getInt("id_Usuario")});
-            }
-            
-            tabla.setModel(Transporte);
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(0).setWidth(0);
-            tabla.getColumnModel().getColumn(5).setMinWidth(0);
-            tabla.getColumnModel().getColumn(5).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(5).setWidth(0);
-            tabla.getColumnModel().getColumn(6).setMinWidth(0);
-            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(6).setWidth(0);
-        } catch (Exception e) {
-            System.out.println("Este es el error en el modelo, metodo de buscar " + e);
+        // Recorremos el resultado y añadimos las filas al modelo de datos
+        while (rs.next()) {
+            Transporte.addRow(new Object[]{
+                rs.getInt("id_bombero"),
+                rs.getString("nombre_bombero"),
+                rs.getString("apellido_bombero"),
+                rs.getString("experiencia_bombero"),
+                rs.getString("especializacion_bombero"),
+                rs.getString("foto_bombero"),
+                rs.getInt("id_usuario"),  // Mantenemos el id_Usuario
+                rs.getString("nombre_usuario")  // Añadimos el nombre del usuario
+            });
         }
+        
+        // Asignamos el modelo de datos a la tabla
+        tabla.setModel(Transporte);
+        
+        // Opcional: ocultamos ciertas columnas si no quieres mostrarlas
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setWidth(0);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(6).setWidth(0);
+        
+    } catch (Exception e) {
+        System.out.println("Este es el error en el modelo, metodo de buscar " + e);
     }
+}
+
          
          
  

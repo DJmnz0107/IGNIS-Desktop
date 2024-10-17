@@ -123,7 +123,7 @@ public class ctrlAgregarBomberos implements MouseListener{
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
                   
-        String descripcionCambio = "Bombero:  " + txtNombreBombero + " Agregado"; // Descripción del cambio
+        String descripcionCambio = "Bombero:  " + txtNombreBombero + " agregado al sistema."; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         

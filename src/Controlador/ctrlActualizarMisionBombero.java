@@ -109,7 +109,7 @@ public class ctrlActualizarMisionBombero implements MouseListener {
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
                   
-        String descripcionCambio = "Mision bomberos ha sido actualizado en el sistema"; // Descripción del cambio
+        String descripcionCambio = "Un registro de misiones a bomberos ha sido actualizado en el sistema"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         

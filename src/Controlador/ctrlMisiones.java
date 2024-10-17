@@ -84,12 +84,8 @@ public class ctrlMisiones implements MouseListener, KeyListener{
             Modelo.Eliminar(Vistas.jtbMisiones); 
             Modelo.Mostrar(Vistas.jtbMisiones); 
             JOptionPane.showMessageDialog(Vistas, "Misión eliminada exitosamente");
-        }
-    }
-    
-         
-        
-        String nombreMisiones = ctrlLogin.nombreUsuario;   
+            
+              String nombreMisiones = ctrlLogin.nombreUsuario;   
                    
         Usuarios usuario = new Usuarios();
                  
@@ -100,6 +96,12 @@ public class ctrlMisiones implements MouseListener, KeyListener{
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        }
+    }
+    
+         
+        
+      
         
 
 }

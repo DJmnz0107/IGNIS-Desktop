@@ -75,19 +75,20 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
             modelo.Eliminar(Vista.jtRegistroTransporte);
             modelo.Mostrar(Vista.jtRegistroTransporte);
             JOptionPane.showMessageDialog(Vista, "Registro eliminado exitosamente");
-        }
-            
-        String nombreMisiones = ctrlLogin.nombreUsuario;   
+              String nombreMisiones = ctrlLogin.nombreUsuario;   
                    
         Usuarios usuario = new Usuarios();
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
                   
-        String descripcionCambio = "Un transporte de misión a sido eliminado "; // Descripción del cambio
+        String descripcionCambio = "Un transporte de misión ha sido eliminado "; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        }
+            
+      
         }
       
     }
@@ -107,17 +108,7 @@ public class ctrlMisionesTransporte implements MouseListener, KeyListener {
             JOptionPane.showMessageDialog(Vista, "Por favor, seleccione una fila para actualizar.");
         }
         
-        String nombreMisiones = ctrlLogin.nombreUsuario;   
-                   
-        Usuarios usuario = new Usuarios();
-                 
-         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
-                  
-        String descripcionCambio = "Una transporte de misión a sido actualizada "; // Descripción del cambio
-        
-        CambioSistema cambiosSistema = new CambioSistema();
-        
-        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+    
     }
     }
 

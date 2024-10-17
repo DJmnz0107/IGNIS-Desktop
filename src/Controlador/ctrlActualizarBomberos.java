@@ -50,6 +50,7 @@ public class ctrlActualizarBomberos implements MouseListener{
                                 controller = new EmergenciaController(conexion);
                             }
         
+          rutaImagenSeleccionada = vistas.obtenerRutaImagen();
         
     }
 

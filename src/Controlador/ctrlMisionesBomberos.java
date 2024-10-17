@@ -65,11 +65,7 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
             modelo.Eliminar(Vista.jtMisionesBomberos);
             modelo.Mostrar(Vista.jtMisionesBomberos);
             JOptionPane.showMessageDialog(Vista, "Registro eliminado exitosamente");
-        }
-           
-        }
-                
-        String nombreMisiones = ctrlLogin.nombreUsuario;   
+                String nombreMisiones = ctrlLogin.nombreUsuario;   
                    
         Usuarios usuario = new Usuarios();
                  
@@ -80,6 +76,11 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        }
+           
+        }
+                
+    
  
     }
         
@@ -94,17 +95,7 @@ public class ctrlMisionesBomberos implements MouseListener, KeyListener {
             JOptionPane.showMessageDialog(Vista, "Por favor, seleccione una fila para actualizar.");
         }
         
-        String nombreMisiones = ctrlLogin.nombreUsuario;   
-                   
-        Usuarios usuario = new Usuarios();
-                 
-         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
-                  
-        String descripcionCambio = "Una mision de bombero ha sido actualizada "; // Descripción del cambio
-        
-        CambioSistema cambiosSistema = new CambioSistema();
-        
-        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+       
         }
         
                if(e.getSource() == Vista.imgBack){

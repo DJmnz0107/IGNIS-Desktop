@@ -4,8 +4,10 @@
  */
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.ClaseConexion;
 import Modelo.MisionesRecursos;
+import Modelo.Usuarios;
 import Vistas.frmActualizarMisionRecurso;
 import Vistas.frmAsignarRecursos;
 import Vistas.frmAsignarRecursosVer;
@@ -73,6 +75,18 @@ public class ctrlAsignarRecursosVer implements MouseListener,KeyListener{
             modelo.Eliminar(vista.jtbVerAsignarRecu);
                modelo.Mostrar(vista.jtbVerAsignarRecu);
        JOptionPane.showMessageDialog(vista, "Registro eliminado exitosamente");    
+       
+         String nombreMisiones = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
+                  
+        String descripcionCambio = "Un recurso de misión ha sido eliminado "; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         }
            
         }

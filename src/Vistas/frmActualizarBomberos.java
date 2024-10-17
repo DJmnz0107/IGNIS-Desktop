@@ -202,14 +202,14 @@ setIconImage(scaledImage);
         jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
 
         lblFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 100, 120));
+        jPanel1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 100, 110));
 
         panelRound31.setRoundBottomRight(50);
         panelRound31.setRoundTopLeft(50);
         panelRound31.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jLabel1.setText("Ingresar Especialización");
+        jLabel1.setText("Ingresar especialización");
         panelRound31.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         txtNombreBombero.setForeground(new java.awt.Color(0, 0, 0));
@@ -218,7 +218,7 @@ setIconImage(scaledImage);
         panelRound31.add(txtNombreBombero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 330, 40));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jLabel2.setText("Ingresar Apellido");
+        jLabel2.setText("Ingresar apellido");
         panelRound31.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, -1, -1));
 
         txtApellidoBombero.setForeground(new java.awt.Color(0, 0, 0));
@@ -231,7 +231,7 @@ setIconImage(scaledImage);
         panelRound31.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jLabel4.setText("Ingresar Experiencia");
+        jLabel4.setText("Ingresar experiencia");
         panelRound31.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         txtEspecializacion.setForeground(new java.awt.Color(0, 0, 0));

@@ -116,6 +116,18 @@ public class ctrlCrearCuenta implements MouseListener, KeyListener {
 
                     JOptionPane.showMessageDialog(Vista, "Cuenta creada con éxito", "Creación de cuenta", JOptionPane.INFORMATION_MESSAGE);
                     LimpiarCampos();
+                      String nombreMisiones = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
+                  
+        String descripcionCambio = "La cuenta de " + nombreUsuario +  " ha sido creada en el sistema."; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+                    
                 }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(Vista, "La edad debe ser un número válido", "Error", JOptionPane.ERROR_MESSAGE);

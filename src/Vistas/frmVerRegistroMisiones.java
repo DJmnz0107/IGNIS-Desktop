@@ -103,7 +103,6 @@ setIconImage(scaledImage);
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbMisiones = new javax.swing.JTable();
         txtBuscar = new javax.swing.JTextField();
-        JTextField = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JLabel();
         btnActualizar = new Vistas.btnRojoForms();
         btnEliminar = new Vistas.btnRojoForms();
@@ -114,6 +113,7 @@ setIconImage(scaledImage);
         dtcFechaReporte = new com.toedter.calendar.JDateChooser();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -175,23 +175,12 @@ setIconImage(scaledImage);
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 107, 774, 430));
 
         txtBuscar.setBackground(new java.awt.Color(255, 173, 122));
-        txtBuscar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        txtBuscar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
         txtBuscar.setBorder(null);
         txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtBuscar.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 350, 45));
-
-        JTextField.setBackground(new java.awt.Color(192, 109, 58));
-        JTextField.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        JTextField.setForeground(new java.awt.Color(255, 255, 255));
-        JTextField.setText("   Buscar:");
-        JTextField.setBorder(null);
-        JTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        JTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        JTextField.setEnabled(false);
-        JTextField.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        jPanel1.add(JTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 560, 110, 45));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 350, 40));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/resources/Buscar.png"))); // NOI18N
         btnBuscar.setToolTipText("");
@@ -250,6 +239,14 @@ setIconImage(scaledImage);
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("IGNIS");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(192, 109, 58));
+        jButton2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Buscar");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setBorderPainted(false);
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 560, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -389,7 +386,6 @@ view.setIconImage(scaledImage);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField JTextField;
     public Vistas.btnRojoForms btnActualizar;
     public javax.swing.JLabel btnBuscar;
     public Vistas.btnRojoForms btnEliminar;
@@ -398,6 +394,7 @@ view.setIconImage(scaledImage);
     public javax.swing.JButton btnMenu;
     public com.toedter.calendar.JDateChooser dtcFechaReporte;
     public javax.swing.JLabel imgBack;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

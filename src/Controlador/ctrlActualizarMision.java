@@ -80,7 +80,7 @@ public class ctrlActualizarMision implements MouseListener {
                  
          int idsUsuario = usuario.obtenerIdUsuario(nombreMision);
                   
-        String descripcionCambio = "Mision Actualizada en el sistema"; // Descripción del cambio
+        String descripcionCambio = "Mision actualizada en el sistema"; // Descripción del cambio
         
         CambioSistema cambiosSistema = new CambioSistema();
         

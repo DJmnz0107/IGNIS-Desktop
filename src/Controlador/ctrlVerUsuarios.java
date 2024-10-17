@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.CambioSistema;
 import Modelo.ClaseConexion;
 import Modelo.Usuarios;
 import Vistas.frmCrearCuenta;
@@ -60,6 +61,20 @@ public class ctrlVerUsuarios implements MouseListener, KeyListener{
                 if (respuesta == JOptionPane.YES_OPTION) {
                     modelo.Eliminar(vista.jtUsuarios);
                     modelo.Mostrar(vista.jtUsuarios);
+                    
+                           JOptionPane.showMessageDialog(vista, "Usuario eliminado exitosamente");    
+
+                      String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
+                  
+        String descripcionCambio = "Un usuario ha sido eliminado"; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
                 }
 
             }

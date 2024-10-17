@@ -72,10 +72,8 @@ public class ctrlVerInformes implements MouseListener, KeyListener {
         if (respuesta == JOptionPane.YES_OPTION) {
             modelo.Eliminar(vista.jtInformes);
             modelo.Mostrar(vista.jtInformes);
-        }
-    }
-    
-        String nombreRecurso = ctrlLogin.nombreUsuario;   
+            
+               String nombreRecurso = ctrlLogin.nombreUsuario;   
                    
         Usuarios usuario = new Usuarios();
                  
@@ -86,6 +84,10 @@ public class ctrlVerInformes implements MouseListener, KeyListener {
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        }
+    }
+    
+     
 }
 
         if(e.getSource() == vista.btnMenu) {

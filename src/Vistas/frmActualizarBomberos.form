@@ -109,7 +109,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="560" y="20" width="100" height="120"/>
+              <AbsoluteConstraints x="560" y="20" width="100" height="110"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -133,7 +133,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Microsoft JhengHei UI" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ingresar Especializaci&#xf3;n"/>
+                <Property name="text" type="java.lang.String" value="Ingresar especializaci&#xf3;n"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -165,7 +165,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Microsoft JhengHei UI" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ingresar Apellido"/>
+                <Property name="text" type="java.lang.String" value="Ingresar apellido"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -210,7 +210,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Microsoft JhengHei UI" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ingresar Experiencia"/>
+                <Property name="text" type="java.lang.String" value="Ingresar experiencia"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

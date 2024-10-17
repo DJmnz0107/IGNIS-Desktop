@@ -93,12 +93,8 @@ if (e.getSource() == vista.btnEliminar) {
         if (respuesta == JOptionPane.YES_OPTION) {
             modelo.Eliminar(vista.jtInventario);
             modelo.Mostrar(vista.jtInventario);
-        }
-        }
-
-    }
-    
-        String nombreRecurso = ctrlLogin.nombreUsuario;   
+                   JOptionPane.showMessageDialog(vista, "Recurso eliminado exitosamente");    
+              String nombreRecurso = ctrlLogin.nombreUsuario;   
                    
         Usuarios usuario = new Usuarios();
                  
@@ -109,6 +105,12 @@ if (e.getSource() == vista.btnEliminar) {
         CambioSistema cambiosSistema = new CambioSistema();
         
         cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+        }
+        }
+
+    }
+    
+      
 }
 
 
@@ -129,17 +131,7 @@ if (e.getSource() == vista.btnEliminar) {
         ex.printStackTrace(); // Opcionalmente imprime la traza del error en consola
     }
     
-        String nombreRecurso = ctrlLogin.nombreUsuario;   
-                   
-        Usuarios usuario = new Usuarios();
-                 
-         int idsUsuario = usuario.obtenerIdUsuario(nombreRecurso);
-                  
-        String descripcionCambio = "Un recurso a sido actualizado"; // Descripción del cambio
-        
-        CambioSistema cambiosSistema = new CambioSistema();
-        
-        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
+   
 }
 
     }

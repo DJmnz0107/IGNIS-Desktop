@@ -99,7 +99,19 @@ public class ctrlBomberos implements MouseListener, KeyListener{
         if (respuesta == JOptionPane.YES_OPTION) {
             Modelo.Eliminar(Vistas.jtBomberos); 
             Modelo.Mostrar(Vistas.jtBomberos); 
-            JOptionPane.showMessageDialog(Vistas, "Misión eliminada exitosamente");
+            JOptionPane.showMessageDialog(Vistas, "Bombero eliminado exitosamente");
+            
+            String nombreMisiones = ctrlLogin.nombreUsuario;   
+                   
+        Usuarios usuario = new Usuarios();
+                 
+         int idsUsuario = usuario.obtenerIdUsuario(nombreMisiones);
+                  
+        String descripcionCambio = "Un bombero ha sido eliminado."; // Descripción del cambio
+        
+        CambioSistema cambiosSistema = new CambioSistema();
+        
+        cambiosSistema.insertarCambio(idsUsuario, descripcionCambio);
         }
     }
 }
