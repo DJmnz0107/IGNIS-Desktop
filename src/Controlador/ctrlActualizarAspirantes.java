@@ -74,6 +74,23 @@ public class ctrlActualizarAspirantes implements MouseListener {
         
         if(e.getSource() == vista.btnActualizar) {
             
+                try {
+           
+           String duiActual = vista.obtenerDUIAspirante();
+    // Llamar al método verificarPlaca y pasar el texto del campo txtPlaca
+    boolean placaExiste = modelo.verificarDuiUpdate(vista.txtDuiAspirante.getText(), duiActual);
+    
+    // Si la placa ya existe, mostrar mensaje de error
+    if (placaExiste) {
+        JOptionPane.showMessageDialog(vista, "El DUI ya está registrado a un aspirante", "Error", JOptionPane.ERROR_MESSAGE);
+        return; // Detener la ejecución si la placa existe
+    }
+    
+    // Continuar con el flujo si la placa no existe
+} catch (Exception ex) {
+    JOptionPane.showMessageDialog(vista, "Error al hacer la sentencia: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
+            
            
              
             if(vista.txtApellidoAspirante.getText().isEmpty() || vista.txtDuiAspirante.getText().isEmpty() || vista.txtEdadAspirante.getText().isEmpty() || vista.txtEntrenamientoAspirante.getText().isEmpty() || vista.txtNombreAspirante.getText().isEmpty() || vista.txtProgresoAspirante.getText().isEmpty() ) {

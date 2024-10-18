@@ -32,6 +32,7 @@ public class frmActualizarBomberos extends javax.swing.JFrame {
     private Bomberos bomberos;
     private int idBombero;
     private String rutaImagen;
+    private int idUsuario;
     /**
      * Creates new form frmActualizarBomberos
      */
@@ -113,6 +114,7 @@ setIconImage(scaledImage);
                 modelo.CargarComboUsuariosUpdate(cmbUsuario, bomberos.getId_usuario());
 
     lblFoto.setIcon(redimensionarImagen(bomberos.getFoto_bombero(), 150, 150));
+    idUsuario = bomberos.getId_usuario();
     idBombero = bomberos.getId_bombero();
     rutaImagen = bomberos.getFoto_bombero();
 }
@@ -122,6 +124,10 @@ setIconImage(scaledImage);
     Image imagenEscalada = imagenOriginal.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
     return new ImageIcon(imagenEscalada);
 }
+                 
+                 public int obtenerIdUsuario() {
+                     return idUsuario;
+                 }
     
     
          public int obtenerIdBombero() {

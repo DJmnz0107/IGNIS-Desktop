@@ -11,6 +11,8 @@ import Modelo.Usuarios;
 import Vistas.frmActualizarTransporte;
 import Vistas.frmAgregarTransportes;
 import Vistas.frmVerRegistroTransporter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -21,7 +23,7 @@ import modelo.EmergenciaController;
  *
  * @author Diego
  */
-public class ctrlRegistroTransporte implements MouseListener {
+public class ctrlRegistroTransporte implements MouseListener, KeyListener {
     
     private Transportes modelo;
     private frmVerRegistroTransporter vista;
@@ -36,6 +38,8 @@ public ctrlRegistroTransporte(frmVerRegistroTransporter vista, Transportes model
     vista.btnActualizar.addMouseListener(this);
     vista.btnEliminar.addMouseListener(this);
     vista.imgBack.addMouseListener(this);
+    vista.txtBuscar.addKeyListener(this);
+    
     
        Connection conexion = ClaseConexion.getConexion();
                             // Verifica si el controlador ya ha sido creado
@@ -129,6 +133,21 @@ public ctrlRegistroTransporte(frmVerRegistroTransporter vista, Transportes model
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if(e.getSource() == vista.txtBuscar) {
+            modelo.Buscar(vista.jtTransportes, vista.txtBuscar);
+        }
     }
     
 }

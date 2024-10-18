@@ -498,6 +498,38 @@ public class Bomberos {
             }
         }
     }
+       
+       public boolean verificarUsuarioUpdate(int id, int idActual) throws SQLException {
+    Connection conexion = ClaseConexion.getConexion();
+    String sql = "SELECT id_usuario FROM Bomberos WHERE id_usuario = ?";
+
+    try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+        statement.setInt(1, id);
+        ResultSet resultSet = statement.executeQuery();
+
+        // Si encuentra un registro con el id, revisamos si es el mismo o no
+        if (resultSet.next()) {
+            System.out.println(idActual);
+            System.out.println(id);
+
+            // Si el id es el mismo que el actual, no se debe realizar ningún cambio
+            if (id == idActual) {
+                return false;
+            } else {
+                // Si el id existe en el sistema pero es diferente, devolver false
+                return true;
+            }
+        }
+
+        // Si no existe el id en el sistema, retornar true (id válido para ser utilizado)
+        return false;
+    } finally {
+        if (conexion != null) {
+            conexion.close(); // Asegúrate de cerrar la conexión
+        }
+    }
+}
+
 
          
          

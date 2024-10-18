@@ -245,6 +245,37 @@ public class Aspirantes {
             }
         }
     }
+     
+     public boolean verificarDuiUpdate(String dui, String duiActual) throws SQLException {
+    Connection conexion = ClaseConexion.getConexion();
+    String sql = "SELECT dui_aspirante FROM Aspirantes WHERE dui_aspirante = ?";
+
+    try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+        statement.setString(1, dui);
+        ResultSet resultSet = statement.executeQuery();
+
+        // Si encuentra un registro con el DUI, revisamos si es el mismo o no
+        if (resultSet.next()) {
+            System.out.println(duiActual);
+
+            // Si el DUI es el mismo que el actual, no se debe realizar ningún cambio
+            if (dui.equals(duiActual)) {
+                return false;
+            } else {
+                // Si el DUI existe en el sistema pero es diferente, devolver false
+                return true;
+            }
+        }
+
+        // Si no existe el DUI en el sistema, retornar true (DUI válido para ser utilizado)
+        return false;
+    } finally {
+        if (conexion != null) {
+            conexion.close(); // Asegúrate de cerrar la conexión
+        }
+    }
+}
+
 
      public List<Aspirantes> getAspirantes() {
     List<Aspirantes> listaAspirantes = new ArrayList<>();

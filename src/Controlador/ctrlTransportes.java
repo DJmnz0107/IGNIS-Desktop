@@ -90,6 +90,19 @@ if (!capacidadText.matches("\\d+")) {
     return;
 }
 
+            
+            
+            
+            try {
+                   boolean usuarioExiste = Modelo.verificarPlaca(VistasverRegistroTransporter.txtPlaca.getText());
+                if (usuarioExiste) {
+                    JOptionPane.showMessageDialog(VistasverRegistroTransporter, "La placa ya esta registrada a un transporte", "Error", JOptionPane.ERROR_MESSAGE);
+                    return; // Detener la ejecución si el DUI existe
+                }
+            } catch(Exception ex) {
+                                JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Error al hacer la sentencia:  " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
         guardarTransporte();
            Modelo.Guardar();
                    JOptionPane.showMessageDialog(VistasverRegistroTransporter, "Información ingresada con éxito", "Agregar transporte", JOptionPane.INFORMATION_MESSAGE);

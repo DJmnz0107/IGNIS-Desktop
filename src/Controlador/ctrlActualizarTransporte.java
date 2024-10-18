@@ -57,6 +57,26 @@ public void mouseClicked(MouseEvent e) {
             return; // Salir del método si hay campos vacíos
         }
         
+        
+       try {
+           
+           String placaActual = vista.obtenerPlacaActual();
+    // Llamar al método verificarPlaca y pasar el texto del campo txtPlaca
+    boolean placaExiste = modelo.verificarPlacaUpdate(vista.txtPlaca.getText(), placaActual);
+    
+    // Si la placa ya existe, mostrar mensaje de error
+    if (placaExiste) {
+        JOptionPane.showMessageDialog(vista, "La placa ya está registrada a un transporte", "Error", JOptionPane.ERROR_MESSAGE);
+        return; // Detener la ejecución si la placa existe
+    }
+    
+    // Continuar con el flujo si la placa no existe
+} catch (Exception ex) {
+    JOptionPane.showMessageDialog(vista, "Error al hacer la sentencia: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
+
+        
+        
         String capacidadText = vista.txtCapacidad.getText();
 
 if (!capacidadText.matches("\\d+")) {

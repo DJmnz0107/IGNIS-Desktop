@@ -3,6 +3,7 @@ package Modelo;
 
 
 import Modelo.ClaseConexion;
+import Vistas.frmActualizarTransporte;
 import Vistas.frmAgregarTransportes;
 import Vistas.frmVerRegistroTransporter;
 import Vistas.frmVerRegistroTransporter;
@@ -173,6 +174,53 @@ public class Transportes {
    
    }
    
+    public boolean verificarPlaca(String placa) throws SQLException {
+        Connection conexion = ClaseConexion.getConexion();
+        String sql = "SELECT placa_transporte FROM Transportes WHERE placa_transporte = ?";
+
+        try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+            statement.setString(1, placa);
+            ResultSet resultSet = statement.executeQuery();
+
+            // Retorna true si se encuentra el DUI, false de lo contrario
+            return resultSet.next(); 
+        } finally {
+            if (conexion != null) {
+                conexion.close(); // Asegúrate de cerrar la conexión
+            }
+        }
+    }
+    
+    public boolean verificarPlacaUpdate(String placa,String placaActual) throws SQLException {
+    Connection conexion = ClaseConexion.getConexion();
+    String sql = "SELECT placa_transporte FROM Transportes WHERE placa_transporte = ?";
+
+    try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+        statement.setString(1, placa);
+        ResultSet resultSet = statement.executeQuery();
+
+        // Si encuentra un registro con la placa, revisamos si es la misma o no
+        if (resultSet.next()) {
+            
+            System.out.println(placaActual);
+            
+                        if (placa.equals(placaActual)) {
+                return false;
+            } else {
+                // Si existe en el sistema, pero es diferente, devolver false
+                return true;
+            }
+        }
+        // Si no existe en el sistema, retornar true (placa válida para ser utilizada)
+        return false;
+    } finally {
+        if (conexion != null) {
+            conexion.close(); // Cerrar la conexión
+        }
+    }
+}
+
+   
    public void Eliminar(JTable tabla) {
     Connection conexion = ClaseConexion.getConexion();
 
@@ -256,11 +304,11 @@ public void Buscar(JTable tabla, JTextField JTextField1) {
                 
                 Transporte.addRow(new Object[]{rs.getInt("id_transporte"), 
                     rs.getString("placa_transporte"), 
-                    rs.getInt("numero_transporte"),
-                    rs.getString("capacidad_transporte"),
-                    rs.getInt("tipoVehiculo_transporte"),
+                    rs.getString("numero_transporte"),
+                    rs.getInt("capacidad_transporte"),
+                    rs.getString("tipoVehiculo_transporte"),
                     rs.getString("disponibilidad_transporte"),
-                    rs.getInt("estado_transporte")});
+                    rs.getString("estado_transporte")});
             }
             
             tabla.setModel(Transporte);

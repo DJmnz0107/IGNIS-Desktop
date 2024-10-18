@@ -27,6 +27,7 @@ import raven.popup.GlassPanePopup;
 public class frmActualizarTransporte extends javax.swing.JFrame {
         private Transportes transporte;
             private int idTransporte;
+            private String placaTransporte;
         
 
 
@@ -76,12 +77,17 @@ setIconImage(scaledImage);
     
     private  void cargarDatos() {
         txtPlaca.setText(transporte.getPlaca_transporte());
+        placaTransporte = transporte.getPlaca_transporte();
         txtNumeroTransporte.setText(transporte.getNumero_transporte());
         txtCapacidad.setText(String.valueOf(transporte.getCapacidad_transporte()));
         cmbAgregarTransportes.setSelectedItem(transporte.getTipoVehiculo_transporte());
         cmbDisponibilidad.setSelectedItem(transporte.getDisponibilidad_transporte());
         txtEstado.setText(transporte.getEstado_transporte());
          idTransporte = transporte.getId_transporte(); 
+    }
+    
+    public String obtenerPlacaActual() {
+        return placaTransporte;
     }
     
       public int obtenerIdTransporte() {
@@ -236,7 +242,7 @@ setIconImage(scaledImage);
         jLabel8.setText("Disponibilidad");
         panelRound2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
 
-        cmbDisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "No disponible", " " }));
+        cmbDisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "No disponible" }));
         panelRound2.add(cmbDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 150, 40));
 
         jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 720, 430));

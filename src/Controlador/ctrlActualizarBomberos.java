@@ -64,10 +64,30 @@ public class ctrlActualizarBomberos implements MouseListener{
         }
         
         if(e.getSource()== Vistas.imgBack){
-            frmAgregarBomberos.initfrmAgregarBomberos();
+            frmRegistroBomberos.initfrmRegistroBomberos();
             Vistas.dispose();
         }
                 if(e.getSource() == Vistas.btnActualizar) {
+                    
+                      try {
+                          
+        Bomberos bomberSelect = (Bomberos) Vistas.cmbUsuario.getSelectedItem();
+        int idUserNuevo = bomberSelect.getId_usuario();
+           
+           int duiActual = Vistas.obtenerIdUsuario();
+    // Llamar al método verificarPlaca y pasar el texto del campo txtPlaca
+    boolean placaExiste = Modelo.verificarUsuarioUpdate(idUserNuevo, duiActual);
+    
+    // Si la placa ya existe, mostrar mensaje de error
+    if (placaExiste) {
+        JOptionPane.showMessageDialog(Vistas, "El usuario ya está registrado a un bombero", "Error", JOptionPane.ERROR_MESSAGE);
+        return; // Detener la ejecución si la placa existe
+    }
+    
+    // Continuar con el flujo si la placa no existe
+} catch (Exception ex) {
+    JOptionPane.showMessageDialog(Vistas, "Error al hacer la sentencia: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
                     
                     
             

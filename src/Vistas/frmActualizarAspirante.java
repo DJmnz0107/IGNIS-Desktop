@@ -33,6 +33,7 @@ public class frmActualizarAspirante extends javax.swing.JFrame {
       private Aspirantes aspirante;
             private int idAspirante;
                         private String rutaImagen;
+                        private String dui;
 
     /**
      * Creates new form frmActualizarAspirante
@@ -118,6 +119,7 @@ setIconImage(scaledImage);
         txtNombreAspirante.setText(aspirante.getNombre_aspirante());
         txtApellidoAspirante.setText(aspirante.getApellido_aspirante());
         txtEdadAspirante.setText(Integer.toString(aspirante.getEdad_usuario()));
+        dui = aspirante.getDui_aspirante();
         txtDuiAspirante.setText(aspirante.getDui_aspirante());
         txtEntrenamientoAspirante.setText(aspirante.getEntrenamiento_aspirante());
                 Aspirantes modelo = new Aspirantes();
@@ -140,6 +142,10 @@ setIconImage(scaledImage);
         public int obtenerIdAspirante() {
         return idAspirante; 
     }
+        
+        public String obtenerDUIAspirante() {
+            return dui;
+        }
         
         public String obtenerRutaImagen() {
         return rutaImagen; 
